@@ -93,6 +93,7 @@ e.g. add >$i to the first line (to make a FASTA file)
 //notice the double quotes! in other examples, you can use a single quote, but here, no way! 
 //'1i' means insert to first line
 
+
 delete empty lines
     
     sed '/^\s*$/d' 
@@ -126,6 +127,7 @@ print every nth lines
     sed -n '0~3p' filename
 //catch 0: start; 3: step
 
+
 print every odd # lines
     
     sed -n '1~2p' 
@@ -139,10 +141,12 @@ remove leading whitespace and tabs
     sed -e 's/^[ \t]*//'
 //notice a whitespace before '\t'!!
 
+
 remove only leading whitespace
     
     sed 's/ *//'
 //notice a whitespace before '*'!!
+
 
 remove ending commas
     
@@ -231,22 +235,35 @@ fileB    4    1    d
 fileB    5    2    e
 
 and gate
+
 e.g.
 fileA:
 1    0
+
 2    1
+
 3    1
+
 4    0
+
 fileB:
+
 1    0
+
 2    1
+
 3    0
+
 4    1
     
     awk -v OFS='\t' 'NR=FNR{a[$1]=$2;next} NF {print $1,((a[$1]=$2)? $2:"0")}' fileA fileB 
+
 1    0
+
 2    1
+
 3    0
+
 4    0
 
 round all numbers of file (e.g. 2 significant figure)
@@ -274,6 +291,7 @@ display 3 items per line
 //1 2 3
   4 5 6
 
+
 prompt before execution
 
     echo a b c |xargs -p -n 3
@@ -283,6 +301,7 @@ print command along with output
     xargs -t abcd
 ///bin/echo abcd
 //abcd
+
 
 with find and rm
 
@@ -320,6 +339,7 @@ copy all files from A to B
 //v: verbose|
 //p: keep detail (e.g. owner)
 
+
 with sed
 
     ls |xargs -n1 -I file sed -i '/^Pos/d' filename
@@ -340,6 +360,7 @@ count files within directories
 
     echo mso{1..8}|xargs -n1 bash -c 'echo -n "$1:"; ls -la "$1"| grep -w 74 |wc -l' --
 // "--" signals the end of options and display further option processing
+
 
 download dependencies files and install (e.g. requirements.txt)
  
@@ -373,6 +394,7 @@ if no subdirectory
     replace "www" "w" -- *
 //a space before *
 
+
 find and output only filename (e.g. "mso")
     
     find mso*/ -name M* -printf "%f\n"
@@ -403,16 +425,23 @@ or
     sdiff fileA fileB
 //side-to-side merge of file differences
 
->number a file (e.g. fileA)
+
+number a file (e.g. fileA)
+
     nl fileA
+
 or
+
     nl -nrz fileA
+
 //add leading zeros
+
 
 combine/ paste two files (e.g. fileA, fileB)
     
     paste fileA fileB
 //default tab seperated
+
 
 reverse string
     
@@ -439,10 +468,12 @@ or
     (command here) 2>&1 >>outfile
 //0: standard input; 1: standard output; 2: standard error
 
+
 send mail
     
     echo 'heres the content'| mail -A 'file.txt' -s 'mail.subject' me@gmail.com
 //use -a flag to set send from (-a "From: some@mail.tld")
+
 
 .xls to csv
     
@@ -501,6 +532,7 @@ or
     !c
 //run cat filename again
 
+
 extract .xf
     
     1.unxz filename.tar.xz
@@ -548,10 +580,12 @@ or
     Alt+Shift+#
 //to make it to history
 
+
 add things to history (e.g. "addmetohistory")
     
     #addmetodistory
 //just add a "#" before~~
+
 
 sleep awhile or wait for a moment or schedule a job
     
@@ -569,11 +603,13 @@ backup with rsync
     rsync -av --update directory directory.bak
 //skip files that are newer on receiver (i prefer this one!)
 
+
 make all directories at one time!
     
     mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat}
 //-p: make parent directory
 //this will create project/doc/html/; project/doc/info; project/lib/ext ,etc
+
 
 run command only if another command returns zero exit status (well done)
     
@@ -594,17 +630,22 @@ use backslash "\" to break long command
     >mkdir -p tmp/a/b/c
 
 get pwd
+    
     VAR=$PWD; cd ~; tar xvf -C $VAR file.tar
 //PWD need to be capital letter
 
 list file type of file (e.g. /tmp/)
+    
     file /tmp/
 //tmp/: directory
 
+
 bash script
+    
     #!/bin/bash
     file=${1#*.}
 //remove string before a "."
+
     file=${1%.*}
 //remove string after a "."
 
