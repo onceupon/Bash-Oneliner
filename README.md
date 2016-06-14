@@ -9,19 +9,11 @@ In case you would like to check up and like my stupid questions on Stackoverflow
 http://stackoverflow.com/users/4290753/once
 
 
-Handy Bash 'oneliner' commands for tsv file editing
+##Handy Bash 'oneliner' commands for tsv file editing
 
-
-##Symbol for search:
->> section
->function
-$bash code
-//comment
-
-
->> Grep
-> extract text bewteen words (e.g. w1,w2)
-$ grep -o -P '(?<=w1).*(?=w2)'
+##Grep
+extract text bewteen words (e.g. w1,w2)
+    grep -o -P '(?<=w1).*(?=w2)'
 
 >grep lines without word (e.g. bbo)
 $ grep -v bbo
