@@ -9,7 +9,7 @@ In case you would like to check up and like my stupid questions on Stackoverflow
 http://stackoverflow.com/users/4290753/once
 
 
-##Handy Bash 'oneliner' commands for tsv file editing
+##Handy Bash oneliner commands for tsv file editing
 
 - [Grep](#grep)
 - [Sed](#sed)
@@ -60,7 +60,7 @@ extract text bewteen words (e.g. w1,w2)
     grep     '\t' 
 
 ##Sed
-[[back to top](#handy-bash--oneliner--commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 
 >remove lines with word (e.g. bbo)
     sed "/bbo/d" filename
