@@ -59,7 +59,9 @@ extract text bewteen words (e.g. w1,w2)
 >grep a tab
     grep     '\t' 
 
-#Sed
+##Sed
+[[back to top](#handy bash 'oneliner' commands for tsv file editing)]
+
 >remove lines with word (e.g. bbo)
     sed "/bbo/d" filename
 
