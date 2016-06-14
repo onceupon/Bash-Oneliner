@@ -11,12 +11,12 @@ http://stackoverflow.com/users/4290753/once
 
 ##Handy Bash 'oneliner' commands for tsv file editing
 
-- Grep
-- Sed
-- Awk
-- Xargs
-- Find
-- Others
+- [Grep](#grep)
+- [Sed](#sed)
+- [Awk](#awk)
+- [Xargs](#xargs)
+- [Find](#find)
+- [Others](#others)
 
 ##Grep
 extract text bewteen words (e.g. w1,w2)
