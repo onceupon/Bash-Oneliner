@@ -8,8 +8,11 @@ English and bash are not my first language, so... correct me anytime, sorry
 In case you would like to check up and like my stupid questions on Stackoverflow, here's my page:
 http://stackoverflow.com/users/4290753/once
 
+
 Handy Bash 'oneliner' commands for tsv file editing
-Symbol for search:
+
+
+##Symbol for search:
 >> section
 >function
 $bash code
