@@ -7,7 +7,8 @@ English and bash are not my first language, so... correct me anytime, thank you
 
 In case you would like to check up and like my stupid questions on Stackoverflow, here's my page:
 http://stackoverflow.com/users/4290753/once
-
+And if you want to check out stylish BBO:
+http://bbonut.blogspot.tw/#system
 
 ##Handy Bash oneliner commands for tsv file editing
 
