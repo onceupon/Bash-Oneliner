@@ -763,8 +763,163 @@ e.g. replace all
 
 
 
+##System
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 
+#####snapshot of the current processes
 
+    ps 
+
+#####check graphics card
+
+    lspci
+
+#####show IP address
+    
+    $ip add show
+or
+    
+    ifconfig
+
+#####check system version
+    
+    cat /etc/*-release
+
+#####Linux Programmer's Manuel: hier- description of the filesystem hierarchy
+    
+    man hier
+
+#####list job
+    
+    jobs -l
+
+#####export PATH
+    
+    export PATH=$PATH:~/path/you/want
+
+#####make file execuable
+    
+    chmod +x filename
+//you can now ./filename to execute it
+
+#####list screen
+    
+    screen -d -r
+
+#####echo screen name
+    
+    screen -ls
+
+#####check system (x86-64)
+    
+    uname -i
+
+#####surf the net
+
+    links www.google.com
+
+#####add user, set passwd
+    
+    useradd username
+    passwd username
+
+#####edit variable for bash, (e.g. displaying the whole path)
+    
+    1. joe ~/.bash_profile 
+    2. export PS1='\u@\h:\w\$' 
+    //$PS1 is a variable that defines the makeup and style of the command prompt 
+    3. source ~/.bash_profile
+
+#####edit environment setting (e.g. alias)
+    
+    1. joe ~/.bash_profile
+    2. alias pd="pwd" //no more need to type that 'w'!
+    3. source ~/.bash_profile
+
+#####list environment variables (e.g. PATH)
+    
+    $echo $PATH
+//list of directories separated by a colon
+
+#####list all environment variables for current user
+    
+    $env
+
+#####show partition format
+    
+    lsblk
+
+#####soft link program to bin
+    
+    ln -s /path/to/program /home/usr/bin
+//must be the whole path to the program
+
+#####show hexadecimal view of data
+    
+    hexdump -C filename.class
+
+#####jump to different node
+    
+    rsh node_name
+
+#####check port (active internet connection)
+    
+    netstat -tulpn
+
+#####find whick link to a file
+    
+    readlink filename
+
+#####check where a command link to (e.g. python)
+    
+    which python
+
+#####list total size of a directory
+    
+    du -hs .
+or
+    
+    du -sb
+
+#####copy directory with permission setting
+    
+    cp -rp /path/to/directory
+
+#####store current directory
+    
+    pushd . $popd ;dirs -l 
+
+#####show disk usage
+    
+    df -h 
+or
+    
+    du -h 
+or
+    
+    du -sk /var/log/* |sort -rn |head -10
+
+#####show current runlevel
+    
+    runlevel
+
+#####switch runlevel
+    
+    init 3 or
+    telinit 3 
+
+#####permanently modify runlevel
+    
+    1. edit /etc/init/rc-sysinit.conf 
+    2. env DEFAULT_RUNLEVEL=2 
+
+#####become root
+    
+    su
+
+#####become somebody
+    
+    su somebody
 
 
 
