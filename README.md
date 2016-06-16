@@ -9,7 +9,7 @@ In case you would like to check up and like my stupid questions on Stackoverflow
 http://stackoverflow.com/users/4290753/once
 
 If you want to check out stylish BBO:
-http://bbonut.blogspot.tw/#system
+http://bbonut.blogspot.tw
 
 
 ##Handy Bash oneliner commands for tsv file editing
