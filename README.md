@@ -16,7 +16,10 @@ http://stackoverflow.com/users/4290753/once
 - [Awk](#awk)
 - [Xargs](#xargs)
 - [Find](#find)
+- [Loops](#loops)
+- [Download](#download)
 - [Others](#others)
+- [System](#system)
 
 ##Grep
 #####extract text bewteen words (e.g. w1,w2)
@@ -405,6 +408,56 @@ if no subdirectory
 //M for MB, etc
 
 
+##Loops
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+#####while loop, column subtraction of a file (e.g. a 3 columns file)
+    
+    while read a b c; do echo $(($c-$b));done < <(head filename)
+//there is a space between the two '<'s
+
+#####while loop, sum up column subtraction
+    
+    i=0; while read a b c; do ((i+=$c-$b)); echo $i; done < <(head filename)
+
+#####if loop
+    
+    if (($j==$u+2))
+//(( )) use for arithmetic operation
+    
+    if [[$age >21]]
+//[[ ]] use for comparison
+
+#####for loop
+    
+    for i in $(ls); do echo file $i;done
+
+
+
+##Download
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+#####download all from a page
+    
+    wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.com
+
+//-r: recursive and download all links on page
+
+//-l1: only one level link
+
+//-H: span host, visit other hosts
+
+//-t1: numbers of retries
+
+//-nd: don't make new directories, download to here
+
+//-N: turn on timestamp
+
+//-nd: no parent
+
+//-A: type (seperate by ,)
+
+//-e robots=off: ignore the robots.txt file which stop wget from crashing the site, sorry example.com
+
+
 ##Others
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 #####remove newline / nextline
@@ -483,7 +536,7 @@ or
     
     echo 'hihi' >>filename
 
-#####make BEEP found
+#####make BEEP sound
     
     speaker-test -t sine -f 1000 -l1
 set beep duration
@@ -648,6 +701,65 @@ or
 
     file=${1%.*}
 //remove string after a "."
+
+#####search from history
+    
+    Ctrl+r
+
+#####python simple HTTP Server
+    
+    python -m SimpleHTTPServer
+
+#####variables
+    
+    {i/a/,}
+e.g. replace all
+    
+    {i//a/,}
+//for variable i, replace all 'a' with a comma
+
+#####read user input
+    
+    read input
+    echo $input
+
+#####generate sequence 1-10
+    
+    seq 10
+
+#####sum up input list (e.g. seq 10)
+    
+    seq 10|paste -sd+|bc
+
+#####find average of input list/file
+    
+    i=`wc -l filename|cut -d ' ' -f1`; cat filename| echo "scale=2;(`paste -sd+`)/"$i|bc
+
+#####generate all combination (e.g. 1,2)
+    
+    echo {1,2}{1,2}
+//1 1, 1 2, 2 1, 2 2
+
+#####generate all combination (e.g. A,T,C,G)
+    
+    set = {A,T,C,G}
+    group= 5
+    for ((i=0; i<$group; i++));do
+    repetition=$set$repetition;done
+    bash -c "echo "$repetition""
+
+#####read file content to variable
+    foo=$(<test1)
+
+#####echo size of variable
+    echo ${#foo}
+
+#####array
+    declare -A array=()
+
+#####send a directory
+    scp -r directoryname user@ip:/path/to/send
+
 
 
 
