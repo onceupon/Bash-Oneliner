@@ -924,6 +924,109 @@ or
     
     su somebody
 
+#####report user quotes on device
+    
+    requota -auvs
+
+#####get entries in a number of important databases
+    
+    getent database_name
+(e.g. the 'passwd' database)
+    
+    getent passwd
+//list all user account (all local and LDAP)
+(e.g. fetch list of grop accounts)
+    
+    getent group
+//store in database 'group'
+
+#####little xwindow tools
+    
+    xclock
+    xeyes
+
+#####change owner of file
+    
+    chown user_name filename
+    chown -R user_name /path/to/directory/
+//chown user:group filename
+
+#####list current mount detail
+    
+    df
+
+#####list current usernames and user-numbers
+    
+    cat /etc/passwd
+
+#####get all username
+    
+    getent passwd| awk '{FS="[:]"; print $1}'
+
+#####show all users
+    
+    compgen -u
+
+#####show all groups
+    
+    compgen -g
+
+#####show group of user
+    
+    group username
+
+#####show uid, gid, group of user
+    
+    id username
+
+#####check if it's root
+    
+    if [$(id -u) -ne 0];then
+    echo "You are not root!"
+    exit;
+    fi
+//'id -u' output 0 if it's not root
+
+#####find out CPU information
+    
+    more /proc/cpuinfo
+or
+    
+    lscpu
+
+#####set quota for user (e.g. disk soft limit: 120586240; hard limit: 125829120)
+    
+    setquota username 120586240 125829120 0 0 /home
+
+#####show quota for user
+    
+    quota -v username
+
+#####fork bomb
+    
+    :(){:|:&};:
+//dont try this at home
+
+#####check user login
+    
+    lastlog
+
+#####edit path for all users
+    
+    joe /etc/environment
+//edit this file
+
+#####show running processes
+    
+    ps aux
+
+#####find maximum number of processes
+    
+    cat /proc/sys/kernal/pid_max
+
+#####show and set user limit
+    
+    ulimit -u
 
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
