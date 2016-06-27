@@ -21,6 +21,7 @@ http://bbonut.blogspot.tw
 - [Find](#find)
 - [Loops](#loops)
 - [Download](#download)
+- [Random](#random)
 - [Others](#others)
 - [System](#system)
 
@@ -461,6 +462,35 @@ if no subdirectory
 //-e robots=off: ignore the robots.txt file which stop wget from crashing the site, sorry example.com
 
 
+
+##Random
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+#####random pick 100 lines from a file
+    
+    shuf -n 100 filename
+
+#####random order (lucky draw)
+    
+    for i in a b c d e; do echo $i; done| shuf
+
+#####echo series of random numbers between a range (e.g. generate 15 random numbers from 0-10)
+    
+    shuf -i 0-10 -n 15
+
+#####echo a random number
+    
+    echo $RANDOM
+
+#####random from 0-9
+    
+    echo $((RANDOM % 10))
+
+#####random from 1-10
+    
+    echo $(((RANDOM %10)+1))
+
+
+
 ##Others
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 #####remove newline / nextline
@@ -598,13 +628,6 @@ or
     
     pip install packagename
 
-#####random order (lucky draw)
-    
-    for i in a b c d e; do echo $i; done| shuf
-
-#####echo a random number
-    
-    echo $RANDOM
 
 #####Download file if necessary
     
