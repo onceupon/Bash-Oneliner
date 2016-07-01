@@ -171,6 +171,10 @@ e.g. add the filename to every last column of the file
     
     sed ':a;N;$!ba;s/\n//g'
 
+#####print a number of lines (e.g. line 10th to line 33 rd)
+    
+    sed -n '10,33p' <filename
+
 
 #Awk
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
