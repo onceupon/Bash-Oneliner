@@ -146,6 +146,11 @@ sed 's/^$/d'
 sed '$d' 
 ```
 
+#####add string to end of each line (e.g. "}")
+```bash
+sed -e 's/$/\}\]/'
+```
+
 #####add \n every nth character (e.g. every 4th character)
     
 ```bash
