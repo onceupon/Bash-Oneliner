@@ -146,9 +146,19 @@ sed 's/^$/d'
 sed '$d' 
 ```
 
+#####delete last character from end of file
+```bash
+sed -i '$ s/.$//' filename
+```
+
+#####add string to end of file (e.g. "]")
+```bash
+sed '$s/$/]/' filename
+```
+
 #####add string to end of each line (e.g. "}")
 ```bash
-sed -e 's/$/\}\]/'
+sed -e 's/$/\}\]/' filename
 ```
 
 #####add \n every nth character (e.g. every 4th character)
