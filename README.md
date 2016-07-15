@@ -304,6 +304,11 @@ awk '{split($2, a,",");for (i in a) print $1"\t"a[i]} filename
 awk -v N=7 '{print}/bbo/&& --N<=0 {exit}'
 ```
 
+#####print filename and last line of all files in directory
+```bash
+ls|xargs -n1 -I file awk '{s=$0};END{print FILENAME,s}' file'
+```
+
 #####add string to the beginning of a column (e.g add "chr" to column $3)
     
 ```bash
