@@ -34,7 +34,13 @@ grep -o -P '(?<=w1).*(?=w2)'
 #####grep lines without word (e.g. bbo)
      
 ```bash
-grep -v bbo
+grep -v bbo filename
+```
+
+#####grep only one/first match (e.g. bbo)
+
+```bash
+grep -m 1 bbo filename
 ```
 
 #####grep and count (e.g. bbo)
