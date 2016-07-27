@@ -158,6 +158,7 @@ sed -i '$ s/.$//' filename
 ```
 
 #####add string to end of file (e.g. "]")
+
 ```bash
 sed '$s/$/]/' filename
 ```
@@ -171,6 +172,12 @@ sed -e 's/$/\}\]/' filename
     
 ```bash
 sed 's/.\{4\}/&\n/g' 
+```
+
+#####concatenate/combine/join files with a seperator and next line (e.g seperate by ",")
+
+```bash
+sed -s '$a,' *.json > all.json
 ```
 
 #####substitution (e.g. replace A by B)
