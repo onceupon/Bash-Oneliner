@@ -245,6 +245,11 @@ e.g. add the filename to every last column of the file
 ```bash
 for i in $(ls);do sed -i "s/$/\t$i/" $i;done
 ```
+#####add extension of filename to last column
+
+```bash
+for i in T000086_1.02.n T000086_1.02.p;do sed "s/$/\t${i/*./}/" $i;done >T000086_1.02.np
+```
 
 #####remove newline\ nextline
     
