@@ -419,10 +419,15 @@ awk '{printf("%s\t%s\n",NR,$0)}'
 
 e.g. 
 seperate
+
 David    cat,dog
+
 into 
+
 David    cat
+
 David    dog
+
 detail here:　http://stackoverflow.com/questions/33408762/bash-turning-single-comma-separated-column-into-multi-line-string
 ```bash
 awk '{split($2,a,",");for(i in a)print $1"\t"a[i]}' file
