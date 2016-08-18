@@ -415,6 +415,19 @@ awk '{while (match($0, /[0-9]+\[0-9]+/)){
 ```bash
 awk '{printf("%s\t%s\n",NR,$0)}'
 ```
+#####break combine column data into rows
+
+e.g. 
+seperate
+David    cat,dog
+into 
+David    cat
+David    dog
+detail here:　http://stackoverflow.com/questions/33408762/bash-turning-single-comma-separated-column-into-multi-line-string
+```bash
+awk '{split($2,a,",");for(i in a)print $1"\t"a[i]}' file
+```
+
 
 ##Xargs
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
