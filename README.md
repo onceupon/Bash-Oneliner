@@ -112,6 +112,16 @@ grep -f fileA fileB
 grep $'\t' 
 ```
 
+#####grep variable from variable
+```bash
+$echo "$long_str"|grep -q "$short_str"
+if [ $? -eq 0 ]; then echo 'found'; fi
+```
+//grep -q will output 0 if match found
+//remember to add space between []!
+
+
+
 ##Sed
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 
