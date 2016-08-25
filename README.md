@@ -1134,6 +1134,12 @@ foo=$(<test1)
 echo ${#foo}
 ```
 
+#####echo tab
+
+```bash
+echo -e ' \t '
+```
+
 #####array
 ```bash
 declare -A array=()
