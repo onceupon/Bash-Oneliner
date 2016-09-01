@@ -273,6 +273,11 @@ sed ':a;N;$!ba;s/\n//g'
 sed -n '10,33p' <filename
 ```
 
+#####change delimiter 
+```bash
+sed 's=/=\\/=g'
+```
+
 
 #Awk
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
@@ -442,6 +447,18 @@ detail here:　http://stackoverflow.com/questions/33408762/bash-turning-single-c
 ```bash
 awk '{split($2,a,",");for(i in a)print $1"\t"a[i]}' file
 ```
+
+#####sum up a file
+
+```bash
+awk '{s+=$1} END {print s}' filename
+```
+
+#####print field start with string (e.g Linux)
+```bash
+awk '$1 ~ /^Linux/'
+```
+
 
 
 ##Xargs
@@ -1540,6 +1557,10 @@ cat /proc/sys/kernal/pid_max
 ```bash
 ulimit -u
 ```
+#####which ports are listening for TCP connections from the network
 
+```bash
+nmap -sT -O localhost
+```
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
