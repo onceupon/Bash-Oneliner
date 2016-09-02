@@ -1572,4 +1572,15 @@ ulimit -u
 nmap -sT -O localhost
 ```
 
+#####print out number of cores/ processors
+
+```bash
+nproc --all
+```
+#####check status of each core
+1. top
+2. press '1'
+
+
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
