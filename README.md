@@ -455,10 +455,16 @@ awk '{s+=$1} END {print s}' filename
 ```
 
 #####print field start with string (e.g Linux)
+
 ```bash
 awk '$1 ~ /^Linux/'
 ```
 
+#####sort a row (e.g. 1 40  35  12  23  --> 1 12    23  35  40)
+
+```bash
+awk ' {split( $0, a, "\t" ); asort( a ); for( i = 1; i <= length(a); i++ ) printf( "%s\t", a[i] ); printf( "\n" ); }'
+```
 
 
 ##Xargs
