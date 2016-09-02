@@ -1174,7 +1174,10 @@ declare -A array=()
 scp -r directoryname user@ip:/path/to/send
 ```
 
-
+#####split file into lines (e.g. 1000 lines/smallfile)
+```bash
+$ split -d -l 1000 bigfilename
+```
 
 
 ##System
