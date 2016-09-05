@@ -5,7 +5,7 @@ This blog will focus on bash commands for parsing biological data for dummies li
 
 English and bash are not my first language, so... correct me anytime, thank you
 
-In case you would like to check up and like my stupid questions on Stackoverflow, here's my page:
+In case you would like to check and vote up my questions on Stackoverflow, here's my page:
 http://stackoverflow.com/users/4290753/once
 
 Here's a more stylish version~
