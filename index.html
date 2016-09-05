@@ -1,44 +1,25 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Bash-oneliner by onceupon</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/onceupon/Bash-Oneliner">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/onceupon/Bash-Oneliner/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/onceupon/Bash-Oneliner/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+    <section class="page-header">
+      <h1 class="project-name">Bash-oneliner</h1>
+      <h2 class="project-tagline">Bash Oneliner learning station. This blog will focus on bash commands for parsing biological data, which are tsv files(tab-separated values); some of the commands are for Ubuntu system maintaining. I apologize that there won&#39;t be any citation of the code, but they are probably from dear Google and Stackoverflow. Not all the code here are oneliner (if the &#39;;&#39; counts..). English and bash are not my first language, so... correct me anytime, tks!!</h2>
+      <a href="https://github.com/onceupon/Bash-Oneliner" class="btn">View on GitHub</a>
+      <a href="https://github.com/onceupon/Bash-Oneliner/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/onceupon/Bash-Oneliner/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <div class="wrapper">
-
-      <section>
-        <div id="title">
-          <h1>Bash-oneliner</h1>
-          <p>Bash Oneliner learning station. This blog will focus on bash commands for parsing biological data, which are tsv files(tab-separated values); some of the commands are for Ubuntu system maintaining. I apologize that there won&#39;t be any citation of the code, but they are probably from dear Google and Stackoverflow. Not all the code here are oneliner (if the &#39;;&#39; counts..). English and bash are not my first language, so... correct me anytime, tks!!</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/onceupon">onceupon</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
-
-        <h2>
+    <section class="main-content">
+      <h2>
 <a id="handy-bash-oneliner-commands-for-tsv-file-editing" class="anchor" href="#handy-bash-oneliner-commands-for-tsv-file-editing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Handy Bash oneliner commands for tsv file editing</h2>
 
 <ul>
@@ -65,7 +46,12 @@
 <h5>
 <a id="grep-lines-without-word-eg-bbo" class="anchor" href="#grep-lines-without-word-eg-bbo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>grep lines without word (e.g. bbo)</h5>
 
-<div class="highlight highlight-source-shell"><pre>grep -v bbo</pre></div>
+<div class="highlight highlight-source-shell"><pre>grep -v bbo filename</pre></div>
+
+<h5>
+<a id="grep-only-onefirst-match-eg-bbo" class="anchor" href="#grep-only-onefirst-match-eg-bbo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>grep only one/first match (e.g. bbo)</h5>
+
+<div class="highlight highlight-source-shell"><pre>grep -m 1 bbo filename</pre></div>
 
 <h5>
 <a id="grep-and-count-eg-bbo" class="anchor" href="#grep-and-count-eg-bbo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>grep and count (e.g. bbo)</h5>
@@ -126,6 +112,32 @@
 
 <div class="highlight highlight-source-shell"><pre>grep <span class="pl-s"><span class="pl-pds">$'</span><span class="pl-cce">\t</span><span class="pl-pds">'</span></span> </pre></div>
 
+<h5>
+<a id="grep-variable-from-variable" class="anchor" href="#grep-variable-from-variable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>grep variable from variable</h5>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-smi">$echo</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$long_str</span><span class="pl-pds">"</span></span><span class="pl-k">|</span>grep -q <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$short_str</span><span class="pl-pds">"</span></span>
+<span class="pl-k">if</span> [ <span class="pl-smi">$?</span> <span class="pl-k">-eq</span> 0 ]<span class="pl-k">;</span> <span class="pl-k">then</span> <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>found<span class="pl-pds">'</span></span><span class="pl-k">;</span> <span class="pl-k">fi</span></pre></div>
+
+<p>//grep -q will output 0 if match found
+//remember to add space between []!</p>
+
+<h5>
+<a id="grep-strings-between-a-bracket" class="anchor" href="#grep-strings-between-a-bracket" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>grep strings between a bracket()</h5>
+
+<div class="highlight highlight-source-shell"><pre>grep -oP <span class="pl-s"><span class="pl-pds">'</span>\(\K[^\)]+<span class="pl-pds">'</span></span></pre></div>
+
+<h5>
+<a id="grep-number-of-characters-with-known-strings-in-betweeneg-aael000001-ra" class="anchor" href="#grep-number-of-characters-with-known-strings-in-betweeneg-aael000001-ra" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>grep number of characters with known strings in between(e.g. AAEL000001-RA)</h5>
+
+<div class="highlight highlight-source-shell"><pre>grep -o -w <span class="pl-s"><span class="pl-pds">"</span>\w\{10\}\-R\w\{1\}<span class="pl-pds">"</span></span></pre></div>
+
+<p>// \w word character [0-9a-zA-Z_] \W not word character </p>
+
+<h5>
+<a id="a-lot-examples-here" class="anchor" href="#a-lot-examples-here" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>a lot examples here</h5>
+
+<p><a href="http://www.cyberciti.biz/faq/grep-regular-expressions/">http://www.cyberciti.biz/faq/grep-regular-expressions/</a></p>
+
 <h2>
 <a id="sed" class="anchor" href="#sed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sed</h2>
 
@@ -166,9 +178,29 @@
 <div class="highlight highlight-source-shell"><pre>sed <span class="pl-s"><span class="pl-pds">'</span>$d<span class="pl-pds">'</span></span> </pre></div>
 
 <h5>
+<a id="delete-last-character-from-end-of-file" class="anchor" href="#delete-last-character-from-end-of-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>delete last character from end of file</h5>
+
+<div class="highlight highlight-source-shell"><pre>sed -i <span class="pl-s"><span class="pl-pds">'</span>$ s/.$//<span class="pl-pds">'</span></span> filename</pre></div>
+
+<h5>
+<a id="add-string-to-end-of-file-eg-" class="anchor" href="#add-string-to-end-of-file-eg-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>add string to end of file (e.g. "]")</h5>
+
+<div class="highlight highlight-source-shell"><pre>sed <span class="pl-s"><span class="pl-pds">'</span>$s/$/]/<span class="pl-pds">'</span></span> filename</pre></div>
+
+<h5>
+<a id="add-string-to-end-of-each-line-eg-" class="anchor" href="#add-string-to-end-of-each-line-eg-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>add string to end of each line (e.g. "}")</h5>
+
+<div class="highlight highlight-source-shell"><pre>sed -e <span class="pl-s"><span class="pl-pds">'</span>s/$/\}\]/<span class="pl-pds">'</span></span> filename</pre></div>
+
+<h5>
 <a id="add-n-every-nth-character-eg-every-4th-character" class="anchor" href="#add-n-every-nth-character-eg-every-4th-character" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>add \n every nth character (e.g. every 4th character)</h5>
 
 <div class="highlight highlight-source-shell"><pre>sed <span class="pl-s"><span class="pl-pds">'</span>s/.\{4\}/&amp;\n/g<span class="pl-pds">'</span></span> </pre></div>
+
+<h5>
+<a id="concatenatecombinejoin-files-with-a-seperator-and-next-line-eg-seperate-by-" class="anchor" href="#concatenatecombinejoin-files-with-a-seperator-and-next-line-eg-seperate-by-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>concatenate/combine/join files with a seperator and next line (e.g seperate by ",")</h5>
+
+<div class="highlight highlight-source-shell"><pre>sed -s <span class="pl-s"><span class="pl-pds">'</span>$a,<span class="pl-pds">'</span></span> <span class="pl-k">*</span>.json <span class="pl-k">&gt;</span> all.json</pre></div>
 
 <h5>
 <a id="substitution-eg-replace-a-by-b" class="anchor" href="#substitution-eg-replace-a-by-b" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>substitution (e.g. replace A by B)</h5>
@@ -232,6 +264,11 @@ e.g. add the filename to every last column of the file</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-k">for</span> <span class="pl-smi">i</span> <span class="pl-k">in</span> <span class="pl-s"><span class="pl-pds">$(</span>ls<span class="pl-pds">)</span></span><span class="pl-k">;</span><span class="pl-k">do</span> sed -i <span class="pl-s"><span class="pl-pds">"</span>s/$/\t<span class="pl-smi">$i</span>/<span class="pl-pds">"</span></span> <span class="pl-smi">$i</span><span class="pl-k">;</span><span class="pl-k">done</span></pre></div>
 
 <h5>
+<a id="add-extension-of-filename-to-last-column" class="anchor" href="#add-extension-of-filename-to-last-column" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>add extension of filename to last column</h5>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">for</span> <span class="pl-smi">i</span> <span class="pl-k">in</span> T000086_1.02.n T000086_1.02.p<span class="pl-k">;</span><span class="pl-k">do</span> sed <span class="pl-s"><span class="pl-pds">"</span>s/$/\t<span class="pl-smi">${i<span class="pl-k">/*</span>.<span class="pl-k">/</span>}</span>/<span class="pl-pds">"</span></span> <span class="pl-smi">$i</span><span class="pl-k">;</span><span class="pl-k">done</span> <span class="pl-k">&gt;</span>T000086_1.02.np</pre></div>
+
+<h5>
 <a id="remove-newline-nextline" class="anchor" href="#remove-newline-nextline" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>remove newline\ nextline</h5>
 
 <div class="highlight highlight-source-shell"><pre>sed <span class="pl-s"><span class="pl-pds">'</span>:a;N;$!ba;s/\n//g<span class="pl-pds">'</span></span></pre></div>
@@ -240,6 +277,11 @@ e.g. add the filename to every last column of the file</p>
 <a id="print-a-number-of-lines-eg-line-10th-to-line-33-rd" class="anchor" href="#print-a-number-of-lines-eg-line-10th-to-line-33-rd" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>print a number of lines (e.g. line 10th to line 33 rd)</h5>
 
 <div class="highlight highlight-source-shell"><pre>sed -n <span class="pl-s"><span class="pl-pds">'</span>10,33p<span class="pl-pds">'</span></span> <span class="pl-k">&lt;</span>filename</pre></div>
+
+<h5>
+<a id="change-delimiter" class="anchor" href="#change-delimiter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>change delimiter</h5>
+
+<div class="highlight highlight-source-shell"><pre>sed <span class="pl-s"><span class="pl-pds">'</span>s=/=\\/=g<span class="pl-pds">'</span></span></pre></div>
 
 <h1>
 <a id="awk" class="anchor" href="#awk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Awk</h1>
@@ -291,6 +333,11 @@ awk -v a=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$a
 <a id="print-all-lines-before-nth-occurence-of-a-string-eg-stop-print-lines-when-bbo-appears-7-times" class="anchor" href="#print-all-lines-before-nth-occurence-of-a-string-eg-stop-print-lines-when-bbo-appears-7-times" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>print all lines before nth occurence of a string (e.g stop print lines when bbo appears 7 times)</h5>
 
 <div class="highlight highlight-source-shell"><pre>awk -v N=7 <span class="pl-s"><span class="pl-pds">'</span>{print}/bbo/&amp;&amp; --N&lt;=0 {exit}<span class="pl-pds">'</span></span></pre></div>
+
+<h5>
+<a id="print-filename-and-last-line-of-all-files-in-directory" class="anchor" href="#print-filename-and-last-line-of-all-files-in-directory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>print filename and last line of all files in directory</h5>
+
+<div class="highlight highlight-source-shell"><pre>ls<span class="pl-k">|</span>xargs -n1 -I file awk <span class="pl-s"><span class="pl-pds">'</span>{s=$0};END{print FILENAME,s}<span class="pl-pds">'</span></span> file<span class="pl-s"><span class="pl-pds">'</span></span></pre></div>
 
 <h5>
 <a id="add-string-to-the-beginning-of-a-column-eg-add-chr-to-column-3" class="anchor" href="#add-string-to-the-beginning-of-a-column-eg-add-chr-to-column-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>add string to the beginning of a column (e.g add "chr" to column $3)</h5>
@@ -374,6 +421,44 @@ fileA:
 <a id="give-numberindex-to-every-row" class="anchor" href="#give-numberindex-to-every-row" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>give number/index to every row</h5>
 
 <div class="highlight highlight-source-shell"><pre>awk <span class="pl-s"><span class="pl-pds">'</span>{printf("%s\t%s\n",NR,$0)}<span class="pl-pds">'</span></span></pre></div>
+
+<h5>
+<a id="break-combine-column-data-into-rows" class="anchor" href="#break-combine-column-data-into-rows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>break combine column data into rows</h5>
+
+<p>e.g. 
+seperate</p>
+
+<p>David    cat,dog</p>
+
+<p>into </p>
+
+<p>David    cat</p>
+
+<p>David    dog</p>
+
+<p>detail here:　<a href="http://stackoverflow.com/questions/33408762/bash-turning-single-comma-separated-column-into-multi-line-string">http://stackoverflow.com/questions/33408762/bash-turning-single-comma-separated-column-into-multi-line-string</a></p>
+
+<div class="highlight highlight-source-shell"><pre>awk <span class="pl-s"><span class="pl-pds">'</span>{split($2,a,",");for(i in a)print $1"\t"a[i]}<span class="pl-pds">'</span></span> file</pre></div>
+
+<h5>
+<a id="sum-up-a-file-each-line-in-file-contains-only-one-number" class="anchor" href="#sum-up-a-file-each-line-in-file-contains-only-one-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sum up a file (each line in file contains only one number)</h5>
+
+<div class="highlight highlight-source-shell"><pre>awk <span class="pl-s"><span class="pl-pds">'</span>{s+=$1} END {print s}<span class="pl-pds">'</span></span> filename</pre></div>
+
+<h5>
+<a id="average-a-file-each-line-in-file-contains-only-one-number" class="anchor" href="#average-a-file-each-line-in-file-contains-only-one-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>average a file (each line in file contains only one number)</h5>
+
+<div class="highlight highlight-source-shell"><pre>awk <span class="pl-s"><span class="pl-pds">'</span>{s+=$1}END{print s/NR}<span class="pl-pds">'</span></span></pre></div>
+
+<h5>
+<a id="print-field-start-with-string-eg-linux" class="anchor" href="#print-field-start-with-string-eg-linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>print field start with string (e.g Linux)</h5>
+
+<div class="highlight highlight-source-shell"><pre>awk <span class="pl-s"><span class="pl-pds">'</span>$1 ~ /^Linux/<span class="pl-pds">'</span></span></pre></div>
+
+<h5>
+<a id="sort-a-row-eg-1-40--35--12--23-----1-12----23--35--40" class="anchor" href="#sort-a-row-eg-1-40--35--12--23-----1-12----23--35--40" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sort a row (e.g. 1 40  35  12  23  --&gt; 1 12    23  35  40)</h5>
+
+<div class="highlight highlight-source-shell"><pre>awk <span class="pl-s"><span class="pl-pds">'</span> {split( $0, a, "\t" ); asort( a ); for( i = 1; i &lt;= length(a); i++ ) printf( "%s\t", a[i] ); printf( "\n" ); }<span class="pl-pds">'</span></span></pre></div>
 
 <h2>
 <a id="xargs" class="anchor" href="#xargs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Xargs</h2>
@@ -978,6 +1063,11 @@ group= 5
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">echo</span> <span class="pl-smi">${<span class="pl-k">#</span>foo}</span></pre></div>
 
 <h5>
+<a id="echo-tab" class="anchor" href="#echo-tab" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>echo tab</h5>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">echo</span> -e <span class="pl-s"><span class="pl-pds">'</span> \t <span class="pl-pds">'</span></span></pre></div>
+
+<h5>
 <a id="array" class="anchor" href="#array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>array</h5>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-k">declare</span> -A array=()</pre></div>
@@ -986,6 +1076,11 @@ group= 5
 <a id="send-a-directory" class="anchor" href="#send-a-directory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>send a directory</h5>
 
 <div class="highlight highlight-source-shell"><pre>scp -r directoryname user@ip:/path/to/send</pre></div>
+
+<h5>
+<a id="split-file-into-lines-eg-1000-linessmallfile" class="anchor" href="#split-file-into-lines-eg-1000-linessmallfile" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>split file into lines (e.g. 1000 lines/smallfile)</h5>
+
+<div class="highlight highlight-source-shell"><pre>$ split -d -l 1000 bigfilename</pre></div>
 
 <h2>
 <a id="system" class="anchor" href="#system" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System</h2>
@@ -1325,11 +1420,34 @@ chown -R user_name /path/to/directory/</pre></div>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">ulimit</span> -u</pre></div>
 
-<p>=-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-</p>
-      </section>
+<h5>
+<a id="which-ports-are-listening-for-tcp-connections-from-the-network" class="anchor" href="#which-ports-are-listening-for-tcp-connections-from-the-network" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>which ports are listening for TCP connections from the network</h5>
 
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+<div class="highlight highlight-source-shell"><pre>nmap -sT -O localhost</pre></div>
+
+<h5>
+<a id="print-out-number-of-cores-processors" class="anchor" href="#print-out-number-of-cores-processors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>print out number of cores/ processors</h5>
+
+<div class="highlight highlight-source-shell"><pre>nproc --all</pre></div>
+
+<h5>
+<a id="check-status-of-each-core" class="anchor" href="#check-status-of-each-core" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>check status of each core</h5>
+
+<ol>
+<li>top</li>
+<li>press '1'</li>
+</ol>
+
+<p>=-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/onceupon/Bash-Oneliner">Bash-oneliner</a> is maintained by <a href="https://github.com/onceupon">onceupon</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
   </body>
 </html>
