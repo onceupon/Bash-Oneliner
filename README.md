@@ -132,6 +132,11 @@ grep -o -w "\w\{10\}\-R\w\{1\}"
 // \w word character [0-9a-zA-Z_] \W not word character 
 
 
+#####a lot examples here
+http://www.cyberciti.biz/faq/grep-regular-expressions/
+
+
+
 ##Sed
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 
@@ -458,10 +463,15 @@ detail here:　http://stackoverflow.com/questions/33408762/bash-turning-single-c
 awk '{split($2,a,",");for(i in a)print $1"\t"a[i]}' file
 ```
 
-#####sum up a file
+#####sum up a file (each line in file contains only one number)
 
 ```bash
 awk '{s+=$1} END {print s}' filename
+```
+
+#####average a file (each line in file contains only one number)
+```bash
+awk '{s+=$1}END{print s/NR}'
 ```
 
 #####print field start with string (e.g Linux)
