@@ -120,6 +120,16 @@ if [ $? -eq 0 ]; then echo 'found'; fi
 //grep -q will output 0 if match found
 //remember to add space between []!
 
+#####grep strings between a bracket()
+```bash
+grep -oP '\(\K[^\)]+'
+```
+
+#####grep number of characters with known strings in between(e.g. AAEL000001-RA)
+```bash
+grep -o -w "\w\{10\}\-R\w\{1\}"
+```
+// \w word character [0-9a-zA-Z_] \W not word character 
 
 
 ##Sed
