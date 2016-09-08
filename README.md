@@ -842,19 +842,26 @@ zless filename
 #####run in background, output error file
     
 ```bash
-(command here) 2>log &
+some_commands  &>log &
+```
+
+or
+
+
+```bash
+some_commands 2>log &
 ```
 
 or
 
 ```bash
-(command here) 2>&1| tee logfile
+some_commands 2>&1| tee logfile
 ```
 
 or
 
 ```bash
-(command here) 2>&1 >>outfile
+some_commands 2>&1 >>outfile
 ```
 //0: standard input; 1: standard output; 2: standard error
 
