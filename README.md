@@ -188,6 +188,12 @@ sed -i '$ s/.$//' filename
 sed '$s/$/]/' filename
 ```
 
+#####add string to beginning of every line (e.g. bbo)
+
+```bash
+sed -e 's/^/bbo/' file
+```
+
 #####add string to end of each line (e.g. "}")
 ```bash
 sed -e 's/$/\}\]/' filename
