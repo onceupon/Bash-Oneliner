@@ -1614,6 +1614,10 @@ nproc --all
 1. top
 2. press '1'
 
+#####show jobs and PID
 
+```bash
+jobs -l
+```
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
