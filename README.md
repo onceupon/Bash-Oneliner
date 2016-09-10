@@ -1620,4 +1620,11 @@ nproc --all
 jobs -l
 ```
 
+#####list all running services
+
+```bash
+service --status-all
+```
+
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
