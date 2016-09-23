@@ -1212,6 +1212,11 @@ scp -r directoryname user@ip:/path/to/send
 $ split -d -l 1000 bigfilename
 ```
 
+#####rename all files (e.g. remove ABC from all .gz files)
+```bash
+rename 's/ABC//' *.gz
+```
+
 
 ##System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
