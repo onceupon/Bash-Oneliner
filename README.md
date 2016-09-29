@@ -627,8 +627,11 @@ cat requirements.txt| xargs -n1 sudo pip install
 ```bash
 ls|xargs wc -l
 ```
+#####xargs and grep
 
-
+```bash
+cat grep_list |xargs -I{} grep {} filename
+```
 
 ##Find 
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
