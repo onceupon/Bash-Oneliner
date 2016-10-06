@@ -1220,6 +1220,14 @@ $ split -d -l 1000 bigfilename
 rename 's/ABC//' *.gz
 ```
 
+#####remove extention (e.g remove .gz from filename.gz)
+```bash
+basename filename.gz .gz
+
+zcat filename.gz> $(basename filename.gz .gz).unpacked
+```
+
+
 
 ##System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
