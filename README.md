@@ -299,6 +299,12 @@ sed -n '10,33p' <filename
 sed 's=/=\\/=g'
 ```
 
+#####replace with wildcard (e.g A-1-e or A-2-e or A-3-e....)
+```bash
+sed 's/A-.*-e//g' filename
+```
+
+
 
 #Awk
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
