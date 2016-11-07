@@ -1233,6 +1233,10 @@ basename filename.gz .gz
 zcat filename.gz> $(basename filename.gz .gz).unpacked
 ```
 
+#####use the squeeze repeat option (e.g. /t/t --> /t)
+```bash
+tr -s "/t" < filename
+```
 
 
 ##System
