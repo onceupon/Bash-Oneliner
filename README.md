@@ -718,7 +718,7 @@ if [[$age >21]]
 ```bash
 if [ -e $DF ]
 then
-  echo -e “file exists!|”
+  echo -e "file exists!"
 fi
 ```
 
