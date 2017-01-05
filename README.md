@@ -713,6 +713,16 @@ if [[$age >21]]
 ```
 //[[ ]] use for comparison
 
+
+#####test if file exist
+```bash
+if [ -e $DF ]
+then
+  echo -e “file exists!|”
+fi
+```
+
+
 #####for loop
     
 ```bash
