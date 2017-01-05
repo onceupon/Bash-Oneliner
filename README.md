@@ -1238,6 +1238,22 @@ zcat filename.gz> $(basename filename.gz .gz).unpacked
 tr -s "/t" < filename
 ```
 
+#####do not print nextline with echo
+```bash
+echo -e 'text here \c'
+```
+
+#####use the last argument
+```bash
+!$
+```
+
+#####check last exit code
+```bash
+echo $?
+```
+
+
 
 ##System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
