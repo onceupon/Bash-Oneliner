@@ -1687,4 +1687,9 @@ shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
 shutdown -c
 ```
 
+#####boardcast to all users
+```bash
+wall -n hihi
+```
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
