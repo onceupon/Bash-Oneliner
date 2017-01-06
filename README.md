@@ -1682,7 +1682,7 @@ service --status-all
 ```bash
 shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
 ```
-#####cancel schedule shutdown
+#####cancel scheduled shutdown
 ```bash
 shutdown -c
 ```
