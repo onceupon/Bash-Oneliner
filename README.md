@@ -1705,5 +1705,10 @@ ssh -X user_name@ip_address
 eog picture.png
 ```
 
+#####kill all process of a user
+```bash
+pkill -U user_name
+```
+
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
