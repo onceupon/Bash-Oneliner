@@ -1692,7 +1692,7 @@ shutdown -c
 wall -n hihi
 ```
 
-#####allow x redirection to the client,in orther to use graphical application on servers
+#####enable X11 forwarding,in order to use graphical application on servers
 ```bash
 ssh -X user_name@ip_address
 ```
