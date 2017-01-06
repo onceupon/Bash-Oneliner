@@ -1678,5 +1678,13 @@ jobs -l
 service --status-all
 ```
 
+#####schedule shutdown server
+```bash
+shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
+```
+#####cancel schedule shutdown
+```bash
+shutdown -c
+```
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
