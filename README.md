@@ -1692,4 +1692,18 @@ shutdown -c
 wall -n hihi
 ```
 
+#####allow x redirection to the client,in orther to use graphical application on servers
+```bash
+ssh -X user_name@ip_address
+```
+or setting through xhost
+
+
+#####open pictures from ssh server
+```bash
+ssh -X user_name@ip_address
+eog picture.png
+```
+
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
