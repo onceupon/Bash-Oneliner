@@ -1262,7 +1262,10 @@ echo -e 'text here \c'
 ```bash
 echo $?
 ```
-
+#####view first 50 characters of file
+```bash
+head -c 50 file
+```
 
 
 ##System
