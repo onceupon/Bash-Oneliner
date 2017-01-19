@@ -1268,14 +1268,22 @@ head -c 50 file
 ```
 #####open pictures/images from ssh server
 ```bash
-ssh -X user_name@ip_address
-eog picture.png
+1. ssh -X user_name@ip_address
+2. apt-get eog
+3. eog picture.png
 ```
 
 #####Use gedit on server (GUI editor) 
 ```bash
-ssh -X user_name@ip_address
-gedit filename.txt
+1. ssh -X user_name@ip_address
+2. apt-get gedit
+3. gedit filename.txt
+```
+#####open PDF file from ssh server 
+```bash
+1. ssh -X user_name@ip_address
+2. apt-get install evince
+3. evince filename.pdf
 ```
 
 ##System
