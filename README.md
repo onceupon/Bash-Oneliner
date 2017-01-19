@@ -1269,14 +1269,14 @@ head -c 50 file
 #####open pictures/images from ssh server
 ```bash
 1. ssh -X user_name@ip_address
-2. apt-get eog
+2. apt-get install eog
 3. eog picture.png
 ```
 
 #####Use gedit on server (GUI editor) 
 ```bash
 1. ssh -X user_name@ip_address
-2. apt-get gedit
+2. apt-get install gedit
 3. gedit filename.txt
 ```
 #####open PDF file from ssh server 
