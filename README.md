@@ -1266,7 +1266,17 @@ echo $?
 ```bash
 head -c 50 file
 ```
+#####open pictures/images from ssh server
+```bash
+ssh -X user_name@ip_address
+eog picture.png
+```
 
+#####Use gedit on server (GUI editor) 
+```bash
+ssh -X user_name@ip_address
+gedit filename.txt
+```
 
 ##System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
@@ -1701,12 +1711,6 @@ ssh -X user_name@ip_address
 ```
 or setting through xhost
 
-
-#####open pictures from ssh server
-```bash
-ssh -X user_name@ip_address
-eog picture.png
-```
 
 #####kill all process of a user
 ```bash
