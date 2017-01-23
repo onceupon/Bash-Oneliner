@@ -1757,17 +1757,18 @@ pkill -U user_name
 ```
 #####set gedit preference on server
 
-1. you might have to install the following:
+-->you might have to install the following:
 
 apt-get install libglib2.0-bin;
 
 yum install dconf dconf-editor;
 yum install dbus dbus-x11;
 
-2. Check list
+-->Check list
+```bash
 gsettings list-recursively
-
-3. Change setting
+```
+-->Change setting
 e.g.
 ```bash
 gsettings set org.gnome.gedit.preferences.editor highlight-current-line true
