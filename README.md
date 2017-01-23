@@ -1758,10 +1758,11 @@ pkill -U user_name
 #####set gedit preference on server
 
 1. you might have to install the following:
-apt-get install libglib2.0-bin
 
-yum install dconf dconf-editor
-yum install dbus dbus-x11
+apt-get install libglib2.0-bin;
+
+yum install dconf dconf-editor;
+yum install dbus dbus-x11;
 
 2. Check list
 gsettings list-recursively
