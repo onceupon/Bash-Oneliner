@@ -1285,6 +1285,26 @@ head -c 50 file
 2. apt-get install evince
 3. evince filename.pdf
 ```
+#####group/combine rows into one row 
+e.g. 
+AAAA
+BBBB
+CCCC
+DDDD
+```bash
+cat filename|paste - -
+--> 
+AAAABBBB
+CCCDDDD
+cat filename|paste - - - -
+AAAABBBBCCCCDDDD
+```
+
+#####fastq to fasta 
+```bash
+cat file.fastq | paste - - - - | sed 's/^@/>/g'| cut -f1-2 | tr '\t' '\n' >file.fa
+```
+
 
 ##System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
