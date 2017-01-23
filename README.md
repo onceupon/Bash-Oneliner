@@ -1290,8 +1290,11 @@ head -c 50 file
 e.g. 
 
 AAAA
+
 BBBB
+
 CCCC
+
 DDDD
 ```bash
 cat filename|paste - -
