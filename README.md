@@ -1745,6 +1745,11 @@ ssh -X user_name@ip_address
 ```
 or setting through xhost
 
+--> Install the following for Centos:
+xorg-x11-xauth
+xorg-x11-fonts-*
+xorg-x11-utils
+
 
 #####kill all process of a user
 ```bash
