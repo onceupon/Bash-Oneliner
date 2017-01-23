@@ -1298,10 +1298,11 @@ CCCC
 DDDD
 ```bash
 cat filename|paste - -
---> 
+-->
 AAAABBBB
 CCCCDDDD
 cat filename|paste - - - -
+-->
 AAAABBBBCCCCDDDD
 ```
 
