@@ -1286,7 +1286,9 @@ head -c 50 file
 3. evince filename.pdf
 ```
 #####group/combine rows into one row 
+
 e.g. 
+
 AAAA
 BBBB
 CCCC
@@ -1295,7 +1297,7 @@ DDDD
 cat filename|paste - -
 --> 
 AAAABBBB
-CCCDDDD
+CCCCDDDD
 cat filename|paste - - - -
 AAAABBBBCCCCDDDD
 ```
