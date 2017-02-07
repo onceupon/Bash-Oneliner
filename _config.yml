@@ -2,7 +2,7 @@ title: Bash-oneliner
 description: Bash Oneliner learning station. This blog will focus on bash commands for parsing biological data, which are tsv files(tab-separated values); some of the commands are for Ubuntu system maintaining. I apologize that there won't be any citation of the code, but they are probably from dear Google and Stackoverflow. Not all the code here are oneliner (if the ';' counts..). English and bash are not my first language, so... correct me anytime, tks!!
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
 
 gems:
   - jekyll-mentions
