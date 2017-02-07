@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Bash-oneliner by onceupon</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Bash-oneliner</h1>
-      <h2 class="project-tagline">Bash Oneliner learning station. This blog will focus on bash commands for parsing biological data, which are tsv files(tab-separated values); some of the commands are for Ubuntu system maintaining. I apologize that there won&#39;t be any citation of the code, but they are probably from dear Google and Stackoverflow. Not all the code here are oneliner (if the &#39;;&#39; counts..). English and bash are not my first language, so... correct me anytime, tks!!</h2>
-      <a href="https://github.com/onceupon/Bash-Oneliner" class="btn">View on GitHub</a>
-      <a href="https://github.com/onceupon/Bash-Oneliner/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/onceupon/Bash-Oneliner/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
-
-    <section class="main-content">
-      <h2>
 <a id="handy-bash-oneliner-commands-for-tsv-file-editing" class="anchor" href="#handy-bash-oneliner-commands-for-tsv-file-editing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Handy Bash oneliner commands for tsv file editing</h2>
 
 <ul>
