@@ -1417,6 +1417,4 @@ chown -R user_name /path/to/directory/</pre></div>
 </ol>
 
 <p>=-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-</p>
-  
-  </body>
-</html>
+
