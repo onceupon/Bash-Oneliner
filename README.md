@@ -303,6 +303,10 @@ sed 's=/=\\/=g'
 ```bash
 sed 's/A-.*-e//g' filename
 ```
+#####remove last character of file
+```bash``
+sed '$ s/.$//'
+```
 
 
 
