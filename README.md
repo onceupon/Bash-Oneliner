@@ -308,7 +308,10 @@ sed 's/A-.*-e//g' filename
 sed '$ s/.$//'
 ```
 
-
+#####insert character at specified position of file (e.g. AAAAAA --> AAA#AAA)
+```bash``
+sed -r -e 's/^.{3}/&#/' file
+```
 
 #Awk
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
