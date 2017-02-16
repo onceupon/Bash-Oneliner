@@ -1317,6 +1317,11 @@ AAAABBBBCCCCDDDD
 ```bash
 cat file.fastq | paste - - - - | sed 's/^@/>/g'| cut -f1-2 | tr '\t' '\n' >file.fa
 ```
+#####cut and get last column
+```bash
+cat file|rev | cut -d/ -f1 | rev
+```
+
 
 
 ##System
