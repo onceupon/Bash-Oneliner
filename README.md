@@ -1327,6 +1327,15 @@ cat file|rev | cut -d/ -f1 | rev
 ((var++))
 ```
 
+##### some handy environment variables
+$0   :name of shell or shell script. &nbsp
+$1, $2, $3, ... :positional parameters. &nbsp
+$#   :number of positional parameters. &nbsp
+$?   :most recent foreground pipeline exit status. &nbsp
+$-   :current options set for the shell. &nbsp
+$$   :pid of the current shell (not subshell). &nbsp
+$!   :is the PID of the most recent background command. &nbsp
+
 
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
