@@ -117,7 +117,7 @@ grep $'\t'
 $echo "$long_str"|grep -q "$short_str"
 if [ $? -eq 0 ]; then echo 'found'; fi
 ```
-//grep -q will output 0 if match found
+//grep -q will output 0 if match found  
 //remember to add space between []!
 
 ##### grep strings between a bracket()
@@ -128,7 +128,7 @@ grep -oP '\(\K[^\)]+'
 ##### grep number of characters with known strings in between(e.g. AAEL000001-RA)
 ```bash
 grep -o -w "\w\{10\}\-R\w\{1\}"
-```
+```  
 // \w word character [0-9a-zA-Z_] \W not word character 
 
 
@@ -152,12 +152,12 @@ sed "/bbo/d" filename
 sed -i "/bbo/d" filename
 ```
 ##### when using variable (e.g. $i), use double quotes " "
-e.g. add >$i to the first line (to make a FASTA file)
+e.g. add >$i to the first line (to make a FASTA file)  
     
 ```bash
 sed "1i >$i"  
 ```
-//notice the double quotes! in other examples, you can use a single quote, but here, no way! 
+//notice the double quotes! in other examples, you can use a single quote, but here, no way!   
 //'1i' means insert to first line
 
 
@@ -270,8 +270,8 @@ sed 's/,$//g'
 ```bash
 sed "s/$/\t$i/"
 ```
-//$i is the valuable you want to add
-e.g. add the filename to every last column of the file
+//$i is the valuable you want to add  
+e.g. add the filename to every last column of the file  
     
 ```bash
 for i in $(ls);do sed -i "s/$/\t$i/" $i;done
@@ -395,58 +395,48 @@ cat file| awk -F '\t' 'BEGIN {SUM=0}{SUM+=$3-$2}END{print SUM}'
 ```
 
 ##### usage and meaning of NR and FNR
-e.g.
-fileA:
-a
-b
-c
-fileB:
-d
-e
+e.g.  
+fileA:  
+a  
+b  
+c  
+fileB:  
+d  
+e  
     
 ```bash
 awk 'print FILENAME, NR,FNR,$0}' fileA fileB 
 ```
 
-fileA    1    1    a
-fileA    2    2    b
-fileA    3    3    c
-fileB    4    1    d
-fileB    5    2    e
+fileA    1    1    a  
+fileA    2    2    b  
+fileA    3    3    c  
+fileB    4    1    d  
+fileB    5    2    e  
 
 ##### and gate
 
-e.g.
-fileA:
-1    0
+e.g.  
+fileA:  
+1    0  
+2    1  
+3    1  
+4    0  
 
-2    1
-
-3    1
-
-4    0
-
-fileB:
-
-1    0
-
-2    1
-
-3    0
-
-4    1
+fileB:  
+1    0  
+2    1  
+3    0  
+4    1  
     
 ```bash
 awk -v OFS='\t' 'NR=FNR{a[$1]=$2;next} NF {print $1,((a[$1]=$2)? $2:"0")}' fileA fileB 
 ```
 
-1    0
-
-2    1
-
-3    0
-
-4    0
+1    0  
+2    1  
+3    0  
+4    0  
 
 ##### round all numbers of file (e.g. 2 significant figure)
     
@@ -466,16 +456,13 @@ awk '{printf("%s\t%s\n",NR,$0)}'
 ```
 ##### break combine column data into rows
 
-e.g. 
-seperate
+e.g.  
+seperate  
 
-David    cat,dog
-
-into 
-
-David    cat
-
-David    dog
+David    cat,dog  
+into  
+David    cat  
+David    dog  
 
 detail here:　http://stackoverflow.com/questions/33408762/bash-turning-single-comma-separated-column-into-multi-line-string
 ```bash
@@ -521,7 +508,7 @@ xargs -d\t
 echo 1 2 3 4 5 6| xargs -n 3
 ```
 
-//1 2 3
+//1 2 3  
   4 5 6
 
 
@@ -537,7 +524,7 @@ echo a b c |xargs -p -n 3
 xargs -t abcd
 ```
 
-///bin/echo abcd
+///bin/echo abcd  
 //abcd
 
 
@@ -593,7 +580,7 @@ time echo {1..5} |xargs -n1 sleep
 find /dir/to/A -type f -name "*.py" -print 0| xargs -0 -r -I file cp -v -p file --target-directory=/path/to/B
 ```
 
-//v: verbose|
+//v: verbose|  
 //p: keep detail (e.g. owner)
 
 
@@ -744,23 +731,15 @@ for i in $(ls); do echo file $i;done
 ```bash
 wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.com
 ```
-//-r: recursive and download all links on page
-
-//-l1: only one level link
-
-//-H: span host, visit other hosts
-
-//-t1: numbers of retries
-
-//-nd: don't make new directories, download to here
-
-//-N: turn on timestamp
-
-//-nd: no parent
-
-//-A: type (seperate by ,)
-
-//-e robots=off: ignore the robots.txt file which stop wget from crashing the site, sorry example.com
+//-r: recursive and download all links on page  
+//-l1: only one level link  
+//-H: span host, visit other hosts  
+//-t1: numbers of retries  
+//-nd: don't make new directories, download to here  
+//-N: turn on timestamp  
+//-nd: no parent  
+//-A: type (seperate by ,)  
+//-e robots=off: ignore the robots.txt file which stop wget from crashing the site, sorry example.com  
 
 
 
@@ -993,7 +972,7 @@ or
 
 ##### extract .xf
     
-    1.unxz filename.tar.xz
+    1.unxz filename.tar.xz  
     2.tar -xf filename.tar
 
 ##### install python package
@@ -1082,7 +1061,7 @@ rsync -av --update directory directory.bak
 ```bash
 mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat}
 ```
-//-p: make parent directory
+//-p: make parent directory  
 //this will create project/doc/html/; project/doc/info; project/lib/ext ,etc
 
 
@@ -1294,15 +1273,11 @@ head -c 50 file
 ```
 ##### group/combine rows into one row 
 
-e.g. 
-
-AAAA
-
-BBBB
-
-CCCC
-
-DDDD
+e.g.  
+AAAA  
+BBBB  
+CCCC  
+DDDD  
 ```bash
 cat filename|paste - -
 -->
@@ -1589,7 +1564,7 @@ getent database_name
 ```bash
 getent passwd
 ```
-//list all user account (all local and LDAP)
+//list all user account (all local and LDAP)  
 (e.g. fetch list of grop accounts)
     
 ```bash
@@ -1735,7 +1710,7 @@ nmap -sT -O localhost
 nproc --all
 ```
 ##### check status of each core
-1. top
+1. top  
 2. press '1'
 
 ##### show jobs and PID
@@ -1770,10 +1745,10 @@ ssh -X user_name@ip_address
 ```
 or setting through xhost
 
---> Install the following for Centos:
-xorg-x11-xauth
-xorg-x11-fonts-*
-xorg-x11-utils
+--> Install the following for Centos:  
+xorg-x11-xauth  
+xorg-x11-fonts-*  
+xorg-x11-utils  
 
 
 ##### kill all process of a user
@@ -1784,16 +1759,16 @@ pkill -U user_name
 
 -->you might have to install the following:
 
-apt-get install libglib2.0-bin;
+apt-get install libglib2.0-bin;  
 
-yum install dconf dconf-editor;
-yum install dbus dbus-x11;
+yum install dconf dconf-editor;  
+yum install dbus dbus-x11;  
 
--->Check list
+-->Check list  
 ```bash
 gsettings list-recursively
 ```
--->Change setting
+-->Change setting  
 e.g.
 ```bash
 gsettings set org.gnome.gedit.preferences.editor highlight-current-line true
