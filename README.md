@@ -1328,13 +1328,13 @@ cat file|rev | cut -d/ -f1 | rev
 ```
 
 ##### some handy environment variables
-$0   :name of shell or shell script. &nbsp
-$1, $2, $3, ... :positional parameters. &nbsp
-$#   :number of positional parameters. &nbsp
-$?   :most recent foreground pipeline exit status. &nbsp
-$-   :current options set for the shell. &nbsp
-$$   :pid of the current shell (not subshell). &nbsp
-$!   :is the PID of the most recent background command. &nbsp
+$0   :name of shell or shell script.  
+$1, $2, $3, ... :positional parameters.  
+$#   :number of positional parameters.  
+$?   :most recent foreground pipeline exit status.  
+$-   :current options set for the shell.  
+$$   :pid of the current shell (not subshell).  
+$!   :is the PID of the most recent background command.  
 
 
 ## System
