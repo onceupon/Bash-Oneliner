@@ -797,6 +797,12 @@ tr --delete '\n' <input.txt >output.txt
 tr '\n' ' ' <filename
 ```
 
+##### to uppercase/lowercase
+     
+```bash
+tr /a-z/ /A-Z/
+```
+
 ##### compare files (e.g. fileA, fileB)
     
 ```bash
