@@ -1317,6 +1317,12 @@ $-   :current options set for the shell.
 $$   :pid of the current shell (not subshell).  
 $!   :is the PID of the most recent background command.  
 
+##### clear the contents of a file (e.g. filename)
+```bash
+>filename
+```
+
+
 
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
