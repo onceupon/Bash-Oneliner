@@ -187,6 +187,10 @@ sed -i '$ s/.$//' filename
 ```bash
 sed '$s/$/]/' filename
 ```
+##### add newline to the end
+```bash``
+sed '$a\'
+```
 
 ##### add string to beginning of every line (e.g. bbo)
 
@@ -312,6 +316,7 @@ sed '$ s/.$//'
 ```bash``
 sed -r -e 's/^.{3}/&#/' file
 ```
+
 
 ## Awk
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
