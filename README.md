@@ -340,10 +340,10 @@ a=bbo;b=obb;
 awk -v a="$a" -v b="$b" "$1==a && $10=b' filename 
 ```
 
-##### print number of characters on each line
+##### print line number and number of characters on each line
     
 ```bash
-awk '{print length ($0);}' filename 
+awk '{print NR,length($0);}' filename 
 ```
 
 ##### find number of columns
