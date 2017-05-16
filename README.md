@@ -188,7 +188,8 @@ sed -i '$ s/.$//' filename
 sed '$s/$/]/' filename
 ```
 ##### add newline to the end
-```bash``
+
+```bash
 sed '$a\'
 ```
 
