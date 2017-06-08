@@ -1794,6 +1794,15 @@ gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
 gsettings set org.gnome.gedit.preferences.editor use-default-font false
 gsettings set org.gnome.gedit.preferences.editor editor-font 'Cantarell Regular 12'
 ```
+##### Find out who has logged in on your system
+--> [Quick] Printing out only the names:
+```bash
+users
+```
 
+--> [Detail] Printing out login time, load average, etc
+```bash
+w
+```
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
