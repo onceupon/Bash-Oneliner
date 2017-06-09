@@ -32,13 +32,13 @@ http://onceupon.github.io/Bash-Oneliner/
 grep -o -P '(?<=w1).*(?=w2)'
 ```
 
-##### grep lines without word (e.g. bbo)
+##### Grep lines without word (e.g. bbo)
      
 ```bash
 grep -v bbo filename
 ```
 
-##### grep only one/first match (e.g. bbo)
+##### Grep only one/first match (e.g. bbo)
 
 ```bash
 grep -m 1 bbo filename
