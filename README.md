@@ -1370,7 +1370,7 @@ $!   :is the PID of the most recent background command.
 ```bash
 curl --upload-file ./filename.txt https://transfer.sh/filename.txt
 ```
-(the above command will return a URL, e.g: https://transfer.sh/tG8rM/filename.txt)
+(the above command will return a URL, e.g: https://transfer.sh/tG8rM/filename.txt)  
 --> download:
 ```bash
 curl https://transfer.sh/tG8rM/filename.txt -o filename.txt
