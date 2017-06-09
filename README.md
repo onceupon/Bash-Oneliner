@@ -1283,6 +1283,16 @@ head -c 50 file
 2. apt-get install evince
 3. evince filename.pdf
 ```
+##### use google-chrome browser from ssh server 
+```bash
+1. ssh -X user_name@ip_address
+2. apt-get install libxss1 libappindicator1 libindicator7
+3. wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+4. sudo apt-get install -f
+5. dpkg -i google-chrome*.deb
+6. google-chrome
+ ```
+ 
 ##### group/combine rows into one row 
 
 e.g.  
