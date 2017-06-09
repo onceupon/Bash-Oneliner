@@ -21,6 +21,7 @@ http://onceupon.github.io/Bash-Oneliner/
 - [Loops](#loops)
 - [Download](#download)
 - [Random](#random)
+- [Xwindow](#xwindow)
 - [Others](#others)
 - [System](#system)
 
@@ -787,6 +788,61 @@ echo $((RANDOM % 10))
 echo $(((RANDOM %10)+1))
 ```
 
+## Xwindow
+X11 GUI applications! Here are some GUI tools for you if you get bored by the text-only environment.  
+
+
+##### enable X11 forwarding,in order to use graphical application on servers
+```bash
+ssh -X user_name@ip_address
+```
+or setting through xhost
+
+--> Install the following for Centos:  
+xorg-x11-xauth  
+xorg-x11-fonts-*  
+xorg-x11-utils  
+
+##### little xwindow tools
+    
+```bash
+xclock
+xeyes
+```
+
+##### open pictures/images from ssh server
+```bash
+1. ssh -X user_name@ip_address
+2. apt-get install eog
+3. eog picture.png
+```
+
+##### Use gedit on server (GUI editor) 
+```bash
+1. ssh -X user_name@ip_address
+2. apt-get install gedit
+3. gedit filename.txt
+```
+##### open PDF file from ssh server 
+```bash
+1. ssh -X user_name@ip_address
+2. apt-get install evince
+3. evince filename.pdf
+```
+##### use google-chrome browser from ssh server 
+```bash
+1. ssh -X user_name@ip_address
+2. apt-get install libxss1 libappindicator1 libindicator7
+3. wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+4. sudo apt-get install -f
+5. dpkg -i google-chrome*.deb
+6. google-chrome
+ ```
+
+
+
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+
 
 
 ## Others
@@ -1264,34 +1320,6 @@ echo $?
 ```bash
 head -c 50 file
 ```
-##### open pictures/images from ssh server
-```bash
-1. ssh -X user_name@ip_address
-2. apt-get install eog
-3. eog picture.png
-```
-
-##### Use gedit on server (GUI editor) 
-```bash
-1. ssh -X user_name@ip_address
-2. apt-get install gedit
-3. gedit filename.txt
-```
-##### open PDF file from ssh server 
-```bash
-1. ssh -X user_name@ip_address
-2. apt-get install evince
-3. evince filename.pdf
-```
-##### use google-chrome browser from ssh server 
-```bash
-1. ssh -X user_name@ip_address
-2. apt-get install libxss1 libappindicator1 libindicator7
-3. wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-4. sudo apt-get install -f
-5. dpkg -i google-chrome*.deb
-6. google-chrome
- ```
  
 ##### group/combine rows into one row 
 
@@ -1600,13 +1628,6 @@ getent group
 ```
 //store in database 'group'
 
-##### little xwindow tools
-    
-```bash
-xclock
-xeyes
-```
-
 ##### change owner of file
     
 ```bash
@@ -1766,19 +1787,6 @@ shutdown -c
 ```bash
 wall -n hihi
 ```
-
-##### enable X11 forwarding,in order to use graphical application on servers
-```bash
-ssh -X user_name@ip_address
-```
-or setting through xhost
-
---> Install the following for Centos:  
-xorg-x11-xauth  
-xorg-x11-fonts-*  
-xorg-x11-utils  
-
-
 ##### kill all process of a user
 ```bash
 pkill -U user_name
