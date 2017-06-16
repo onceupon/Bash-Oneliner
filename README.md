@@ -499,6 +499,12 @@ awk '$1 ~ /^Linux/'
 awk ' {split( $0, a, "\t" ); asort( a ); for( i = 1; i <= length(a); i++ ) printf( "%s\t", a[i] ); printf( "\n" ); }'
 ```
 
+##### Subtract previous row values (add column6 which equal to column4 minus last column5) 
+```bash
+awk '{$6 = $4 - prev5; prev5 = $5; print;}'
+```
+
+
 
 ## Xargs
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
