@@ -1835,4 +1835,9 @@ users
 ```bash
 w
 ```
+##### Add user to a group (e.g add user 'nice' to the group 'docker', so that he can run docker without sudo) 
+```bash
+sudo gpasswd -a nice docker
+```
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
