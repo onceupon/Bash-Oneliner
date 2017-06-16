@@ -1375,6 +1375,9 @@ $!   :is the PID of the most recent background command.
 ```bash
 >filename
 ```
+##### unzip tar.bz2 file (e.g. file.tar.bz2)
+tar xvfj file.tar.bz2
+
 
 
 ## System
