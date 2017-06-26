@@ -1846,4 +1846,10 @@ w
 sudo gpasswd -a nice docker
 ```
 
+##### pip install python package without root 
+```bash
+1. pip install --user package_name
+2. You might need to export ~/.local/bin/ to PATH: export PATH=$PATH:~/.local/bin/
+```
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
