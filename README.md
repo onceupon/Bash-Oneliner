@@ -1385,6 +1385,15 @@ $!   :is the PID of the most recent background command.
 ```bash
 tar xvfj file.tar.bz2
 ```
+##### output a y/n repeatedly until killed 
+'y':
+```bash
+yes
+```
+or 'n'
+```bash
+yes
+```
 
 
 ## System
