@@ -804,10 +804,10 @@ shuf -n 100 filename
 for i in a b c d e; do echo $i; done| shuf
 ```
 
-##### Echo series of random numbers between a range (e.g. generate 15 random numbers from 0-10)
+##### Echo series of random numbers between a range (e.g. shuffle numbers from 0-100, then pick 15 of them randomly)
     
 ```bash
-shuf -i 0-10 -n 15
+shuf -i 0-100 -n 15
 ```
 
 ##### Echo a random number
