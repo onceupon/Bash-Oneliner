@@ -1381,18 +1381,18 @@ $!   :is the PID of the most recent background command.
 ```bash
 >filename
 ```
-##### unzip tar.bz2 file (e.g. file.tar.bz2)
+##### Unzip tar.bz2 file (e.g. file.tar.bz2)
 ```bash
 tar xvfj file.tar.bz2
 ```
-##### output a y/n repeatedly until killed 
+##### Output a y/n repeatedly until killed 
 'y':
 ```bash
 yes
 ```
-or 'n'
+or 'n':
 ```bash
-yes
+yes n
 ```
 
 
