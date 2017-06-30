@@ -1861,4 +1861,10 @@ sudo gpasswd -a nice docker
 2. You might need to export ~/.local/bin/ to PATH: export PATH=$PATH:~/.local/bin/
 ```
 
+##### Removing old linux kernels (when /boot almost full...)
+```bash
+1. uname -a  #check current kernel, which should NOT be removed
+2. sudo apt-get purge linux-image-X.X.X-X-generic  #replace old version
+```
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
