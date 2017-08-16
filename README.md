@@ -1394,6 +1394,11 @@ or 'n':
 ```bash
 yes n
 ```
+or 'anything':
+```bash
+yes anything
+```
+
 For example: 
 ```bash
 yes | rm -r large_directory
