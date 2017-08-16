@@ -1394,8 +1394,10 @@ or 'n':
 ```bash
 yes n
 ```
-
-
+For example: 
+```bash
+yes | rm -r large_directory
+``` 
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 
