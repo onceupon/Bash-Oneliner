@@ -1886,4 +1886,10 @@ sudo gpasswd -a nice docker
 2. sudo apt-get purge linux-image-X.X.X-X-generic  #replace old version
 ```
 
+
+##### Change hostname
+```bash
+sudo hostname your-new-name
+```
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
