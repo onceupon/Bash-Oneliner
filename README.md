@@ -1408,6 +1408,7 @@ yes | rm -r large_directory
 ```bash
 dd if=/dev/zero of=//dev/shm/200m bs=1024k count=200
 ``` 
+
 Standard output:
 200+0 records in 
 200+0 records out 
