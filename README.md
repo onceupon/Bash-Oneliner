@@ -1892,4 +1892,13 @@ sudo gpasswd -a nice docker
 sudo hostname your-new-name
 ```
 
+##### List installed packages
+```bash
+apt list --installed
+```
+or Red Hat: 
+```bash
+yum list installed
+```
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
