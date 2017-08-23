@@ -1403,6 +1403,18 @@ For example:
 ```bash
 yes | rm -r large_directory
 ``` 
+
+##### Create dummy file of certain size instantly (e.g. 200mb)
+```bashdd if=/dev/zero of=//dev/shm/200m bs=1024k count=200
+``` 
+Standard output:
+200+0 records in 
+200+0 records out 
+209715200 bytes (210 MB) copied, 0.0955679 s, 2.2 GB/s 
+
+
+
+
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 
