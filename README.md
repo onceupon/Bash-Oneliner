@@ -1900,6 +1900,12 @@ hostnamectl
 
 check /etc/hostname  
 
+if still not working..., edit:  
+/etc/sysconfig/network  
+/etc/sysconfig/network-scripts/ifcfg-ensxxx  
+add HOSTNAME="your-new-hostname"  
+  
+
 ##### List installed packages
 ```bash
 apt list --installed
