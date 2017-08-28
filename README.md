@@ -1891,6 +1891,12 @@ sudo gpasswd -a nice docker
 ```bash
 sudo hostname your-new-name
 ```
+if not working, do also:  
+```bash
+hostnamectl set-hostname your-new-hostname
+```
+and edit /etc/hostname by replacing your new hostname  
+
 
 ##### List installed packages
 ```bash
