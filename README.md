@@ -1895,8 +1895,10 @@ if not working, do also:
 ```bash
 hostnamectl set-hostname your-new-hostname
 ```
-and edit /etc/hostname by replacing your new hostname  
+then run:  
+hostnamectl
 
+check /etc/hostname  
 
 ##### List installed packages
 ```bash
