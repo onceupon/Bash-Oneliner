@@ -1136,6 +1136,7 @@ rsync -av filename filename.bak
 rsync -av directory directory.bak
 rsync -av --ignore_existing directory/ directory.bak
 rsync -av --update directory directory.bak
+rsync -av directory user@ip_address:/path/to/directory.bak
 ```
 //skip files that are newer on receiver (i prefer this one!)
 
