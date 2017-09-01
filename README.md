@@ -1915,8 +1915,11 @@ or Red Hat:
 ```bash
 yum list installed
 ```
-##### My tutorial for setting up your own DNS server
+##### Tutorial for setting up your own DNS server
 http://onceuponmine.blogspot.tw/2017/08/set-up-your-own-dns-server.html
+
+##### Tutorial for creating a simple daemon
+http://onceuponmine.blogspot.tw/2017/07/create-your-first-simple-daemon.html
 
 
 
