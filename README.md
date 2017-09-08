@@ -1415,6 +1415,15 @@ Standard output:
 200+0 records out  
 209715200 bytes (210 MB) copied, 0.0955679 s, 2.2 GB/s  
 
+##### Cat to a file
+```bash
+cat >myfile
+let me add sth here
+exit by control + c
+^C
+``` 
+
+
 
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
