@@ -1470,7 +1470,7 @@ set -x; echo `expr 10 + 20 `
 
 ##### Print some meaningful sentences to you (install fortune first)
 ```bash
-fortune`
+fortune
 ``` 
 ##### Colorful (and useful) version of top (install htop first)
 ```bash
