@@ -1423,7 +1423,15 @@ exit by control + c
 ^C
 ``` 
 
+##### Keep /repeatedly executing the same command (e.g Repeat 'wc -l filename' every 1 second)
+```bash
+watch -n 1 wc -l filename
+``` 
 
+##### Print commands and their arguments when execute (e.g. echo `expr 10 + 20 `)
+```bash
+set -x; echo `expr 10 + 20 `
+``` 
 
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
