@@ -19,6 +19,7 @@ http://onceupon.github.io/Bash-Oneliner/
 - [Xargs](#xargs)
 - [Find](#find)
 - [Loops](#loops)
+- [Math](#math)
 - [Download](#download)
 - [Random](#random)
 - [Xwindow](#xwindow)
@@ -736,6 +737,40 @@ fi
 for i in $(ls); do echo file $i;done
 ```
 
+## Math
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+##### Print out the prime factors of a number (e.g. 50)
+```bash
+factor 50
+```
+
+##### Simple math with expr
+```bash
+expr 10+20 #30
+expr 10\*20 #600
+expr 30 \> 20 #1 (true)
+```
+
+##### More math with bc
+
+- Number of decimal digit/ significant figure  
+```bash
+echo "scale=2;2/3" | bc  
+#.66
+```
+- Exponent operator  
+```bash
+echo "10^2" | bc  
+#100
+```
+
+- Using variables   
+```bash
+echo "var=5;--var"| bc  
+#4
+```
+
+
 
 ## Download
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
@@ -1431,6 +1466,15 @@ watch -n 1 wc -l filename
 ##### Print commands and their arguments when execute (e.g. echo `expr 10 + 20 `)
 ```bash
 set -x; echo `expr 10 + 20 `
+``` 
+
+##### Print some meaningful sentences to you (install fortune first)
+```bash
+fortune`
+``` 
+##### Colorful (and useful) version of top (install htop first)
+```bash
+htop
 ``` 
 
 ## System
