@@ -883,6 +883,7 @@ xorg-x11-utils
 ```bash
 xclock
 xeyes
+xcowsay
 ```
 
 ##### Open pictures/images from ssh server
