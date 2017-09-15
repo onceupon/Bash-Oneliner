@@ -1,7 +1,7 @@
 # Bash-Oneliner
 Hi bash learners and bioinformaticans, welcome to Bash Oneliner. I started studying bioinformatics data three years ago (recently started working on cloud computing), and was amazed by those single-word bash commands which are much faster than my dull scripts, so i started bash. Not all the code here is oneliner (if the ';' counts..), but i put effort on making them brief and fast. 
 
-This blog will focus on simple bash commands for parsing data, most of which are for tsv files (tab-separated values); some of them are for Linux system maintaining. I apologize that there won't be any citation for the codes, but they are probably from dear Google and Stackoverflow.
+This blog will focus on simple bash commands for parsing data, most of which are for tsv files (tab-separated values); some of them are for Linux system maintenance. I apologize that there won't be any citation for the codes, but they are probably from dear Google and Stackoverflow.
 
 English and bash are not my first language, so... correct me anytime, thank you
 
