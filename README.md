@@ -1977,6 +1977,12 @@ or Red Hat:
 ```bash
 yum list installed
 ```
+
+##### Check which file make the device busy on umount
+```bash
+lsof /mnt/dir
+```
+
 ##### Tutorial for setting up your own DNS server
 http://onceuponmine.blogspot.tw/2017/08/set-up-your-own-dns-server.html
 
