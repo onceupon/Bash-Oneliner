@@ -370,7 +370,7 @@ awk '$1~/,/ {print}'
 ##### Split and do for loop
     
 ```bash
-awk '{split($2, a,",");for (i in a) print $1"\t"a[i]} filename 
+awk '{split($2, a,",");for (i in a) print $1"\t"a[i]}' filename 
 ```
 
 ##### Print all lines before nth occurence of a string (e.g stop print lines when bbo appears 7 times)
@@ -381,7 +381,7 @@ awk -v N=7 '{print}/bbo/&& --N<=0 {exit}'
 
 ##### Print filename and last line of all files in directory
 ```bash
-ls|xargs -n1 -I file awk '{s=$0};END{print FILENAME,s}' file'
+ls|xargs -n1 -I file awk '{s=$0};END{print FILENAME,s}' file
 ```
 
 ##### Add string to the beginning of a column (e.g add "chr" to column $3)
