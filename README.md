@@ -340,7 +340,7 @@ awk -v OFS='\t'
 
 ```bash
 a=bbo;b=obb;
-awk -v a="$a" -v b="$b" "$1==a && $10=b' filename 
+awk -v a="$a" -v b="$b" "$1==a && $10=b" filename 
 ```
 
 ##### Print line number and number of characters on each line
