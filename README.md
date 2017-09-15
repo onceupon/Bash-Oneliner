@@ -8,7 +8,7 @@ English and bash are not my first language, so... correct me anytime, thank you
 In case you would like to check and vote up my questions on Stackoverflow, here's my page:
 http://stackoverflow.com/users/4290753/once
 
-Here's a more stylish version~
+Here's a more stylish version of Bash-Oneliner~
 http://onceupon.github.io/Bash-Oneliner/
 
 ## Handy Bash oneliner commands for tsv file editing
