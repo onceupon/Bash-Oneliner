@@ -1983,11 +1983,22 @@ yum list installed
 lsof /mnt/dir
 ```
 
+
+##### When sound not working
+```bash
+killall pulseaudio
+```
+then press Alt-F2 and type in pulseaudio  
+
+
 ##### Tutorial for setting up your own DNS server
 http://onceuponmine.blogspot.tw/2017/08/set-up-your-own-dns-server.html
 
 ##### Tutorial for creating a simple daemon
 http://onceuponmine.blogspot.tw/2017/07/create-your-first-simple-daemon.html
+
+
+
 
 
 
