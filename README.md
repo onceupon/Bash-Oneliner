@@ -737,6 +737,11 @@ fi
 for i in $(ls); do echo file $i;done
 ```
 
+##### for loop, press any key to continue each loop
+```bash
+for i in $(cat tpc_stats_0925.log |grep failed|grep -o '\query\w\{1,2\}');do read -rsp $'Press any key to continue...\n' -n1 key;cat ${i}.log;done
+```
+
 ## Math
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 ##### Print out the prime factors of a number (e.g. 50)
@@ -1476,6 +1481,10 @@ fortune
 ##### Colorful (and useful) version of top (install htop first)
 ```bash
 htop
+``` 
+##### Press any key to continue
+```bash
+read -rsp $'Press any key to continue...\n' -n1 key
 ``` 
 
 ## System
