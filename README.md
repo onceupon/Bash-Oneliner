@@ -1496,28 +1496,45 @@ q -d "," "select c3,c4,c5 from /path/to/file.txt where c3='foo' and c5='boo'"
 ``` 
 
 ##### Sreen and tmux
+create session and attach
+```bash
+screen
+or  
+tmux
+``` 
+
 create detached session foo  
 ```bash
 screen -S foo -d -m	
+or  
 tmux new -s foo -d
 ``` 
 
 list sessions  
 ```bash
 screen -ls	
+or  
 tmux ls
 ``` 
 
 attach  
 ```bash
 screen -r	
+or  
 tmux attach
 ``` 
 
 attach to session foo  
 ```bash
+or  
 screen -r foo	
 tmux attach -t foo
+``` 
+kill session foo
+```bash
+screen -r foo -X quit
+or  
+tmux kill-session -t foo
 ``` 
 
 ## System
