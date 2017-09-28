@@ -1526,8 +1526,8 @@ tmux attach
 
 attach to session foo  
 ```bash
-or  
 screen -r foo	
+or 
 tmux attach -t foo
 ``` 
 kill session foo
