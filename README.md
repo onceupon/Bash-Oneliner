@@ -295,6 +295,11 @@ for i in T000086_1.02.n T000086_1.02.p;do sed "s/$/\t${i/*./}/" $i;done >T000086
 sed ':a;N;$!ba;s/\n//g'
 ```
 
+##### Print a particular line (e.g. 123th line)
+```bash
+sed -n -e '123p'
+```
+
 ##### Print a number of lines (e.g. line 10th to line 33 rd)
     
 ```bash
@@ -1498,46 +1503,50 @@ q -d "," "select c3,c4,c5 from /path/to/file.txt where c3='foo' and c5='boo'"
 ``` 
 
 ##### Sreen and tmux
-create session and attach
+create session and attach:
 ```bash
 screen
 or  
 tmux
 ``` 
 
-create detached session foo  
+create detached session foo:  
 ```bash
 screen -S foo -d -m	
 or  
 tmux new -s foo -d
 ``` 
 
-list sessions  
+list sessions:  
 ```bash
 screen -ls	
 or  
 tmux ls
 ``` 
 
-attach  
+attach:  
 ```bash
 screen -r	
 or  
 tmux attach
 ``` 
 
-attach to session foo  
+attach to session foo:  
 ```bash
 screen -r foo	
 or 
 tmux attach -t foo
 ``` 
-kill session foo
+kill session foo:
 ```bash
 screen -r foo -X quit
 or  
 tmux kill-session -t foo
 ``` 
+scroll:
+Hit your screen prefix combination (C-a / control+A), then hit Escape.
+Move up/down with the arrow keys (↑ and ↓).
+
 
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
