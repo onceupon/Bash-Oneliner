@@ -1504,7 +1504,7 @@ tmux new -s foo -d
 
 list sessions  
 ```bash
-screen -list	
+screen -ls	
 tmux ls
 ``` 
 
