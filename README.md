@@ -1487,6 +1487,39 @@ htop
 read -rsp $'Press any key to continue...\n' -n1 key
 ``` 
 
+##### Run sql-like command on files from terminal
+download:  
+https://github.com/harelba/q  
+example:
+```bash
+q -d "," "select c3,c4,c5 from /path/to/file.txt where c3='foo' and c5='boo'"
+``` 
+
+##### Sreen and tmux
+create detached session foo  
+```bash
+screen -S foo -d -m	
+tmux new -s foo -d
+``` 
+
+list sessions  
+```bash
+screen -list	
+tmux ls
+``` 
+
+attach  
+```bash
+screen -r	
+tmux attach
+``` 
+
+attach to session foo  
+```bash
+screen -r foo	
+tmux attach -t foo
+``` 
+
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 
