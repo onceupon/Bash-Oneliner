@@ -869,7 +869,8 @@ echo $(((RANDOM %10)+1))
 ```
 
 ## Xwindow
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]  
+
 X11 GUI applications! Here are some GUI tools for you if you get bored by the text-only environment.  
 
 
