@@ -1557,6 +1557,12 @@ scroll:
 Hit your screen prefix combination (C-a / control+A), then hit Escape.
 Move up/down with the arrow keys (↑ and ↓).
 
+##### Add line number
+```bash
+nl
+e.g. cat filename|cut -f2|nl
+``` 
+
 
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
