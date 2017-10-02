@@ -1562,6 +1562,10 @@ Move up/down with the arrow keys (↑ and ↓).
 nl
 e.g. cat filename|cut -f2|nl
 ``` 
+##### Cut the last column
+```bash
+cat filename|rev|cut -f1|rev
+``` 
 
 
 ## System
