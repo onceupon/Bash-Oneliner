@@ -142,6 +142,16 @@ http://www.cyberciti.biz/faq/grep-regular-expressions/
 ## Sed
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 
+##### Remove the 1st line
+```bash
+sed 1d filename
+```
+
+##### Remove the 100 lines (remove line 1-100)
+```bash
+sed 1,100d filename
+```
+
 ##### Remove lines with word (e.g. bbo)
     
 ```bash
@@ -163,7 +173,7 @@ sed "1i >$i"
 //'1i' means insert to first line
 
 
-##### Delete empty lines
+##### Delete/remove empty lines
     
 ```bash
 sed '/^\s*$/d' 
@@ -173,13 +183,13 @@ or
 ```bash
 sed 's/^$/d' 
 ```
-##### Delete last line
+##### Delete/remove last line
    
 ```bash
 sed '$d' 
 ```
 
-##### Delete last character from end of file
+##### Delete/remove last character from end of file
 ```bash
 sed -i '$ s/.$//' filename
 ```
