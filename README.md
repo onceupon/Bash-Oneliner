@@ -1046,7 +1046,7 @@ some_commands 2>&1 >>outfile
 ##### Send mail
     
 ```bash
-echo 'heres the content'| mail -A 'file.txt' -s 'mail.subject' me@gmail.com
+echo 'heres the content'| mail -a /path/to/attach_file.txt -s 'mail.subject' me@gmail.com
 ```
 //use -a flag to set send from (-a "From: some@mail.tld")
 
