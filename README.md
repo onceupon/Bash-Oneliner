@@ -2080,6 +2080,20 @@ killall pulseaudio
 ```
 then press Alt-F2 and type in pulseaudio  
 
+##### When sound not working
+```bash
+killall pulseaudio
+```
+
+##### Finding Out Hardware Details Without Opening The Computer Case (e.g. memory device detail)
+```bash
+sudo dmidecode -t memory
+```
+ ##### lists information about SCSI devices in Linux
+```bash
+lsscsi
+```
+
 
 ##### Tutorial for setting up your own DNS server
 http://onceuponmine.blogspot.tw/2017/08/set-up-your-own-dns-server.html
@@ -2087,8 +2101,8 @@ http://onceuponmine.blogspot.tw/2017/08/set-up-your-own-dns-server.html
 ##### Tutorial for creating a simple daemon
 http://onceuponmine.blogspot.tw/2017/07/create-your-first-simple-daemon.html
 
-
-
+##### Tutorial for using your gmail to send email
+http://onceuponmine.blogspot.tw/2017/10/setting-up-msmtprc-and-use-your-gmail.html
 
 
 
