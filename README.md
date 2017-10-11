@@ -88,7 +88,12 @@ grep -Rh bbo /path/to/directory
 or
 ```bash    
 grep -rh bbo /path/to/directory 
+```  
+or only list filename with match
+```bash
+grep -rl bbo /path/to/directory
 ```
+
 
 ##### Grep OR (e.g. A or B or C or D)
     
@@ -661,6 +666,12 @@ ls|xargs wc -l
 ```bash
 cat grep_list |xargs -I{} grep {} filename
 ```
+
+##### Xargs and sed (replace all old ip address with new ip address under /etc directory)
+```bash
+grep -rl '192.168.1.111' /etc | xargs sed -i 's/192.168.1.111/192.168.2.111/g'
+```
+
 
 ## Find 
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
