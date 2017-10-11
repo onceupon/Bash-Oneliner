@@ -1466,6 +1466,8 @@ yes | rm -r large_directory
 ##### Create dummy file of certain size instantly (e.g. 200mb)
 ```bash
 dd if=/dev/zero of=//dev/shm/200m bs=1024k count=200
+or
+dd if=/dev/zero of=//dev/shm/200m bs=1M count=200
 ``` 
 
 Standard output:  
