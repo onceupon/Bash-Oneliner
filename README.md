@@ -1579,6 +1579,10 @@ e.g. cat filename|cut -f2|nl
 ```bash
 cat filename|rev|cut -f1|rev
 ``` 
+ ##### pass password to ssh
+```bash
+sshpass -p mypassword ssh root@10.102.14.88 "df -h"
+```
 
 
 ## System
@@ -2116,9 +2120,10 @@ http://onceuponmine.blogspot.tw/2017/07/create-your-first-simple-daemon.html
 ##### Tutorial for using your gmail to send email
 http://onceuponmine.blogspot.tw/2017/10/setting-up-msmtprc-and-use-your-gmail.html
 
- ##### pass password to ssh
+ ##### Using telnet to test open ports, test if you can connect to a port (e.g 53) of a server (e.g 192.168.2.106)
 ```bash
-sshpass -p mypassword ssh root@10.102.14.88 "df -h"
+telnet 192.168.2.106 53
 ```
+
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
