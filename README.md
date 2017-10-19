@@ -2107,7 +2107,6 @@ sudo dmidecode -t memory
 lsscsi
 ```
 
-
 ##### Tutorial for setting up your own DNS server
 http://onceuponmine.blogspot.tw/2017/08/set-up-your-own-dns-server.html
 
@@ -2117,6 +2116,9 @@ http://onceuponmine.blogspot.tw/2017/07/create-your-first-simple-daemon.html
 ##### Tutorial for using your gmail to send email
 http://onceuponmine.blogspot.tw/2017/10/setting-up-msmtprc-and-use-your-gmail.html
 
-
+ ##### pass password to ssh
+```bash
+sshpass -p mypassword ssh root@10.102.14.88 "df -h"
+```
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
