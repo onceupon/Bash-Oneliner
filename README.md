@@ -1540,6 +1540,14 @@ or
 tmux new -s foo -d
 ``` 
 
+detached session foo:  
+```bash
+screen: ^a^d
+or  
+tmux: ^bd
+``` 
+
+
 list sessions:  
 ```bash
 screen -ls	
