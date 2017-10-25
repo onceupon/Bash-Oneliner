@@ -756,6 +756,10 @@ then
 fi
 ```
 
+##### if else Test if file exist
+```bash
+ if [ -e $filename ]; then echo -e "file exists!"; else mkdir $filename; fi
+```
 
 ##### For loop
     
