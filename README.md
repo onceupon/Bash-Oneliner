@@ -2132,6 +2132,11 @@ http://onceuponmine.blogspot.tw/2017/10/setting-up-msmtprc-and-use-your-gmail.ht
 ```bash
 telnet 192.168.2.106 53
 ```
+##### change network maximum transmission unit (mtu) (e.g. change to 9000) 
+```bash
+ifconfig eth0 mtu 9000
+```
+
 
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
