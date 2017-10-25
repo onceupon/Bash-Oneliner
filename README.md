@@ -768,6 +768,13 @@ for i in $(ls); do echo file $i;done
 for i in $(cat tpc_stats_0925.log |grep failed|grep -o '\query\w\{1,2\}');do cat ${i}.log; read -rsp $'Press any key to continue...\n' -n1 key;done
 ```
 
+##### for loop, print a file line by line
+```bash
+for line in $(cat myfile); do echo $line; read -n1; done
+```
+
+
+
 ## Math
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 ##### Print out the prime factors of a number (e.g. 50)
