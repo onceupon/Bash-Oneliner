@@ -745,6 +745,13 @@ while read a b c; do echo $(($c-$b));done < <(head filename)
 i=0; while read a b c; do ((i+=$c-$b)); echo $i; done < <(head filename)
 ```
 
+##### While loop, keep checking a running process (e.g. perl) and start another new process (e.g. python) immetiately after it.
+    
+```bash
+while [[ $(pidof perl) ]];do echo f;sleep 10;done && python timetorunpython.py
+```
+
+
 ##### If loop
     
 ```bash
@@ -2160,7 +2167,14 @@ telnet 192.168.2.106 53
 ```bash
 ifconfig eth0 mtu 9000
 ```
-
+##### get pid of a running process (e.g python) 
+```bash
+pidof python
+```
+or  
+```bash
+ps aux|grep python
+```
 
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
