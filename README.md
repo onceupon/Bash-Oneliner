@@ -1444,9 +1444,12 @@ cat file.fastq | paste - - - - | sed 's/^@/>/g'| cut -f1-2 | tr '\t' '\n' >file.
 cat file|rev | cut -d/ -f1 | rev
 ```
 
-##### Add one to variable/increment a numeric variable (e.g. $var)
+##### Add one to variable/increment/ i++ a numeric variable (e.g. $var) 
 ```bash
 ((var++))
+or
+var=$((var+1))
+
 ```
 
 ##### Some handy environment variables
