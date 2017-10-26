@@ -39,6 +39,13 @@ grep -o -P '(?<=w1).*(?=w2)'
 grep -v bbo filename
 ```
 
+##### Grep variables with space within it (e.g. bbo="some strings")
+     
+```bash
+grep "$boo" filename
+```
+#remember to quote the variable!  
+
 ##### Grep only one/first match (e.g. bbo)
 
 ```bash
