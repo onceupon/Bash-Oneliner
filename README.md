@@ -157,10 +157,13 @@ sed 1d filename
 sed 1,100d filename
 ```
 
-##### Remove lines with word (e.g. bbo)
+##### 
+remove lines with string (e.g. bbo)
     
 ```bash
 sed "/bbo/d" filename
+- case insensitive:
+sed "/bbo/Id" filename
 ```
 
 ##### Edit infile (edit and save)
