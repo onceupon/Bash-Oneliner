@@ -1323,6 +1323,12 @@ e.g. replace all
 {i//a/,}
 ```
 //for variable i, replace all 'a' with a comma
+e.g. with grep
+```bash
+ test="god the father"
+ grep ${test// /\\\|} file.txt
+ #turning the space into 'or' (\|) in grep
+```
 
 ##### Read user input
     
