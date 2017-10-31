@@ -2181,6 +2181,16 @@ or
 ```bash
 ps aux|grep python
 ```
+##### ntp
+start ntp:  
+```bash
+ntpd
+```
+check ntp:  
+```bash
+ntpq -p
+```
+
 
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
