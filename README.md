@@ -33,6 +33,13 @@ http://onceupon.github.io/Bash-Oneliner/
 grep -o -P '(?<=w1).*(?=w2)'
 ```
 
+#####  Grep only integer
+    
+```bash
+grep -o '[0-9]*'
+```
+
+
 ##### Grep lines without word (e.g. bbo)
      
 ```bash
