@@ -2197,7 +2197,17 @@ check ntp:
 ```bash
 ntpq -p
 ```
-
+##### remove unnecessary files to clean your server
+```bash
+sudo apt-get autoremove
+sudo apt-get clean
+sudo rm -rf ~/.cache/thumbnails/*
+```
+Remove old kernal:
+```bash
+sudo dpkg --list 'linux-image*'
+sudo apt-get remove linux-image-OLDER_VERSION
+```
 
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
