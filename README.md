@@ -3,7 +3,7 @@ Hi bash learners and bioinformaticans, welcome to Bash Oneliner. I started study
 
 This blog will focus on simple bash commands for parsing data, most of which are for tsv files (tab-separated values); some of them are for Linux system maintenance. I apologize that there won't be any citation for the codes, but they are probably from dear Google and Stackoverflow.
 
-English and bash are not my first language, so... correct me anytime, thank you
+English and bash are not my first language, so... correct me anytime, thank you!  
 And if you know any cool commands that are not included here, Please Teach Me.
 
 In case you would like to check and vote up my questions on Stackoverflow, here's my page:
