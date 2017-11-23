@@ -1632,11 +1632,11 @@ e.g. cat filename|cut -f2|nl
 ```bash
 cat filename|rev|cut -f1|rev
 ``` 
- ##### pass password to ssh
+##### pass password to ssh
 ```bash
 sshpass -p mypassword ssh root@10.102.14.88 "df -h"
 ```
- ##### wait for a pid (job) to complete
+##### wait for a pid (job) to complete
 ```bash
 wait %1 
 or 
