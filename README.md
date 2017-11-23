@@ -752,7 +752,7 @@ while read a b c; do echo $(($c-$b));done < <(head filename)
 i=0; while read a b c; do ((i+=$c-$b)); echo $i; done < <(head filename)
 ```
 
-##### While loop, keep checking a running process (e.g. perl) and start another new process (e.g. python) immetiately after it.
+##### While loop, keep checking a running process (e.g. perl) and start another new process (e.g. python) immetiately after it. (BETTER use the wait command! Ctrl+F 'wait')
     
 ```bash
 while [[ $(pidof perl) ]];do echo f;sleep 10;done && python timetorunpython.py
@@ -1634,6 +1634,14 @@ cat filename|rev|cut -f1|rev
  ##### pass password to ssh
 ```bash
 sshpass -p mypassword ssh root@10.102.14.88 "df -h"
+```
+ ##### wait for a pid (job) to complete
+```bash
+wait %1 
+or 
+wait $PID
+wait ${!}
+#wait ${!} to wait till the last background process ($! is the PID of the last background process)
 ```
 
 
