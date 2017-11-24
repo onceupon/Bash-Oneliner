@@ -266,6 +266,13 @@ sed -n '/^@S/p'
 ```bash
 sed '/bbo/d' filename 
 ```
+
+##### Print/get/trim a range of line (e.g. line 500-5000)
+    
+```bash
+sed -n 500,5000p filename
+```
+
 ##### Print every nth lines
     
 ```bash
