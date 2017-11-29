@@ -47,6 +47,12 @@ grep -o '[0-9]*'
 grep -v bbo filename
 ```
 
+##### Grep lines not begin with string (e.g. #)
+     
+```bash
+grep -v '^#' file.txt
+```
+
 ##### Grep variables with space within it (e.g. bbo="some strings")
      
 ```bash
