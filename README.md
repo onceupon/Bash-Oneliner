@@ -1651,6 +1651,11 @@ wait $PID
 wait ${!}
 #wait ${!} to wait till the last background process ($! is the PID of the last background process)
 ```
+##### pdf to txt
+```bash
+sudo apt-get install poppler-utils
+pdftotext example.pdf example.txt
+```
 
 
 ## System
