@@ -2244,4 +2244,11 @@ lvextend -L +130G /dev/rhel/root -r
 #Adding -r will grow filesystem after resizing the volume.  
 
 
+##### Create a UEFI Bootable USB drive (e.g. /dev/sdc1)
+```bash
+sudo dd if=~/path/to/isofile.iso of=/dev/sdc1 oflag=direct bs=1048576
+```
+
+
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
