@@ -2236,5 +2236,12 @@ sudo dpkg --list 'linux-image*'
 sudo apt-get remove linux-image-OLDER_VERSION
 ```
 
+##### Increase/ resize root partition (root partition is an LVM logical volume)
+```bash
+pvscan
+lvextend -L +130G /dev/rhel/root -r
+```
+#Adding -r will grow filesystem after resizing the volume.  
+
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
