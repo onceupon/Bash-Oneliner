@@ -447,12 +447,6 @@ awk 'BEGIN{OFS="\t"}$3="chr"$3'
 awk '!/bbo/' file 
 ```
 
-##### Column subtraction
-    
-```bash
-cat file| awk -F '\t' 'BEGIN {SUM=0}{SUM+=$3-$2}END{print SUM}'
-```
-
 ##### Usage and meaning of NR and FNR
 e.g.  
 fileA:  
@@ -823,6 +817,18 @@ for line in $(cat myfile); do echo $line; read -n1; done
 ```bash
 factor 50
 ```
+##### Sum up input list (e.g. seq 10)
+    
+```bash
+seq 10|paste -sd+|bc
+```
+
+##### Column subtraction
+    
+```bash
+cat file| awk -F '\t' 'BEGIN {SUM=0}{SUM+=$3-$2}END{print SUM}'
+```
+
 
 ##### Simple math with expr
 ```bash
@@ -849,6 +855,7 @@ echo "10^2" | bc
 echo "var=5;--var"| bc  
 #4
 ```
+
 
 
 
@@ -1362,12 +1369,6 @@ echo $input
     
 ```bash
 seq 10
-```
-
-##### Sum up input list (e.g. seq 10)
-    
-```bash
-seq 10|paste -sd+|bc
 ```
 
 ##### Find average of input list/file
