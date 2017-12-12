@@ -522,12 +522,6 @@ detail here:　http://stackoverflow.com/questions/33408762/bash-turning-single-c
 awk '{split($2,a,",");for(i in a)print $1"\t"a[i]}' file
 ```
 
-##### Sum up a file (each line in file contains only one number)
-
-```bash
-awk '{s+=$1} END {print s}' filename
-```
-
 ##### Average a file (each line in file contains only one number)
 ```bash
 awk '{s+=$1}END{print s/NR}'
@@ -822,6 +816,13 @@ factor 50
 ```bash
 seq 10|paste -sd+|bc
 ```
+
+##### Sum up a file (each line in file contains only one number)
+
+```bash
+awk '{s+=$1} END {print s}' filename
+```
+
 
 ##### Column subtraction
     
