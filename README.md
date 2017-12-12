@@ -2267,6 +2267,8 @@ ssh -f -L 9000:targetservername:8088 root@192.168.14.72 -N
 ##### Count the number of Segate hard disks
 ```bash
 lsscsi|grep SEAGATE|wc -l
+or
+sg_map -i -x|grep SEAGATE|wc -l
 ```
 
 ##### Print detail of memory hardware
