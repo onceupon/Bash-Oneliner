@@ -2248,7 +2248,19 @@ lvextend -L +130G /dev/rhel/root -r
 ```bash
 sudo dd if=~/path/to/isofile.iso of=/dev/sdc1 oflag=direct bs=1048576
 ```
+##### Locate and remove a package
+```bash
+sudo dpkg -l | grep <package_name>
+sudo dpkg --purge <package_name>
+```
 
+##### Create a ssh tunnel
+```bash
+ssh -f -L 9000:targetservername:8088 root@192.168.14.72 -N
+```
+#-f: run in background; -L: Listen; -N: do nothing  
+#the 9000 of your computer is now connected to the 8088 port of the targetservername through 192.168.14.72  
+#so that you can see the content of targetservername:8088 by entering localhost:9000 from your browser.  
 
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
