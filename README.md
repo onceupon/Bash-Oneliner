@@ -1638,6 +1638,12 @@ scroll:
 Hit your screen prefix combination (C-a / control+A), then hit Escape.
 Move up/down with the arrow keys (↑ and ↓).
 
+Send command to all panes in tmux:
+```bash
+Ctrl-B :
+setw synchronize-panes
+``` 
+
 ##### Add line number
 ```bash
 nl
