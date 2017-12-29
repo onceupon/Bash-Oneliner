@@ -1058,6 +1058,11 @@ nl -nrz fileA
 ```
 //add leading zeros
 
+or  
+```bash
+nl -w1 -s ' '
+```
+//making it simple, blank seperated
 
 ##### Combine/ paste two files (e.g. fileA, fileB)
     
