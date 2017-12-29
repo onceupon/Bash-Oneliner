@@ -262,6 +262,12 @@ sed -s '$a,' *.json > all.json
 ```bash
 sed 's/A/B/g' filename 
 ```
+
+##### Substitution with wildcard (e.g. replace a line start with aaa= by aaa=/my/new/path)
+```bash
+sed "s/aaa=.*/aaa=\/my\/new\/path/g"
+```
+
 ##### Select lines start with string (e.g. bbo)
     
 ```bash
