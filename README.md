@@ -1681,7 +1681,10 @@ wait ${!}
 sudo apt-get install poppler-utils
 pdftotext example.pdf example.txt
 ```
-
+##### list only directory
+```bash
+ls -ld -- */
+```
 
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
