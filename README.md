@@ -1654,12 +1654,6 @@ Send command to all panes in tmux:
 Ctrl-B :
 setw synchronize-panes
 ``` 
-
-##### Add line number
-```bash
-nl
-e.g. cat filename|cut -f2|nl
-``` 
 ##### Cut the last column
 ```bash
 cat filename|rev|cut -f1|rev
