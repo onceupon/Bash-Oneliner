@@ -1680,6 +1680,14 @@ pdftotext example.pdf example.txt
 ls -ld -- */
 ```
 
+##### Capture/record/save terminal output (capture everything you type and output)
+```bash
+script output.txt
+#start using terminal 
+#to logout the screen session (stop saving the contents), type exit.
+```
+
+
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 
