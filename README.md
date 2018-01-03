@@ -1438,6 +1438,14 @@ scp -r directoryname user@ip:/path/to/send
 ```bash
 $ split -d -l 1000 bigfilename
 ```
+##### Create a large amount of dummy files (e.g 100000 files, 10 bytes each):
+```bash
+#1. Create a big file
+dd if=/dev/zero of=bigfile bs=1 count=1000000
+
+#2. Split the big file to 100000 10-bytes files
+ split -b 10 -a 10 bigfile
+```
 
 ##### Rename all files (e.g. remove ABC from all .gz files)
 ```bash
