@@ -2270,11 +2270,10 @@ sudo dpkg --purge <package_name>
 ##### Create a ssh tunnel
 ```bash
 ssh -f -L 9000:targetservername:8088 root@192.168.14.72 -N
-```
 #-f: run in background; -L: Listen; -N: do nothing  
 #the 9000 of your computer is now connected to the 8088 port of the targetservername through 192.168.14.72  
-#so that you can see the content of targetservername:8088 by entering localhost:9000 from your browser.  
-
+#so that you can see the content of targetservername:8088 by entering localhost:9000 from your browser.
+```
 ##### Count the number of Segate hard disks
 ```bash
 lsscsi|grep SEAGATE|wc -l
