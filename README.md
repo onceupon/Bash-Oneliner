@@ -144,9 +144,9 @@ grep $'\t'
 ```bash
 $echo "$long_str"|grep -q "$short_str"
 if [ $? -eq 0 ]; then echo 'found'; fi
+#grep -q will output 0 if match found  
+#remember to add space between []!
 ```
-//grep -q will output 0 if match found  
-//remember to add space between []!
 
 ##### Grep strings between a bracket()
 ```bash
@@ -156,8 +156,9 @@ grep -oP '\(\K[^\)]+'
 ##### Grep number of characters with known strings in between(e.g. AAEL000001-RA)
 ```bash
 grep -o -w "\w\{10\}\-R\w\{1\}"
+# \w word character [0-9a-zA-Z_] \W not word character 
 ```  
-// \w word character [0-9a-zA-Z_] \W not word character 
+
 
 
 ##### A lot examples here
@@ -197,11 +198,9 @@ e.g. add >$i to the first line (to make a FASTA file)
     
 ```bash
 sed "1i >$i"  
+# notice the double quotes! in other examples, you can use a single quote, but here, no way!   
+# '1i' means insert to first line
 ```
-//notice the double quotes! in other examples, you can use a single quote, but here, no way!   
-//'1i' means insert to first line
-
-
 ##### Delete/remove empty lines
     
 ```bash
@@ -289,8 +288,10 @@ sed -n 500,5000p filename
     
 ```bash
 sed -n '0~3p' filename
+
+# catch 0: start; 3: step
 ```
-//catch 0: start; 3: step
+
 
 
 ##### Print every odd # lines
@@ -315,10 +316,9 @@ sed -e 's/^[ \t]*//'
     
 ```bash
 sed 's/ *//'
+
+# notice a whitespace before '*'!!
 ```
-//notice a whitespace before '*'!!
-
-
 ##### Remove ending commas
     
 ```bash
@@ -328,9 +328,11 @@ sed 's/,$//g'
     
 ```bash
 sed "s/$/\t$i/"
+
+# $i is the valuable you want to add  
+# e.g. add the filename to every last column of the file  
 ```
-//$i is the valuable you want to add  
-e.g. add the filename to every last column of the file  
+
     
 ```bash
 for i in $(ls);do sed -i "s/$/\t$i/" $i;done
@@ -565,12 +567,10 @@ xargs -d\t
 
 ```bash
 echo 1 2 3 4 5 6| xargs -n 3
+# 1 2 3  
+# 4 5 6
+
 ```
-
-//1 2 3  
-  4 5 6
-
-
 ##### Prompt before execution
 
 ```bash
@@ -581,12 +581,10 @@ echo a b c |xargs -p -n 3
 
 ```bash
 xargs -t abcd
+# bin/echo abcd  
+# abcd
+
 ```
-
-///bin/echo abcd  
-//abcd
-
-
 ##### With find and rm
 
 ```bash
@@ -637,11 +635,11 @@ time echo {1..5} |xargs -n1 sleep
 
 ```bash
 find /dir/to/A -type f -name "*.py" -print 0| xargs -0 -r -I file cp -v -p file --target-directory=/path/to/B
+
+# v: verbose|  
+# p: keep detail (e.g. owner)
+
 ```
-
-//v: verbose|  
-//p: keep detail (e.g. owner)
-
 
 ##### With sed
 
@@ -671,9 +669,9 @@ ls -l| xargs
 
 ```bash
 echo mso{1..8}|xargs -n1 bash -c 'echo -n "$1:"; ls -la "$1"| grep -w 74 |wc -l' --
-```
-// "--" signals the end of options and display further option processing
 
+# "--" signals the end of options and display further option processing
+```
 
 ##### Download dependencies files and install (e.g. requirements.txt)
  
@@ -727,10 +725,8 @@ if no subdirectory
     
 ```bash
 replace "www" "w" -- *
+# a space before *
 ```
-//a space before *
-
-
 ##### Find and output only filename (e.g. "mso")
     
 ```bash
@@ -741,8 +737,10 @@ find mso*/ -name M* -printf "%f\n"
     
 ```bash
 find . -name "*.mso" -size -74c -delete
+
+# M for MB, etc
 ```
-//M for MB, etc
+
 
 
 ## Loops
@@ -751,9 +749,9 @@ find . -name "*.mso" -size -74c -delete
     
 ```bash
 while read a b c; do echo $(($c-$b));done < <(head filename)
-```
-//there is a space between the two '<'s
 
+#there is a space between the two '<'s
+```
 ##### While loop, sum up column subtraction
     
 ```bash
@@ -766,19 +764,17 @@ i=0; while read a b c; do ((i+=$c-$b)); echo $i; done < <(head filename)
 while [[ $(pidof perl) ]];do echo f;sleep 10;done && python timetorunpython.py
 ```
 
-
 ##### If loop
     
 ```bash
 if (($j==$u+2))
+#(( )) use for arithmetic operation
 ```
-//(( )) use for arithmetic operation
     
 ```bash
 if [[$age >21]]
+#[[ ]] use for comparison
 ```
-//[[ ]] use for comparison
-
 
 ##### Test if file exist
 ```bash
@@ -864,24 +860,23 @@ echo "var=5;--var"| bc
 ```
 
 
-
-
 ## Download
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 ##### Download all from a page
     
 ```bash
 wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.com
+
+# -r: recursive and download all links on page  
+# -l1: only one level link  
+# -H: span host, visit other hosts  
+# -t1: numbers of retries  
+# -nd: don't make new directories, download to here  
+# -N: turn on timestamp  
+# -nd: no parent  
+# -A: type (seperate by ,)  
+# -e robots=off: ignore the robots.txt file which stop wget from crashing the site, sorry example.com
 ```
-//-r: recursive and download all links on page  
-//-l1: only one level link  
-//-H: span host, visit other hosts  
-//-t1: numbers of retries  
-//-nd: don't make new directories, download to here  
-//-N: turn on timestamp  
-//-nd: no parent  
-//-A: type (seperate by ,)  
-//-e robots=off: ignore the robots.txt file which stop wget from crashing the site, sorry example.com  
 
 ##### Upload a file to web and download (https://transfer.sh/)
 --> upload:
@@ -1041,16 +1036,15 @@ tr /a-z/ /A-Z/
     
 ```bash
 diff fileA fileB
+# a: added; d:delete; c:changed
 ```
-//a: added; d:delete; c:changed
 
 or
 
 ```bash
 sdiff fileA fileB
+# side-to-side merge of file differences
 ```
-//side-to-side merge of file differences
-
 
 ##### Number a file (e.g. fileA)
 
@@ -1061,23 +1055,19 @@ or
 
 ```bash
 nl -nrz fileA
+# add leading zeros
 ```
-//add leading zeros
-
 or  
 ```bash
 nl -w1 -s ' '
+# making it simple, blank seperated
 ```
-//making it simple, blank seperated
-
 ##### Combine/ paste two files (e.g. fileA, fileB)
     
 ```bash
 paste fileA fileB
+# default tab seperated
 ```
-//default tab seperated
-
-
 ##### Reverse string
     
 ```bash
@@ -1118,17 +1108,15 @@ or
 
 ```bash
 some_commands 2>&1 >>outfile
+#0: standard input; 1: standard output; 2: standard error
 ```
-//0: standard input; 1: standard output; 2: standard error
-
 
 ##### Send mail
     
 ```bash
 echo 'heres the content'| mail -a /path/to/attach_file.txt -s 'mail.subject' me@gmail.com
+# use -a flag to set send from (-a "From: some@mail.tld")
 ```
-//use -a flag to set send from (-a "From: some@mail.tld")
-
 
 ##### .xls to csv
     
@@ -1211,9 +1199,8 @@ or
 
 ```bash
 !c
+# run cat filename again
 ```
-//run cat filename again
-
 
 ##### Extract .xf
     
@@ -1242,17 +1229,15 @@ or
 
 ```bash
 Alt+Shift+#
+# to make it to history
 ```
-//to make it to history
-
 
 ##### Add something to history (e.g. "addmetohistory")
     
 ```bash
 #addmetodistory
+#just add a "#" before~~
 ```
-//just add a "#" before~~
-
 
 ##### Sleep awhile or wait for a moment or schedule a job
     
@@ -1282,10 +1267,9 @@ rsync -av directory user@ip_address:/path/to/directory.bak
     
 ```bash
 mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat}
+# -p: make parent directory  
+# this will create project/doc/html/; project/doc/info; project/lib/ext ,etc
 ```
-//-p: make parent directory  
-//this will create project/doc/html/; project/doc/info; project/lib/ext ,etc
-
 
 ##### Run command only if another command returns zero exit status (well done)
     
@@ -1317,15 +1301,16 @@ cd tmp/a/b/c \
     
 ```bash
 VAR=$PWD; cd ~; tar xvf -C $VAR file.tar
+# PWD need to be capital letter
 ```
-//PWD need to be capital letter
 
 ##### List file type of file (e.g. /tmp/)
     
 ```bash
 file /tmp/
+# tmp/: directory
 ```
-//tmp/: directory
+
 
 
 ##### Bash script
@@ -1333,13 +1318,13 @@ file /tmp/
 ```bash
 #!/bin/bash
 file=${1#*.}
+# remove string before a "."
 ```
-//remove string before a "."
 
 ```bash
 file=${1%.*}
+# remove string after a "."
 ```
-//remove string after a "."
 
 ##### Search from history
     
@@ -1367,7 +1352,7 @@ e.g. with grep
 ```bash
  test="god the father"
  grep ${test// /\\\|} file.txt
- #turning the space into 'or' (\|) in grep
+ # turning the space into 'or' (\|) in grep
 ```
 
 ##### Read user input
@@ -1393,9 +1378,8 @@ i=`wc -l filename|cut -d ' ' -f1`; cat filename| echo "scale=2;(`paste -sd+`)/"$
     
 ```bash
 echo {1,2}{1,2}
+# 1 1, 1 2, 2 1, 2 2
 ```
-//1 1, 1 2, 2 1, 2 2
-
 ##### Generate all combination (e.g. A,T,C,G)
     
 ```bash
@@ -1750,8 +1734,8 @@ export PATH=$PATH:~/path/you/want
     
 ```bash
 chmod +x filename
+# you can now ./filename to execute it
 ```
-//you can now ./filename to execute it
 
 ##### List screen
     
@@ -1789,8 +1773,9 @@ passwd username
 ```bash
 1. joe ~/.bash_profile 
 2. export PS1='\u@\h:\w\$' 
+# $PS1 is a variable that defines the makeup and style of the command prompt 
 ```
-//$PS1 is a variable that defines the makeup and style of the command prompt 
+
 ```bash
 3. source ~/.bash_profile
 ```
@@ -1807,9 +1792,8 @@ passwd username
     
 ```bash
 $echo $PATH
+# list of directories separated by a colon
 ```
-//list of directories separated by a colon
-
 ##### List all environment variables for current user
     
 ```bash
@@ -1826,8 +1810,8 @@ lsblk
     
 ```bash
 ln -s /path/to/program /home/usr/bin
+# must be the whole path to the program
 ```
-//must be the whole path to the program
 
 ##### Show hexadecimal view of data
     
@@ -1947,22 +1931,22 @@ getent database_name
     
 ```bash
 getent passwd
+# list all user account (all local and LDAP)  
+# (e.g. fetch list of grop accounts)
 ```
-//list all user account (all local and LDAP)  
-(e.g. fetch list of grop accounts)
     
 ```bash
 getent group
+# store in database 'group'
 ```
-//store in database 'group'
 
 ##### Change owner of file
     
 ```bash
 chown user_name filename
 chown -R user_name /path/to/directory/
+# chown user:group filename
 ```
-//chown user:group filename
 
 ##### List current mount detail
     
@@ -2012,9 +1996,8 @@ if [$(id -u) -ne 0];then
     echo "You are not root!"
     exit;
 fi
+# 'id -u' output 0 if it's not root
 ```
-//'id -u' output 0 if it's not root
-
 ##### Find out CPU information
     
 ```bash
@@ -2039,11 +2022,10 @@ quota -v username
 ```
 
 ##### Fork bomb
-    
+# dont try this at home    
 ```bash
 :(){:|:&};:
 ```
-//dont try this at home
 
 ##### Check user login
     
@@ -2055,9 +2037,8 @@ lastlog
     
 ```bash
 joe /etc/environment
+# edit this file
 ```
-//edit this file
-
 ##### Show running processes
     
 ```bash
