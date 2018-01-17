@@ -1678,7 +1678,20 @@ script output.txt
 #start using terminal 
 #to logout the screen session (stop saving the contents), type exit.
 ```
-
+##### list contents of directories in a tree-like format.
+```bash
+tree
+#go to the directory you want to list, and type tree (sudo apt-get install tree)
+#output:
+#one/
+#└── two
+#    ├── 1
+#    ├── 2
+#    ├── 3
+#    ├── 4
+#    └── 5
+#
+```
 
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
