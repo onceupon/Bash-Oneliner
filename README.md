@@ -1518,6 +1518,12 @@ $!   :is the PID of the most recent background command.
 ```bash
 tar xvfj file.tar.bz2
 ```
+##### Unzip tar.xz file (e.g. file.tar.xz)
+```bash
+unxz file.tar.xz
+tar xopf file.tar
+```
+
 ##### Output a y/n repeatedly until killed 
 'y':
 ```bash
