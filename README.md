@@ -2217,11 +2217,11 @@ killall pulseaudio
 ```bash
 sudo dmidecode -t memory
 ```
- ##### lists information about SCSI devices
+ ##### List information about SCSI devices
 ```bash
 lsscsi
 ```
- ##### lists information about NIC
+ ##### List information about NIC
 ```bash
 lsscsi|grep -i 'ethernet'
 ```
