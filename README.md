@@ -2217,9 +2217,13 @@ killall pulseaudio
 ```bash
 sudo dmidecode -t memory
 ```
- ##### lists information about SCSI devices in Linux
+ ##### lists information about SCSI devices
 ```bash
 lsscsi
+```
+ ##### lists information about NIC
+```bash
+lsscsi|grep -i 'ethernet'
 ```
 
 ##### Tutorial for setting up your own DNS server
