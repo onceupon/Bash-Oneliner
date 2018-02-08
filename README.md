@@ -1006,8 +1006,6 @@ xcowsay
 6. google-chrome
  ```
 
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
-
 
 ## System
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
