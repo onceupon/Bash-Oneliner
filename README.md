@@ -1006,11 +1006,674 @@ xcowsay
 6. google-chrome
  ```
 
-
-
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 
 
+## System
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+
+##### Snapshot of the current processes
+
+```bash
+ps 
+```
+
+##### Check graphics card
+
+```bash
+lspci
+```
+
+##### Show IP address
+    
+```bash
+$ip add show
+```
+or
+    
+```bash
+ifconfig
+```
+
+##### Check system version
+    
+```bash
+cat /etc/*-release
+```
+
+##### Linux Programmer's Manuel: hier- description of the filesystem hierarchy
+    
+```bash
+man hier
+```
+
+##### List job
+    
+```bash
+jobs -l
+```
+
+##### Export PATH
+    
+```bash
+export PATH=$PATH:~/path/you/want
+```
+
+##### Make file execuable
+    
+```bash
+chmod +x filename
+# you can now ./filename to execute it
+```
+
+##### List screen
+    
+```bash
+screen -d -r
+```
+
+##### Echo screen name
+    
+```bash
+screen -ls
+```
+
+##### Check system (x86-64)
+    
+```bash
+uname -i
+```
+
+##### Surf the net
+
+```bash
+links www.google.com
+```
+
+##### Add user, set passwd
+    
+```bash
+useradd username
+passwd username
+```
+
+##### Edit variable for bash, (e.g. displaying the whole path)
+    
+```bash
+1. joe ~/.bash_profile 
+2. export PS1='\u@\h:\w\$' 
+# $PS1 is a variable that defines the makeup and style of the command prompt 
+```
+
+```bash
+3. source ~/.bash_profile
+```
+
+##### Edit environment setting (e.g. alias)
+    
+```bash
+1. joe ~/.bash_profile
+2. alias pd="pwd" //no more need to type that 'w'!
+3. source ~/.bash_profile
+```
+
+##### List environment variables (e.g. PATH)
+    
+```bash
+$echo $PATH
+# list of directories separated by a colon
+```
+##### List all environment variables for current user
+    
+```bash
+$env
+```
+
+##### Show partition format
+    
+```bash
+lsblk
+```
+
+##### Soft link program to bin
+    
+```bash
+ln -s /path/to/program /home/usr/bin
+# must be the whole path to the program
+```
+
+##### Show hexadecimal view of data
+    
+```bash
+hexdump -C filename.class
+```
+
+##### Jump to different node
+    
+```bash
+rsh node_name
+```
+
+##### Check port (active internet connection)
+    
+```bash
+netstat -tulpn
+```
+
+##### Find whick link to a file
+    
+```bash
+readlink filename
+```
+
+##### Check where a command link to (e.g. python)
+    
+```bash
+which python
+```
+
+##### List total size of a directory
+    
+```bash
+du -hs .
+```
+or
+    
+```bash
+du -sb
+```
+
+##### Copy directory with permission setting
+    
+```bash
+cp -rp /path/to/directory
+```
+
+##### Store current directory
+    
+```bash
+pushd . $popd ;dirs -l 
+```
+
+##### Show disk usage
+    
+```bash
+df -h 
+```
+or
+   
+```bash
+du -h 
+```
+or
+    
+```bash
+du -sk /var/log/* |sort -rn |head -10
+```
+
+##### Show current runlevel
+    
+```bash
+runlevel
+```
+
+##### Switch runlevel
+    
+```bash
+init 3 
+```
+or
+```bash
+telinit 3 
+```
+##### Permanently modify runlevel
+    
+```bash
+1. edit /etc/init/rc-sysinit.conf 
+2. env DEFAULT_RUNLEVEL=2 
+```
+
+##### Become root
+    
+```bash
+su
+```
+
+##### Become somebody
+    
+```bash
+su somebody
+```
+
+##### Report user quotes on device
+    
+```bash
+requota -auvs
+```
+
+##### Get entries in a number of important databases
+    
+```bash
+getent database_name
+```
+(e.g. the 'passwd' database)
+    
+```bash
+getent passwd
+# list all user account (all local and LDAP)  
+# (e.g. fetch list of grop accounts)
+```
+    
+```bash
+getent group
+# store in database 'group'
+```
+
+##### Change owner of file
+    
+```bash
+chown user_name filename
+chown -R user_name /path/to/directory/
+# chown user:group filename
+```
+
+##### List current mount detail
+    
+```bash
+df
+```
+
+##### List current usernames and user-numbers
+    
+```bash
+cat /etc/passwd
+```
+##### Get all username
+    
+```bash
+getent passwd| awk '{FS="[:]"; print $1}'
+```
+
+##### Show all users
+    
+```bash
+compgen -u
+```
+
+##### Show all groups
+    
+```bash
+compgen -g
+```
+
+##### Show group of user
+    
+```bash
+group username
+```
+
+##### Show uid, gid, group of user
+    
+```bash
+id username
+```
+
+##### Check if it's root
+    
+```bash
+if [$(id -u) -ne 0];then
+    echo "You are not root!"
+    exit;
+fi
+# 'id -u' output 0 if it's not root
+```
+##### Find out CPU information
+    
+```bash
+more /proc/cpuinfo
+```
+or
+    
+```bash
+lscpu
+```
+
+##### Set quota for user (e.g. disk soft limit: 120586240; hard limit: 125829120)
+    
+```bash
+setquota username 120586240 125829120 0 0 /home
+```
+
+##### Show quota for user
+    
+```bash
+quota -v username
+```
+
+##### Fork bomb
+# dont try this at home    
+```bash
+:(){:|:&};:
+```
+
+##### Check user login
+    
+```bash
+lastlog
+```
+
+##### Edit path for all users
+    
+```bash
+joe /etc/environment
+# edit this file
+```
+##### Show running processes
+    
+```bash
+ps aux
+```
+
+##### Find maximum number of processes
+    
+```bash
+cat /proc/sys/kernal/pid_max
+```
+
+##### Show and set user limit
+    
+```bash
+ulimit -u
+```
+##### Which ports are listening for TCP connections from the network
+
+```bash
+nmap -sT -O localhost
+```
+
+##### Print out number of cores/ processors
+
+```bash
+nproc --all
+```
+##### Check status of each core
+1. top  
+2. press '1'
+
+##### Show jobs and PID
+
+```bash
+jobs -l
+```
+
+##### List all running services
+
+```bash
+service --status-all
+```
+
+##### Schedule shutdown server
+```bash
+shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
+```
+##### Cancel scheduled shutdown
+```bash
+shutdown -c
+```
+
+##### Boardcast to all users
+```bash
+wall -n hihi
+```
+##### Kill all process of a user
+```bash
+pkill -U user_name
+```
+##### Set gedit preference on server
+
+-->you might have to install the following:
+
+apt-get install libglib2.0-bin;  
+
+yum install dconf dconf-editor;  
+yum install dbus dbus-x11;  
+
+-->Check list  
+```bash
+gsettings list-recursively
+```
+-->Change setting  
+e.g.
+```bash
+gsettings set org.gnome.gedit.preferences.editor highlight-current-line true
+gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
+gsettings set org.gnome.gedit.preferences.editor use-default-font false
+gsettings set org.gnome.gedit.preferences.editor editor-font 'Cantarell Regular 12'
+```
+##### Find out who has logged in on your system
+--> [Quick] Printing out only the names:
+```bash
+users
+```
+
+--> [Detail] Printing out login time, load average, etc
+```bash
+w
+```
+##### Add user to a group (e.g add user 'nice' to the group 'docker', so that he can run docker without sudo) 
+```bash
+sudo gpasswd -a nice docker
+```
+
+##### pip install python package without root 
+```bash
+1. pip install --user package_name
+2. You might need to export ~/.local/bin/ to PATH: export PATH=$PATH:~/.local/bin/
+```
+
+##### Removing old linux kernels (when /boot almost full...)
+```bash
+1. uname -a  #check current kernel, which should NOT be removed
+2. sudo apt-get purge linux-image-X.X.X-X-generic  #replace old version
+```
+
+
+##### Change hostname
+```bash
+sudo hostname your-new-name
+```
+if not working, do also:  
+```bash
+hostnamectl set-hostname your-new-hostname
+```
+then run:  
+hostnamectl
+
+check /etc/hostname  
+
+if still not working..., edit:  
+/etc/sysconfig/network  
+/etc/sysconfig/network-scripts/ifcfg-ensxxx  
+add HOSTNAME="your-new-hostname"  
+  
+
+##### List installed packages
+```bash
+apt list --installed
+```
+or Red Hat: 
+```bash
+yum list installed
+```
+
+##### Check which file make the device busy on umount
+```bash
+lsof /mnt/dir
+```
+
+
+##### When sound not working
+```bash
+killall pulseaudio
+```
+then press Alt-F2 and type in pulseaudio  
+
+##### When sound not working
+```bash
+killall pulseaudio
+```
+
+##### Finding Out Hardware Details Without Opening The Computer Case (e.g. memory device detail)
+```bash
+sudo dmidecode -t memory
+```
+ ##### List information about SCSI devices
+```bash
+lsscsi
+```
+ ##### List information about NIC
+```bash
+lsscsi|grep -i 'ethernet'
+```
+
+##### Tutorial for setting up your own DNS server
+http://onceuponmine.blogspot.tw/2017/08/set-up-your-own-dns-server.html
+
+##### Tutorial for creating a simple daemon
+http://onceuponmine.blogspot.tw/2017/07/create-your-first-simple-daemon.html
+
+##### Tutorial for using your gmail to send email
+http://onceuponmine.blogspot.tw/2017/10/setting-up-msmtprc-and-use-your-gmail.html
+
+ ##### Using telnet to test open ports, test if you can connect to a port (e.g 53) of a server (e.g 192.168.2.106)
+```bash
+telnet 192.168.2.106 53
+```
+##### change network maximum transmission unit (mtu) (e.g. change to 9000) 
+```bash
+ifconfig eth0 mtu 9000
+```
+##### get pid of a running process (e.g python) 
+```bash
+pidof python
+```
+or  
+```bash
+ps aux|grep python
+```
+##### ntp
+start ntp:  
+```bash
+ntpd
+```
+check ntp:  
+```bash
+ntpq -p
+```
+##### remove unnecessary files to clean your server
+```bash
+sudo apt-get autoremove
+sudo apt-get clean
+sudo rm -rf ~/.cache/thumbnails/*
+```
+Remove old kernal:
+```bash
+sudo dpkg --list 'linux-image*'
+sudo apt-get remove linux-image-OLDER_VERSION
+```
+
+##### Increase/ resize root partition (root partition is an LVM logical volume)
+```bash
+pvscan
+lvextend -L +130G /dev/rhel/root -r
+```
+#Adding -r will grow filesystem after resizing the volume.  
+
+
+##### Create a UEFI Bootable USB drive (e.g. /dev/sdc1)
+```bash
+sudo dd if=~/path/to/isofile.iso of=/dev/sdc1 oflag=direct bs=1048576
+```
+##### Locate and remove a package
+```bash
+sudo dpkg -l | grep <package_name>
+sudo dpkg --purge <package_name>
+```
+
+##### Create a ssh tunnel
+```bash
+ssh -f -L 9000:targetservername:8088 root@192.168.14.72 -N
+#-f: run in background; -L: Listen; -N: do nothing  
+#the 9000 of your computer is now connected to the 8088 port of the targetservername through 192.168.14.72  
+#so that you can see the content of targetservername:8088 by entering localhost:9000 from your browser.
+```
+##### Count the number of Segate hard disks
+```bash
+lsscsi|grep SEAGATE|wc -l
+or
+sg_map -i -x|grep SEAGATE|wc -l
+```
+
+##### Print detail of CPU hardware
+```bash
+dmidecode -t 4
+#          Type   Information
+#          0   BIOS
+#          1   System
+#          2   Base Board
+#          3   Chassis
+#          4   Processor
+#          5   Memory Controller
+#          6   Memory Module
+#          7   Cache
+#          8   Port Connector
+#          9   System Slots
+#         11   OEM Strings
+#         13   BIOS Language
+#         15   System Event Log
+#         16   Physical Memory Array
+#         17   Memory Device
+#         18   32-bit Memory Error
+#         19   Memory Array Mapped Address
+#         20   Memory Device Mapped Address
+#         21   Built-in Pointing Device
+#         22   Portable Battery
+#         23   System Reset
+#         24   Hardware Security
+#         25   System Power Controls
+#         26   Voltage Probe
+#         27   Cooling Device
+#         28   Temperature Probe
+#         29   Electrical Current Probe
+#         30   Out-of-band Remote Access
+#         31   Boot Integrity Services
+#         32   System Boot
+#         34   Management Device
+#         35   Management Device Component
+#         36   Management Device Threshold Data
+#         37   Memory Channel
+#         38   IPMI Device
+#         39   Power Supply
+```
+##### Log out your account after a certain period of time (e.g 10 seconds)
+```bash
+TMOUT=10
+#once you set this variable, logout timer start running!
+```
+
+##### Get process ID of a process (e.g. sublime_text)
+```bash
+#pidof
+pidof sublime_text
+
+#pgrep, you dont have to type the whole program name
+pgrep sublim
+
+#top, takes longer time
+top|grep sublime_text
+
+```
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
 
 ## Others
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
@@ -1698,660 +2361,4 @@ tree
 #    └── 5
 #
 ```
-
-## System
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
-
-##### Snapshot of the current processes
-
-```bash
-ps 
-```
-
-##### Check graphics card
-
-```bash
-lspci
-```
-
-##### Show IP address
-    
-```bash
-$ip add show
-```
-or
-    
-```bash
-ifconfig
-```
-
-##### Check system version
-    
-```bash
-cat /etc/*-release
-```
-
-##### Linux Programmer's Manuel: hier- description of the filesystem hierarchy
-    
-```bash
-man hier
-```
-
-##### List job
-    
-```bash
-jobs -l
-```
-
-##### Export PATH
-    
-```bash
-export PATH=$PATH:~/path/you/want
-```
-
-##### Make file execuable
-    
-```bash
-chmod +x filename
-# you can now ./filename to execute it
-```
-
-##### List screen
-    
-```bash
-screen -d -r
-```
-
-##### Echo screen name
-    
-```bash
-screen -ls
-```
-
-##### Check system (x86-64)
-    
-```bash
-uname -i
-```
-
-##### Surf the net
-
-```bash
-links www.google.com
-```
-
-##### Add user, set passwd
-    
-```bash
-useradd username
-passwd username
-```
-
-##### Edit variable for bash, (e.g. displaying the whole path)
-    
-```bash
-1. joe ~/.bash_profile 
-2. export PS1='\u@\h:\w\$' 
-# $PS1 is a variable that defines the makeup and style of the command prompt 
-```
-
-```bash
-3. source ~/.bash_profile
-```
-
-##### Edit environment setting (e.g. alias)
-    
-```bash
-1. joe ~/.bash_profile
-2. alias pd="pwd" //no more need to type that 'w'!
-3. source ~/.bash_profile
-```
-
-##### List environment variables (e.g. PATH)
-    
-```bash
-$echo $PATH
-# list of directories separated by a colon
-```
-##### List all environment variables for current user
-    
-```bash
-$env
-```
-
-##### Show partition format
-    
-```bash
-lsblk
-```
-
-##### Soft link program to bin
-    
-```bash
-ln -s /path/to/program /home/usr/bin
-# must be the whole path to the program
-```
-
-##### Show hexadecimal view of data
-    
-```bash
-hexdump -C filename.class
-```
-
-##### Jump to different node
-    
-```bash
-rsh node_name
-```
-
-##### Check port (active internet connection)
-    
-```bash
-netstat -tulpn
-```
-
-##### Find whick link to a file
-    
-```bash
-readlink filename
-```
-
-##### Check where a command link to (e.g. python)
-    
-```bash
-which python
-```
-
-##### List total size of a directory
-    
-```bash
-du -hs .
-```
-or
-    
-```bash
-du -sb
-```
-
-##### Copy directory with permission setting
-    
-```bash
-cp -rp /path/to/directory
-```
-
-##### Store current directory
-    
-```bash
-pushd . $popd ;dirs -l 
-```
-
-##### Show disk usage
-    
-```bash
-df -h 
-```
-or
-   
-```bash
-du -h 
-```
-or
-    
-```bash
-du -sk /var/log/* |sort -rn |head -10
-```
-
-##### Show current runlevel
-    
-```bash
-runlevel
-```
-
-##### Switch runlevel
-    
-```bash
-init 3 
-```
-or
-```bash
-telinit 3 
-```
-##### Permanently modify runlevel
-    
-```bash
-1. edit /etc/init/rc-sysinit.conf 
-2. env DEFAULT_RUNLEVEL=2 
-```
-
-##### Become root
-    
-```bash
-su
-```
-
-##### Become somebody
-    
-```bash
-su somebody
-```
-
-##### Report user quotes on device
-    
-```bash
-requota -auvs
-```
-
-##### Get entries in a number of important databases
-    
-```bash
-getent database_name
-```
-(e.g. the 'passwd' database)
-    
-```bash
-getent passwd
-# list all user account (all local and LDAP)  
-# (e.g. fetch list of grop accounts)
-```
-    
-```bash
-getent group
-# store in database 'group'
-```
-
-##### Change owner of file
-    
-```bash
-chown user_name filename
-chown -R user_name /path/to/directory/
-# chown user:group filename
-```
-
-##### List current mount detail
-    
-```bash
-df
-```
-
-##### List current usernames and user-numbers
-    
-```bash
-cat /etc/passwd
-```
-##### Get all username
-    
-```bash
-getent passwd| awk '{FS="[:]"; print $1}'
-```
-
-##### Show all users
-    
-```bash
-compgen -u
-```
-
-##### Show all groups
-    
-```bash
-compgen -g
-```
-
-##### Show group of user
-    
-```bash
-group username
-```
-
-##### Show uid, gid, group of user
-    
-```bash
-id username
-```
-
-##### Check if it's root
-    
-```bash
-if [$(id -u) -ne 0];then
-    echo "You are not root!"
-    exit;
-fi
-# 'id -u' output 0 if it's not root
-```
-##### Find out CPU information
-    
-```bash
-more /proc/cpuinfo
-```
-or
-    
-```bash
-lscpu
-```
-
-##### Set quota for user (e.g. disk soft limit: 120586240; hard limit: 125829120)
-    
-```bash
-setquota username 120586240 125829120 0 0 /home
-```
-
-##### Show quota for user
-    
-```bash
-quota -v username
-```
-
-##### Fork bomb
-# dont try this at home    
-```bash
-:(){:|:&};:
-```
-
-##### Check user login
-    
-```bash
-lastlog
-```
-
-##### Edit path for all users
-    
-```bash
-joe /etc/environment
-# edit this file
-```
-##### Show running processes
-    
-```bash
-ps aux
-```
-
-##### Find maximum number of processes
-    
-```bash
-cat /proc/sys/kernal/pid_max
-```
-
-##### Show and set user limit
-    
-```bash
-ulimit -u
-```
-##### Which ports are listening for TCP connections from the network
-
-```bash
-nmap -sT -O localhost
-```
-
-##### Print out number of cores/ processors
-
-```bash
-nproc --all
-```
-##### Check status of each core
-1. top  
-2. press '1'
-
-##### Show jobs and PID
-
-```bash
-jobs -l
-```
-
-##### List all running services
-
-```bash
-service --status-all
-```
-
-##### Schedule shutdown server
-```bash
-shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
-```
-##### Cancel scheduled shutdown
-```bash
-shutdown -c
-```
-
-##### Boardcast to all users
-```bash
-wall -n hihi
-```
-##### Kill all process of a user
-```bash
-pkill -U user_name
-```
-##### Set gedit preference on server
-
--->you might have to install the following:
-
-apt-get install libglib2.0-bin;  
-
-yum install dconf dconf-editor;  
-yum install dbus dbus-x11;  
-
--->Check list  
-```bash
-gsettings list-recursively
-```
--->Change setting  
-e.g.
-```bash
-gsettings set org.gnome.gedit.preferences.editor highlight-current-line true
-gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
-gsettings set org.gnome.gedit.preferences.editor use-default-font false
-gsettings set org.gnome.gedit.preferences.editor editor-font 'Cantarell Regular 12'
-```
-##### Find out who has logged in on your system
---> [Quick] Printing out only the names:
-```bash
-users
-```
-
---> [Detail] Printing out login time, load average, etc
-```bash
-w
-```
-##### Add user to a group (e.g add user 'nice' to the group 'docker', so that he can run docker without sudo) 
-```bash
-sudo gpasswd -a nice docker
-```
-
-##### pip install python package without root 
-```bash
-1. pip install --user package_name
-2. You might need to export ~/.local/bin/ to PATH: export PATH=$PATH:~/.local/bin/
-```
-
-##### Removing old linux kernels (when /boot almost full...)
-```bash
-1. uname -a  #check current kernel, which should NOT be removed
-2. sudo apt-get purge linux-image-X.X.X-X-generic  #replace old version
-```
-
-
-##### Change hostname
-```bash
-sudo hostname your-new-name
-```
-if not working, do also:  
-```bash
-hostnamectl set-hostname your-new-hostname
-```
-then run:  
-hostnamectl
-
-check /etc/hostname  
-
-if still not working..., edit:  
-/etc/sysconfig/network  
-/etc/sysconfig/network-scripts/ifcfg-ensxxx  
-add HOSTNAME="your-new-hostname"  
-  
-
-##### List installed packages
-```bash
-apt list --installed
-```
-or Red Hat: 
-```bash
-yum list installed
-```
-
-##### Check which file make the device busy on umount
-```bash
-lsof /mnt/dir
-```
-
-
-##### When sound not working
-```bash
-killall pulseaudio
-```
-then press Alt-F2 and type in pulseaudio  
-
-##### When sound not working
-```bash
-killall pulseaudio
-```
-
-##### Finding Out Hardware Details Without Opening The Computer Case (e.g. memory device detail)
-```bash
-sudo dmidecode -t memory
-```
- ##### List information about SCSI devices
-```bash
-lsscsi
-```
- ##### List information about NIC
-```bash
-lsscsi|grep -i 'ethernet'
-```
-
-##### Tutorial for setting up your own DNS server
-http://onceuponmine.blogspot.tw/2017/08/set-up-your-own-dns-server.html
-
-##### Tutorial for creating a simple daemon
-http://onceuponmine.blogspot.tw/2017/07/create-your-first-simple-daemon.html
-
-##### Tutorial for using your gmail to send email
-http://onceuponmine.blogspot.tw/2017/10/setting-up-msmtprc-and-use-your-gmail.html
-
- ##### Using telnet to test open ports, test if you can connect to a port (e.g 53) of a server (e.g 192.168.2.106)
-```bash
-telnet 192.168.2.106 53
-```
-##### change network maximum transmission unit (mtu) (e.g. change to 9000) 
-```bash
-ifconfig eth0 mtu 9000
-```
-##### get pid of a running process (e.g python) 
-```bash
-pidof python
-```
-or  
-```bash
-ps aux|grep python
-```
-##### ntp
-start ntp:  
-```bash
-ntpd
-```
-check ntp:  
-```bash
-ntpq -p
-```
-##### remove unnecessary files to clean your server
-```bash
-sudo apt-get autoremove
-sudo apt-get clean
-sudo rm -rf ~/.cache/thumbnails/*
-```
-Remove old kernal:
-```bash
-sudo dpkg --list 'linux-image*'
-sudo apt-get remove linux-image-OLDER_VERSION
-```
-
-##### Increase/ resize root partition (root partition is an LVM logical volume)
-```bash
-pvscan
-lvextend -L +130G /dev/rhel/root -r
-```
-#Adding -r will grow filesystem after resizing the volume.  
-
-
-##### Create a UEFI Bootable USB drive (e.g. /dev/sdc1)
-```bash
-sudo dd if=~/path/to/isofile.iso of=/dev/sdc1 oflag=direct bs=1048576
-```
-##### Locate and remove a package
-```bash
-sudo dpkg -l | grep <package_name>
-sudo dpkg --purge <package_name>
-```
-
-##### Create a ssh tunnel
-```bash
-ssh -f -L 9000:targetservername:8088 root@192.168.14.72 -N
-#-f: run in background; -L: Listen; -N: do nothing  
-#the 9000 of your computer is now connected to the 8088 port of the targetservername through 192.168.14.72  
-#so that you can see the content of targetservername:8088 by entering localhost:9000 from your browser.
-```
-##### Count the number of Segate hard disks
-```bash
-lsscsi|grep SEAGATE|wc -l
-or
-sg_map -i -x|grep SEAGATE|wc -l
-```
-
-##### Print detail of CPU hardware
-```bash
-dmidecode -t 4
-#          Type   Information
-#          0   BIOS
-#          1   System
-#          2   Base Board
-#          3   Chassis
-#          4   Processor
-#          5   Memory Controller
-#          6   Memory Module
-#          7   Cache
-#          8   Port Connector
-#          9   System Slots
-#         11   OEM Strings
-#         13   BIOS Language
-#         15   System Event Log
-#         16   Physical Memory Array
-#         17   Memory Device
-#         18   32-bit Memory Error
-#         19   Memory Array Mapped Address
-#         20   Memory Device Mapped Address
-#         21   Built-in Pointing Device
-#         22   Portable Battery
-#         23   System Reset
-#         24   Hardware Security
-#         25   System Power Controls
-#         26   Voltage Probe
-#         27   Cooling Device
-#         28   Temperature Probe
-#         29   Electrical Current Probe
-#         30   Out-of-band Remote Access
-#         31   Boot Integrity Services
-#         32   System Boot
-#         34   Management Device
-#         35   Management Device Component
-#         36   Management Device Threshold Data
-#         37   Memory Channel
-#         38   IPMI Device
-#         39   Power Supply
-```
-##### Log out your account after a certain period of time (e.g 10 seconds)
-```bash
-TMOUT=10
-#once you set this variable, logout timer start running!
-```
-
-
-
-
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
