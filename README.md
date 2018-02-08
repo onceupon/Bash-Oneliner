@@ -24,8 +24,9 @@ http://onceupon.github.io/Bash-Oneliner/
 - [Download](#download)
 - [Random](#random)
 - [Xwindow](#xwindow)
-- [Others](#others)
 - [System](#system)
+- [Others](#others)
+
 
 ## Grep
 #####  Extract text bewteen words (e.g. w1,w2)
