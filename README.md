@@ -456,6 +456,11 @@ awk 'BEGIN{OFS="\t"}$3="chr"$3'
 awk '!/bbo/' file 
 ```
 
+##### Remove last column    
+```bash
+awk 'NF{NF-=1};1' file
+```
+
 ##### Usage and meaning of NR and FNR
 e.g.  
 fileA:  
