@@ -1680,15 +1680,15 @@ sg_map -i -x|grep SEAGATE|wc -l
 lsblk -io KNAME,TYPE,MODEL,VENDOR,SIZE,ROTA
 #where ROTA means rotational device / spinning hard disks (1 if true, 0 if false)
 ```
- ##### List information about NIC
+##### List information about NIC
 ```bash
 lsscsi|grep -i 'ethernet'
 ```
- ##### Found out power status of the server
+##### Found out power status of the server
 ```bash
 ipmitool -U your_bmc_username -P your_bmc_userpassword -I lanplus -H your_bmc_ip_address power status
 ```
- ##### Found out server sensor temperature
+##### Found out server sensor temperature
 ```bash
 ipmitool sensors |grep -i Temp
 ```
