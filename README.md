@@ -25,6 +25,7 @@ http://onceupon.github.io/Bash-Oneliner/
 - [Random](#random)
 - [Xwindow](#xwindow)
 - [System](#system)
+- [Hardware](#hardware)
 - [Others](#others)
 
 
@@ -1526,20 +1527,10 @@ then press Alt-F2 and type in pulseaudio
 ```bash
 killall pulseaudio
 ```
-
-##### Finding Out Hardware Details Without Opening The Computer Case (e.g. memory device detail)
-```bash
-sudo dmidecode -t memory
-```
  ##### List information about SCSI devices
 ```bash
 lsscsi
 ```
- ##### List information about NIC
-```bash
-lsscsi|grep -i 'ethernet'
-```
-
 ##### Tutorial for setting up your own DNS server
 http://onceuponmine.blogspot.tw/2017/08/set-up-your-own-dns-server.html
 
@@ -1611,11 +1602,30 @@ ssh -f -L 9000:targetservername:8088 root@192.168.14.72 -N
 #the 9000 of your computer is now connected to the 8088 port of the targetservername through 192.168.14.72  
 #so that you can see the content of targetservername:8088 by entering localhost:9000 from your browser.
 ```
-##### Count the number of Segate hard disks
+##### Log out your account after a certain period of time (e.g 10 seconds)
 ```bash
-lsscsi|grep SEAGATE|wc -l
-or
-sg_map -i -x|grep SEAGATE|wc -l
+TMOUT=10
+#once you set this variable, logout timer start running!
+```
+
+##### Get process ID of a process (e.g. sublime_text)
+```bash
+#pidof
+pidof sublime_text
+
+#pgrep, you dont have to type the whole program name
+pgrep sublim
+
+#top, takes longer time
+top|grep sublime_text
+
+```
+## Hardware
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+
+##### Finding Out memory device detail
+```bash
+sudo dmidecode -t memory
 ```
 
 ##### Print detail of CPU hardware
@@ -1659,25 +1669,29 @@ dmidecode -t 4
 #         38   IPMI Device
 #         39   Power Supply
 ```
-##### Log out your account after a certain period of time (e.g 10 seconds)
+##### Count the number of Segate hard disks
 ```bash
-TMOUT=10
-#once you set this variable, logout timer start running!
+lsscsi|grep SEAGATE|wc -l
+or
+sg_map -i -x|grep SEAGATE|wc -l
 ```
-
-##### Get process ID of a process (e.g. sublime_text)
+##### Print detail of all hard disks
 ```bash
-#pidof
-pidof sublime_text
-
-#pgrep, you dont have to type the whole program name
-pgrep sublim
-
-#top, takes longer time
-top|grep sublime_text
-
+lsblk -io KNAME,TYPE,MODEL,VENDOR,SIZE,ROTA
+#where ROTA means rotational device / spinning hard disks (1 if true, 0 if false)
 ```
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+ ##### List information about NIC
+```bash
+lsscsi|grep -i 'ethernet'
+```
+ ##### Found out power status of the server
+```bash
+ipmitool -U your_bmc_username -P your_bmc_userpassword -I lanplus -H your_bmc_ip_address power status
+```
+ ##### Found out server sensor temperature
+```bash
+ipmitool sensors |grep -i Temp
+```
 
 ## Others
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
