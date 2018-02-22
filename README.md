@@ -1394,6 +1394,7 @@ ulimit -u
 
 ```bash
 nmap -sT -O localhost
+#notice that some commpanies might not like you using nmap
 ```
 
 ##### Print out number of cores/ processors
