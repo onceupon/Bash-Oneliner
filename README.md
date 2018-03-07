@@ -2382,15 +2382,15 @@ tree
 ```
 ##### set up virtualenv(sandbox) for python
 ```bash
-#1. install virtualenv
+#1. install virtualenv.
 sudo apt-get install virtualenv
-#2. start a virtualenv
+#2. Creat a directory (name it .venv or whatever name your want) for your new shiny isolated environment.
 virtualenv .venv
 #3. source virtual bin
 source .venv/bin/activate
-#4. you can check check if you are now inside a sandbox
+#4. you can check check if you are now inside a sandbox.
 type pip
-#5. Now you can install your pip package, here requirements.txt is simply a txt file containing all the packages you want. (e.g tornado==4.5.3)
+#5. Now you can install your pip package, here requirements.txt is simply a txt file containing all the packages you want. (e.g tornado==4.5.3).
 pip install -r requirements.txt
 
 ```
