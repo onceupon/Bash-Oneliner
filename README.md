@@ -176,13 +176,12 @@ http://www.cyberciti.biz/faq/grep-regular-expressions/
 sed 1d filename
 ```
 
-##### Remove the 100 lines (remove line 1-100)
+##### Remove the first 100 lines (remove line 1-100)
 ```bash
 sed 1,100d filename
 ```
 
-##### 
-remove lines with string (e.g. bbo)
+##### Remove lines with string (e.g. bbo)
     
 ```bash
 sed "/bbo/d" filename
