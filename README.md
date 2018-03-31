@@ -30,6 +30,11 @@ http://onceupon.github.io/Bash-Oneliner/
 
 
 ## Grep
+#####  Grep string starting with (e.g. 'S')
+```bash
+grep -o 'S.*'
+```
+
 #####  Extract text bewteen words (e.g. w1,w2)
     
 ```bash
