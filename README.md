@@ -20,6 +20,7 @@ http://onceupon.github.io/Bash-Oneliner/
 - [Xargs](#xargs)
 - [Find](#find)
 - [Loops](#loops)
+- [Variable](#variable)
 - [Math](#math)
 - [Download](#download)
 - [Random](#random)
@@ -816,7 +817,35 @@ for i in $(cat tpc_stats_0925.log |grep failed|grep -o '\query\w\{1,2\}');do cat
 for line in $(cat myfile); do echo $line; read -n1; done
 ```
 
-
+## Variable
+[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+##### variable substitution within quotes
+```bash
+# foo=bar
+ echo "'$foo'"
+#'bar'
+# double/single quotes around single quotes make the inner single quotes expand variables
+```
+##### replacement (e.g. replace 'a' with ',')
+```bash
+{i/a/,}
+```
+##### replace all (e.g. replace all 'a' with ',')
+```bash
+{i//a/,}
+```
+#with grep
+```bash
+ test="god the father"
+ grep ${test// /\\\|} file.txt
+ # turning the space into 'or' (\|) in grep
+```
+##### To change the case of the string stored in the variable to lower case (Parameter Expansion)
+```bash
+var=HelloWorld
+echo ${var,,}
+helloworld
+```
 
 ## Math
 [[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
@@ -2022,23 +2051,6 @@ Ctrl+r
     
 ```bash
 python -m SimpleHTTPServer
-```
-
-##### Variables
-    
-```bash
-{i/a/,}
-```
-e.g. replace all
-```bash
-{i//a/,}
-```
-//for variable i, replace all 'a' with a comma
-e.g. with grep
-```bash
- test="god the father"
- grep ${test// /\\\|} file.txt
- # turning the space into 'or' (\|) in grep
 ```
 
 ##### Read user input
