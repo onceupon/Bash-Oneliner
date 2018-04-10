@@ -834,8 +834,8 @@ for line in $(cat myfile); do echo $line; read -n1; done
 ```bash
 {i//a/,}
 ```
-#with grep
 ```bash
+#with grep
  test="god the father"
  grep ${test// /\\\|} file.txt
  # turning the space into 'or' (\|) in grep
@@ -2167,12 +2167,12 @@ head -c 50 file
  
 ##### Group/combine rows into one row 
 
-e.g.  
-AAAA  
-BBBB  
-CCCC  
-DDDD  
 ```bash
+#e.g.  
+#AAAA  
+#BBBB  
+#CCCC  
+#DDDD  
 cat filename|paste - -
 -->
 AAAABBBB
