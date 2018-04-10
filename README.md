@@ -826,6 +826,13 @@ for line in $(cat myfile); do echo $line; read -n1; done
 #'bar'
 # double/single quotes around single quotes make the inner single quotes expand variables
 ```
+##### get the length of variable
+```bash
+var="some string"
+echo ${#var}  
+# 11
+```
+
 ##### replacement (e.g. replace 'a' with ',')
 ```bash
 {i/a/,}
