@@ -2421,8 +2421,8 @@ pip install -r requirements.txt
 ```bash
 #install the useful jq package
 #sudo apt-get install jq
-#e.g. to get all the values of the 'url' key, simply pipe the json to the following jq command
-jq '.[].url'
+#e.g. to get all the values of the 'url' key, simply pipe the json to the following jq command(you can use .[]. to select inner json, i.e jq '.[].url')
+jq '.url'
 ```
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
