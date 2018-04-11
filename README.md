@@ -194,6 +194,12 @@ sed "/bbo/d" filename
 - case insensitive:
 sed "/bbo/Id" filename
 ```
+##### Remove lines whose nth character not equal to a value (e.g. 5th character not equal to 2)
+```bash
+sed -E '/^.{5}[^2]/d'
+#aaaa2aaa (you can stay)
+#aaaa1aaa (delete!)
+```
 
 ##### Edit infile (edit and save)
     
