@@ -838,14 +838,18 @@ var="some string"
 echo ${#var}  
 # 11
 ```
+##### replacement (e.g. remove the first leading 0 )
+```bash
+${var[@]#0}
+```
 
 ##### replacement (e.g. replace 'a' with ',')
 ```bash
-{i/a/,}
+{var/a/,}
 ```
 ##### replace all (e.g. replace all 'a' with ',')
 ```bash
-{i//a/,}
+{var//a/,}
 ```
 ```bash
 #with grep
