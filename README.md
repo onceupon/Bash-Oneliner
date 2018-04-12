@@ -844,6 +844,13 @@ var="some string"
 echo ${var%%"${var#?}"}
 #s
 ```
+##### remove the first or last string from variable
+```bash
+var="some string"
+echo ${var:2}
+#me string
+```
+
 ##### replacement (e.g. remove the first leading 0 )
 ```bash
 var="0050"
