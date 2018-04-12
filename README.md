@@ -394,7 +394,7 @@ sed -r -e 's/^.{3}/&#/' file
 
 
 ## Awk
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands)]
 
 ##### Set tab as field separator
     
@@ -573,7 +573,7 @@ awk '{$6 = $4 - prev5; prev5 = $5; print;}'
 
 
 ## Xargs
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands)]
 
 ##### Set tab as delimiter (default:space)
 
@@ -715,7 +715,7 @@ grep -rl '192.168.1.111' /etc | xargs sed -i 's/192.168.1.111/192.168.2.111/g'
 
 
 ## Find 
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands)]
 ##### List all sub directory/file in the current directory
     
 ```bash
@@ -762,7 +762,7 @@ find . -name "*.mso" -size -74c -delete
 
 
 ## Loops
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands)]
 ##### While loop, column subtraction of a file (e.g. a 3 columns file)
     
 ```bash
@@ -824,7 +824,7 @@ for line in $(cat myfile); do echo $line; read -n1; done
 ```
 
 ## Variable
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands)]
 ##### variable substitution within quotes
 ```bash
 # foo=bar
@@ -972,7 +972,7 @@ wget -P /path/to/directory "http://example.com"
 
 
 ## Random
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands)]
 ##### Random pick 100 lines from a file
     
 ```bash
@@ -1010,7 +1010,7 @@ echo $(((RANDOM %10)+1))
 ```
 
 ## Xwindow
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]  
+[[back to top](#handy-bash-oneliner-commands)]  
 
 X11 GUI applications! Here are some GUI tools for you if you get bored by the text-only environment.  
 
@@ -1065,7 +1065,7 @@ xcowsay
 
 
 ## System
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands)]
 
 ##### Snapshot of the current processes
 
@@ -1672,7 +1672,7 @@ top|grep sublime_text
 
 ```
 ## Hardware
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands)]
 
 ##### Finding Out memory device detail
 ```bash
@@ -1745,7 +1745,7 @@ ipmitool sensors |grep -i Temp
 ```
 
 ## Others
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands)]
 ##### Remove newline / nextline
     
 ```bash
