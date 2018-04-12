@@ -838,9 +838,17 @@ var="some string"
 echo ${#var}  
 # 11
 ```
+##### get the first character of the variable
+```bash
+var="some string"
+echo ${var%%"${var#?}"}
+#s
+```
 ##### replacement (e.g. remove the first leading 0 )
 ```bash
-${var[@]#0}
+var="0050"
+echo ${var[@]#0}
+#050
 ```
 
 ##### replacement (e.g. replace 'a' with ',')
