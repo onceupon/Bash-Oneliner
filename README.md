@@ -865,7 +865,7 @@ helloworld
 ```
 
 ## Math
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands)]
 ##### Print out the prime factors of a number (e.g. 50)
 ```bash
 factor 50
@@ -918,7 +918,7 @@ echo "var=5;--var"| bc
 
 
 ## Download
-[[back to top](#handy-bash-oneliner-commands-for-tsv-file-editing)]
+[[back to top](#handy-bash-oneliner-commands)]
 ##### Download all from a page
     
 ```bash
