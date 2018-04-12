@@ -822,6 +822,21 @@ for i in $(cat tpc_stats_0925.log |grep failed|grep -o '\query\w\{1,2\}');do cat
 ```bash
 for line in $(cat myfile); do echo $line; read -n1; done
 ```
+##### switch (case in bash)
+```bash
+read type;
+case $type in
+  '0')
+    echo 'how'
+    ;;
+  '1')
+    echo 'are'
+    ;;
+  '2')
+    echo 'you'
+    ;;
+esac
+```
 
 ## Variable
 [[back to top](#handy-bash-oneliner-commands)]
