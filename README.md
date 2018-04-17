@@ -1245,7 +1245,7 @@ rsh node_name
 netstat -tulpn
 ```
 
-##### Find whick link to a file
+##### Find which link to a file
     
 ```bash
 readlink filename
