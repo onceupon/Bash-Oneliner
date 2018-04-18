@@ -976,7 +976,7 @@ timeout 1 sleep 10
 ```bash
 at now + 1min  #time-units can be minutes, hours, days, or weeks
 warning: commands will be executed using /bin/sh
-at> echo hi~ github
+at> echo hihigithub >~/itworks
 at> <EOT>   # press Ctrl + D to exit
 job 1 at Wed Apr 18 11:16:00 2018
 ```
