@@ -22,6 +22,7 @@ http://onceupon.github.io/Bash-Oneliner/
 - [Loops](#loops)
 - [Variable](#variable)
 - [Math](#math)
+- [Time](#time)
 - [Download](#download)
 - [Random](#random)
 - [Xwindow](#xwindow)
@@ -946,6 +947,40 @@ echo "var=5;--var"| bc
 #4
 ```
 
+## Time
+[[back to top](#handy-bash-oneliner-commands)]
+
+##### Find out the time require for executing a command
+```bash
+time echo hi
+```
+
+##### Wait for some time (e.g 10s)
+```bash
+sleep 10
+```
+
+##### Log out your account after a certain period of time (e.g 10 seconds)
+```bash
+TMOUT=10
+#once you set this variable, logout timer start running!
+```
+
+##### Set how long you want to run a command 
+```bash
+#This will run the commmand 'sleep 10' for only 1 second.
+timeout 1 sleep 10
+```
+
+##### Set when you want to run a command (e.g 1 min from now)
+```bash
+at now + 1min  #time-units can be minutes, hours, days, or weeks
+warning: commands will be executed using /bin/sh
+at> echo hi~ github
+at> <EOT>   # press Ctrl + D to exit
+job 1 at Wed Apr 18 11:16:00 2018
+```
+
 
 ## Download
 [[back to top](#handy-bash-oneliner-commands)]
@@ -1683,12 +1718,6 @@ ssh -f -L 9000:targetservername:8088 root@192.168.14.72 -N
 #the 9000 of your computer is now connected to the 8088 port of the targetservername through 192.168.14.72  
 #so that you can see the content of targetservername:8088 by entering localhost:9000 from your browser.
 ```
-##### Log out your account after a certain period of time (e.g 10 seconds)
-```bash
-TMOUT=10
-#once you set this variable, logout timer start running!
-```
-
 ##### Get process ID of a process (e.g. sublime_text)
 ```bash
 #pidof
@@ -2005,12 +2034,6 @@ Alt+Shift+#
     
 ```bash
 sleep 5;echo hi
-```
-
-##### Count the time for executing a command
-    
-```bash
-time echo hi
 ```
 
 ##### Backup with rsync
