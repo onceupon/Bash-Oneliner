@@ -1730,6 +1730,43 @@ pgrep sublim
 top|grep sublime_text
 
 ```
+
+##### Some benchmarking tools for your server
+aio-stress - AIO benchmark   
+bandwidth - memory bandwidth benchmark  
+bonnie++ - filesystem and disk benchmark & burn-in suite  
+dbench - filesystem load benchmark  
+dnsperf - authorative and recursing DNS servers   
+filebench - model based file system workload generator  
+fio - I/O  benchmark  
+fs_mark - synchronous/async file creation  
+httperf - web server benchmark  
+interbench - interactivity  benchmark  
+ioblazer - multi-platform storage stack micro-benchmark  
+iozone - filesystem benchmark  
+iperf2 - measure TCP and UDP bandwidth performance  
+iperf3 - measure TCP/UDP bandwidth performance  
+kcbench - kernel compile benchmark  
+lmbench - Suite of simple, portable benchmarks  
+netperf - measure TCP/UDP performance  
+netpipe - measure protocol independent performance  
+nfsometer - NFS performance framework  
+nuttcp - determine raw TCP (or UDP) network layer throughput  
+phoronix-test-suite - automated, open-source testing framework  
+seeker - measure disk performance (random access time)  
+siege - HTTP regression testing and benchmarking utility  
+sockperf - latency and throughput of networking socket API  
+spew - measure I/O performance and load generation tool  
+stress - put given subsystems under a specified load  
+sysbench - system performance benchmark  
+ttcp - tool to do memory to memory performance measurements with TCP/IP  
+tiobench - threaded IO benchmarking utility  
+unixbench - Byte's UNIX benchmarks  
+wbox - test HTTP performance of web servers and web applications  
+
+ref: https://access.redhat.com/solutions/173863
+
+
 ## Hardware
 [[back to top](#handy-bash-oneliner-commands)]
 
