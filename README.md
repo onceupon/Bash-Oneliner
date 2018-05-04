@@ -2453,6 +2453,14 @@ Send command to all panes in tmux:
 ```bash
 Ctrl-B :
 setw synchronize-panes
+
+#   Panes (splits), Press Ctrl+B, then input the following symbol:
+#   %  horizontal split
+#   "  vertical split
+#   o  swap panes
+#   q  show pane numbers
+#   x  kill pane
+#   space - toggle between layouts
 ``` 
 ##### Cut the last column
 ```bash
