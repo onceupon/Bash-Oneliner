@@ -2451,8 +2451,8 @@ Move up/down with the arrow keys (↑ and ↓).
 
 Send command to all panes in tmux:
 ```bash
-Ctrl-B :
-setw synchronize-panes
+Ctrl-B
+:setw synchronize-panes
 
 #   Panes (splits), Press Ctrl+B, then input the following symbol:
 #   %  horizontal split
