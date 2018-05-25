@@ -2529,5 +2529,10 @@ pip install -r requirements.txt
 #e.g. to get all the values of the 'url' key, simply pipe the json to the following jq command(you can use .[]. to select inner json, i.e jq '.[].url')
 jq '.url'
 ```
-
+##### Editing your history
+```bash
+history -w
+vi ~/.bash_history
+history -r
+```
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
