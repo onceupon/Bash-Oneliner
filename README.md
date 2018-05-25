@@ -2244,6 +2244,14 @@ basename filename.gz .gz
 
 zcat filename.gz> $(basename filename.gz .gz).unpacked
 ```
+##### Add file extension to all file(e.g add .txt)
+```bash
+rename s/$/.txt/ *
+# You can use rename -n s/$/.txt/ * to check the result first, it will only print sth like this:
+# rename(a, a.txt)
+# rename(b, b.txt)
+# rename(c, c.txt)
+```
 
 ##### Use the squeeze repeat option (e.g. /t/t --> /t)
 ```bash
