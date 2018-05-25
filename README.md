@@ -2238,7 +2238,7 @@ dd if=/dev/zero of=bigfile bs=1 count=1000000
 rename 's/ABC//' *.gz
 ```
 
-##### Remove extention (e.g remove .gz from filename.gz)
+##### Remove file extension (e.g remove .gz from filename.gz)
 ```bash
 basename filename.gz .gz
 
