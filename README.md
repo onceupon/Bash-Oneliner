@@ -223,7 +223,7 @@ sed '/^\s*$/d'
 or
    
 ```bash
-sed 's/^$/d' 
+sed '/^$/d' 
 ```
 ##### Delete/remove last line
    
