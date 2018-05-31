@@ -784,8 +784,11 @@ while [[ $(pidof perl) ]];do echo f;sleep 10;done && python timetorunpython.py
 ```
 
 ##### If loop
-    
 ```bash
+# if and else loop for string matching
+if [[ "$c" == "read" ]]; then outputdir="seq"; else outputdir="write" ; fi  
+```
+
 if (($j==$u+2))
 #(( )) use for arithmetic operation
 ```
