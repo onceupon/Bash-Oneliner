@@ -1186,18 +1186,6 @@ chmod +x filename
 # you can now ./filename to execute it
 ```
 
-##### List screen
-    
-```bash
-screen -d -r
-```
-
-##### Echo screen name
-    
-```bash
-screen -ls
-```
-
 ##### Check system (x86-64)
     
 ```bash
@@ -1825,6 +1813,11 @@ lsscsi|grep SEAGATE|wc -l
 or
 sg_map -i -x|grep SEAGATE|wc -l
 ```
+##### Get UUID of a disk (e.g. sdb)
+```bash
+blkid /dev/sdb
+```
+
 ##### Print detail of all hard disks
 ```bash
 lsblk -io KNAME,TYPE,MODEL,VENDOR,SIZE,ROTA
@@ -2463,6 +2456,9 @@ scroll:
 Hit your screen prefix combination (C-a / control+A), then hit Escape.
 Move up/down with the arrow keys (↑ and ↓).
 
+Redirect output of an already running process in screen:
+ (C-a / control+A), then hit 'H'
+
 Send command to all panes in tmux:
 ```bash
 Ctrl-B
@@ -2549,4 +2545,23 @@ history -w
 vi ~/.bash_history
 history -r
 ```
+##### Decimal to Binary (e.g get binary of 5)
+```bash
+D2B=({0..1}{0..1}{0..1}{0..1}{0..1}{0..1}{0..1}{0..1})
+echo -e ${D2B[5]}
+#00000101
+echo -e ${D2B[255]}
+#11111111
+```
+
+##### wrap each input line to fit in specified width (e.g 4 integers per line)
+```bash
+echo "00110010101110001101" | fold -w4
+#0011
+#0010
+#1011
+#1000
+#1101
+```
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
