@@ -2566,5 +2566,9 @@ echo "00110010101110001101" | fold -w4
 #1000
 #1101
 ```
+##### sort a file by column and keep the original order
+```bash
+sort -k3,3 -s
+```
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
