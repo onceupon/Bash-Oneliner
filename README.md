@@ -2576,4 +2576,9 @@ echo "00110010101110001101" | fold -w4
 sort -k3,3 -s
 ```
 
+##### Right align a column (right align the 2nd column)
+```bash
+cat file.txt|rev|column -t|rev
+```
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
