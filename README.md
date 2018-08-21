@@ -236,6 +236,11 @@ sed '$d'
 sed -i '$ s/.$//' filename
 ```
 
+##### Add string to beginning of file (e.g. "\[")
+```bash
+sed -i '1s/^/[/' file
+```
+
 ##### Add string to end of file (e.g. "]")
 
 ```bash
