@@ -35,7 +35,7 @@ http://onceupon.github.io/Bash-Oneliner/
 
 #####  Grep only IP address
 ```bash
-grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}
+grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
 ```
 
 #####  Grep string starting with (e.g. 'S')
