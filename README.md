@@ -2467,16 +2467,20 @@ or
 tmux kill-session -t foo
 ``` 
 scroll:
-screeen
-Hit your screen prefix combination (C-a / control+A), then hit Escape.
-Move up/down with the arrow keys (↑ and ↓).
+(screeen)
+Hit your screen prefix combination (C-a / control+A), then hit Escape.  
+Move up/down with the arrow keys (↑ and ↓).  
 
-Redirect output of an already running process in screen:
- (C-a / control+A), then hit 'H'
+Redirect output of an already running process in screen:  
+ (C-a / control+A), then hit 'H'  
 
-store screen output for screen:
-Ctrl+A, Shift+H
+store screen output for screen:  
+Ctrl+A, Shift+H  
 You will then find a screen.log file under current directory.
+
+(tmux)
+Ctrl-b then \[ then you can use your normal navigation keys to scroll around.  
+Press q to quit scroll mode.  
 
 Send command to all panes in tmux:
 ```bash
