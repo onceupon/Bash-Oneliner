@@ -1579,11 +1579,6 @@ gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
 gsettings set org.gnome.gedit.preferences.editor use-default-font false
 gsettings set org.gnome.gedit.preferences.editor editor-font 'Cantarell Regular 12'
 ```
-
---> [Detail] Printing out login time, load average, etc
-```bash
-w
-```
 ##### Add user to a group (e.g add user 'nice' to the group 'docker', so that he can run docker without sudo) 
 ```bash
 sudo gpasswd -a nice docker
@@ -1774,6 +1769,11 @@ lastb
 ```bash
 who
 ```
+##### Show who is logged on and what they are doing
+```bash
+w
+```
+
 ##### Print the user names of users currently logged in to the current host.
 ```bash
 users
