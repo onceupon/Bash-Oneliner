@@ -1579,11 +1579,6 @@ gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
 gsettings set org.gnome.gedit.preferences.editor use-default-font false
 gsettings set org.gnome.gedit.preferences.editor editor-font 'Cantarell Regular 12'
 ```
-##### Find out who has logged in on your system
---> [Quick] Printing out only the names:
-```bash
-users
-```
 
 --> [Detail] Printing out login time, load average, etc
 ```bash
@@ -1770,6 +1765,19 @@ top|grep sublime_text
 [unixbench](https://github.com/kdlucas/byte-unixbench) - the original BYTE UNIX benchmark suite, provide a basic indicator of the performance of a Unix-like system.  
 [wrk](https://github.com/wg/wrk) - HTTP benchmark.   
 
+
+##### Show a listing of last logged in users.
+```bash
+lastb
+```
+##### Show a listing of current logged in users, print information of them
+```bash
+who
+```
+##### Print the user names of users currently logged in to the current host.
+```bash
+users
+```
 
 
 ## Hardware
