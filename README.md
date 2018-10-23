@@ -14,13 +14,14 @@ http://onceupon.github.io/Bash-Oneliner/
 
 ## Handy Bash oneliner commands
 
+- [Ctrl](#ctrl)
+- [Variable](#variable)
 - [Grep](#grep)
 - [Sed](#sed)
 - [Awk](#awk)
 - [Xargs](#xargs)
 - [Find](#find)
 - [Loops](#loops)
-- [Variable](#variable)
 - [Math](#math)
 - [Time](#time)
 - [Download](#download)
@@ -30,8 +31,24 @@ http://onceupon.github.io/Bash-Oneliner/
 - [Hardware](#hardware)
 - [Others](#others)
 
+## Ctrl
+```bash
+Ctrl + n : Same as Down arrow.
+Ctrl + p : Same as Up arrow.
+Ctrl + r : begins a backward search through cammand history.(keep pressing Ctrl + r to move backward)
+Ctrl + s : to stop output to terminal.
+Ctrl + q : to resume output to terminal after Ctrl + s.
+Ctrl + a : move to the beginning of line.
+Ctrl + e : move to the end of line.
+Ctrl + d : if you've type something, Ctrl + d deletes the character under the cursor, else, it escapes the current shell.
+Ctrl + k : delete all text from the cursor to the end of line.
+Ctrl + x + backspace : delete all text from the beginning of line to the cursor.
+Ctrl + t : transpose the character before the cursor with the one under the cursor, press Esc + t to transposes the two words before the cursor.
+Ctrl + x + Ctrl + e : launch editor define by $EDITOR
+```
 
 ## Grep
+[[back to top](#handy-bash-oneliner-commands)]
 
 #####  Grep only IP address
 ```bash
@@ -2563,7 +2580,7 @@ type pip
 pip install -r requirements.txt
 
 ```
-##### working with json data
+##### Working with json data
 ```bash
 #install the useful jq package
 #sudo apt-get install jq
@@ -2585,7 +2602,7 @@ echo -e ${D2B[255]}
 #11111111
 ```
 
-##### wrap each input line to fit in specified width (e.g 4 integers per line)
+##### Wrap each input line to fit in specified width (e.g 4 integers per line)
 ```bash
 echo "00110010101110001101" | fold -w4
 #0011
@@ -2594,7 +2611,7 @@ echo "00110010101110001101" | fold -w4
 #1000
 #1101
 ```
-##### sort a file by column and keep the original order
+##### Sort a file by column and keep the original order
 ```bash
 sort -k3,3 -s
 ```
@@ -2603,5 +2620,13 @@ sort -k3,3 -s
 ```bash
 cat file.txt|rev|column -t|rev
 ```
-
+##### Change case
+```bash
+Esc + u
+# converts text from cursor to the end of the word to uppercase.  
+Esc + l
+# converts text from cursor to the end of the word to uppercase. 
+Esc + c
+# converts letter under the cursor to uppercase.
+```
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
