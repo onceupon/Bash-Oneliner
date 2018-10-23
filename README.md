@@ -33,8 +33,8 @@ http://onceupon.github.io/Bash-Oneliner/
 
 ## Ctrl
 ```bash
-Ctrl + n : Same as Down arrow.
-Ctrl + p : Same as Up arrow.
+Ctrl + n : same as Down arrow.
+Ctrl + p : same as Up arrow.
 Ctrl + r : begins a backward search through cammand history.(keep pressing Ctrl + r to move backward)
 Ctrl + s : to stop output to terminal.
 Ctrl + q : to resume output to terminal after Ctrl + s.
