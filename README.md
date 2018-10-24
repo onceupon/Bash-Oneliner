@@ -1893,7 +1893,7 @@ users
 ##### Stop tailing a file on program terminate
 ```bash
 tail -f --pid=<PID> filename.txt
-# replace PID with the process ID of the program.
+# replace <PID> with the process ID of the program.
 ```
 
 ## Hardware
