@@ -97,7 +97,7 @@ or
 #####  Type of grep
 ```bash
 grep = grep -G # Basic Regular Expression (BRE)
-fgrep = grep -F # fixed text
+fgrep = grep -F # fixed text, ignoring meta-charachetrs
 egrep = grep -E # Extended Regular Expression (ERE)
 pgrep = grep -P # Perl Compatible Regular Expressions (PCRE)
 rgrep = grep -r # recursive
