@@ -1,7 +1,7 @@
 # Bash-Oneliner
 I am glad that you are here! I started working on bioinformatics four years ago (recently switched to cloud computing), and was amazed by those single-word bash commands which are much faster than my dull scripts, so much time can be saved through knowing command-line shortcuts and scripting. Not all the code here is oneliner (if the ';' counts..), but i put effort on making them brief and fast. I am mainly using Ubuntu, RedHat and Linux Mint, sorry if the commands dont work on your system. 
 
-This blog will focus on simple bash commands for parsing data; some of them are for Linux system maintenance. I apologize that there are no detailed citation for all the commands, but they are probably from dear Google and Stackoverflow.
+This blog will focus on simple bash commands for parsing data; some of them are for Linux system maintenance i acquired from work and when i was studying LPIC (I have LPIC1 certificate now ^^). I apologize that there are no detailed citation for all the commands, but they are probably from dear Google and Stackoverflow.
 
 English and bash are not my first language, so... correct me anytime, thank you!  
 And if you know any cool command that are not included here, Please Teach Me.
@@ -723,7 +723,10 @@ xargs -t abcd
 ##### With find and rm
 
 ```bash
-find . -name "*.html"|xargs rm -rf
+find . -name "*.html"|xargs rm
+ 
+# when using a backtick
+rm `find . -name "*.html"`
 ```
 
 ##### Delete fiels with whitespace in filename (e.g. "hello 2001")
@@ -1354,6 +1357,10 @@ $echo $PATH
     
 ```bash
 $env
+```
+##### Unset environment variable (e.g. unset variable 'MYVAR')
+```bash
+unset MYVAR
 ```
 
 ##### Show partition format
@@ -2013,12 +2020,23 @@ or
 nl -w1 -s ' '
 # making it simple, blank seperated
 ```
-##### Combine/ paste two files (e.g. fileA, fileB)
+
+##### Join two files field by field with tab (default join by the first column of both file, and default separator is space)
+```bash
+# fileA and fileB should have the same ordering of lines.
+join -t '\t' fileA fileB
+ 
+# Join using specified field (e.g. column 3 of fileA and column 5 of fileB)
+join -1 3 -2 5 fileA fileB
+```
+
+##### Combine/ paste two or more files into columns (e.g. fileA, fileB, fileC)
     
 ```bash
-paste fileA fileB
+paste fileA fileB fileC
 # default tab seperated
 ```
+
 ##### Reverse string
     
 ```bash
@@ -2682,6 +2700,16 @@ sort -k3,3 -s
 ##### Right align a column (right align the 2nd column)
 ```bash
 cat file.txt|rev|column -t|rev
+```
+##### To both view and store the output
+```bash
+echo 'hihihihi' | tee outputfile.txt
+# use '-a' with tee to append to file.
+```
+
+##### Show non-printing (Ctrl) characters with cat
+```bash
+cat -v filenme
 ```
 
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
