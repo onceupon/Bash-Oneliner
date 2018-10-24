@@ -1890,7 +1890,11 @@ w
 ```bash
 users
 ```
-
+##### Stop tailing a file on program terminate
+```bash
+tail -f --pid=<PID> filename.txt
+# replace PID with the process ID of the program.
+```
 
 ## Hardware
 [[back to top](#handy-bash-oneliner-commands)]
@@ -1988,6 +1992,12 @@ tr '\n' ' ' <filename
      
 ```bash
 tr /a-z/ /A-Z/
+```
+##### Translate a range of characters (e.g. substitute a-z into a)
+     
+```bash
+echo 'something' |tr a-z a
+# aaaaaaaaa
 ```
 
 ##### Compare files (e.g. fileA, fileB)
@@ -2339,10 +2349,15 @@ declare -A array=()
 scp -r directoryname user@ip:/path/to/send
 ```
 
-##### Split file into lines (e.g. 1000 lines/smallfile)
+##### Split file into smaller file
 ```bash
-$ split -d -l 1000 bigfilename
+# Split by line (e.g. 1000 lines/smallfile)
+split -d -l 1000 largefile.txt
+ 
+# Split by byte without breaking lines across files
+split -C 10 largefile.txt
 ```
+
 ##### Create a large amount of dummy files (e.g 100000 files, 10 bytes each):
 ```bash
 #1. Create a big file
@@ -2711,5 +2726,17 @@ echo 'hihihihi' | tee outputfile.txt
 ```bash
 cat -v filenme
 ```
+##### Convert tab to space
+```bash
+expand filenme
+```
+##### Convert space to tab 
+```bash
+unexpand filenme
+```
 
+##### Display file in octal ( you can also use od to display hexadecimal, decimal, etc)
+```bash
+od filenme
+```
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
