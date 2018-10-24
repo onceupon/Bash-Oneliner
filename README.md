@@ -103,9 +103,45 @@ pgrep = grep -P # Perl Compatible Regular Expressions (PCRE)
 rgrep = grep -r # recursive
 ```
 
+#####  Grep and return only integer
+```bash
+grep -o '[0-9]*'
+#or
+grep -oP '\d'
+```
+#####  Grep integer with certain number of digits (e.g. 3)
+```bash
+grep ‘[0-9]\{3\}’
+# or
+grep -E ‘[0-9]{3}’
+# or
+grep -P ‘\d{3}’
+```
+
 #####  Grep only IP address
 ```bash
 grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
+# or
+grep -Po '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
+```
+
+#####  Grep whole word (e.g. 'target')
+```bash
+grep -w 'target'
+ 
+#or using RE
+grep '\btarget\b'
+```
+#####  Grep returning lines before and after match (e.g. 'bbo')
+```bash
+# return also 3 lines after match
+grep -A 3 'bbo'
+ 
+# return also 3 lines before match
+grep -B 3 'bbo'
+
+# return also 3 lines before and after match
+grep -C 3 'bbo'
 ```
 
 #####  Grep string starting with (e.g. 'S')
@@ -117,12 +153,6 @@ grep -o 'S.*'
     
 ```bash
 grep -o -P '(?<=w1).*(?=w2)'
-```
-
-#####  Grep only integer
-    
-```bash
-grep -o '[0-9]*'
 ```
 
 
@@ -151,22 +181,22 @@ grep "$boo" filename
 grep -m 1 bbo filename
 ```
 
-##### Grep and count (e.g. bbo)
+##### Grep and return number of matching line(e.g. bbo)
     
 ```bash
 grep -c bbo filename
 ```
 
-##### Insensitive grep (e.g. bbo/BBO/Bbo)
-    
-```bash
-grep -i "bbo" filename 
-```
-
 ##### Count occurrence (e.g. three times a line count three times)
     
 ```bash
-grep -o bbo filename 
+grep -o bbo filename |wc -l 
+```
+
+##### Case insensitive grep (e.g. bbo/BBO/Bbo)
+    
+```bash
+grep -i "bbo" filename 
 ```
 
 ##### COLOR the match (e.g. bbo)!
@@ -186,16 +216,13 @@ or
 ```bash
 grep -r bbo /path/to/directory 
 ```
-##### Search all files in directory, only output file names with matches(e.g. bbo)
-    
+
+##### Search all files in directory, do not ouput the filenames (e.g. bbo)
 ```bash
-grep -Rh bbo /path/to/directory 
-```
-or
-```bash    
 grep -rh bbo /path/to/directory 
-```  
-or only list filename with match
+```
+
+##### Search all files in directory, output ONLY the filenames with matches(e.g. bbo)
 ```bash
 grep -rl bbo /path/to/directory
 ```
@@ -212,9 +239,18 @@ grep 'A\|B\|C\|D'
 ```bash
 grep 'A.*B' 
 ```
-
-##### Grep all content of a fileA from fileB
+##### Regex any singer character (e.g. ACB or AEB)
     
+```bash
+grep 'A.B' 
+```
+##### Regex with or without a certain character (e.g. color or colour)
+    
+```bash
+grep ‘colou?r’
+```
+
+##### Grep all content of a fileA from fileB   
 ```bash
 grep -f fileA fileB 
 ```
@@ -243,11 +279,10 @@ grep -oP '\(\K[^\)]+'
 grep -o -w "\w\{10\}\-R\w\{1\}"
 # \w word character [0-9a-zA-Z_] \W not word character 
 ```  
-
-
-
-##### A lot examples here
-http://www.cyberciti.biz/faq/grep-regular-expressions/
+##### Skip directory (e.g. bbo)
+```bash
+grep -d skip 'bbo' /path/to/files/*
+```  
 
 
 
