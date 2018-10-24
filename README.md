@@ -94,6 +94,15 @@ or
 ## Grep
 [[back to top](#handy-bash-oneliner-commands)]
 
+#####  Type of grep
+```bash
+grep = grep -G # Basic Regular Expression (BRE)
+fgrep = grep -F # fixed text
+egrep = grep -E # Extended Regular Expression (ERE)
+pgrep = grep -P # Perl Compatible Regular Expressions (PCRE)
+rgrep = grep -r # recursive
+```
+
 #####  Grep only IP address
 ```bash
 grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
