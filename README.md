@@ -14,7 +14,7 @@ http://onceupon.github.io/Bash-Oneliner/
 
 ## Handy Bash oneliner commands
 
-- [Ctrl](#ctrl)
+- [Terminal Tricks](#terminal-tricks)
 - [Variable](#variable)
 - [Grep](#grep)
 - [Sed](#sed)
@@ -31,7 +31,9 @@ http://onceupon.github.io/Bash-Oneliner/
 - [Hardware](#hardware)
 - [Others](#others)
 
-## Ctrl
+## Terminal Tricks
+
+#####  Ctrl
 ```bash
 Ctrl + n : same as Down arrow.
 Ctrl + p : same as Up arrow.
@@ -45,6 +47,48 @@ Ctrl + k : delete all text from the cursor to the end of line.
 Ctrl + x + backspace : delete all text from the beginning of line to the cursor.
 Ctrl + t : transpose the character before the cursor with the one under the cursor, press Esc + t to transposes the two words before the cursor.
 Ctrl + x + Ctrl + e : launch editor define by $EDITOR
+```
+##### Change case
+```bash
+Esc + u
+# converts text from cursor to the end of the word to uppercase.  
+Esc + l
+# converts text from cursor to the end of the word to uppercase. 
+Esc + c
+# converts letter under the cursor to uppercase.
+```
+##### Run history number (e.g. 53)
+    
+```bash
+!53
+```
+
+##### Run last command
+    
+```bash
+!!
+```
+##### Run last command and change some parameter (e.g. last command: echo 'aaa' -> rerun as: echo 'bbb')
+```bash
+#last command: echo 'aaa'
+^aaa^bbb
+
+#echo 'bbb'
+#bbb
+
+```
+
+##### Run past command that began with (e.g. cat filename)
+    
+```bash
+!cat
+```
+
+or
+
+```bash
+!c
+# run cat filename again
 ```
 
 ## Grep
@@ -2040,31 +2084,6 @@ cat /directory/to/file
 echo 100>!$
 ```
 
-##### Run history number (e.g. 53)
-    
-```bash
-!53
-```
-
-##### Run last command
-    
-```bash
-!!
-```
-
-##### Run last command that began with (e.g. cat filename)
-    
-```bash
-!cat
-```
-
-or
-
-```bash
-!c
-# run cat filename again
-```
-
 ##### Extract .xf
     
     1.unxz filename.tar.xz  
@@ -2620,13 +2639,5 @@ sort -k3,3 -s
 ```bash
 cat file.txt|rev|column -t|rev
 ```
-##### Change case
-```bash
-Esc + u
-# converts text from cursor to the end of the word to uppercase.  
-Esc + l
-# converts text from cursor to the end of the word to uppercase. 
-Esc + c
-# converts letter under the cursor to uppercase.
-```
+
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
