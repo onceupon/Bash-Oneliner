@@ -2739,4 +2739,9 @@ unexpand filenme
 ```bash
 od filenme
 ```
+
+##### Reverse cat a file
+```bash
+tac filenme
+```
 =-=-=-=-=-A lot more coming!! =-=-=-=-=-=-=-=-=-=waitwait-=-=-=-=-=-=-=-=-=-
