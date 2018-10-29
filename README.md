@@ -880,71 +880,75 @@ find . -name "*.mso" -size -74c -delete
 ```
 
 
-
 ## Loops
 [[back to top](#handy-bash-oneliner-commands)]
-##### While loop, column subtraction of a file (e.g. a 3 columns file)
-    
-```bash
-while read a b c; do echo $(($c-$b));done < <(head filename)
-
-#there is a space between the two '<'s
-```
-##### While loop, sum up column subtraction
-    
-```bash
-i=0; while read a b c; do ((i+=$c-$b)); echo $i; done < <(head filename)
-```
-
-##### While loop, keep checking a running process (e.g. perl) and start another new process (e.g. python) immetiately after it. (BETTER use the wait command! Ctrl+F 'wait')
-    
-```bash
-while [[ $(pidof perl) ]];do echo f;sleep 10;done && python timetorunpython.py
-```
 
 ##### If loop
 ```bash
 # if and else loop for string matching
 if [[ "$c" == "read" ]]; then outputdir="seq"; else outputdir="write" ; fi  
-```
 
-if (($j==$u+2))
-#(( )) use for arithmetic operation
-```
-    
-```bash
-if [[$age >21]]
-#[[ ]] use for comparison
-```
+# Test if myfile contains the string 'test':
+if grep -q hello myfile; then …
 
-##### Test if file exist
-```bash
+# Test if mydir is a directory, change to it and do other stuff:
+if cd mydir; then
+  echo 'some content' >myfile
+else
+  echo >&2 "Fatal error. This script requires mydir."
+fi
+
+# Test if file exist
 if [ -e 'filename' ]
 then
   echo -e "file exists!"
 fi
-```
 
-##### if else Test if file exist
-```bash
- if [ -e $filename ]; then echo -e "file exists!"; else mkdir $filename; fi
+# Test if file exist but also including symbolic links:
+if [ -e myfile ] || [ -L myfile ]
+then
+  echo -e "file exists!"
+fi
+
+# Test if the value of x is greater or equal than 5
+if [ "$x" -ge 5 ]; then …
+
+# Test if the value of x is greater or equal than 5, in bash/ksh/zsh:
+if ((x >= 5)); then …
+
+# Use (( )) for arithmetic operation
+if (($j==$u+2))
+
+# Use [[ ]] for comparison
+if [[$age >21]]
 ```
 
 ##### For loop
     
 ```bash
 for i in $(ls); do echo file $i;done
-```
 
-##### for loop, press any key to continue each loop
-```bash
+# Press any key to continue each loop
 for i in $(cat tpc_stats_0925.log |grep failed|grep -o '\query\w\{1,2\}');do cat ${i}.log; read -rsp $'Press any key to continue...\n' -n1 key;done
-```
 
-##### for loop, print a file line by line when a key is pressed
-```bash
+# Print a file line by line when a key is pressed
 for line in $(cat myfile); do echo $line; read -n1; done
 ```
+
+##### While loop, 
+
+```bash
+# Column subtraction of a file (e.g. a 3 columns file)
+while read a b c; do echo $(($c-$b));done < <(head filename)
+#there is a space between the two '<'s
+
+# Sum up column subtraction
+i=0; while read a b c; do ((i+=$c-$b)); echo $i; done < <(head filename)
+
+# Keep checking a running process (e.g. perl) and start another new process (e.g. python) immetiately after it. (BETTER use the wait command! Ctrl+F 'wait')
+while [[ $(pidof perl) ]];do echo f;sleep 10;done && python timetorunpython.py
+```
+
 ##### switch (case in bash)
 ```bash
 read type;
