@@ -1967,7 +1967,7 @@ lsblk -io KNAME,TYPE,MODEL,VENDOR,SIZE,ROTA
 ```
 ##### List information about NIC
 ```bash
-lsscsi|grep -i 'ethernet'
+lspci | egrep -i --color 'network|ethernet'
 ```
 ##### Found out power status of the server
 ```bash
