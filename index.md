@@ -1,3 +1,14 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88670245-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-88670245-2');
+</script>
+
+
 <a id="handy-bash-oneliner-commands-for-tsv-file-editing" class="anchor" href="#handy-bash-oneliner-commands-for-tsv-file-editing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Handy Bash oneliner commands for tsv file editing
 
 <ul>
