@@ -2611,6 +2611,10 @@ Send command to all panes in tmux:
 ```bash
 Ctrl-B
 :setw synchronize-panes
+``` 
+Some tmux pane control commands:
+```bash
+Ctrl-B
 
 #   Panes (splits), Press Ctrl+B, then input the following symbol:
 #   %  horizontal split
@@ -2619,6 +2623,17 @@ Ctrl-B
 #   q  show pane numbers
 #   x  kill pane
 #   space - toggle between layouts
+
+#   Distribute Vertically (rows): 
+select-layout even-vertical
+#   or
+Ctrl+b, Alt+2
+
+#   Distribute horizontally (columns): 
+select-layout even-horizontal
+#   or
+Ctrl+b, Alt+1
+
 ``` 
 ##### Cut the last column
 ```bash
