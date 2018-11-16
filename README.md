@@ -1900,6 +1900,12 @@ tail -f --pid=<PID> filename.txt
 # replace <PID> with the process ID of the program.
 ```
 
+##### List all enabled services
+```bash
+systemctl list-unit-files|grep enabled
+```
+
+
 ## Hardware
 [[back to top](#handy-bash-oneliner-commands)]
 
