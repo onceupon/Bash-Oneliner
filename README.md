@@ -2010,7 +2010,7 @@ echo 'something' |tr a-z a
 # aaaaaaaaa
 ```
 
-##### Compare files (e.g. fileA, fileB)
+##### Compare two files (e.g. fileA, fileB)
     
 ```bash
 diff fileA fileB
@@ -2022,6 +2022,12 @@ or
 ```bash
 sdiff fileA fileB
 # side-to-side merge of file differences
+```
+
+##### Compare two files, strip trailing carriage return/ nextline (e.g. fileA, fileB)
+    
+```bash
+ diff fileA fileB --strip-trailing-cr
 ```
 
 ##### Number a file (e.g. fileA)
