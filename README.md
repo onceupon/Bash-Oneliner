@@ -2775,4 +2775,10 @@ od filenme
 ```bash
 tac filenme
 ```
+##### Reverse the result from `uniq -c`
+```bash
+while read a b; do yes $b |head -n $a ;done <test.txt
+```
+
+
 =-=-=-=-=-::::::::::::::::More coming!!::::::::::::::::-=-=-=-=-=
