@@ -29,6 +29,7 @@ http://onceupon.github.io/Bash-Oneliner/
 - [Xwindow](#xwindow)
 - [System](#system)
 - [Hardware](#hardware)
+- [Networking](#networking)
 - [Others](#others)
 
 ## Terminal Tricks
@@ -1264,12 +1265,6 @@ xcowsay
 ps 
 ```
 
-##### Check graphics card
-
-```bash
-lspci
-```
-
 ##### Show IP address
     
 ```bash
@@ -1983,6 +1978,54 @@ ipmitool -U your_bmc_username -P your_bmc_userpassword -I lanplus -H your_bmc_ip
 ```bash
 ipmitool sensors |grep -i Temp
 ```
+## Networking
+[[back to top](#handy-bash-oneliner-commands)]
+
+##### Display IP address
+```bash
+ip a
+```
+
+##### Display route table
+```bash
+ip r
+```
+
+##### Display ARP cache (ARP cache displays the MAC addresses of deveice in the same network that you have connected to)
+```bash
+ip n
+```
+
+##### Add transient IP addres (reset after reboot) (e.g. add 192.168.140.3/24 to device eno16777736)
+```bash
+ip address add 192.168.140.3/24 dev eno16777736
+```
+
+##### Persisting network configuration changes
+```bash
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enoxxx
+# then edit the fields: BOOTPROT, DEVICE, IPADDR, NETMASK, GATEWAY, DNS1 etc
+```
+##### Refresh NetworkManager 
+```bash
+sudo nmcli c reload
+```
+
+##### Restart all interfaces
+```bash
+sudo systemctl restart network.service
+```
+
+##### To view hostname, OS, kernal, architecture at the same time!
+```bash
+hostnamectl
+```
+
+##### Set hostname (set all transient, static, pretty hostname at once)
+```bash
+hostnamectl set-hostname "mynode"
+```
+
 
 ## Others
 [[back to top](#handy-bash-oneliner-commands)]
