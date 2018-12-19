@@ -899,6 +899,10 @@ else
   echo >&2 "Fatal error. This script requires mydir."
 fi
 
+# if variable is null
+if [ ! -s "myvariable" ]
+#True of the length if "STRING" is zero.
+
 # Test if file exist
 if [ -e 'filename' ]
 then
