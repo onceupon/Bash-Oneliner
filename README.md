@@ -6,11 +6,7 @@ This blog will focus on simple bash commands for parsing data; some of them are 
 English and bash are not my first language, so... correct me anytime, thank you!  
 And if you know any cool command that are not included here, Please Teach Me.
 
-In case you would like to check and vote up my questions on Stackoverflow, here's my page:
-http://stackoverflow.com/users/4290753/once
-
-Here's a more stylish version of Bash-Oneliner~
-http://onceupon.github.io/Bash-Oneliner/
+Here's a more stylish version of [Bash-Oneliner](http://onceupon.github.io/Bash-Oneliner/)~
 
 ## Handy Bash oneliner commands
 
@@ -927,6 +923,8 @@ if (($j==$u+2))
 # Use [[ ]] for comparison
 if [[$age >21]]
 ```
+
+[More if commands](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
 
 ##### For loop
     
