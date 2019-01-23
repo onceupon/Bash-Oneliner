@@ -1906,6 +1906,13 @@ systemctl list-unit-files|grep enabled
 ## Hardware
 [[back to top](#handy-bash-oneliner-commands)]
 
+##### Collect and summarize all hardware info of your machine
+```bash
+lshw -json >report.json
+# Other options are: [ -html ]  [ -short ]  [ -xml ]  [ -json ]  [ -businfo ]  [ -sanitize ] ,etc
+```
+
+
 ##### Finding Out memory device detail
 ```bash
 sudo dmidecode -t memory
