@@ -1261,6 +1261,12 @@ xcowsay
 ## System
 [[back to top](#handy-bash-oneliner-commands)]
 
+# Check if it's root running
+if [ "$EUID" -ne 0 ]; then
+        echo "Please run this as root"
+        exit 1
+fi
+
 ##### Snapshot of the current processes
 
 ```bash
