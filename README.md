@@ -2837,6 +2837,4 @@ tac filenme
 ```bash
 while read a b; do yes $b |head -n $a ;done <test.txt
 ```
-
-
-=-=-=-=-=-::::::::::::::::More coming!!::::::::::::::::-=-=-=-=-=
+> More coming!!
