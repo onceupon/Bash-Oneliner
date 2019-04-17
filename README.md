@@ -285,7 +285,6 @@ grep -d skip 'bbo' /path/to/files/*
 
 ## Sed
 [[back to top](#handy-bash-oneliner-commands)]
-
 ##### Remove the 1st line
 ```bash
 sed 1d filename
@@ -316,13 +315,20 @@ sed -E '/^.{5}[^2]/d'
 sed -i "/bbo/d" filename
 ```
 ##### When using variable (e.g. $i), use double quotes " "
-e.g. add >$i to the first line (to make a FASTA file)  
+e.g. add >$i to the first line (to make a bioinformatics FASTA file)  
     
 ```bash
 sed "1i >$i"  
 # notice the double quotes! in other examples, you can use a single quote, but here, no way!   
 # '1i' means insert to first line
 ```
+
+##### Using environment variable and end-of-line pattern at the same time.
+```bash
+# Use backslash for end-of-line $ pattern, and double quotes for expressing the variable
+sed -e "\$s/\$/\n+--$3-----+/"
+```
+
 ##### Delete/remove empty lines
     
 ```bash
@@ -347,6 +353,11 @@ sed -i '$ s/.$//' filename
 ##### Add string to beginning of file (e.g. "\[")
 ```bash
 sed -i '1s/^/[/' file
+```
+
+##### Add string at certain line number (e.g. add 'something' to line 1 and line 3)
+```bash
+sed -e '1isomething -e '3isomething'
 ```
 
 ##### Add string to end of file (e.g. "]")
@@ -2044,6 +2055,11 @@ hostnamectl set-hostname "mynode"
 
 ## Others
 [[back to top](#handy-bash-oneliner-commands)]
+##### Copy a file to multiple files (e.g copy fileA to file(B-D))
+```bash
+tee <fileA fileB fileC fileD >/dev/null
+```
+
 ##### Remove newline / nextline
     
 ```bash
