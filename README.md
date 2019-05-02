@@ -2055,6 +2055,11 @@ hostnamectl set-hostname "mynode"
 
 ## Others
 [[back to top](#handy-bash-oneliner-commands)]
+##### Get parent directory of current directory
+```bash
+dirname `pwd`
+```
+
 ##### Copy a file to multiple files (e.g copy fileA to file(B-D))
 ```bash
 tee <fileA fileB fileC fileD >/dev/null
