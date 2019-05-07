@@ -1246,6 +1246,14 @@ xcowsay
 3. eog picture.png
 ```
 
+##### Watch videos on server
+```bash
+1. ssh -X user_name@ip_address
+2. sudo apt install mpv
+3. mpv myvideo.mp4
+```
+
+
 ##### Use gedit on server (GUI editor) 
 ```bash
 1. ssh -X user_name@ip_address
