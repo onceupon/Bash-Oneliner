@@ -891,7 +891,7 @@ find . -name "*.mso" -size -74c -delete
 ## Loops
 [[back to top](#handy-bash-oneliner-commands)]
 
-##### If loop
+##### If statement
 ```bash
 # if and else loop for string matching
 if [[ "$c" == "read" ]]; then outputdir="seq"; else outputdir="write" ; fi  
