@@ -34,7 +34,7 @@ Here's a more stylish version of [Bash-Oneliner](http://onceupon.github.io/Bash-
 ```bash
 Ctrl + n : same as Down arrow.
 Ctrl + p : same as Up arrow.
-Ctrl + r : begins a backward search through cammand history.(keep pressing Ctrl + r to move backward)
+Ctrl + r : begins a backward search through command history.(keep pressing Ctrl + r to move backward)
 Ctrl + s : to stop output to terminal.
 Ctrl + q : to resume output to terminal after Ctrl + s.
 Ctrl + a : move to the beginning of line.
