@@ -99,6 +99,10 @@ egrep = grep -E # Extended Regular Expression (ERE)
 pgrep = grep -P # Perl Compatible Regular Expressions (PCRE)
 rgrep = grep -r # recursive
 ```
+#####  Grep and count number of empty lines
+```bash
+grep -c "^$"
+```
 
 #####  Grep and return only integer
 ```bash
