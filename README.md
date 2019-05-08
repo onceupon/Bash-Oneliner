@@ -17,7 +17,7 @@ Here's a more stylish version of [Bash-Oneliner](http://onceupon.github.io/Bash-
 - [Awk](#awk)
 - [Xargs](#xargs)
 - [Find](#find)
-- [Loops](#loops)
+- [Condition and Loop](#condition-and-loop)
 - [Math](#math)
 - [Time](#time)
 - [Download](#download)
@@ -888,7 +888,7 @@ find . -name "*.mso" -size -74c -delete
 ```
 
 
-## Loops
+## Condition and loop
 [[back to top](#handy-bash-oneliner-commands)]
 
 ##### If statement
@@ -929,7 +929,7 @@ if [ "$x" -ge 5 ]; then …
 if ((x >= 5)); then …
 
 # Use (( )) for arithmetic operation
-if (($j==$u+2))
+if ((j==u+2))
 
 # Use [[ ]] for comparison
 if [[$age >21]]
@@ -941,12 +941,22 @@ if [[$age >21]]
     
 ```bash
 for i in $(ls); do echo file $i;done
+#or
+for i in *; do echo file $i; done
 
 # Press any key to continue each loop
 for i in $(cat tpc_stats_0925.log |grep failed|grep -o '\query\w\{1,2\}');do cat ${i}.log; read -rsp $'Press any key to continue...\n' -n1 key;done
 
-# Print a file line by line when a key is pressed
+# Print a file line by line when a key is pressed, 
+oifs="$IFS"; IFS=$'\n'; for line in $(cat myfile); do ...; done
+while read -r line; do ...; done <myfile
+
+#If only one word a line, simply
 for line in $(cat myfile); do echo $line; read -n1; done
+
+#Loop through an array
+for i in "${arrayName[@]}"; do echo $i;done
+
 ```
 
 ##### While loop, 
@@ -1034,6 +1044,8 @@ var=HelloWorld
 echo ${var,,}
 helloworld
 ```
+
+
 
 ## Math
 [[back to top](#handy-bash-oneliner-commands)]
@@ -1581,7 +1593,7 @@ id username
 ##### Check if it's root
     
 ```bash
-if [$(id -u) -ne 0];then
+if [ $(id -u) -ne 0 ];then
     echo "You are not root!"
     exit;
 fi
@@ -2184,6 +2196,11 @@ or
 
 ```bash
 some_commands 2>&1| tee logfile
+```
+or
+
+```bash
+some_commands |& tee logfile
 ```
 
 or
