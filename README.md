@@ -1496,9 +1496,10 @@ cp -rp /path/to/directory
     
 ```bash
 pushd . 
+ 
 # then pop
 popd
-#pushd .
+ 
 #or use dirs to display the list of currently remembered directories. 
 dirs -l 
 ```
