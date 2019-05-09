@@ -399,7 +399,7 @@ sed -e 's/$/\}\]/' filename
 sed 's/.\{4\}/&\n/g' 
 ```
 
-##### Concatenate/combine/join files with a seperator and next line (e.g seperate by ",")
+##### Concatenate/combine/join files with a seperator and next line (e.g separate by ",")
 
 ```bash
 sed -s '$a,' *.json > all.json
@@ -672,7 +672,7 @@ awk '{printf("%s\t%s\n",NR,$0)}'
 ##### Break combine column data into rows
 
 e.g.  
-seperate  
+separate
 
 David    cat,dog  
 into  
@@ -1178,7 +1178,7 @@ wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.com
 # -nd: don't make new directories, download to here  
 # -N: turn on timestamp  
 # -nd: no parent  
-# -A: type (seperate by ,)  
+# -A: type (separate by ,)  
 # -e robots=off: ignore the robots.txt file which stop wget from crashing the site, sorry example.com
 ```
 
@@ -2179,7 +2179,7 @@ nl -nrz fileA
 or  
 ```bash
 nl -w1 -s ' '
-# making it simple, blank seperated
+# making it simple, blank separate
 ```
 
 ##### Join two files field by field with tab (default join by the first column of both file, and default separator is space)
@@ -2195,7 +2195,7 @@ join -1 3 -2 5 fileA fileB
     
 ```bash
 paste fileA fileB fileC
-# default tab seperated
+# default tab separate
 ```
 
 ##### Reverse string
