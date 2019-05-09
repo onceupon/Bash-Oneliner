@@ -65,13 +65,18 @@ Esc + c
 ```bash
 !!
 ```
-##### Run last command and change some parameter (e.g. last command: echo 'aaa' -> rerun as: echo 'bbb')
+##### Run last command and change some parameter using caret substitution (e.g. last command: echo 'aaa' -> rerun as: echo 'bbb')
 ```bash
 #last command: echo 'aaa'
 ^aaa^bbb
 
 #echo 'bbb'
 #bbb
+
+#Notice that only the first aaa will be replaced, if you want to replace all 'aaa', use ':&' to repeat it:
+^aaa^bbb^:&
+or 
+!!:gs/aaa/bbb/
 
 ```
 
