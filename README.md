@@ -53,7 +53,7 @@ Ctrl + x + Ctrl + e : launch editor define by $EDITOR
 Esc + u
 # converts text from cursor to the end of the word to uppercase.  
 Esc + l
-# converts text from cursor to the end of the word to uppercase. 
+# converts text from cursor to the end of the word to case. 
 Esc + c
 # converts letter under the cursor to uppercase.
 ```
