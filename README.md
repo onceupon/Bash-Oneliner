@@ -1064,6 +1064,21 @@ helloworld
 
 ## Math
 [[back to top](#handy-bash-oneliner-commands)]
+##### Arithmetic Expansion in Bash (Operators: +,-,*,/,%,etc)
+```bash
+echo $(( 10 + 5 ))  #15
+x=1
+echo $(( x++ )) #1 , notice that it is still 1, since it's post-incremen
+echo $(( x++ )) #2
+echo $(( ++x )) #4 , notice that it is not 3 since it's pre-incremen
+echo $(( x-- )) #4
+echo $(( x-- )) #3
+echo $(( --x )) #1
+x=2
+y=3
+echo $(( x ** y )) #8
+```
+
 ##### Print out the prime factors of a number (e.g. 50)
 ```bash
 factor 50
