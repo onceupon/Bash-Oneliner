@@ -1140,6 +1140,21 @@ job 1 at Wed Apr 18 11:16:00 2018
 
 ## Download
 [[back to top](#handy-bash-oneliner-commands)]
+
+##### Download the content of this README.md (the one your are viewing now)
+```bash
+curl https://raw.githubusercontent.com/onceupon/Bash-Oneliner/master/README.md | pandoc -f markdown -t man | man -l -
+ 
+# or w3m (a text based web browser and pager)
+curl https://raw.githubusercontent.com/onceupon/Bash-Oneliner/master/README.md | pandoc | w3m -T text/html
+
+# or using emacs (in emac text editor) 
+emacs --eval '(org-mode)' --insert <(curl https://raw.githubusercontent.com/onceupon/Bash-Oneliner/master/README.md | pandoc -t org)
+
+# or using emacs (on terminal, exit using Ctrl + x then Ctrl + c) 
+emacs -nw --eval '(org-mode)' --insert <(curl https://raw.githubusercontent.com/onceupon/Bash-Oneliner/master/README.md | pandoc -t org)
+```
+
 ##### Download all from a page
     
 ```bash
