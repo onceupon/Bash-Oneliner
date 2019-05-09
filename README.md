@@ -44,8 +44,8 @@ Ctrl + d : if you've type something, Ctrl + d deletes the character under the cu
 Ctrl + k : delete all text from the cursor to the end of line.
 Ctrl + x + backspace : delete all text from the beginning of line to the cursor.
 Ctrl + t : transpose the character before the cursor with the one under the cursor, press Esc + t to transposes the two words before the cursor.
-Ctrl + w : delete the word before the cursor.
-Ctrl + u : delete the line before the cursor.
+Ctrl + w : cut the word before the cursor; then Ctrl + y paste it
+Ctrl + u : cut the line before the cursor; then Ctrl + y paste it
 Ctrl + x + Ctrl + e : launch editor define by $EDITOR
 ```
 ##### Change case
@@ -877,7 +877,7 @@ find . -type d
 ##### Edit all files under current directory (e.g. replace 'www' with 'ww')
     
 ```bash
-find . name '*.php' -exec sed -i 's/www/w/g' {} \;
+find . -name '*.php' -exec sed -i 's/www/w/g' {} \;
 ```
 if no subdirectory
     
@@ -944,7 +944,7 @@ if ((x >= 5)); then …
 if ((j==u+2))
 
 # Use [[ ]] for comparison
-if [[$age >21]]
+if [[ $age -gt 21 ]]
 ```
 
 [More if commands](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
@@ -1200,7 +1200,7 @@ curl https://transfer.sh/tG8rM/filename.txt -o filename.txt
 ```bash
 data=file.txt
 url=http://www.example.com/$data
-if [! -s $data];then
+if [ ! -s $data ];then
     echo "downloading test data..."
     wget $url
 fi
@@ -1495,7 +1495,12 @@ cp -rp /path/to/directory
 ##### Store current directory
     
 ```bash
-pushd . $popd ;dirs -l 
+pushd . 
+# then pop
+popd
+#pushd .
+#or use dirs to display the list of currently remembered directories. 
+dirs -l 
 ```
 
 ##### Show disk usage
@@ -2491,6 +2496,12 @@ echo -e ' \t '
 
 ##### Array
 ```bash
+declare -a array=()
+ 
+#or
+declare array=()
+ 
+#or associative array 
 declare -A array=()
 ```
 
