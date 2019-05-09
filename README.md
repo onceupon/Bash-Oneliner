@@ -35,6 +35,7 @@ Here's a more stylish version of [Bash-Oneliner](http://onceupon.github.io/Bash-
 Ctrl + n : same as Down arrow.
 Ctrl + p : same as Up arrow.
 Ctrl + r : begins a backward search through cammand history.(keep pressing Ctrl + r to move backward)
+Ctrl + l : Clear the terminal
 Ctrl + s : to stop output to terminal.
 Ctrl + q : to resume output to terminal after Ctrl + s.
 Ctrl + a : move to the beginning of line.
@@ -43,6 +44,8 @@ Ctrl + d : if you've type something, Ctrl + d deletes the character under the cu
 Ctrl + k : delete all text from the cursor to the end of line.
 Ctrl + x + backspace : delete all text from the beginning of line to the cursor.
 Ctrl + t : transpose the character before the cursor with the one under the cursor, press Esc + t to transposes the two words before the cursor.
+Ctrl + w : delete the word before the cursor.
+Ctrl + u : delete the line before the cursor.
 Ctrl + x + Ctrl + e : launch editor define by $EDITOR
 ```
 ##### Change case
