@@ -1064,7 +1064,7 @@ helloworld
 
 ## Math
 [[back to top](#handy-bash-oneliner-commands)]
-##### Arithmetic Expansion in Bash (Operators: +,-,*,/,%,etc)
+##### Arithmetic Expansion in Bash (Operators: +, -, *, /, %, etc)
 ```bash
 echo $(( 10 + 5 ))  #15
 x=1
