@@ -1,5 +1,5 @@
 # Bash-Oneliner
-I am glad that you are here! I started working on bioinformatics a few years ago (recently switched to cloud computing), and was amazed by those single-word bash commands which are much faster than my dull scripts, time saved through learning command-line shortcuts and scripting. Not all the code here is oneliner, but i put effort on making them brief and swift. I am mainly using Ubuntu, RedHat and Linux Mint and CentOS, sorry if the commands dont work on your system. 
+I am glad that you are here! I started working on bioinformatics a few years ago (recently switched to cloud computing), and was amazed by those single-word bash commands which are much faster than my dull scripts, time saved through learning command-line shortcuts and scripting. Not all the code here is oneliner, but i put effort on making them brief and swift. I am mainly using Ubuntu, RedHat and Linux Mint and CentOS, sorry if the commands don't work on your system. 
 
 This blog will focus on simple bash commands for parsing data and Linux system maintenance that i acquired from work and LPIC exam. I apologize that there are no detailed citation for all the commands, but they are probably from dear Google and Stackoverflow.
 
@@ -34,7 +34,7 @@ Here's a more stylish version of [Bash-Oneliner](http://onceupon.github.io/Bash-
 ```bash
 Ctrl + n : same as Down arrow.
 Ctrl + p : same as Up arrow.
-Ctrl + r : begins a backward search through cammand history.(keep pressing Ctrl + r to move backward)
+Ctrl + r : begins a backward search through command history.(keep pressing Ctrl + r to move backward)
 Ctrl + s : to stop output to terminal.
 Ctrl + q : to resume output to terminal after Ctrl + s.
 Ctrl + a : move to the beginning of line.
@@ -155,7 +155,7 @@ grep -C 3 'bbo'
 grep -o 'S.*'
 ```
 
-#####  Extract text bewteen words (e.g. w1,w2)
+#####  Extract text between words (e.g. w1,w2)
     
 ```bash
 grep -o -P '(?<=w1).*(?=w2)'
@@ -579,7 +579,7 @@ awk '$1~/,/ {print}'
 awk '{split($2, a,",");for (i in a) print $1"\t"a[i]}' filename 
 ```
 
-##### Print all lines before nth occurence of a string (e.g stop print lines when bbo appears 7 times)
+##### Print all lines before nth occurrence of a string (e.g stop print lines when bbo appears 7 times)
     
 ```bash
 awk -v N=7 '{print}/bbo/&& --N<=0 {exit}'
@@ -978,7 +978,7 @@ while read a b c; do echo $(($c-$b));done < <(head filename)
 # Sum up column subtraction
 i=0; while read a b c; do ((i+=$c-$b)); echo $i; done < <(head filename)
 
-# Keep checking a running process (e.g. perl) and start another new process (e.g. python) immetiately after it. (BETTER use the wait command! Ctrl+F 'wait')
+# Keep checking a running process (e.g. perl) and start another new process (e.g. python) immediately after it. (BETTER use the wait command! Ctrl+F 'wait')
 while [[ $(pidof perl) ]];do echo f;sleep 10;done && python timetorunpython.py
 ```
 
@@ -1129,7 +1129,7 @@ TMOUT=10
 
 ##### Set how long you want to run a command 
 ```bash
-#This will run the commmand 'sleep 10' for only 1 second.
+#This will run the command 'sleep 10' for only 1 second.
 timeout 1 sleep 10
 ```
 
@@ -1363,7 +1363,7 @@ jobs -l
 export PATH=$PATH:~/path/you/want
 ```
 
-##### Make file execuable
+##### Make file executable
     
 ```bash
 chmod +x filename
@@ -1647,7 +1647,7 @@ quota -v username
 ```
 
 ##### Fork bomb
-# dont try this at home    
+# don't try this at home    
 ```bash
 :(){:|:&};:
 ```
@@ -1685,7 +1685,7 @@ ulimit -u
 
 ```bash
 nmap -sT -O localhost
-#notice that some commpanies might not like you using nmap
+#notice that some companies might not like you using nmap
 ```
 
 ##### Print out number of cores/ processors
@@ -1718,7 +1718,7 @@ shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
 shutdown -c
 ```
 
-##### Boardcast to all users
+##### Broadcast to all users
 ```bash
 wall -n hihi
 ```
@@ -1895,7 +1895,7 @@ ssh -f -L 9000:targetservername:8088 root@192.168.14.72 -N
 #pidof
 pidof sublime_text
 
-#pgrep, you dont have to type the whole program name
+#pgrep, you don't have to type the whole program name
 pgrep sublim
 
 #top, takes longer time
@@ -1917,7 +1917,7 @@ top|grep sublime_text
 [ioblazer](https://labs.vmware.com/flings/ioblazer) - multi-platform storage stack micro-benchmark.  
 [iozone](http://www.iozone.org/) - filesystem benchmark.  
 [iperf3](https://iperf.fr/iperf-download.php) - measure TCP/UDP/SCTP performance.  
-[kcbench](https://github.com/knurd/kcbench) - kernel compile benchmark, compiles a kernel and messures the time it takes.  
+[kcbench](https://github.com/knurd/kcbench) - kernel compile benchmark, compiles a kernel and measures the time it takes.  
 [lmbench](http://www.bitmover.com/lmbench/) - Suite of simple, portable benchmarks.  
 [netperf](https://github.com/HewlettPackard/netperf) - measure network performance, test unidirectional throughput, and end-to-end latency.  
 [netpipe](https://linux.die.net/man/1/netpipe) - network protocol independent performance evaluator.  
@@ -2061,7 +2061,7 @@ ip a
 ip r
 ```
 
-##### Display ARP cache (ARP cache displays the MAC addresses of deveice in the same network that you have connected to)
+##### Display ARP cache (ARP cache displays the MAC addresses of device in the same network that you have connected to)
 ```bash
 ip n
 ```
@@ -2682,7 +2682,7 @@ example:
 q -d "," "select c3,c4,c5 from /path/to/file.txt where c3='foo' and c5='boo'"
 ``` 
 
-##### Sreen and tmux
+##### Screen and tmux
 create session and attach:
 ```bash
 screen
@@ -2732,7 +2732,7 @@ or
 tmux kill-session -t foo
 ``` 
 scroll:  
-(screeen)  
+(screen)  
 Hit your screen prefix combination (C-a / control+A), then hit Escape.  
 Move up/down with the arrow keys (↑ and ↓).  
 
@@ -2825,7 +2825,7 @@ tree
 ```bash
 #1. install virtualenv.
 sudo apt-get install virtualenv
-#2. Creat a directory (name it .venv or whatever name your want) for your new shiny isolated environment.
+#2. Create a directory (name it .venv or whatever name your want) for your new shiny isolated environment.
 virtualenv .venv
 #3. source virtual bin
 source .venv/bin/activate
