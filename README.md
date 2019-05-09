@@ -2901,25 +2901,25 @@ echo 'hihihihi' | tee outputfile.txt
 
 ##### Show non-printing (Ctrl) characters with cat
 ```bash
-cat -v filenme
+cat -v filename
 ```
 ##### Convert tab to space
 ```bash
-expand filenme
+expand filename
 ```
 ##### Convert space to tab 
 ```bash
-unexpand filenme
+unexpand filename
 ```
 
 ##### Display file in octal ( you can also use od to display hexadecimal, decimal, etc)
 ```bash
-od filenme
+od filename
 ```
 
 ##### Reverse cat a file
 ```bash
-tac filenme
+tac filename
 ```
 ##### Reverse the result from `uniq -c`
 ```bash
