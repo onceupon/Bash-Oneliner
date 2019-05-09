@@ -1018,9 +1018,13 @@ echo ${#var}
 ```
 ##### get the first character of the variable
 ```bash
-var="some string"
+var=string
+echo "${var:0:1}"
+#s 
+
+#or
 echo ${var%%"${var#?}"}
-#s
+
 ```
 ##### remove the first or last string from variable
 ```bash
