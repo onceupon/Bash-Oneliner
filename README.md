@@ -610,48 +610,44 @@ awk 'NF{NF-=1};1' file
 ```
 
 ##### Usage and meaning of NR and FNR
-e.g.  
-fileA:  
-a  
-b  
-c  
-fileB:  
-d  
-e  
-    
+   
 ```bash
+# For example there are two files:
+# fileA:  
+# a  
+# b  
+# c  
+# fileB:  
+# d  
+# e  
 awk 'print FILENAME, NR,FNR,$0}' fileA fileB 
+# fileA    1    1    a  
+# fileA    2    2    b  
+# fileA    3    3    c  
+# fileB    4    1    d  
+# fileB    5    2    e  
 ```
-
-fileA    1    1    a  
-fileA    2    2    b  
-fileA    3    3    c  
-fileB    4    1    d  
-fileB    5    2    e  
 
 ##### AND gate
-
-e.g.  
-fileA:  
-1    0  
-2    1  
-3    1  
-4    0  
-
-fileB:  
-1    0  
-2    1  
-3    0  
-4    1  
-    
 ```bash
-awk -v OFS='\t' 'NR=FNR{a[$1]=$2;next} NF {print $1,((a[$1]=$2)? $2:"0")}' fileA fileB 
-```
+# For example there are two files: 
+# fileA:  
+# 1    0  
+# 2    1  
+# 3    1  
+# 4    0  
+# fileB:  
+# 1    0  
+# 2    1  
+# 3    0  
+# 4    1      
 
-1    0  
-2    1  
-3    0  
-4    0  
+awk -v OFS='\t' 'NR=FNR{a[$1]=$2;next} NF {print $1,((a[$1]=$2)? $2:"0")}' fileA fileB 
+# 1    0  
+# 2    1  
+# 3    0  
+# 4    0  
+```
 
 ##### Round all numbers of file (e.g. 2 significant figure)
     
@@ -670,18 +666,16 @@ awk '{while (match($0, /[0-9]+\[0-9]+/)){
 awk '{printf("%s\t%s\n",NR,$0)}'
 ```
 ##### Break combine column data into rows
-
-e.g.  
-separate
-
-David    cat,dog  
-into  
-David    cat  
-David    dog  
-
-detail here:　http://stackoverflow.com/questions/33408762/bash-turning-single-comma-separated-column-into-multi-line-string
 ```bash
+# For example, seperate the following content:
+# David    cat,dog  
+# into  
+# David    cat  
+# David    dog  
+
 awk '{split($2,a,",");for(i in a)print $1"\t"a[i]}' file
+ 
+# Detail here:　http://stackoverflow.com/questions/33408762/bash-turning-single-comma-separated-column-into-multi-line-string
 ```
 
 ##### Average a file (each line in file contains only one number)
