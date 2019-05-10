@@ -1483,10 +1483,25 @@ netstat -tulpn
 readlink filename
 ```
 
-##### Check where a command link to (e.g. python)
-    
+##### Find out the type of command and where it link to (e.g. python)
 ```bash
+type python
+# python is /usr/bin/python
+# There are 5 different types, check using the 'type -f' flag
+# 1. alias    (shell alias)
+# 2. function (shell function, type will also print the function body)
+# 3. builtin  (shell builtin)
+# 4. file     (disk file)
+# 5. keyword  (shell reserved word) 
+
+# You can also use `which`
 which python
+# /usr/bin/python
+```
+
+##### List all functions names
+```bash
+declare -F
 ```
 
 ##### List total size of a directory
