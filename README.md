@@ -56,17 +56,16 @@ Esc + l
 Esc + c
 # converts letter under the cursor to uppercase.
 ```
-##### Run history number (e.g. 53)
-    
+##### Run history number (e.g. 53)   
 ```bash
 !53
 ```
 
-##### Run last command
-    
+##### Run last command 
 ```bash
 !!
 ```
+
 ##### Run last command and change some parameter using caret substitution (e.g. last command: echo 'aaa' -> rerun as: echo 'bbb')
 ```bash
 #last command: echo 'aaa'
@@ -77,20 +76,15 @@ Esc + c
 
 #Notice that only the first aaa will be replaced, if you want to replace all 'aaa', use ':&' to repeat it:
 ^aaa^bbb^:&
-or 
+#or 
 !!:gs/aaa/bbb/
 
 ```
 
 ##### Run past command that began with (e.g. cat filename)
-    
 ```bash
 !cat
-```
-
-or
-
-```bash
+# or
 !c
 # run cat filename again
 ```
@@ -168,71 +162,56 @@ grep -C 3 'bbo'
 grep -o 'S.*'
 ```
 
-#####  Extract text between words (e.g. w1,w2)
-    
+#####  Extract text between words (e.g. w1,w2)  
 ```bash
 grep -o -P '(?<=w1).*(?=w2)'
 ```
 
-
 ##### Grep lines without word (e.g. bbo)
-     
 ```bash
 grep -v bbo filename
 ```
 
 ##### Grep lines not begin with string (e.g. #)
-     
 ```bash
 grep -v '^#' file.txt
 ```
 
-##### Grep variables with space within it (e.g. bbo="some strings")
-     
+##### Grep variables with space within it (e.g. bbo="some strings")  
 ```bash
 grep "$boo" filename
 ```
 #remember to quote the variable!  
 
 ##### Grep only one/first match (e.g. bbo)
-
 ```bash
 grep -m 1 bbo filename
 ```
 
 ##### Grep and return number of matching line(e.g. bbo)
-    
 ```bash
 grep -c bbo filename
 ```
 
-##### Count occurrence (e.g. three times a line count three times)
-    
+##### Count occurrence (e.g. three times a line count three times)  
 ```bash
 grep -o bbo filename |wc -l 
 ```
 
 ##### Case insensitive grep (e.g. bbo/BBO/Bbo)
-    
 ```bash
 grep -i "bbo" filename 
 ```
 
 ##### COLOR the match (e.g. bbo)!
-    
 ```bash
 grep --color bbo filename 
 ```
 
 ##### Grep search all files in a directory(e.g. bbo)
-    
 ```bash
 grep -R bbo /path/to/directory 
-```
-
-or
-    
-```bash
+# or
 grep -r bbo /path/to/directory 
 ```
 
@@ -248,23 +227,20 @@ grep -rl bbo /path/to/directory
 
 
 ##### Grep OR (e.g. A or B or C or D)
-    
 ```
 grep 'A\|B\|C\|D' 
 ```
 
 ##### Grep AND (e.g. A and B)
-    
 ```bash
 grep 'A.*B' 
 ```
+
 ##### Regex any singer character (e.g. ACB or AEB)
-    
 ```bash
 grep 'A.B' 
 ```
 ##### Regex with or without a certain character (e.g. color or colour)
-    
 ```bash
 grep ‘colou?r’
 ```
@@ -275,7 +251,6 @@ grep -f fileA fileB
 ```
 
 ##### Grep a tab
-    
 ```bash
 grep $'\t' 
 ```
@@ -298,6 +273,7 @@ grep -oP '\(\K[^\)]+'
 grep -o -w "\w\{10\}\-R\w\{1\}"
 # \w word character [0-9a-zA-Z_] \W not word character 
 ```  
+
 ##### Skip directory (e.g. bbo)
 ```bash
 grep -d skip 'bbo' /path/to/files/*
@@ -318,7 +294,6 @@ sed 1,100d filename
 ```
 
 ##### Remove lines with string (e.g. bbo)
-    
 ```bash
 sed "/bbo/d" filename
 - case insensitive:
@@ -332,14 +307,12 @@ sed -E '/^.{5}[^2]/d'
 ```
 
 ##### Edit infile (edit and save)
-    
 ```bash
 sed -i "/bbo/d" filename
 ```
-##### When using variable (e.g. $i), use double quotes " "
-e.g. add >$i to the first line (to make a bioinformatics FASTA file)  
-    
+##### When using variable (e.g. $i), use double quotes " "  
 ```bash
+# e.g. add >$i to the first line (to make a bioinformatics FASTA file)  
 sed "1i >$i"  
 # notice the double quotes! in other examples, you can use a single quote, but here, no way!   
 # '1i' means insert to first line
@@ -352,17 +325,14 @@ sed -e "\$s/\$/\n+--$3-----+/"
 ```
 
 ##### Delete/remove empty lines
-    
 ```bash
 sed '/^\s*$/d' 
-```    
-or
+ 
+# or
    
-```bash
 sed '/^$/d' 
 ```
 ##### Delete/remove last line
-   
 ```bash
 sed '$d' 
 ```
@@ -383,18 +353,15 @@ sed -e '1isomething -e '3isomething'
 ```
 
 ##### Add string to end of file (e.g. "]")
-
 ```bash
 sed '$s/$/]/' filename
 ```
 ##### Add newline to the end
-
 ```bash
 sed '$a\'
 ```
 
 ##### Add string to beginning of every line (e.g. bbo)
-
 ```bash
 sed -e 's/^/bbo/' file
 ```
@@ -404,20 +371,17 @@ sed -e 's/^/bbo/' file
 sed -e 's/$/\}\]/' filename
 ```
 
-##### Add \n every nth character (e.g. every 4th character)
-    
+##### Add \n every nth character (e.g. every 4th character) 
 ```bash
 sed 's/.\{4\}/&\n/g' 
 ```
 
 ##### Concatenate/combine/join files with a seperator and next line (e.g separate by ",")
-
 ```bash
 sed -s '$a,' *.json > all.json
 ```
 
 ##### Substitution (e.g. replace A by B)
-    
 ```bash
 sed 's/A/B/g' filename 
 ```
@@ -428,83 +392,67 @@ sed "s/aaa=.*/aaa=\/my\/new\/path/g"
 ```
 
 ##### Select lines start with string (e.g. bbo)
-    
 ```bash
 sed -n '/^@S/p' 
 ```
 ##### Delete lines with string (e.g. bbo)
-    
 ```bash
 sed '/bbo/d' filename 
 ```
 
 ##### Print/get/trim a range of line (e.g. line 500-5000)
-    
 ```bash
 sed -n 500,5000p filename
 ```
 
 ##### Print every nth lines
-    
 ```bash
 sed -n '0~3p' filename
 
 # catch 0: start; 3: step
 ```
 
-
-
 ##### Print every odd # lines
-    
 ```bash
 sed -n '1~2p' 
 ```
 ##### Print every third line including the first line
-    
 ```bash
 sed -n '1p;0~3p' 
 ```
 ##### Remove leading whitespace and tabs
-    
 ```bash
 sed -e 's/^[ \t]*//'
+# Notice a whitespace before '\t'!!
 ```
-//notice a whitespace before '\t'!!
-
 
 ##### Remove only leading whitespace
-    
 ```bash
 sed 's/ *//'
 
 # notice a whitespace before '*'!!
 ```
+
 ##### Remove ending commas
-    
 ```bash
 sed 's/,$//g' 
 ```
+
 ##### Add a column to the end
-    
 ```bash
 sed "s/$/\t$i/"
-
 # $i is the valuable you want to add  
-# e.g. add the filename to every last column of the file  
-```
 
-    
-```bash
+# To add the filename to every last column of the file  
 for i in $(ls);do sed -i "s/$/\t$i/" $i;done
 ```
-##### Add extension of filename to last column
 
+##### Add extension of filename to last column
 ```bash
 for i in T000086_1.02.n T000086_1.02.p;do sed "s/$/\t${i/*./}/" $i;done >T000086_1.02.np
 ```
 
 ##### Remove newline\ nextline
-    
 ```bash
 sed ':a;N;$!ba;s/\n//g'
 ```
@@ -514,8 +462,7 @@ sed ':a;N;$!ba;s/\n//g'
 sed -n -e '123p'
 ```
 
-##### Print a number of lines (e.g. line 10th to line 33 rd)
-    
+##### Print a number of lines (e.g. line 10th to line 33 rd)    
 ```bash
 sed -n '10,33p' <filename
 ```
@@ -529,6 +476,7 @@ sed 's=/=\\/=g'
 ```bash
 sed 's/A-.*-e//g' filename
 ```
+
 ##### Remove last character of file
 ```bash
 sed '$ s/.$//'
@@ -543,57 +491,48 @@ sed -r -e 's/^.{3}/&#/' file
 ## Awk
 [[back to top](#handy-bash-oneliner-commands)]
 
-##### Set tab as field separator
-    
+##### Set tab as field separator  
 ```bash
 awk -F $'\t'  
 ```
 
-##### Output as tab separated (also as field separator)
-   
+##### Output as tab separated (also as field separator) 
 ```bash
 awk -v OFS='\t' 
 ```
 
 ##### Pass variable
-
 ```bash
 a=bbo;b=obb;
 awk -v a="$a" -v b="$b" "$1==a && $10=b" filename 
 ```
 
 ##### Print line number and number of characters on each line
-    
 ```bash
 awk '{print NR,length($0);}' filename 
 ```
 
 ##### Find number of columns
-  
 ```bash
 awk '{print NF}' 
 ```
 
 ##### Reverse column order
-    
 ```bash
 awk '{print $2, $1}' 
 ```
 
 ##### Check if there is a comma in a column (e.g. column $1)
-    
 ```bash
 awk '$1~/,/ {print}'  
 ```
 
 ##### Split and do for loop
-    
 ```bash
 awk '{split($2, a,",");for (i in a) print $1"\t"a[i]}' filename 
 ```
 
 ##### Print all lines before nth occurrence of a string (e.g stop print lines when bbo appears 7 times)
-    
 ```bash
 awk -v N=7 '{print}/bbo/&& --N<=0 {exit}'
 ```
@@ -604,13 +543,11 @@ ls|xargs -n1 -I file awk '{s=$0};END{print FILENAME,s}' file
 ```
 
 ##### Add string to the beginning of a column (e.g add "chr" to column $3)
-    
 ```bash
 awk 'BEGIN{OFS="\t"}$3="chr"$3' 
 ```
 
 ##### Remove lines with string (e.g. bbo)
-    
 ```bash
 awk '!/bbo/' file 
 ```
@@ -621,7 +558,6 @@ awk 'NF{NF-=1};1' file
 ```
 
 ##### Usage and meaning of NR and FNR
-   
 ```bash
 # For example there are two files:
 # fileA:  
@@ -661,7 +597,6 @@ awk -v OFS='\t' 'NR=FNR{a[$1]=$2;next} NF {print $1,((a[$1]=$2)? $2:"0")}' fileA
 ```
 
 ##### Round all numbers of file (e.g. 2 significant figure)
-    
 ```bash
 awk '{while (match($0, /[0-9]+\[0-9]+/)){
     \printf "%s%.2f", substr($0,0,RSTART-1),substr($0,RSTART,RLENGTH)
@@ -672,10 +607,10 @@ awk '{while (match($0, /[0-9]+\[0-9]+/)){
 ```
 
 ##### Give number/index to every row
-    
 ```bash
 awk '{printf("%s\t%s\n",NR,$0)}'
 ```
+
 ##### Break combine column data into rows
 ```bash
 # For example, seperate the following content:
@@ -695,13 +630,11 @@ awk '{s+=$1}END{print s/NR}'
 ```
 
 ##### Print field start with string (e.g Linux)
-
 ```bash
 awk '$1 ~ /^Linux/'
 ```
 
 ##### Sort a row (e.g. 1 40  35  12  23  --> 1 12    23  35  40)
-
 ```bash
 awk ' {split( $0, a, "\t" ); asort( a ); for( i = 1; i <= length(a); i++ ) printf( "%s\t", a[i] ); printf( "\n" ); }'
 ```
@@ -712,18 +645,15 @@ awk '{$6 = $4 - prev5; prev5 = $5; print;}'
 ```
 
 
-
 ## Xargs
 [[back to top](#handy-bash-oneliner-commands)]
 
 ##### Set tab as delimiter (default:space)
-
 ```bash
 xargs -d\t
 ```
 
 ##### Display 3 items per line
-
 ```bash
 echo 1 2 3 4 5 6| xargs -n 3
 # 1 2 3  
@@ -731,13 +661,11 @@ echo 1 2 3 4 5 6| xargs -n 3
 
 ```
 ##### Prompt before execution
-
 ```bash
 echo a b c |xargs -p -n 3
 ```
 
 ##### Print command along with output
-
 ```bash
 xargs -t abcd
 # bin/echo abcd  
@@ -745,7 +673,6 @@ xargs -t abcd
 
 ```
 ##### With find and rm
-
 ```bash
 find . -name "*.html"|xargs rm
  
@@ -754,47 +681,37 @@ rm `find . -name "*.html"`
 ```
 
 ##### Delete fiels with whitespace in filename (e.g. "hello 2001")
-
 ```bash
 find . -name "*.c" -print0|xargs -0 rm -rf
 ```
 
 ##### Show limits
-
 ```bash
 xargs --show-limits
 ```
 
 ##### Move files to folder
-
 ```bash
 find . -name "*.bak" -print 0|xargs -0 -I {} mv {} ~/old
-```
 
-or
-
-```bash
+# or
 find . -name "*.bak" -print 0|xargs -0 -I file mv file ~/old
 ```
 
 ##### Move first 100th files to a directory (e.g. d1)
-
 ```bash
 ls |head -100|xargs -I {} mv {} d1
 ```
 
 ##### Parallel
-
 ```bash
 time echo {1..5} |xargs -n 1 -P 5 sleep
-```
-a lot faster than
-```bash
+
+# a lot faster than: 
 time echo {1..5} |xargs -n1 sleep
 ```
 
 ##### Copy all files from A to B
-
 ```bash
 find /dir/to/A -type f -name "*.py" -print 0| xargs -0 -r -I file cp -v -p file --target-directory=/path/to/B
 
@@ -804,50 +721,41 @@ find /dir/to/A -type f -name "*.py" -print 0| xargs -0 -r -I file cp -v -p file 
 ```
 
 ##### With sed
-
 ```bash
 ls |xargs -n1 -I file sed -i '/^Pos/d' filename
 ```
 
 ##### Add the file name to the first line of file
-
 ```bash
 ls |sed 's/.txt//g'|xargs -n1 -I file sed -i -e '1 i\>file\' file.txt
 ```
 
 ##### Count all files
-
 ```bash
 ls |xargs -n1 wc -l
 ```
 
 ##### Turn output into a single line
-
 ```bash
 ls -l| xargs
 ```
 
 ##### Count files within directories
-
 ```bash
 echo mso{1..8}|xargs -n1 bash -c 'echo -n "$1:"; ls -la "$1"| grep -w 74 |wc -l' --
-
 # "--" signals the end of options and display further option processing
 ```
 
 ##### Download dependencies files and install (e.g. requirements.txt)
- 
 ```bash
 cat requirements.txt| xargs -n1 sudo pip install
 ```
 
 ##### Count lines in all file, also count total lines
-
 ```bash
 ls|xargs wc -l
 ```
 ##### Xargs and grep
-
 ```bash
 cat grep_list |xargs -I{} grep {} filename
 ```
@@ -860,43 +768,35 @@ grep -rl '192.168.1.111' /etc | xargs sed -i 's/192.168.1.111/192.168.2.111/g'
 
 ## Find 
 [[back to top](#handy-bash-oneliner-commands)]
-##### List all sub directory/file in the current directory
-    
+##### List all sub directory/file in the current directory 
 ```bash
 find .
 ```
 
-##### List all files under the current directory
-    
+##### List all files under the current directory 
 ```bash
 find . -type f
 ```
 
 ##### List all directories under the current directory
-    
 ```bash
 find . -type d
 ```
 
 ##### Edit all files under current directory (e.g. replace 'www' with 'ww')
-    
 ```bash
 find . -name '*.php' -exec sed -i 's/www/w/g' {} \;
-```
-if no subdirectory
-    
-```bash
+
+# if there are no subdirectory
 replace "www" "w" -- *
 # a space before *
 ```
 ##### Find and output only filename (e.g. "mso")
-    
 ```bash
 find mso*/ -name M* -printf "%f\n"
 ```
 
 ##### Find and delete file with size less than (e.g. 74 byte)
-    
 ```bash
 find . -name "*.mso" -size -74c -delete
 
@@ -954,7 +854,6 @@ if [[ $age -gt 21 ]]
 [More if commands](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
 
 ##### For loop
-    
 ```bash
 for i in $(ls); do echo file $i;done
 #or
@@ -976,7 +875,6 @@ for i in "${arrayName[@]}"; do echo $i;done
 ```
 
 ##### While loop, 
-
 ```bash
 # Column subtraction of a file (e.g. a 3 columns file)
 while read a b c; do echo $(($c-$b));done < <(head filename)
@@ -1026,10 +924,10 @@ var=string
 echo "${var:0:1}"
 #s 
 
-#or
+# or
 echo ${var%%"${var#?}"}
-
 ```
+
 ##### remove the first or last string from variable
 ```bash
 var="some string"
@@ -1048,6 +946,7 @@ echo ${var[@]#0}
 ```bash
 {var/a/,}
 ```
+
 ##### replace all (e.g. replace all 'a' with ',')
 ```bash
 {var//a/,}
@@ -1058,14 +957,13 @@ echo ${var[@]#0}
  grep ${test// /\\\|} file.txt
  # turning the space into 'or' (\|) in grep
 ```
+
 ##### To change the case of the string stored in the variable to lowercase (Parameter Expansion)
 ```bash
 var=HelloWorld
 echo ${var,,}
 helloworld
 ```
-
-
 
 ## Math
 [[back to top](#handy-bash-oneliner-commands)]
@@ -1089,24 +987,19 @@ echo $(( x ** y )) #8
 factor 50
 ```
 ##### Sum up input list (e.g. seq 10)
-    
 ```bash
 seq 10|paste -sd+|bc
 ```
 
 ##### Sum up a file (each line in file contains only one number)
-
 ```bash
 awk '{s+=$1} END {print s}' filename
 ```
 
-
-##### Column subtraction
-    
+##### Column subtraction 
 ```bash
 cat file| awk -F '\t' 'BEGIN {SUM=0}{SUM+=$3-$2}END{print SUM}'
 ```
-
 
 ##### Simple math with expr
 ```bash
@@ -1116,20 +1009,16 @@ expr 30 \> 20 #1 (true)
 ```
 
 ##### More math with bc
-
-- Number of decimal digit/ significant figure  
 ```bash
+# Number of decimal digit/ significant figure 
 echo "scale=2;2/3" | bc  
 #.66
-```
-- Exponent operator  
-```bash
+
+# Exponent operator  
 echo "10^2" | bc  
 #100
-```
 
-- Using variables   
-```bash
+# Using variables   
 echo "var=5;--var"| bc  
 #4
 ```
@@ -1186,8 +1075,7 @@ emacs --eval '(org-mode)' --insert <(curl https://raw.githubusercontent.com/once
 emacs -nw --eval '(org-mode)' --insert <(curl https://raw.githubusercontent.com/onceupon/Bash-Oneliner/master/README.md | pandoc -t org)
 ```
 
-##### Download all from a page
-    
+##### Download all from a page 
 ```bash
 wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.com
 
@@ -1203,19 +1091,16 @@ wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.com
 ```
 
 ##### Upload a file to web and download (https://transfer.sh/)
---> upload:
 ```bash
+#  Upload a file (e.g. filename.txt):
 curl --upload-file ./filename.txt https://transfer.sh/filename.txt
-```
-(the above command will return a URL, e.g: https://transfer.sh/tG8rM/filename.txt)  
---> download:
-```bash
+# the above command will return a URL, e.g: https://transfer.sh/tG8rM/filename.txt 
+
+# Next you can download it by:
 curl https://transfer.sh/tG8rM/filename.txt -o filename.txt
 ```
 
-
 ##### Download file if necessary
-    
 ```bash
 data=file.txt
 url=http://www.example.com/$data
@@ -1226,13 +1111,11 @@ fi
 ```
 
 ##### Wget to a filename (when a long name)
-    
 ```bash
 wget -O filename "http://example.com"
 ```
 
 ##### Wget files to a folder
-
 ```bash
 wget -P /path/to/directory "http://example.com"
 ```
@@ -1240,38 +1123,32 @@ wget -P /path/to/directory "http://example.com"
 
 ## Random
 [[back to top](#handy-bash-oneliner-commands)]
-##### Random pick 100 lines from a file
-    
+##### Random pick 100 lines from a file 
 ```bash
 shuf -n 100 filename
 ```
 
 ##### Random order (lucky draw)
-    
 ```bash
 for i in a b c d e; do echo $i; done| shuf
 ```
 
 ##### Echo series of random numbers between a range (e.g. shuffle numbers from 0-100, then pick 15 of them randomly)
-    
 ```bash
 shuf -i 0-100 -n 15
 ```
 
 ##### Echo a random number
-    
 ```bash
 echo $RANDOM
 ```
 
 ##### Random from 0-9
-    
 ```bash
 echo $((RANDOM % 10))
 ```
 
 ##### Random from 1-10
-    
 ```bash
 echo $(((RANDOM %10)+1))
 ```
@@ -1281,20 +1158,18 @@ echo $(((RANDOM %10)+1))
 
 X11 GUI applications! Here are some GUI tools for you if you get bored by the text-only environment.  
 
-
 ##### Enable X11 forwarding,in order to use graphical application on servers
 ```bash
 ssh -X user_name@ip_address
-```
-or setting through xhost
 
---> Install the following for Centos:  
-xorg-x11-xauth  
-xorg-x11-fonts-*  
-xorg-x11-utils  
+# or setting through xhost
+# --> Install the following for Centos:  
+# xorg-x11-xauth  
+# xorg-x11-fonts-*  
+# xorg-x11-utils  
+```
 
 ##### Little xwindow tools
-    
 ```bash
 xclock
 xeyes
@@ -1315,19 +1190,20 @@ xcowsay
 3. mpv myvideo.mp4
 ```
 
-
 ##### Use gedit on server (GUI editor) 
 ```bash
 1. ssh -X user_name@ip_address
 2. apt-get install gedit
 3. gedit filename.txt
 ```
+
 ##### Open PDF file from ssh server 
 ```bash
 1. ssh -X user_name@ip_address
 2. apt-get install evince
 3. evince filename.pdf
 ```
+
 ##### Use google-chrome browser from ssh server 
 ```bash
 1. ssh -X user_name@ip_address
@@ -1343,106 +1219,89 @@ xcowsay
 [[back to top](#handy-bash-oneliner-commands)]
 
 # Check if it's root running
+```bash
 if [ "$EUID" -ne 0 ]; then
         echo "Please run this as root"
         exit 1
 fi
+```
 
 ##### Snapshot of the current processes
-
 ```bash
 ps 
 ```
 
 ##### Show IP address
-    
 ```bash
 $ip add show
-```
-or
-    
-```bash
+
+# or
 ifconfig
 ```
 
 ##### Check system version
-    
 ```bash
 cat /etc/*-release
 ```
 
 ##### Linux Programmer's Manuel: hier- description of the filesystem hierarchy
-    
 ```bash
 man hier
 ```
 
 ##### List job
-    
 ```bash
 jobs -l
 ```
 
 ##### Export PATH
-    
 ```bash
 export PATH=$PATH:~/path/you/want
 ```
 
 ##### Make file executable
-    
 ```bash
 chmod +x filename
 # you can now ./filename to execute it
 ```
 
 ##### Check system (x86-64)
-    
 ```bash
 uname -i
 ```
 
 ##### Surf the net
-
 ```bash
 links www.google.com
 ```
 
 ##### Add user, set passwd
-    
 ```bash
 useradd username
 passwd username
 ```
 
 ##### Edit variable for bash, (e.g. displaying the whole path)
-    
 ```bash
 1. joe ~/.bash_profile 
 2. export PS1='\u@\h:\w\$' 
 # $PS1 is a variable that defines the makeup and style of the command prompt 
-```
-
-```bash
 3. source ~/.bash_profile
 ```
 
 ##### Edit environment setting (e.g. alias)
-    
 ```bash
 1. joe ~/.bash_profile
 2. alias pd="pwd" //no more need to type that 'w'!
 3. source ~/.bash_profile
 ```
 
-##### List environment variables (e.g. PATH)
-    
+##### List environment variables (e.g. PATH) 
 ```bash
 $echo $PATH
 # list of directories separated by a colon
 ```
 ##### List all environment variables for current user
-    
 ```bash
 $env
 ```
@@ -1452,38 +1311,32 @@ unset MYVAR
 ```
 
 ##### Show partition format
-    
 ```bash
 lsblk
 ```
 
 ##### Soft link program to bin
-    
 ```bash
 ln -s /path/to/program /home/usr/bin
 # must be the whole path to the program
 ```
 
 ##### Show hexadecimal view of data
-    
 ```bash
 hexdump -C filename.class
 ```
 
 ##### Jump to different node
-    
 ```bash
 rsh node_name
 ```
 
 ##### Check port (active internet connection)
-    
 ```bash
 netstat -tulpn
 ```
 
 ##### Find which link to a file
-    
 ```bash
 readlink filename
 ```
@@ -1510,24 +1363,19 @@ declare -F
 ```
 
 ##### List total size of a directory
-    
 ```bash
 du -hs .
-```
-or
-    
-```bash
+
+# or
 du -sb
 ```
 
 ##### Copy directory with permission setting
-    
 ```bash
 cp -rp /path/to/directory
 ```
 
-##### Store current directory
-    
+##### Store current directory 
 ```bash
 pushd . 
  
@@ -1539,81 +1387,63 @@ dirs -l
 ```
 
 ##### Show disk usage
-    
 ```bash
 df -h 
-```
-or
-   
-```bash
+
+# or
 du -h 
-```
-or
-    
-```bash
+
+#or
 du -sk /var/log/* |sort -rn |head -10
 ```
 
 ##### Show current runlevel
-    
 ```bash
 runlevel
 ```
 
 ##### Switch runlevel
-    
 ```bash
 init 3 
-```
-or
-```bash
+
+#or
 telinit 3 
 ```
-##### Permanently modify runlevel
-    
+##### Permanently modify runlevel  
 ```bash
 1. edit /etc/init/rc-sysinit.conf 
 2. env DEFAULT_RUNLEVEL=2 
 ```
 
 ##### Become root
-    
 ```bash
 su
 ```
 
 ##### Become somebody
-    
 ```bash
 su somebody
 ```
 
 ##### Report user quotes on device
-    
 ```bash
 requota -auvs
 ```
 
 ##### Get entries in a number of important databases
-    
 ```bash
 getent database_name
-```
-(e.g. the 'passwd' database)
-    
-```bash
+
+# (e.g. the 'passwd' database)
 getent passwd
 # list all user account (all local and LDAP)  
+
 # (e.g. fetch list of grop accounts)
-```
-    
-```bash
 getent group
 # store in database 'group'
 ```
 
 ##### Change owner of file
-    
 ```bash
 chown user_name filename
 chown -R user_name /path/to/directory/
@@ -1621,48 +1451,41 @@ chown -R user_name /path/to/directory/
 ```
 
 ##### List current mount detail
-    
 ```bash
 df
 ```
 
 ##### List current usernames and user-numbers
-    
 ```bash
 cat /etc/passwd
 ```
+
 ##### Get all username
-    
 ```bash
 getent passwd| awk '{FS="[:]"; print $1}'
 ```
 
-##### Show all users
-    
+##### Show all users  
 ```bash
 compgen -u
 ```
 
 ##### Show all groups
-    
 ```bash
 compgen -g
 ```
 
 ##### Show group of user
-    
 ```bash
 group username
 ```
 
 ##### Show uid, gid, group of user
-    
 ```bash
 id username
 ```
 
 ##### Check if it's root
-    
 ```bash
 if [ $(id -u) -ne 0 ];then
     echo "You are not root!"
@@ -1670,88 +1493,79 @@ if [ $(id -u) -ne 0 ];then
 fi
 # 'id -u' output 0 if it's not root
 ```
+
 ##### Find out CPU information
-    
 ```bash
 more /proc/cpuinfo
-```
-or
-    
-```bash
+
+# or
 lscpu
 ```
 
 ##### Set quota for user (e.g. disk soft limit: 120586240; hard limit: 125829120)
-    
 ```bash
 setquota username 120586240 125829120 0 0 /home
 ```
 
 ##### Show quota for user
-    
 ```bash
 quota -v username
 ```
 
 ##### Fork bomb
-# don't try this at home    
+# Remove the beginning '# ' and don't try this at home    
 ```bash
-:(){:|:&};:
+# :(){:|:&};:
 ```
 
 ##### Check user login
-    
 ```bash
 lastlog
 ```
 
 ##### Edit path for all users
-    
 ```bash
 joe /etc/environment
 # edit this file
 ```
+
 ##### Show running processes
-    
 ```bash
 ps aux
 ```
 
 ##### Find maximum number of processes
-    
 ```bash
 cat /proc/sys/kernal/pid_max
 ```
 
 ##### Show and set user limit
-    
 ```bash
 ulimit -u
 ```
 ##### Which ports are listening for TCP connections from the network
-
 ```bash
 nmap -sT -O localhost
 #notice that some companies might not like you using nmap
 ```
 
 ##### Print out number of cores/ processors
-
 ```bash
 nproc --all
 ```
+
 ##### Check status of each core
+```
 1. top  
 2. press '1'
+```
 
 ##### Show jobs and PID
-
 ```bash
 jobs -l
 ```
 
 ##### List all running services
-
 ```bash
 service --status-all
 ```
@@ -1760,6 +1574,7 @@ service --status-all
 ```bash
 shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
 ```
+
 ##### Cancel scheduled shutdown
 ```bash
 shutdown -c
@@ -1769,6 +1584,7 @@ shutdown -c
 ```bash
 wall -n hihi
 ```
+
 ##### Kill all process of a user
 ```bash
 pkill -U user_name
@@ -1780,21 +1596,18 @@ kill -9 $(ps aux | grep 'program_name' | awk '{print $2}')
 ```
 
 ##### Set gedit preference on server
+```
+# You might have to install the following:
 
--->you might have to install the following:
-
-apt-get install libglib2.0-bin;  
-
+apt-get install libglib2.0-bin; 
+# or
 yum install dconf dconf-editor;  
 yum install dbus dbus-x11;  
 
--->Check list  
-```bash
+# Check list  
 gsettings list-recursively
-```
--->Change setting  
-e.g.
-```bash
+
+# Change some settings 
 gsettings set org.gnome.gedit.preferences.editor highlight-current-line true
 gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
 gsettings set org.gnome.gedit.preferences.editor use-default-font false
@@ -1821,28 +1634,24 @@ sudo gpasswd -a nice docker
 ##### Change hostname
 ```bash
 sudo hostname your-new-name
-```
-if not working, do also:  
-```bash
+
+# if not working, do also:  
 hostnamectl set-hostname your-new-hostname
-```
-then run:  
+# then check with:
 hostnamectl
+# Or check /etc/hostname  
 
-check /etc/hostname  
-
-if still not working..., edit:  
+# If still not working..., edit:  
 /etc/sysconfig/network  
 /etc/sysconfig/network-scripts/ifcfg-ensxxx  
-add HOSTNAME="your-new-hostname"  
-  
+#add HOSTNAME="your-new-hostname"  
+ ``` 
 
 ##### List installed packages
 ```bash
 apt list --installed
-```
-or Red Hat: 
-```bash
+
+# or on Red Hat: 
 yum list installed
 ```
 
@@ -1851,21 +1660,22 @@ yum list installed
 lsof /mnt/dir
 ```
 
+##### When sound not working
+```bash
+killall pulseaudio
+# then press Alt-F2 and type in pulseaudio  
+```
 
 ##### When sound not working
 ```bash
 killall pulseaudio
 ```
-then press Alt-F2 and type in pulseaudio  
 
-##### When sound not working
-```bash
-killall pulseaudio
-```
  ##### List information about SCSI devices
 ```bash
 lsscsi
 ```
+
 ##### Tutorial for setting up your own DNS server
 http://onceuponmine.blogspot.tw/2017/08/set-up-your-own-dns-server.html
 
@@ -1879,35 +1689,35 @@ http://onceuponmine.blogspot.tw/2017/10/setting-up-msmtprc-and-use-your-gmail.ht
 ```bash
 telnet 192.168.2.106 53
 ```
+
 ##### change network maximum transmission unit (mtu) (e.g. change to 9000) 
 ```bash
 ifconfig eth0 mtu 9000
 ```
+
 ##### get pid of a running process (e.g python) 
 ```bash
 pidof python
-```
-or  
-```bash
+
+# or  
 ps aux|grep python
 ```
-##### ntp
-start ntp:  
+##### NTP
 ```bash
+# Start ntp:
 ntpd
-```
-check ntp:  
-```bash
+
+# Check ntp:  
 ntpq -p
 ```
-##### remove unnecessary files to clean your server
+
+##### Remove unnecessary files to clean your server
 ```bash
 sudo apt-get autoremove
 sudo apt-get clean
 sudo rm -rf ~/.cache/thumbnails/*
-```
-Remove old kernal:
-```bash
+
+# Remove old kernal:
 sudo dpkg --list 'linux-image*'
 sudo apt-get remove linux-image-OLDER_VERSION
 ```
@@ -1916,14 +1726,14 @@ sudo apt-get remove linux-image-OLDER_VERSION
 ```bash
 pvscan
 lvextend -L +130G /dev/rhel/root -r
+# Adding -r will grow filesystem after resizing the volume.
 ```
-#Adding -r will grow filesystem after resizing the volume.  
-
 
 ##### Create a UEFI Bootable USB drive (e.g. /dev/sdc1)
 ```bash
 sudo dd if=~/path/to/isofile.iso of=/dev/sdc1 oflag=direct bs=1048576
 ```
+
 ##### Locate and remove a package
 ```bash
 sudo dpkg -l | grep <package_name>
@@ -1947,7 +1757,6 @@ pgrep sublim
 
 #top, takes longer time
 top|grep sublime_text
-
 ```
 
 ##### Some benchmarking tools for your server
@@ -1986,6 +1795,7 @@ top|grep sublime_text
 ```bash
 lastb
 ```
+
 ##### Show a listing of current logged in users, print information of them
 ```bash
 who
@@ -1999,6 +1809,7 @@ w
 ```bash
 users
 ```
+
 ##### Stop tailing a file on program terminate
 ```bash
 tail -f --pid=<PID> filename.txt
@@ -2019,7 +1830,6 @@ systemctl list-unit-files|grep enabled
 lshw -json >report.json
 # Other options are: [ -html ]  [ -short ]  [ -xml ]  [ -json ]  [ -businfo ]  [ -sanitize ] ,etc
 ```
-
 
 ##### Finding Out memory device detail
 ```bash
@@ -2070,9 +1880,10 @@ dmidecode -t 4
 ##### Count the number of Segate hard disks
 ```bash
 lsscsi|grep SEAGATE|wc -l
-or
+# or
 sg_map -i -x|grep SEAGATE|wc -l
 ```
+
 ##### Get UUID of a disk (e.g. sdb)
 ```bash
 blkid /dev/sdb
@@ -2083,10 +1894,12 @@ blkid /dev/sdb
 lsblk -io KNAME,TYPE,MODEL,VENDOR,SIZE,ROTA
 #where ROTA means rotational device / spinning hard disks (1 if true, 0 if false)
 ```
+
 ##### List information about NIC
 ```bash
 lspci | egrep -i --color 'network|ethernet'
 ```
+
 ##### Controlling IPMI-enabled devices (e.g. BMC)
 ```bash
 # Remotely finding out power status of the server
@@ -2112,6 +1925,7 @@ ipmitool -I bmc lan set 1 ipaddr 192.168.0.55
 ipmitool -I bmc lan set 1 netmask 255.255.255.0
 ipmitool -I bmc lan set 1 defgw ipaddr 192.168.0.1
 ```
+
 
 ## Networking
 [[back to top](#handy-bash-oneliner-commands)]
@@ -2175,24 +1989,20 @@ tee <fileA fileB fileC fileD >/dev/null
 ```
 
 ##### Remove newline / nextline
-    
 ```bash
 tr --delete '\n' <input.txt >output.txt
 ```
 
-##### Replace newline
-     
+##### Replace newline 
 ```bash
 tr '\n' ' ' <filename
 ```
 
 ##### To uppercase/lowercase
-     
 ```bash
 tr /a-z/ /A-Z/
 ```
 ##### Translate a range of characters (e.g. substitute a-z into a)
-     
 ```bash
 echo 'something' |tr a-z a
 # aaaaaaaaa
@@ -2203,17 +2013,13 @@ echo 'something' |tr a-z a
 ```bash
 diff fileA fileB
 # a: added; d:delete; c:changed
-```
 
-or
-
-```bash
+# or
 sdiff fileA fileB
 # side-to-side merge of file differences
 ```
 
 ##### Compare two files, strip trailing carriage return/ nextline (e.g. fileA, fileB)
-    
 ```bash
  diff fileA fileB --strip-trailing-cr
 ```
@@ -2222,15 +2028,12 @@ sdiff fileA fileB
 
 ```bash
 nl fileA
-```
-or
 
-```bash
+#or
 nl -nrz fileA
 # add leading zeros
-```
-or  
-```bash
+
+#or  
 nl -w1 -s ' '
 # making it simple, blank separate
 ```
@@ -2245,14 +2048,12 @@ join -1 3 -2 5 fileA fileB
 ```
 
 ##### Combine/ paste two or more files into columns (e.g. fileA, fileB, fileC)
-    
 ```bash
 paste fileA fileB fileC
 # default tab separate
 ```
 
 ##### Reverse string
-    
 ```bash
 echo 12345| rev
 ```
@@ -2261,10 +2062,8 @@ echo 12345| rev
     
 ```bash
 zmore filename
-```
-or
-    
-```bash
+
+# or
 zless filename
 ```
 
@@ -2272,156 +2071,120 @@ zless filename
     
 ```bash
 some_commands  &>log &
-```
 
-or
-
-
-```bash
+# or
 some_commands 2>log &
-```
 
-or
-
-```bash
+# or
 some_commands 2>&1| tee logfile
-```
-or
 
-```bash
+# or
 some_commands |& tee logfile
-```
 
-or
-
-```bash
+# or
 some_commands 2>&1 >>outfile
 #0: standard input; 1: standard output; 2: standard error
 ```
 
-##### Send mail
-    
+##### Send mail 
 ```bash
 echo 'heres the content'| mail -a /path/to/attach_file.txt -s 'mail.subject' me@gmail.com
 # use -a flag to set send from (-a "From: some@mail.tld")
 ```
 
 ##### .xls to csv
-    
 ```bash
 xls2csv filename
 ```
 ##### Append to file (e.g. hihi)
-    
 ```bash
 echo 'hihi' >>filename
 ```
 
 ##### Make BEEP sound
-    
 ```bash
 speaker-test -t sine -f 1000 -l1
 ```
 
 ##### Set beep duration
-    
 ```bash
 (speaker-test -t sine -f 1000) & pid=$!;sleep 0.1s;kill -9 $pid
 ```
 
 ##### History edit/ delete
-    
 ```bash
 ~/.bash_history
-```
-or
 
-```bash
+#or
 history -d [line_number]
 ```
 
 ##### Get last history/record filename
-    
 ```bash
 head !$
 ```
 
 ##### Clean screen
-    
 ```bash
 clear
-```
 
-or
-
-```bash
+# or
 Ctrl+l
 ```
 
 ##### Send data to last edited file
-    
 ```bash
 cat /directory/to/file
 echo 100>!$
 ```
 
 ##### Extract .xf
-    
-    1.unxz filename.tar.xz  
-    2.tar -xf filename.tar
+```
+unxz filename.tar.xz  
+# then
+tar -xf filename.tar
+```
 
 ##### Install python package
-    
 ```bash
 pip install packagename
 ```
 
 ##### Delete current bash command
-    
 ```bash
 Ctrl+U
-```
 
-or
-
-```bash
+# or
 Ctrl+C
-```
 
-or
-
-```bash
+# or
 Alt+Shift+#
 # to make it to history
 ```
 
 ##### Add something to history (e.g. "addmetohistory")
-    
 ```bash
-#addmetodistory
-#just add a "#" before~~
+# addmetodistory
+# just add a "#" before~~
 ```
 
-##### Sleep awhile or wait for a moment or schedule a job
-    
+##### Sleep awhile or wait for a moment or schedule a job 
 ```bash
 sleep 5;echo hi
 ```
 
 ##### Backup with rsync
-    
 ```bash
 rsync -av filename filename.bak
 rsync -av directory directory.bak
 rsync -av --ignore_existing directory/ directory.bak
 rsync -av --update directory directory.bak
-rsync -av directory user@ip_address:/path/to/directory.bak
-```
-//skip files that are newer on receiver (i prefer this one!)
 
+rsync -av directory user@ip_address:/path/to/directory.bak
+# skip files that are newer on receiver (i prefer this one!)
+```
 
 ##### Make all directories at one time!
-    
 ```bash
 mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat}
 # -p: make parent directory  
@@ -2429,25 +2192,21 @@ mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat}
 ```
 
 ##### Run command only if another command returns zero exit status (well done)
-    
 ```bash
 cd tmp/ && tar xvf ~/a.tar
 ```
 
 ##### Run command only if another command returns non-zero exit status (not finish)
-    
 ```bash
 cd tmp/a/b/c ||mkdir -p tmp/a/b/c
 ```
 
 ##### Extract to a path
-    
 ```bash
 tar xvf -C /path/to/directory filename.gz
 ```
 
 ##### Use backslash "\" to break long command
-    
 ```bash
 cd tmp/a/b/c \
 > || \
@@ -2455,73 +2214,52 @@ cd tmp/a/b/c \
 ```
 
 ##### Get pwd
-    
 ```bash
 VAR=$PWD; cd ~; tar xvf -C $VAR file.tar
 # PWD need to be capital letter
 ```
 
 ##### List file type of file (e.g. /tmp/)
-    
 ```bash
 file /tmp/
 # tmp/: directory
 ```
 
-
-
 ##### Bash script
-    
 ```bash
 #!/bin/bash
 file=${1#*.}
 # remove string before a "."
 ```
 
-```bash
-file=${1%.*}
-# remove string after a "."
-```
-
-##### Search from history
-    
-```bash
-Ctrl+r
-```
-
 ##### Python simple HTTP Server
-    
 ```bash
 python -m SimpleHTTPServer
 ```
 
 ##### Read user input
-    
 ```bash
 read input
 echo $input
 ```
 
 ##### Generate sequence 1-10
-    
 ```bash
 seq 10
 ```
 
 ##### Find average of input list/file
-    
 ```bash
 i=`wc -l filename|cut -d ' ' -f1`; cat filename| echo "scale=2;(`paste -sd+`)/"$i|bc
 ```
 
 ##### Generate all combination (e.g. 1,2)
-    
 ```bash
 echo {1,2}{1,2}
 # 1 1, 1 2, 2 1, 2 2
 ```
+
 ##### Generate all combination (e.g. A,T,C,G)
-    
 ```bash
 set = {A,T,C,G}
 group= 5
@@ -2536,13 +2274,11 @@ foo=$(<test1)
 ```
 
 ##### Echo size of variable
-
 ```bash
 echo ${#foo}
 ```
 
 ##### Echo tab
-
 ```bash
 echo -e ' \t '
 ```
@@ -2551,15 +2287,14 @@ echo -e ' \t '
 ```bash
 declare -a array=()
  
-#or
+# or
 declare array=()
  
-#or associative array 
+# or associative array 
 declare -A array=()
 ```
 
 ##### Send a directory
-
 ```bash
 scp -r directoryname user@ip:/path/to/send
 ```
@@ -2627,20 +2362,17 @@ head -c 50 file
 ```
  
 ##### Group/combine rows into one row 
-
 ```bash
-#e.g.  
-#AAAA  
-#BBBB  
-#CCCC  
-#DDDD  
+# e.g.  
+# AAAA  
+# BBBB  
+# CCCC  
+# DDDD  
 cat filename|paste - -
--->
-AAAABBBB
-CCCCDDDD
+# AAAABBBB
+# CCCCDDDD
 cat filename|paste - - - -
--->
-AAAABBBBCCCCDDDD
+# AAAABBBBCCCCDDDD
 ```
 
 ##### Fastq to fasta 
@@ -2655,7 +2387,7 @@ cat file|rev | cut -d/ -f1 | rev
 ##### Add one to variable/increment/ i++ a numeric variable (e.g. $var) 
 ```bash
 ((var++))
-or
+# or
 var=$((var+1))
 
 ```
@@ -2664,10 +2396,12 @@ var=$((var+1))
 ```bash
 >filename
 ```
+
 ##### Unzip tar.bz2 file (e.g. file.tar.bz2)
 ```bash
 tar xvfj file.tar.bz2
 ```
+
 ##### Unzip tar.xz file (e.g. file.tar.xz)
 ```bash
 unxz file.tar.xz
@@ -2675,20 +2409,17 @@ tar xopf file.tar
 ```
 
 ##### Output a y/n repeatedly until killed 
-'y':
 ```bash
+# 'y':
 yes
-```
-or 'n':
-```bash
-yes n
-```
-or 'anything':
-```bash
-yes anything
-```
 
-For example: 
+# or 'n':
+yes n
+
+# or 'anything':
+yes anything
+
+# For example: 
 ```bash
 yes | rm -r large_directory
 ``` 
@@ -2696,14 +2427,14 @@ yes | rm -r large_directory
 ##### Create dummy file of certain size instantly (e.g. 200mb)
 ```bash
 dd if=/dev/zero of=//dev/shm/200m bs=1024k count=200
-or
+# or
 dd if=/dev/zero of=//dev/shm/200m bs=1M count=200
-``` 
 
-Standard output:  
-200+0 records in  
-200+0 records out  
-209715200 bytes (210 MB) copied, 0.0955679 s, 2.2 GB/s  
+# Standard output:  
+# 200+0 records in  
+# 200+0 records out  
+# 209715200 bytes (210 MB) copied, 0.0955679 s, 2.2 GB/s 
+``` 
 
 ##### Cat to a file
 ```bash
@@ -2727,20 +2458,22 @@ set -x; echo `expr 10 + 20 `
 ```bash
 fortune
 ``` 
+
 ##### Colorful (and useful) version of top (install htop first)
 ```bash
 htop
 ``` 
+
 ##### Press any key to continue
 ```bash
 read -rsp $'Press any key to continue...\n' -n1 key
 ``` 
 
 ##### Run sql-like command on files from terminal
-download:  
-https://github.com/harelba/q  
-example:
 ```bash
+# download:  
+# https://github.com/harelba/q  
+# example:
 q -d "," "select c3,c4,c5 from /path/to/file.txt where c3='foo' and c5='boo'"
 ``` 
 
@@ -2835,23 +2568,27 @@ Press q to quit scroll mode.
 ```bash
 cat filename|rev|cut -f1|rev
 ``` 
+
 ##### pass password to ssh
 ```bash
 sshpass -p mypassword ssh root@10.102.14.88 "df -h"
 ```
+
 ##### wait for a pid (job) to complete
 ```bash
 wait %1 
-or 
+# or 
 wait $PID
 wait ${!}
 #wait ${!} to wait till the last background process ($! is the PID of the last background process)
 ```
+
 ##### pdf to txt
 ```bash
 sudo apt-get install poppler-utils
 pdftotext example.pdf example.txt
 ```
+
 ##### list only directory
 ```bash
 ls -ld -- */
@@ -2860,23 +2597,25 @@ ls -ld -- */
 ##### Capture/record/save terminal output (capture everything you type and output)
 ```bash
 script output.txt
-#start using terminal 
-#to logout the screen session (stop saving the contents), type exit.
+# start using terminal 
+# to logout the screen session (stop saving the contents), type exit.
 ```
+
 ##### list contents of directories in a tree-like format.
 ```bash
 tree
-#go to the directory you want to list, and type tree (sudo apt-get install tree)
-#output:
-#one/
-#└── two
-#    ├── 1
-#    ├── 2
-#    ├── 3
-#    ├── 4
-#    └── 5
+# go to the directory you want to list, and type tree (sudo apt-get install tree)
+# output:
+# one/
+# └── two
+#     ├── 1
+#     ├── 2
+#     ├── 3
+#     ├── 4
+#     └── 5
 #
 ```
+
 ##### set up virtualenv(sandbox) for python
 ```bash
 # 1. install virtualenv.
@@ -2889,8 +2628,8 @@ source .venv/bin/activate
 type pip
 # 5. Now you can install your pip package, here requirements.txt is simply a txt file containing all the packages you want. (e.g tornado==4.5.3).
 pip install -r requirements.txt
-
 ```
+
 ##### Working with json data
 ```bash
 #install the useful jq package
@@ -2898,12 +2637,14 @@ pip install -r requirements.txt
 #e.g. to get all the values of the 'url' key, simply pipe the json to the following jq command(you can use .[]. to select inner json, i.e jq '.[].url')
 jq '.url'
 ```
+
 ##### Editing your history
 ```bash
 history -w
 vi ~/.bash_history
 history -r
 ```
+
 ##### Decimal to Binary (e.g get binary of 5)
 ```bash
 D2B=({0..1}{0..1}{0..1}{0..1}{0..1}{0..1}{0..1}{0..1})
@@ -2922,6 +2663,7 @@ echo "00110010101110001101" | fold -w4
 # 1000
 # 1101
 ```
+
 ##### Sort a file by column and keep the original order
 ```bash
 sort -k3,3 -s
@@ -2931,6 +2673,7 @@ sort -k3,3 -s
 ```bash
 cat file.txt|rev|column -t|rev
 ```
+
 ##### To both view and store the output
 ```bash
 echo 'hihihihi' | tee outputfile.txt
@@ -2941,10 +2684,12 @@ echo 'hihihihi' | tee outputfile.txt
 ```bash
 cat -v filename
 ```
+
 ##### Convert tab to space
 ```bash
 expand filename
 ```
+
 ##### Convert space to tab 
 ```bash
 unexpand filename
@@ -2959,8 +2704,10 @@ od filename
 ```bash
 tac filename
 ```
+
 ##### Reverse the result from `uniq -c`
 ```bash
 while read a b; do yes $b |head -n $a ;done <test.txt
 ```
+ 
 > More coming!!
