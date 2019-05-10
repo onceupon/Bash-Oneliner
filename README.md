@@ -30,7 +30,7 @@ Here's a more stylish version of [Bash-Oneliner](http://onceupon.github.io/Bash-
 
 ## Terminal Tricks
 
-#####  Ctrl
+#####  Using Ctrl keys
 ```
 Ctrl + n : same as Down arrow.
 Ctrl + p : same as Up arrow.
@@ -111,6 +111,7 @@ egrep = grep -E # Extended Regular Expression (ERE)
 pgrep = grep -P # Perl Compatible Regular Expressions (PCRE)
 rgrep = grep -r # recursive
 ```
+
 #####  Grep and count number of empty lines
 ```bash
 grep -c "^$"
@@ -162,7 +163,7 @@ grep -C 3 'bbo'
 grep -o 'S.*'
 ```
 
-#####  Extract text between words (e.g. w1,w2)  
+##### Extract text between words (e.g. w1,w2)  
 ```bash
 grep -o -P '(?<=w1).*(?=w2)'
 ```
@@ -180,8 +181,8 @@ grep -v '^#' file.txt
 ##### Grep variables with space within it (e.g. bbo="some strings")  
 ```bash
 grep "$boo" filename
-```
 #remember to quote the variable!  
+```
 
 ##### Grep only one/first match (e.g. bbo)
 ```bash
@@ -225,7 +226,6 @@ grep -rh bbo /path/to/directory
 grep -rl bbo /path/to/directory
 ```
 
-
 ##### Grep OR (e.g. A or B or C or D)
 ```
 grep 'A\|B\|C\|D' 
@@ -240,6 +240,7 @@ grep 'A.*B'
 ```bash
 grep 'A.B' 
 ```
+
 ##### Regex with or without a certain character (e.g. color or colour)
 ```bash
 grep ‘colou?r’
@@ -905,20 +906,20 @@ esac
 
 ## Variable
 [[back to top](#handy-bash-oneliner-commands)]
-##### variable substitution within quotes
+##### Variable substitution within quotes
 ```bash
 # foo=bar
  echo "'$foo'"
 #'bar'
 # double/single quotes around single quotes make the inner single quotes expand variables
 ```
-##### get the length of variable
+##### Get the length of variable
 ```bash
 var="some string"
 echo ${#var}  
 # 11
 ```
-##### get the first character of the variable
+##### Get the first character of the variable
 ```bash
 var=string
 echo "${var:0:1}"
@@ -928,26 +929,26 @@ echo "${var:0:1}"
 echo ${var%%"${var#?}"}
 ```
 
-##### remove the first or last string from variable
+##### Remove the first or last string from variable
 ```bash
 var="some string"
 echo ${var:2}
 #me string
 ```
 
-##### replacement (e.g. remove the first leading 0 )
+##### Replacement (e.g. remove the first leading 0 )
 ```bash
 var="0050"
 echo ${var[@]#0}
 #050
 ```
 
-##### replacement (e.g. replace 'a' with ',')
+##### Replacement (e.g. replace 'a' with ',')
 ```bash
 {var/a/,}
 ```
 
-##### replace all (e.g. replace all 'a' with ',')
+##### Replace all (e.g. replace all 'a' with ',')
 ```bash
 {var//a/,}
 ```
@@ -1618,7 +1619,7 @@ gsettings set org.gnome.gedit.preferences.editor editor-font 'Cantarell Regular 
 sudo gpasswd -a nice docker
 ```
 
-##### pip install python package without root 
+##### Pip install python package without root 
 ```bash
 1. pip install --user package_name
 2. You might need to export ~/.local/bin/ to PATH: export PATH=$PATH:~/.local/bin/
@@ -1671,7 +1672,7 @@ killall pulseaudio
 killall pulseaudio
 ```
 
- ##### List information about SCSI devices
+##### List information about SCSI devices
 ```bash
 lsscsi
 ```
@@ -2092,7 +2093,7 @@ echo 'heres the content'| mail -a /path/to/attach_file.txt -s 'mail.subject' me@
 # use -a flag to set send from (-a "From: some@mail.tld")
 ```
 
-##### .xls to csv
+##### Convert .xls to csv
 ```bash
 xls2csv filename
 ```
@@ -2569,12 +2570,12 @@ Press q to quit scroll mode.
 cat filename|rev|cut -f1|rev
 ``` 
 
-##### pass password to ssh
+##### Pass password to ssh
 ```bash
 sshpass -p mypassword ssh root@10.102.14.88 "df -h"
 ```
 
-##### wait for a pid (job) to complete
+##### Wait for a pid (job) to complete
 ```bash
 wait %1 
 # or 
@@ -2583,13 +2584,13 @@ wait ${!}
 #wait ${!} to wait till the last background process ($! is the PID of the last background process)
 ```
 
-##### pdf to txt
+##### Convert pdf to txt
 ```bash
 sudo apt-get install poppler-utils
 pdftotext example.pdf example.txt
 ```
 
-##### list only directory
+##### List only directory
 ```bash
 ls -ld -- */
 ```
@@ -2616,7 +2617,7 @@ tree
 #
 ```
 
-##### set up virtualenv(sandbox) for python
+##### Set up virtualenv(sandbox) for python
 ```bash
 # 1. install virtualenv.
 sudo apt-get install virtualenv
