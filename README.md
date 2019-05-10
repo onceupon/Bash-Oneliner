@@ -2082,14 +2082,32 @@ lsblk -io KNAME,TYPE,MODEL,VENDOR,SIZE,ROTA
 ```bash
 lspci | egrep -i --color 'network|ethernet'
 ```
-##### Found out power status of the server
+##### Controlling IPMI-enabled devices (e.g. BMC)
 ```bash
-ipmitool -U your_bmc_username -P your_bmc_userpassword -I lanplus -H your_bmc_ip_address power status
-```
-##### Found out server sensor temperature
-```bash
+# Remotely finding out power status of the server
+ipmitool -U <bmc_username> -P <bmc_password> -I lanplus -H <bmc_ip_address> power status
+
+# Remotely switching on server 
+ipmitool -U <bmc_username> -P <bmc_password> -I lanplus -H <bmc_ip_address> power on
+
+# Turn on panel identify light (default 15s)  
+ipmitool chassis identify 255
+
+# Found out server sensor temperature
 ipmitool sensors |grep -i Temp
+
+# Reset BMC
+ipmitool bmc reset cold
+
+# Prnt BMC network
+ipmitool lan print 1
+
+# Setting BMC network
+ipmitool -I bmc lan set 1 ipaddr 192.168.0.55
+ipmitool -I bmc lan set 1 netmask 255.255.255.0
+ipmitool -I bmc lan set 1 defgw ipaddr 192.168.0.1
 ```
+
 ## Networking
 [[back to top](#handy-bash-oneliner-commands)]
 
