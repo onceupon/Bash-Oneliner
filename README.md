@@ -52,7 +52,7 @@ Ctrl + x + Ctrl + e : launch editor define by $EDITOR
 Esc + u
 # converts text from cursor to the end of the word to uppercase.  
 Esc + l
-# converts text from cursor to the end of the word to case. 
+# converts text from cursor to the end of the word to lowercase. 
 Esc + c
 # converts letter under the cursor to uppercase.
 ```
@@ -1053,7 +1053,7 @@ echo ${var[@]#0}
  grep ${test// /\\\|} file.txt
  # turning the space into 'or' (\|) in grep
 ```
-##### To change the case of the string stored in the variable to lower case (Parameter Expansion)
+##### To change the case of the string stored in the variable to lowercase (Parameter Expansion)
 ```bash
 var=HelloWorld
 echo ${var,,}
