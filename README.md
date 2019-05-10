@@ -31,7 +31,7 @@ Here's a more stylish version of [Bash-Oneliner](http://onceupon.github.io/Bash-
 ## Terminal Tricks
 
 #####  Ctrl
-```bash
+```
 Ctrl + n : same as Down arrow.
 Ctrl + p : same as Up arrow.
 Ctrl + r : begins a backward search through command history.(keep pressing Ctrl + r to move backward)
