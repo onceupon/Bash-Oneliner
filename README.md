@@ -95,6 +95,17 @@ or
 # run cat filename again
 ```
 
+##### Some handy environment variables
+```
+$0   :name of shell or shell script.  
+$1, $2, $3, ... :positional parameters.  
+$#   :number of positional parameters.  
+$?   :most recent foreground pipeline exit status.  
+$-   :current options set for the shell.  
+$$   :pid of the current shell (not subshell).  
+$!   :is the PID of the most recent background command.  
+```
+
 ## Grep
 [[back to top](#handy-bash-oneliner-commands)]
 
@@ -2649,15 +2660,6 @@ var=$((var+1))
 
 ```
 
-##### Some handy environment variables
-$0   :name of shell or shell script.  
-$1, $2, $3, ... :positional parameters.  
-$#   :number of positional parameters.  
-$?   :most recent foreground pipeline exit status.  
-$-   :current options set for the shell.  
-$$   :pid of the current shell (not subshell).  
-$!   :is the PID of the most recent background command.  
-
 ##### Clear the contents of a file (e.g. filename)
 ```bash
 >filename
@@ -2742,80 +2744,70 @@ example:
 q -d "," "select c3,c4,c5 from /path/to/file.txt where c3='foo' and c5='boo'"
 ``` 
 
-##### Screen and tmux
-create session and attach:
+##### Using Screen for multiple terminal sessions 
 ```bash
+# Create session and attach:
 screen
-or  
-tmux
-``` 
 
-create detached session foo:  
-```bash
+# Create detached session foo:  
 screen -S foo -d -m	
-or  
-tmux new -s foo -d
-``` 
 
-detached session foo:  
-```bash
+# Detached session foo:  
 screen: ^a^d
-or  
-tmux: ^bd
-``` 
 
-
-list sessions:  
-```bash
+# List sessions:  
 screen -ls	
-or  
-tmux ls
-``` 
 
-attach:  
-```bash
+# Attach last session: 
 screen -r	
-or  
-tmux attach
-``` 
 
-attach to session foo:  
-```bash
+# Attach to session foo:
 screen -r foo	
-or 
-tmux attach -t foo
-``` 
-kill session foo:
-```bash
+
+# Kill session foo:
 screen -r foo -X quit
-or  
-tmux kill-session -t foo
-``` 
-scroll:  
-(screen)  
+
+# Scroll:  
 Hit your screen prefix combination (C-a / control+A), then hit Escape.  
 Move up/down with the arrow keys (↑ and ↓).  
 
-Redirect output of an already running process in screen:  
+# Redirect output of an already running process in Screen:  
  (C-a / control+A), then hit 'H'  
 
-store screen output for screen:  
+# Store screen output for Screen:  
 Ctrl+A, Shift+H  
-You will then find a screen.log file under current directory.
+# You will then find a screen.log file under current directory.
+```
 
-(tmux)  
-Ctrl-b then \[ then you can use your normal navigation keys to scroll around.  
-Press q to quit scroll mode.  
-
-Send command to all panes in tmux:
+##### Using Tmux for multiple terminal sessions 
 ```bash
+# Create session and attach:
+tmux
+
+# Attach to session foo:
+tmux attach -t foo
+
+# Detached session foo:  
+^bd
+
+# List sessions:  
+tmux ls
+ 
+# Attach last session: 
+tmux attach
+
+# Kill session foo:
+tmux kill-session -t foo
+
+# Create detached session foo:  
+tmux new -s foo -d
+
+# Send command to all panes in tmux:
 Ctrl-B
 :setw synchronize-panes
-``` 
-Some tmux pane control commands:
-```bash
-Ctrl-B
 
+# Some tmux pane control commands:
+Ctrl-B
 #   Panes (splits), Press Ctrl+B, then input the following symbol:
 #   %  horizontal split
 #   "  vertical split
@@ -2829,12 +2821,16 @@ select-layout even-vertical
 #   or
 Ctrl+b, Alt+2
 
-#   Distribute horizontally (columns): 
+# Distribute horizontally (columns): 
 select-layout even-horizontal
 #   or
 Ctrl+b, Alt+1
 
+# Scroll
+Ctrl-b then \[ then you can use your normal navigation keys to scroll around.  
+Press q to quit scroll mode.  
 ``` 
+
 ##### Cut the last column
 ```bash
 cat filename|rev|cut -f1|rev
@@ -2883,15 +2879,15 @@ tree
 ```
 ##### set up virtualenv(sandbox) for python
 ```bash
-#1. install virtualenv.
+# 1. install virtualenv.
 sudo apt-get install virtualenv
-#2. Create a directory (name it .venv or whatever name your want) for your new shiny isolated environment.
+# 2. Create a directory (name it .venv or whatever name your want) for your new shiny isolated environment.
 virtualenv .venv
-#3. source virtual bin
+# 3. source virtual bin
 source .venv/bin/activate
-#4. you can check check if you are now inside a sandbox.
+# 4. you can check check if you are now inside a sandbox.
 type pip
-#5. Now you can install your pip package, here requirements.txt is simply a txt file containing all the packages you want. (e.g tornado==4.5.3).
+# 5. Now you can install your pip package, here requirements.txt is simply a txt file containing all the packages you want. (e.g tornado==4.5.3).
 pip install -r requirements.txt
 
 ```
@@ -2920,11 +2916,11 @@ echo -e ${D2B[255]}
 ##### Wrap each input line to fit in specified width (e.g 4 integers per line)
 ```bash
 echo "00110010101110001101" | fold -w4
-#0011
-#0010
-#1011
-#1000
-#1101
+# 0011
+# 0010
+# 1011
+# 1000
+# 1101
 ```
 ##### Sort a file by column and keep the original order
 ```bash
