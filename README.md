@@ -1428,7 +1428,7 @@ su somebody
 
 ##### Report user quotes on device
 ```bash
-requota -auvs
+repquota -auvs
 ```
 
 ##### Get entries in a number of important databases
