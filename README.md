@@ -1514,7 +1514,9 @@ quota -v username
 ```
 
 ##### Fork bomb
-# Remove the beginning '# ' and don't try this at home    
+# Don't try this at home!
+# It is a function that calls itself twice every call until you run out of system resources.
+# A '# ' is added in front for safety reason, remove it when seriously you are testing it. 
 ```bash
 # :(){:|:&};:
 ```
