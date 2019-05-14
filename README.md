@@ -94,7 +94,6 @@ Esc + c
 ```bash
 # '*' character serves as a "wild card" for filename expansion.
 # '?' character serves as a single-character "wild card" for filename expansion.
-```bash
 /b?n/?at     #/bin/cat
 /etc/pa*wd   #/etc/passwd 
 ```
