@@ -1,4 +1,4 @@
-# Bash-Oneliner
+# Bash-Oneliners
 I am glad that you are here! I started working on bioinformatics a few years ago (recently switched to cloud computing), and was amazed by those single-word bash commands which are much faster than my dull scripts, time saved through learning command-line shortcuts and scripting. Not all the code here is oneliner, but i put effort on making them brief and swift. I am mainly using Ubuntu, RedHat and Linux Mint and CentOS, sorry if the commands don't work on your system. 
 
 This blog will focus on simple bash commands for parsing data and Linux system maintenance that i acquired from work and LPIC exam. I apologize that there are no detailed citation for all the commands, but they are probably from dear Google and Stackoverflow.
@@ -6,9 +6,9 @@ This blog will focus on simple bash commands for parsing data and Linux system m
 English and bash are not my first language, please correct me anytime, thank you.  
 If you know other cool commands, please teach me!
 
-Here's a more stylish version of [Bash-Oneliner](http://onceupon.github.io/Bash-Oneliner/)~
+Here's a more stylish version of [Bash-Oneliners](http://onceupon.github.io/Bash-Oneliners/)~
 
-## Handy Bash oneliner commands
+## Handy Bash one-liners
 
 - [Terminal Tricks](#terminal-tricks)
 - [Variable](#variable)
