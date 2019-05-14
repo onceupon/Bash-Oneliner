@@ -8,7 +8,7 @@ If you know other cool commands, please teach me!
 
 Here's a more stylish version of [Bash-Oneliner](http://onceupon.github.io/Bash-Oneliner/)~
 
-## Handy Bash one-liner
+## Handy Bash one-liners
 
 - [Terminal Tricks](#terminal-tricks)
 - [Variable](#variable)
