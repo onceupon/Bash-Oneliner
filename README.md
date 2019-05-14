@@ -90,6 +90,13 @@ Esc + c
 # run cat filename again
 ```
 
+##### Bash inference for commands with question mark
+
+```bash
+/b?n/?at /etc/pa??wd
+# will be converted to /bin/cat /etc/passwd
+```
+
 ##### Some handy environment variables
 ```
 $0   :name of shell or shell script.  
