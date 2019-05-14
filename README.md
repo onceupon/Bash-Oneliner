@@ -90,11 +90,13 @@ Esc + c
 # run cat filename again
 ```
 
-##### Bash inference for commands with question mark
-
+##### Bash globbing
 ```bash
-/b?n/?at /etc/pa??wd
-# will be converted to /bin/cat /etc/passwd
+# '*' character serves as a "wild card" for filename expansion.
+# '?' character serves as a single-character "wild card" for filename expansion.
+```bash
+/b?n/?at     #/bin/cat
+/etc/pa*wd   #/etc/passwd 
 ```
 
 ##### Some handy environment variables
