@@ -1235,7 +1235,18 @@ xcowsay
 ## System
 [[back to top](#handy-bash-oneliner-commands)]
 
-# Check if it's root running
+##### Display CPU and IO statistics for devices and partitions.
+```bash
+# refresh every second
+iostat -x -t 1
+```
+
+##### Display bandwidth usage on an network interface (e.g. enp175s0f0)
+```bash
+iftop -i enp175s0f0
+```
+
+##### Check if it's root running
 ```bash
 if [ "$EUID" -ne 0 ]; then
         echo "Please run this as root"
