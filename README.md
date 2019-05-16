@@ -2778,19 +2778,24 @@ script output.txt
 # to logout the screen session (stop saving the contents), type exit.
 ```
 
-##### list contents of directories in a tree-like format.
+##### List contents of directories in a tree-like format.
 ```bash
 tree
 # go to the directory you want to list, and type tree (sudo apt-get install tree)
 # output:
-# one/
-# └── two
+# home/
+# └── project
 #     ├── 1
 #     ├── 2
 #     ├── 3
 #     ├── 4
 #     └── 5
 #
+
+# set level directories deep (e.g. level 1)
+tree -L 1
+# home/
+# └── project
 ```
 
 ##### Set up virtualenv(sandbox) for python
