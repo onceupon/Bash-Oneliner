@@ -117,7 +117,7 @@ $!   :is the PID of the most recent background command.
 ```
 
 ## Grep
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 
 #####  Type of grep
 ```bash
@@ -299,7 +299,7 @@ grep -d skip 'bbo' /path/to/files/*
 
 
 ## Sed
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 ##### Remove the 1st line
 ```bash
 sed 1d filename
@@ -506,7 +506,7 @@ sed -r -e 's/^.{3}/&#/' file
 
 
 ## Awk
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 
 ##### Set tab as field separator  
 ```bash
@@ -663,7 +663,7 @@ awk '{$6 = $4 - prev5; prev5 = $5; print;}'
 
 
 ## Xargs
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 
 ##### Set tab as delimiter (default:space)
 ```bash
@@ -784,7 +784,7 @@ grep -rl '192.168.1.111' /etc | xargs sed -i 's/192.168.1.111/192.168.2.111/g'
 
 
 ## Find 
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 ##### List all sub directory/file in the current directory 
 ```bash
 find .
@@ -822,7 +822,7 @@ find . -name "*.mso" -size -74c -delete
 
 
 ## Condition and loop
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 
 ##### If statement
 ```bash
@@ -921,7 +921,7 @@ esac
 ```
 
 ## Variable
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 ##### Variable substitution within quotes
 ```bash
 # foo=bar
@@ -983,7 +983,7 @@ helloworld
 ```
 
 ## Math
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 ##### Arithmetic Expansion in Bash (Operators: +, -, *, /, %, etc)
 ```bash
 echo $(( 10 + 5 ))  #15
@@ -1041,7 +1041,7 @@ echo "var=5;--var"| bc
 ```
 
 ## Time
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 
 ##### Find out the time require for executing a command
 ```bash
@@ -1076,7 +1076,7 @@ job 1 at Wed Apr 18 11:16:00 2018
 
 
 ## Download
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 
 ##### Download the content of this README.md (the one your are viewing now)
 ```bash
@@ -1139,7 +1139,7 @@ wget -P /path/to/directory "http://example.com"
 
 
 ## Random
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 ##### Random pick 100 lines from a file 
 ```bash
 shuf -n 100 filename
@@ -1171,7 +1171,7 @@ echo $(((RANDOM %10)+1))
 ```
 
 ## Xwindow
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 
 X11 GUI applications! Here are some GUI tools for you if you get bored by the text-only environment.  
 
@@ -1233,7 +1233,7 @@ xcowsay
 
 
 ## System
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 
 ##### Display CPU and IO statistics for devices and partitions.
 ```bash
@@ -1963,7 +1963,7 @@ systemctl list-unit-files|grep enabled
 
 
 ## Hardware
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 
 ##### Collect and summarize all hardware info of your machine
 ```bash
@@ -2091,7 +2091,7 @@ ipmitool -I bmc lan set 1 defgw ipaddr 192.168.0.1
 
 
 ## Networking
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 
 ##### Display IP address
 ```bash
@@ -2140,7 +2140,7 @@ hostnamectl set-hostname "mynode"
 
 
 ## Others
-[[back to top](#handy-bash-one-liners-commands)]
+[[back to top](#handy-bash-one-liners)]
 ##### Get parent directory of current directory
 ```bash
 dirname `pwd`
