@@ -1246,6 +1246,11 @@ iostat -x -t 1
 iftop -i enp175s0f0
 ```
 
+##### Tell how long the system has been running and number of users
+```bash
+uptime
+```
+
 ##### Check if it's root running
 ```bash
 if [ "$EUID" -ne 0 ]; then
@@ -1253,10 +1258,38 @@ if [ "$EUID" -ne 0 ]; then
         exit 1
 fi
 ```
+##### Change shell of a user (e.g. bonnie)
+```bash
+chsh -s /bin/sh bonnie 
+# /etc/shells: valid login shells
+```
+
+##### Change root / fake root / jail (e.g. change root to newroot)
+```bash
+chroot /home/newroot /bin/bash
+
+# To exit chroot
+exit
+```
 
 ##### Snapshot of the current processes
 ```bash
-ps 
+ps aux
+```
+
+##### Display a tree of processes
+```bash
+pstree
+```
+
+##### Find maximum number of processes
+```bash
+cat /proc/sys/kernel/pid_max
+```
+
+##### Print or control the kernel ring buffer
+```bash
+dmesg
 ```
 
 ##### Show IP address
@@ -1265,6 +1298,27 @@ $ip add show
 
 # or
 ifconfig
+```
+
+##### Print previous and current SysV runlevel
+```bash
+runlevel
+
+# or
+who -r
+```
+
+##### Change SysV runlevel (e.g. 5)
+```bash
+init 5
+#or
+telinit 5
+```
+
+##### Display all available services in all runlevels,
+```bash
+chkconfig --list
+# update-rc.d equivalent to chkconfig in ubuntu
 ```
 
 ##### Check system version
@@ -1277,9 +1331,27 @@ cat /etc/*-release
 man hier
 ```
 
+##### Control the systemd system and service manager
+```bash
+# e.g. check the status of cron service
+systemctl status cron.service
+
+# e.g. stop cron service
+systemctl stop cron.service
+```
+
 ##### List job
 ```bash
 jobs -l
+```
+
+##### Run a program with modified priority (e.g. ./test.sh)
+```bash
+# nice value is adjustable from -20 (most favorable) to +19
+# the nicer the application, the lower the priority 
+# Default niceness: 10; default priority: 80
+
+nice -10 ./test.sh
 ```
 
 ##### Export PATH
@@ -1293,8 +1365,11 @@ chmod +x filename
 # you can now ./filename to execute it
 ```
 
-##### Check system (x86-64)
+##### Print system information
 ```bash
+uname -a
+
+# Check system hardware-platform (x86-64)
 uname -i
 ```
 
@@ -1323,6 +1398,27 @@ passwd username
 2. alias pd="pwd" //no more need to type that 'w'!
 3. source ~/.bash_profile
 ```
+##### Print all alias
+```bash
+alias -p
+```
+
+##### Unalias (e.g. after alias ls='ls --color=auto')
+```bash
+unalias ls
+```
+
+##### Set and unset shell options
+```bash
+# print all shell options
+shopt
+
+# to stop alias
+shopt -u expand_aliases
+
+# to start alias
+shopt -s expand_aliases
+```
 
 ##### List environment variables (e.g. PATH) 
 ```bash
@@ -1341,6 +1437,11 @@ unset MYVAR
 ##### Show partition format
 ```bash
 lsblk
+```
+
+##### Inform the OS of partition table changes
+```bash
+partprobe
 ```
 
 ##### Soft link program to bin
@@ -1364,7 +1465,7 @@ rsh node_name
 netstat -tulpn
 ```
 
-##### Find which link to a file
+##### Print resolved symbolic links or canonical file names
 ```bash
 readlink filename
 ```
@@ -1437,6 +1538,7 @@ init 3
 #or
 telinit 3 
 ```
+
 ##### Permanently modify runlevel  
 ```bash
 1. edit /etc/init/rc-sysinit.conf 
@@ -1478,8 +1580,19 @@ chown -R user_name /path/to/directory/
 # chown user:group filename
 ```
 
+##### Mount and unmount 
+```bash
+# e.g. Mount /dev/sdb to /home/test
+mount /dev/sdb /home/test
+
+# e.g. Unmount /home/test
+umount /home/test
+```
+
 ##### List current mount detail
 ```bash
+mount
+# or
 df
 ```
 
@@ -1540,12 +1653,14 @@ setquota username 120586240 125829120 0 0 /home
 quota -v username
 ```
 
-##### Fork bomb
+##### Display current libraries from the cache
 ```bash
-# Don't try this at home!
-# It is a function that calls itself twice every call until you run out of system resources.
-# A '# ' is added in front for safety reason, remove it when seriously you are testing it. 
-# :(){:|:&};:
+ldconfig -p
+```
+
+##### Print shared library dependencies (e.g. for 'ls')
+```bash
+ldd /bin/ls
 ```
 
 ##### Check user login
@@ -1559,20 +1674,11 @@ joe /etc/environment
 # edit this file
 ```
 
-##### Show running processes
-```bash
-ps aux
-```
-
-##### Find maximum number of processes
-```bash
-cat /proc/sys/kernal/pid_max
-```
-
 ##### Show and set user limit
 ```bash
 ulimit -u
 ```
+
 ##### Which ports are listening for TCP connections from the network
 ```bash
 nmap -sT -O localhost
@@ -1925,9 +2031,32 @@ lsblk -io KNAME,TYPE,MODEL,VENDOR,SIZE,ROTA
 #where ROTA means rotational device / spinning hard disks (1 if true, 0 if false)
 ```
 
-##### List information about NIC
+##### List all PCI (Peripheral Component Interconnect) devices
 ```bash
+lspci
+# List information about NIC
 lspci | egrep -i --color 'network|ethernet'
+```
+
+##### List all USB devices
+```bash
+lsusb
+```
+
+##### Linux modules
+```bash
+# Show the status of modules in the Linux Kernel
+lsmod
+
+# Add and remove modules from the Linux Kernel
+modprobe
+
+# or
+# Remove a module 
+rmmod
+
+# Insert a module
+insmod
 ```
 
 ##### Controlling IPMI-enabled devices (e.g. BMC)
@@ -2098,7 +2227,6 @@ zless filename
 ```
 
 ##### Run in background, output error file
-    
 ```bash
 some_commands  &>log &
 
@@ -2114,6 +2242,12 @@ some_commands |& tee logfile
 # or
 some_commands 2>&1 >>outfile
 #0: standard input; 1: standard output; 2: standard error
+```
+
+##### Run process even when logout (immune to hangups, with output to a non-tty)
+```bash
+# e.g. Run myscript.sh even when log out.
+nohup bash myscript.sh
 ```
 
 ##### Send mail 
@@ -2358,6 +2492,15 @@ basename filename.gz .gz
 
 zcat filename.gz> $(basename filename.gz .gz).unpacked
 ```
+
+##### Fork bomb
+```bash
+# Don't try this at home!
+# It is a function that calls itself twice every call until you run out of system resources.
+# A '# ' is added in front for safety reason, remove it when seriously you are testing it. 
+# :(){:|:&};:
+```
+
 ##### Add file extension to all file(e.g add .txt)
 ```bash
 rename s/$/.txt/ *
