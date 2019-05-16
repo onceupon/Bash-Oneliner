@@ -1427,7 +1427,7 @@ $echo $PATH
 ```
 ##### List all environment variables for current user
 ```bash
-$env
+env
 ```
 ##### Unset environment variable (e.g. unset variable 'MYVAR')
 ```bash
