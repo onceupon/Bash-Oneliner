@@ -1271,6 +1271,10 @@ chroot /home/newroot /bin/bash
 # To exit chroot
 exit
 ```
+##### Display file status (size; access, modify and change time, etc) of a file (e.g. filename.txt)
+```bash
+stat filename.txt
+```
 
 ##### Snapshot of the current processes
 ```bash
