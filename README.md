@@ -1417,10 +1417,10 @@ unalias ls
 # print all shell options
 shopt
 
-# to stop alias
+# to unset (or stop) alias
 shopt -u expand_aliases
 
-# to start alias
+# to set (or start) alias
 shopt -s expand_aliases
 ```
 
