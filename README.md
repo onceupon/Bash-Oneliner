@@ -2230,7 +2230,7 @@ zmore filename
 zless filename
 ```
 
-##### Run in background, output error file
+##### Run command in background, output error file
 ```bash
 some_commands  &>log &
 
@@ -2246,6 +2246,15 @@ some_commands |& tee logfile
 # or
 some_commands 2>&1 >>outfile
 #0: standard input; 1: standard output; 2: standard error
+```
+
+##### Run multiple commands in background
+```bash
+# run sequentially
+(sleep 2; sleep 3) &
+
+# run parallelly 
+sleep 2 & sleep 3 &
 ```
 
 ##### Run process even when logout (immune to hangups, with output to a non-tty)
