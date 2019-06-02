@@ -2412,6 +2412,8 @@ file=${1#*.}
 ##### Python simple HTTP Server
 ```bash
 python -m SimpleHTTPServer
+# or when using python3:
+python3 -m http.server
 ```
 
 ##### Read user input
