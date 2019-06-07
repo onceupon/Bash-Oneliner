@@ -47,6 +47,7 @@ Ctrl + w : cut the word before the cursor; then Ctrl + y paste it
 Ctrl + u : cut the line before the cursor; then Ctrl + y paste it
 Ctrl + x + Ctrl + e : launch editor define by $EDITOR
 Ctrl + _ : undo typing.
+Ctrl + l : equivalent to clear.
 ```
 ##### Change case
 ```bash
