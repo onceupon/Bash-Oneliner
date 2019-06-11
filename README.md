@@ -115,6 +115,15 @@ $?   :most recent foreground pipeline exit status.
 $-   :current options set for the shell.  
 $$   :pid of the current shell (not subshell).  
 $!   :is the PID of the most recent background command.  
+
+$DESKTOP_SESSION     current display manager
+$EDITOR   preferred text editor.
+$LANG   current language.
+$PATH   list of directories to search for executable files (i.e. ready-to-run programs)
+$PWD    current directory
+$SHELL  current shell   
+$USER   current username
+$HOSTNAME   current hostname
 ```
 
 ## Grep
@@ -1427,7 +1436,7 @@ shopt -s expand_aliases
 
 ##### List environment variables (e.g. PATH) 
 ```bash
-$echo $PATH
+echo $PATH
 # list of directories separated by a colon
 ```
 ##### List all environment variables for current user
