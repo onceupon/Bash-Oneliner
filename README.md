@@ -2151,6 +2151,13 @@ hostnamectl set-hostname "mynode"
 
 ## Others
 [[back to top](#handy-bash-one-liners)]
+
+##### Encode strings as Base64 strings
+```bash
+echo test|base64
+#dGVzdAo=
+```
+
 ##### Get parent directory of current directory
 ```bash
 dirname `pwd`
