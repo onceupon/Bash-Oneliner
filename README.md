@@ -773,11 +773,6 @@ echo mso{1..8}|xargs -n1 bash -c 'echo -n "$1:"; ls -la "$1"| grep -w 74 |wc -l'
 # "--" signals the end of options and display further option processing
 ```
 
-##### Download dependencies files and install (e.g. requirements.txt)
-```bash
-cat requirements.txt| xargs -n1 sudo pip install
-```
-
 ##### Count lines in all file, also count total lines
 ```bash
 ls|xargs wc -l
@@ -1147,6 +1142,10 @@ wget -O filename "http://example.com"
 wget -P /path/to/directory "http://example.com"
 ```
 
+##### Instruct curl to follow any redirect until it reaches the final destination:
+```bash
+curl -L google.com
+```
 
 ## Random
 [[back to top](#handy-bash-one-liners)]
