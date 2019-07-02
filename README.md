@@ -2158,6 +2158,11 @@ echo test|base64
 #dGVzdAo=
 ```
 
+##### Do not echo the trailing newline
+```bash
+username=`echo -n "bashoneliner"`
+```
+
 ##### Get parent directory of current directory
 ```bash
 dirname `pwd`
