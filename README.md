@@ -1244,6 +1244,22 @@ xcowsay
 ## System
 [[back to top](#handy-bash-one-liners)]
 
+##### Eliminate the zombie
+```bash
+# A zombie is already dead, so you cannot kill it. You can eliminate the zombie by killing its parent.
+# First, find PID of the zombie
+ps aux| grep 'Z'
+# Next find the PID of zombie's parent
+pstree -p -s <zombie_PID>
+# Then you can kill its parent and you will notice the zombie is gone.
+sudo kill 9 <parent_PID>
+```
+###### Show memory usage
+```bash
+free -c 10 -mhs 1
+# print 10 times, at 1 second interval
+```
+
 ##### Display CPU and IO statistics for devices and partitions.
 ```bash
 # refresh every second
