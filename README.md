@@ -987,6 +987,14 @@ echo ${var,,}
 helloworld
 ```
 
+
+##### Expand and then execute variable/argument
+```bash
+cmd="bar=foo"
+eval "$cmd"
+echo "$bar" # foo
+```
+
 ## Math
 [[back to top](#handy-bash-one-liners)]
 ##### Arithmetic Expansion in Bash (Operators: +, -, *, /, %, etc)
