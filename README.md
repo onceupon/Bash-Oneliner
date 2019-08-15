@@ -1157,6 +1157,13 @@ curl -L google.com
 
 ## Random
 [[back to top](#handy-bash-one-liners)]
+##### Random generate password (e.g. generate 5 password each of length 13) 
+```bash
+sudo apt install pwgen
+pwgen 13 5
+#sahcahS9dah4a xieXaiJaey7xa UuMeo0ma7eic9 Ahpah9see3zai acerae7Huigh7
+```
+
 ##### Random pick 100 lines from a file 
 ```bash
 shuf -n 100 filename
