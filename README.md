@@ -2182,6 +2182,11 @@ hostnamectl set-hostname "mynode"
 ## Others
 [[back to top](#handy-bash-one-liners)]
 
+##### Repeat printing string n times (e.g. print 'hello world' five times)
+```bash
+printf 'hello world\n%.0s' {1..5}
+```
+
 ##### Encode strings as Base64 strings
 ```bash
 echo test|base64
