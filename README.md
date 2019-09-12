@@ -1935,6 +1935,9 @@ pidof sublime_text
 #pgrep, you don't have to type the whole program name
 pgrep sublim
 
+#pgrep, echo 1 if process found, echo 0 if no such process
+pgrep -q sublime_text && echo 1 || echo 0
+
 #top, takes longer time
 top|grep sublime_text
 ```
