@@ -1259,6 +1259,11 @@ xcowsay
 ## System
 [[back to top](#handy-bash-one-liners)]
 
+##### Follow the most recent logs from service
+```bash
+journalctl -u <service_name> -f
+```
+
 ##### Eliminate the zombie
 ```bash
 # A zombie is already dead, so you cannot kill it. You can eliminate the zombie by killing its parent.
