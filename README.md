@@ -707,7 +707,7 @@ find . -name "*.html"|xargs rm
 rm `find . -name "*.html"`
 ```
 
-##### Delete fiels with whitespace in filename (e.g. "hello 2001")
+##### Delete files with whitespace in filename (e.g. "hello 2001")
 ```bash
 find . -name "*.c" -print0|xargs -0 rm -rf
 ```
@@ -986,7 +986,6 @@ var=HelloWorld
 echo ${var,,}
 helloworld
 ```
-
 
 ##### Expand and then execute variable/argument
 ```bash
@@ -1875,12 +1874,12 @@ http://onceuponmine.blogspot.tw/2017/10/setting-up-msmtprc-and-use-your-gmail.ht
 telnet 192.168.2.106 53
 ```
 
-##### change network maximum transmission unit (mtu) (e.g. change to 9000)
+##### Change network maximum transmission unit (mtu) (e.g. change to 9000)
 ```bash
 ifconfig eth0 mtu 9000
 ```
 
-##### get pid of a running process (e.g python)
+##### Get pid of a running process (e.g python)
 ```bash
 pidof python
 
