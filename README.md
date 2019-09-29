@@ -45,9 +45,9 @@ Ctrl + x + backspace : delete all text from the beginning of line to the cursor.
 Ctrl + t : transpose the character before the cursor with the one under the cursor, press Esc + t to transposes the two words before the cursor.
 Ctrl + w : cut the word before the cursor; then Ctrl + y paste it
 Ctrl + u : cut the line before the cursor; then Ctrl + y paste it
-Ctrl + x + Ctrl + e : launch editor define by $EDITOR
 Ctrl + _ : undo typing.
 Ctrl + l : equivalent to clear.
+Ctrl + x + Ctrl + e : launch editor defined by $EDITOR to input your command. Useful for multi-line commands.
 ```
 ##### Change case
 ```bash
