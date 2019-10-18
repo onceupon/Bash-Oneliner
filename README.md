@@ -2190,7 +2190,7 @@ hostnamectl set-hostname "mynode"
 [[back to top](#handy-bash-one-liners)]
 
 ##### Bash auto-complete (e.g. show options "now tomorrow never" when you press'tab' after typing "dothis")
-[Detailed tutoral](https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html)
+[More examplesl](https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html)
 ```bash
 complete -W "now tomorrow never" dothis
 # ~$ dothis  
