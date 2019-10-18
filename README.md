@@ -2189,6 +2189,15 @@ hostnamectl set-hostname "mynode"
 ## Others
 [[back to top](#handy-bash-one-liners)]
 
+##### Bash auto-complete (e.g. show options "now tomorrow never" when you press'tab' after typing "dothis")
+[Detailed tutoral](https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html)
+```bash
+complete -W "now tomorrow never" dothis
+# ~$ dothis  
+# never     now       tomorrow
+# press 'tab' again to auto-complete after typing 'n' or 't'
+```
+
 ##### Repeat printing string n times (e.g. print 'hello world' five times)
 ```bash
 printf 'hello world\n%.0s' {1..5}
@@ -2358,6 +2367,12 @@ speaker-test -t sine -f 1000 -l1
 
 #or
 history -d [line_number]
+```
+
+##### Interacting with history
+```bash
+# list 5 previous command (similar to `history |tail -n 5` but wont print the history command itself)
+fc -l -5
 ```
 
 ##### Get last history/record filename
