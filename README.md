@@ -1,5 +1,5 @@
 # Bash-Oneliner
-I am glad that you are here! I was working on bioinformatics a few years ago and was amazed by those single-word bash commands which are much faster than my dull scripts, time saved through learning command-line shortcuts and scripting. Recent years I am working on cloud computing and I keep recording those useful commands here. Not all of them is oneliner, but i put effort on making them brief and swift. I am mainly using Ubuntu, RedHat and Linux Mint and CentOS, sorry if the commands don't work on your system.
+I am glad that you are here! I was working on bioinformatics a few years ago and was amazed by those single-word bash commands which are much faster than my dull scripts, time saved through learning command-line shortcuts and scripting. Recent years I am working on cloud computing and I keep recording those useful commands here. Not all of them is oneliner, but i put effort on making them brief and swift. I am mainly using Ubuntu, RedHat and Linux Mint, Mac and CentOS, sorry if the commands don't work on your system.
 
 This blog will focus on simple bash commands for parsing data and Linux system maintenance that i acquired from work and LPIC exam. I apologize that there are no detailed citation for all the commands, but they are probably from dear Google and Stackoverflow.
 
@@ -2289,6 +2289,25 @@ paste fileA fileB fileC
 # default tab separate
 ```
 
+##### Group/combine rows into one row
+```bash
+# e.g.
+# AAAA
+# BBBB
+# CCCC
+# DDDD
+cat filename|paste - -
+# AAAABBBB
+# CCCCDDDD
+cat filename|paste - - - -
+# AAAABBBBCCCCDDDD
+```
+
+##### Fastq to fasta (fastq and fasta are common file formats for bioinformatics sequence data)
+```bash
+cat file.fastq | paste - - - - | sed 's/^@/>/g'| cut -f1-2 | tr '\t' '\n' >file.fa
+```
+
 ##### Reverse string
 ```bash
 echo 12345| rev
@@ -2628,24 +2647,6 @@ echo $?
 head -c 50 file
 ```
 
-##### Group/combine rows into one row
-```bash
-# e.g.
-# AAAA
-# BBBB
-# CCCC
-# DDDD
-cat filename|paste - -
-# AAAABBBB
-# CCCCDDDD
-cat filename|paste - - - -
-# AAAABBBBCCCCDDDD
-```
-
-##### Fastq to fasta
-```bash
-cat file.fastq | paste - - - - | sed 's/^@/>/g'| cut -f1-2 | tr '\t' '\n' >file.fa
-```
 ##### Cut and get last column
 ```bash
 cat file|rev | cut -d/ -f1 | rev
