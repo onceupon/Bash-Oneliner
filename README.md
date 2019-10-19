@@ -712,9 +712,16 @@ rm `find . -name "*.html"`
 find . -name "*.c" -print0|xargs -0 rm -rf
 ```
 
-##### Show limits
+##### Show limits on command-line length
 ```bash
 xargs --show-limits
+# Output from my Ubuntu:
+# Your environment variables take up 3653 bytes
+# POSIX upper limit on argument length (this system): 2091451
+# POSIX smallest allowable upper limit on argument length (all systems): 4096
+# Maximum length of command we could actually use: 2087798
+# Size of command buffer we are actually using: 131072
+# Maximum parallelism (--max-procs must be no greater): 2147483647
 ```
 
 ##### Move files to folder
