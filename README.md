@@ -26,6 +26,7 @@ Here's a more stylish version of [Bash-Oneliner](http://onceupon.github.io/Bash-
 - [System](#system)
 - [Hardware](#hardware)
 - [Networking](#networking)
+- [Data Wrangling](#data-wrangling)
 - [Others](#others)
 
 ## Terminal Tricks
@@ -2193,37 +2194,16 @@ hostnamectl set-hostname "mynode"
 ```
 
 
-## Others
+## Data wrangling
 [[back to top](#handy-bash-one-liners)]
-
-##### Bash auto-complete (e.g. show options "now tomorrow never" when you press'tab' after typing "dothis")
-[More examples](https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html)
-```bash
-complete -W "now tomorrow never" dothis
-# ~$ dothis  
-# never     now       tomorrow
-# press 'tab' again to auto-complete after typing 'n' or 't'
-```
 
 ##### Repeat printing string n times (e.g. print 'hello world' five times)
 ```bash
 printf 'hello world\n%.0s' {1..5}
 ```
-
-##### Encode strings as Base64 strings
-```bash
-echo test|base64
-#dGVzdAo=
-```
-
 ##### Do not echo the trailing newline
 ```bash
 username=`echo -n "bashoneliner"`
-```
-
-##### Get parent directory of current directory
-```bash
-dirname `pwd`
 ```
 
 ##### Copy a file to multiple files (e.g copy fileA to file(B-D))
@@ -2235,7 +2215,6 @@ tee <fileA fileB fileC fileD >/dev/null
 ```bash
 tr --delete '\n' <input.txt >output.txt
 ```
-
 ##### Replace newline
 ```bash
 tr '\n' ' ' <filename
@@ -2320,6 +2299,234 @@ cat file.fastq | paste - - - - | sed 's/^@/>/g'| cut -f1-2 | tr '\t' '\n' >file.
 echo 12345| rev
 ```
 
+##### Generate sequence 1-10
+```bash
+seq 10
+```
+
+##### Find average of input list/file of integers
+```bash
+i=`wc -l filename|cut -d ' ' -f1`; cat filename| echo "scale=2;(`paste -sd+`)/"$i|bc
+```
+
+##### Generate all combination (e.g. 1,2)
+```bash
+echo {1,2}{1,2}
+# 1 1, 1 2, 2 1, 2 2
+```
+
+##### Generate all combination (e.g. A,T,C,G)
+```bash
+set = {A,T,C,G}
+group= 5
+for ((i=0; i<$group; i++));do
+    repetition=$set$repetition;done
+    bash -c "echo "$repetition""
+```
+
+##### Read file content to variable
+```bash
+foo=$(<test1)
+```
+
+##### Echo size of variable
+```bash
+echo ${#foo}
+```
+
+##### Echo a tab
+```bash
+echo -e ' \t '
+```
+
+##### Split file into smaller file
+```bash
+# Split by line (e.g. 1000 lines/smallfile)
+split -d -l 1000 largefile.txt
+
+# Split by byte without breaking lines across files
+split -C 10 largefile.txt
+```
+
+##### Create a large amount of dummy files (e.g 100000 files, 10 bytes each):
+```bash
+#1. Create a big file
+dd if=/dev/zero of=bigfile bs=1 count=1000000
+
+#2. Split the big file to 100000 10-bytes files
+ split -b 10 -a 10 bigfile
+```
+
+##### Rename all files (e.g. remove ABC from all .gz files)
+```bash
+rename 's/ABC//' *.gz
+```
+
+##### Remove file extension (e.g remove .gz from filename.gz)
+```bash
+basename filename.gz .gz
+
+zcat filename.gz> $(basename filename.gz .gz).unpacked
+```
+
+##### Add file extension to all file(e.g add .txt)
+```bash
+rename s/$/.txt/ *
+# You can use rename -n s/$/.txt/ * to check the result first, it will only print sth like this:
+# rename(a, a.txt)
+# rename(b, b.txt)
+# rename(c, c.txt)
+```
+
+##### Squeeze repeat patterns (e.g. /t/t --> /t)
+```bash
+tr -s "/t" < filename
+```
+
+##### Do not print nextline with echo
+```bash
+echo -e 'text here \c'
+```
+
+##### View first 50 characters of file
+```bash
+head -c 50 file
+```
+
+##### Cut and get last column of a file
+```bash
+cat file|rev | cut -d/ -f1 | rev
+```
+
+##### Add one to variable/increment/ i++ a numeric variable (e.g. $var)
+```bash
+((var++))
+# or
+var=$((var+1))
+
+```
+##### Cut the last column
+```bash
+cat filename|rev|cut -f1|rev
+```
+
+##### Cat to a file
+```bash
+cat >myfile
+let me add sth here
+exit by control + c
+^C
+```
+
+##### Clear the contents of a file (e.g. filename)
+```bash
+>filename
+```
+
+##### Append to file (e.g. hihi)
+```bash
+echo 'hihi' >>filename
+```
+
+##### Working with json data
+```bash
+#install the useful jq package
+#sudo apt-get install jq
+#e.g. to get all the values of the 'url' key, simply pipe the json to the following jq command(you can use .[]. to select inner json, i.e jq '.[].url')
+cat file.json | jq '.url'
+```
+
+##### Decimal to Binary (e.g get binary of 5)
+```bash
+D2B=({0..1}{0..1}{0..1}{0..1}{0..1}{0..1}{0..1}{0..1})
+echo -e ${D2B[5]}
+#00000101
+echo -e ${D2B[255]}
+#11111111
+```
+
+##### Wrap each input line to fit in specified width (e.g 4 integers per line)
+```bash
+echo "00110010101110001101" | fold -w4
+# 0011
+# 0010
+# 1011
+# 1000
+# 1101
+```
+
+##### Sort a file by column and keep the original order
+```bash
+sort -k3,3 -s
+```
+
+##### Right align a column (right align the 2nd column)
+```bash
+cat file.txt|rev|column -t|rev
+```
+
+##### To both view and store the output
+```bash
+echo 'hihihihi' | tee outputfile.txt
+# use '-a' with tee to append to file.
+```
+
+##### Show non-printing (Ctrl) characters with cat
+```bash
+cat -v filename
+```
+
+##### Convert tab to space
+```bash
+expand filename
+```
+
+##### Convert space to tab
+```bash
+unexpand filename
+```
+
+##### Display file in octal ( you can also use od to display hexadecimal, decimal, etc)
+```bash
+od filename
+```
+
+##### Reverse cat a file
+```bash
+tac filename
+```
+
+##### Reverse the result from `uniq -c`
+```bash
+while read a b; do yes $b |head -n $a ;done <test.txt
+```
+
+
+
+
+## Others
+[[back to top](#handy-bash-one-liners)]
+
+##### Bash auto-complete (e.g. show options "now tomorrow never" when you press'tab' after typing "dothis")
+[More examples](https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html)
+```bash
+complete -W "now tomorrow never" dothis
+# ~$ dothis  
+# never     now       tomorrow
+# press 'tab' again to auto-complete after typing 'n' or 't'
+```
+
+##### Encode strings as Base64 strings
+```bash
+echo test|base64
+#dGVzdAo=
+```
+
+##### Get parent directory of current directory
+```bash
+dirname `pwd`
+```
+
 ##### Read .gz file without extracting
 
 ```bash
@@ -2372,10 +2579,6 @@ echo 'heres the content'| mail -a /path/to/attach_file.txt -s 'mail.subject' me@
 ```bash
 xls2csv filename
 ```
-##### Append to file (e.g. hihi)
-```bash
-echo 'hihi' >>filename
-```
 
 ##### Make BEEP sound
 ```bash
@@ -2387,9 +2590,11 @@ speaker-test -t sine -f 1000 -l1
 (speaker-test -t sine -f 1000) & pid=$!;sleep 0.1s;kill -9 $pid
 ```
 
-##### History edit/ delete
+##### Editing your history
 ```bash
-~/.bash_history
+history -w
+vi ~/.bash_history
+history -r
 
 #or
 history -d [line_number]
@@ -2399,37 +2604,6 @@ history -d [line_number]
 ```bash
 # list 5 previous command (similar to `history |tail -n 5` but wont print the history command itself)
 fc -l -5
-```
-
-##### Get last history/record filename
-```bash
-head !$
-```
-
-##### Clean screen
-```bash
-clear
-
-# or
-Ctrl+l
-```
-
-##### Send data to last edited file
-```bash
-cat /directory/to/file
-echo 100>!$
-```
-
-##### Extract .xf
-```
-unxz filename.tar.xz
-# then
-tar -xf filename.tar
-```
-
-##### Install python package
-```bash
-pip install packagename
 ```
 
 ##### Delete current bash command
@@ -2448,6 +2622,17 @@ Alt+Shift+#
 ```bash
 # addmetodistory
 # just add a "#" before~~
+```
+
+##### Get last history/record filename
+```bash
+head !$
+```
+
+##### Clean screen
+```bash
+clear
+# or simply Ctrl+l
 ```
 
 ##### Sleep awhile or wait for a moment or schedule a job
@@ -2483,22 +2668,11 @@ cd tmp/ && tar xvf ~/a.tar
 cd tmp/a/b/c ||mkdir -p tmp/a/b/c
 ```
 
-##### Extract to a path
-```bash
-tar xvf -C /path/to/directory filename.gz
-```
-
 ##### Use backslash "\" to break long command
 ```bash
 cd tmp/a/b/c \
 > || \
 >mkdir -p tmp/a/b/c
-```
-
-##### Get pwd
-```bash
-VAR=$PWD; cd ~; tar xvf -C $VAR file.tar
-# PWD need to be capital letter
 ```
 
 ##### List file type of file (e.g. /tmp/)
@@ -2507,7 +2681,7 @@ file /tmp/
 # tmp/: directory
 ```
 
-##### Bash script
+##### Writing Bash script ('#!'' is called shebang )
 ```bash
 #!/bin/bash
 file=${1#*.}
@@ -2527,46 +2701,6 @@ read input
 echo $input
 ```
 
-##### Generate sequence 1-10
-```bash
-seq 10
-```
-
-##### Find average of input list/file
-```bash
-i=`wc -l filename|cut -d ' ' -f1`; cat filename| echo "scale=2;(`paste -sd+`)/"$i|bc
-```
-
-##### Generate all combination (e.g. 1,2)
-```bash
-echo {1,2}{1,2}
-# 1 1, 1 2, 2 1, 2 2
-```
-
-##### Generate all combination (e.g. A,T,C,G)
-```bash
-set = {A,T,C,G}
-group= 5
-for ((i=0; i<$group; i++));do
-    repetition=$set$repetition;done
-    bash -c "echo "$repetition""
-```
-
-##### Read file content to variable
-```bash
-foo=$(<test1)
-```
-
-##### Echo size of variable
-```bash
-echo ${#foo}
-```
-
-##### Echo tab
-```bash
-echo -e ' \t '
-```
-
 ##### Array
 ```bash
 declare -a array=()
@@ -2583,61 +2717,12 @@ declare -A array=()
 scp -r directoryname user@ip:/path/to/send
 ```
 
-##### Split file into smaller file
-```bash
-# Split by line (e.g. 1000 lines/smallfile)
-split -d -l 1000 largefile.txt
-
-# Split by byte without breaking lines across files
-split -C 10 largefile.txt
-```
-
-##### Create a large amount of dummy files (e.g 100000 files, 10 bytes each):
-```bash
-#1. Create a big file
-dd if=/dev/zero of=bigfile bs=1 count=1000000
-
-#2. Split the big file to 100000 10-bytes files
- split -b 10 -a 10 bigfile
-```
-
-##### Rename all files (e.g. remove ABC from all .gz files)
-```bash
-rename 's/ABC//' *.gz
-```
-
-##### Remove file extension (e.g remove .gz from filename.gz)
-```bash
-basename filename.gz .gz
-
-zcat filename.gz> $(basename filename.gz .gz).unpacked
-```
-
 ##### Fork bomb
 ```bash
 # Don't try this at home!
 # It is a function that calls itself twice every call until you run out of system resources.
 # A '# ' is added in front for safety reason, remove it when seriously you are testing it.
 # :(){:|:&};:
-```
-
-##### Add file extension to all file(e.g add .txt)
-```bash
-rename s/$/.txt/ *
-# You can use rename -n s/$/.txt/ * to check the result first, it will only print sth like this:
-# rename(a, a.txt)
-# rename(b, b.txt)
-# rename(c, c.txt)
-```
-
-##### Use the squeeze repeat option (e.g. /t/t --> /t)
-```bash
-tr -s "/t" < filename
-```
-
-##### Do not print nextline with echo
-```bash
-echo -e 'text here \c'
 ```
 
 ##### Use the last argument
@@ -2649,27 +2734,12 @@ echo -e 'text here \c'
 ```bash
 echo $?
 ```
-##### View first 50 characters of file
-```bash
-head -c 50 file
+
+##### Extract .xf
 ```
-
-##### Cut and get last column
-```bash
-cat file|rev | cut -d/ -f1 | rev
-```
-
-##### Add one to variable/increment/ i++ a numeric variable (e.g. $var)
-```bash
-((var++))
-# or
-var=$((var+1))
-
-```
-
-##### Clear the contents of a file (e.g. filename)
-```bash
->filename
+unxz filename.tar.xz
+# then
+tar -xf filename.tar
 ```
 
 ##### Unzip tar.bz2 file (e.g. file.tar.bz2)
@@ -2681,6 +2751,10 @@ tar xvfj file.tar.bz2
 ```bash
 unxz file.tar.xz
 tar xopf file.tar
+```
+##### Extract to a path
+```bash
+tar xvf -C /path/to/directory filename.gz
 ```
 
 ##### Output a y/n repeatedly until killed
@@ -2709,14 +2783,6 @@ dd if=/dev/zero of=//dev/shm/200m bs=1M count=200
 # 200+0 records in
 # 200+0 records out
 # 209715200 bytes (210 MB) copied, 0.0955679 s, 2.2 GB/s
-```
-
-##### Cat to a file
-```bash
-cat >myfile
-let me add sth here
-exit by control + c
-^C
 ```
 
 ##### Keep /repeatedly executing the same command (e.g Repeat 'wc -l filename' every 1 second)
@@ -2839,11 +2905,6 @@ Ctrl-b then \[ then you can use your normal navigation keys to scroll around.
 Press q to quit scroll mode.
 ```
 
-##### Cut the last column
-```bash
-cat filename|rev|cut -f1|rev
-```
-
 ##### Pass password to ssh
 ```bash
 sshpass -p mypassword ssh root@10.102.14.88 "df -h"
@@ -2910,84 +2971,6 @@ type pip
 pip install -r requirements.txt
 ```
 
-##### Working with json data
-```bash
-#install the useful jq package
-#sudo apt-get install jq
-#e.g. to get all the values of the 'url' key, simply pipe the json to the following jq command(you can use .[]. to select inner json, i.e jq '.[].url')
-jq '.url'
-```
 
-##### Editing your history
-```bash
-history -w
-vi ~/.bash_history
-history -r
-```
-
-##### Decimal to Binary (e.g get binary of 5)
-```bash
-D2B=({0..1}{0..1}{0..1}{0..1}{0..1}{0..1}{0..1}{0..1})
-echo -e ${D2B[5]}
-#00000101
-echo -e ${D2B[255]}
-#11111111
-```
-
-##### Wrap each input line to fit in specified width (e.g 4 integers per line)
-```bash
-echo "00110010101110001101" | fold -w4
-# 0011
-# 0010
-# 1011
-# 1000
-# 1101
-```
-
-##### Sort a file by column and keep the original order
-```bash
-sort -k3,3 -s
-```
-
-##### Right align a column (right align the 2nd column)
-```bash
-cat file.txt|rev|column -t|rev
-```
-
-##### To both view and store the output
-```bash
-echo 'hihihihi' | tee outputfile.txt
-# use '-a' with tee to append to file.
-```
-
-##### Show non-printing (Ctrl) characters with cat
-```bash
-cat -v filename
-```
-
-##### Convert tab to space
-```bash
-expand filename
-```
-
-##### Convert space to tab
-```bash
-unexpand filename
-```
-
-##### Display file in octal ( you can also use od to display hexadecimal, decimal, etc)
-```bash
-od filename
-```
-
-##### Reverse cat a file
-```bash
-tac filename
-```
-
-##### Reverse the result from `uniq -c`
-```bash
-while read a b; do yes $b |head -n $a ;done <test.txt
-```
 
 > More coming!!
