@@ -67,6 +67,9 @@ Esc + c
 ##### Run last command
 ```bash
 !!
+# run the previous command using sudo
+sudo !!
+# of course you need to enter your password
 ```
 
 ##### Run last command and change some parameter using caret substitution (e.g. last command: echo 'aaa' -> rerun as: echo 'bbb')
@@ -1023,6 +1026,7 @@ echo $(( x ** y )) #8
 ##### Print out the prime factors of a number (e.g. 50)
 ```bash
 factor 50
+# 50: 2 5 5
 ```
 ##### Sum up input list (e.g. seq 10)
 ```bash
@@ -1266,7 +1270,6 @@ xcowsay
 
 ## System
 [[back to top](#handy-bash-one-liners)]
-
 ##### Follow the most recent logs from service
 ```bash
 journalctl -u <service_name> -f
@@ -2202,6 +2205,22 @@ hostnamectl set-hostname "mynode"
 ## Data wrangling
 [[back to top](#handy-bash-one-liners)]
 
+##### Print some words that start with a particular string (e.g. words start with 'phy')
+```bash
+# If file is not specified, the file /usr/share/dict/words is used.
+look phy|head -n 10
+# Phil
+# Philadelphia
+# Philadelphia's
+# Philby
+# Philby's
+# Philip
+# Philippe
+# Philippe's
+# Philippians
+# Philippine
+```
+
 ##### Repeat printing string n times (e.g. print 'hello world' five times)
 ```bash
 printf 'hello world\n%.0s' {1..5}
@@ -2520,7 +2539,28 @@ complete -W "now tomorrow never" dothis
 # never     now       tomorrow
 # press 'tab' again to auto-complete after typing 'n' or 't'
 ```
+##### Displays a calendar
+```bash
+# print the current month, today will be highlighted.
+cal
+# October 2019      
+# Su Mo Tu We Th Fr Sa  
+#    1  2  3  4  5  
+# 6  7  8  9 10 11 12  
+# 13 14 15 16 17 18 19  
+# 20 21 22 23 24 25 26  
+# 27 28 29 30 31  
 
+# only display November
+cal -m 11
+```
+##### Forces applications to use the default language for output
+```bash
+export LC_ALL=C
+
+# to revert:
+unset LC_ALL
+```
 ##### Encode strings as Base64 strings
 ```bash
 echo test|base64
