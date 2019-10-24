@@ -195,7 +195,7 @@ grep -o 'S.*'
 grep -o -P '(?<=w1).*(?=w2)'
 ```
 
-##### Grep lines without word (e.g. bbo)
+##### Grep lines without word (e.g. 'bbo')
 ```bash
 grep -v bbo filename
 ```
@@ -205,18 +205,18 @@ grep -v bbo filename
 grep -v '^#' file.txt
 ```
 
-##### Grep variables with space within it (e.g. bbo="some strings")
+##### Grep variables with space within it (e.g. myvar="some strings")
 ```bash
-grep "$boo" filename
+grep "$myvar" filename
 #remember to quote the variable!
 ```
 
-##### Grep only one/first match (e.g. bbo)
+##### Grep only one/first match (e.g. 'bbo')
 ```bash
 grep -m 1 bbo filename
 ```
 
-##### Grep and return number of matching line(e.g. bbo)
+##### Grep and return number of matching line(e.g. 'bbo')
 ```bash
 grep -c bbo filename
 ```
@@ -226,29 +226,29 @@ grep -c bbo filename
 grep -o bbo filename |wc -l
 ```
 
-##### Case insensitive grep (e.g. bbo/BBO/Bbo)
+##### Case insensitive grep (e.g. 'bbo'/'BBO'/'Bbo')
 ```bash
 grep -i "bbo" filename
 ```
 
-##### COLOR the match (e.g. bbo)!
+##### COLOR the match (e.g. 'bbo')!
 ```bash
 grep --color bbo filename
 ```
 
-##### Grep search all files in a directory(e.g. bbo)
+##### Grep search all files in a directory(e.g. 'bbo')
 ```bash
 grep -R bbo /path/to/directory
 # or
 grep -r bbo /path/to/directory
 ```
 
-##### Search all files in directory, do not ouput the filenames (e.g. bbo)
+##### Search all files in directory, do not ouput the filenames (e.g. 'bbo')
 ```bash
 grep -rh bbo /path/to/directory
 ```
 
-##### Search all files in directory, output ONLY the filenames with matches(e.g. bbo)
+##### Search all files in directory, output ONLY the filenames with matches(e.g. 'bbo')
 ```bash
 grep -rl bbo /path/to/directory
 ```
@@ -302,7 +302,7 @@ grep -o -w "\w\{10\}\-R\w\{1\}"
 # \w word character [0-9a-zA-Z_] \W not word character
 ```
 
-##### Skip directory (e.g. bbo)
+##### Skip directory (e.g. 'bbo')
 ```bash
 grep -d skip 'bbo' /path/to/files/*
 ```
@@ -321,7 +321,7 @@ sed 1d filename
 sed 1,100d filename
 ```
 
-##### Remove lines with string (e.g. bbo)
+##### Remove lines with string (e.g. 'bbo')
 ```bash
 sed "/bbo/d" filename
 - case insensitive:
@@ -334,10 +334,11 @@ sed -E '/^.{5}[^2]/d'
 #aaaa1aaa (delete!)
 ```
 
-##### Edit infile (edit and save)
+##### Edit infile (edit and save to file), (e.g. deleting the lines with 'bbo' and save to file)
 ```bash
 sed -i "/bbo/d" filename
 ```
+
 ##### When using variable (e.g. $i), use double quotes " "
 ```bash
 # e.g. add >$i to the first line (to make a bioinformatics FASTA file)
@@ -389,7 +390,7 @@ sed '$s/$/]/' filename
 sed '$a\'
 ```
 
-##### Add string to beginning of every line (e.g. bbo)
+##### Add string to beginning of every line (e.g. 'bbo')
 ```bash
 sed -e 's/^/bbo/' file
 ```
@@ -419,11 +420,11 @@ sed 's/A/B/g' filename
 sed "s/aaa=.*/aaa=\/my\/new\/path/g"
 ```
 
-##### Select lines start with string (e.g. bbo)
+##### Select lines start with string (e.g. 'bbo')
 ```bash
 sed -n '/^@S/p'
 ```
-##### Delete lines with string (e.g. bbo)
+##### Delete lines with string (e.g. 'bbo')
 ```bash
 sed '/bbo/d' filename
 ```
@@ -560,7 +561,7 @@ awk '$1~/,/ {print}'
 awk '{split($2, a,",");for (i in a) print $1"\t"a[i]}' filename
 ```
 
-##### Print all lines before nth occurrence of a string (e.g stop print lines when bbo appears 7 times)
+##### Print all lines before nth occurrence of a string (e.g stop print lines when 'bbo' appears 7 times)
 ```bash
 awk -v N=7 '{print}/bbo/&& --N<=0 {exit}'
 ```
@@ -575,7 +576,7 @@ ls|xargs -n1 -I file awk '{s=$0};END{print FILENAME,s}' file
 awk 'BEGIN{OFS="\t"}$3="chr"$3'
 ```
 
-##### Remove lines with string (e.g. bbo)
+##### Remove lines with string (e.g. 'bbo')
 ```bash
 awk '!/bbo/' file
 ```
@@ -1722,6 +1723,10 @@ ldd /bin/ls
 ##### Check user login
 ```bash
 lastlog
+```
+##### Check last reboot history
+```bash
+last reboot
 ```
 
 ##### Edit path for all users
