@@ -6,7 +6,7 @@ This blog will focus on simple bash commands for parsing data and Linux system m
 English and bash are not my first language, please correct me anytime, thank you.
 If you know other cool commands, please teach me!
 
-Here's a more stylish version of [Bash-Oneliner](http://onceupon.github.io/Bash-Oneliner/)~
+Here's a more stylish version of [Bash-Oneliner](https://onceupon.github.io/Bash-Oneliner/)~
 
 ## Handy Bash one-liners
 
