@@ -1270,6 +1270,26 @@ xcowsay
 
 ## System
 [[back to top](#handy-bash-one-liners)]
+
+##### Generate public key from private key
+```bash
+ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
+```
+
+##### Copy your default public key to remote user
+```bash
+ssh-copy-id <user_name>@<server_IP>
+# then you need to enter the password
+# and next time you won't need to enter password when ssh to that user
+```
+
+##### Copy default public key to remote user using the required private key (e.g. use your mykey.pem key to copy your id_rsa.pub to the remote user)
+```bash
+# before you need to use mykey.pem to ssh to remote user.
+ssh-copy-id -i ~/.ssh/id_rsa.pub -o "IdentityFile ~/Downloads/mykey.pem" <user_name>@<server_IP>
+# now you don't need to use key to ssh to that user.
+```
+
 ##### Follow the most recent logs from service
 ```bash
 journalctl -u <service_name> -f
