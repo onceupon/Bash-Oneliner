@@ -2112,6 +2112,11 @@ sg_map -i -x|grep SEAGATE|wc -l
 blkid /dev/sdb
 ```
 
+##### Generate an UUID
+```bash
+uuidgen
+```
+
 ##### Print detail of all hard disks
 ```bash
 lsblk -io KNAME,TYPE,MODEL,VENDOR,SIZE,ROTA
