@@ -2251,6 +2251,7 @@ hostnamectl set-hostname "mynode"
 ```
 
 ##### Find out the web server (e.g Nginx or Apache) of a website
+```bash
 curl -I http://example.com/
 # HTTP/1.1 200 OK
 # Server: nginx
@@ -2263,7 +2264,7 @@ curl -I http://example.com/
 # ETag: "xxxxxx"
 # Accept-Ranges: bytes
 # Vary: Accept-Encoding
-
+```
 
 ## Data wrangling
 [[back to top](#handy-bash-one-liners)]
