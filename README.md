@@ -1271,6 +1271,20 @@ xcowsay
 ## System
 [[back to top](#handy-bash-one-liners)]
 
+##### Check out whether SELinux is enabled
+```bash
+sestatus
+# SELinux status:                 enabled
+# SELinuxfs mount:                /sys/fs/selinux
+# SELinux root directory:         /etc/selinux
+# Loaded policy name:             targeted
+# Current mode:                   enforcing
+# Mode from config file:          enforcing
+# Policy MLS status:              enabled
+# Policy deny_unknown status:     allowed
+# Max kernel policy version:      31
+```
+
 ##### Generate public key from private key
 ```bash
 ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
@@ -2181,6 +2195,16 @@ ipmitool -I bmc lan set 1 defgw ipaddr 192.168.0.1
 ## Networking
 [[back to top](#handy-bash-one-liners)]
 
+##### Resolve a domain to an IP address in a Bash script?
+```bash
+dig +short www.example.com
+```
+
+##### Show the SSL certificate of a domain
+```bash
+openssl s_client -showcerts -connect www.example.com:443
+```
+
 ##### Display IP address
 ```bash
 ip a
@@ -2225,6 +2249,20 @@ hostnamectl
 ```bash
 hostnamectl set-hostname "mynode"
 ```
+
+##### Find out the web server (e.g Nginx or Apache) of a website
+curl -I http://example.com/
+# HTTP/1.1 200 OK
+# Server: nginx
+# Date: Thu, 02 Jan 2020 07:01:07 GMT
+# Content-Type: text/html
+# Content-Length: 1119
+# Connection: keep-alive
+# Vary: Accept-Encoding
+# Last-Modified: Mon, 09 Sep 2019 10:37:49 GMT
+# ETag: "xxxxxx"
+# Accept-Ranges: bytes
+# Vary: Accept-Encoding
 
 
 ## Data wrangling
