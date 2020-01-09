@@ -1304,6 +1304,17 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub -o "IdentityFile ~/Downloads/mykey.pem" <user_n
 # now you don't need to use key to ssh to that user.
 ```
 
+##### SSH Agent Forwarding
+```bash
+# To bring your key with you when ssh to serverA, then ssh to serverB from serverA using the key.
+ssh-agent
+ssh-add /path/to/mykey.pem
+ssh -A <username>@<IP_of_serverA>
+# Next you can ssh to serverB
+ssh <username>@<IP_of_serverB>
+```
+
+
 ##### Follow the most recent logs from service
 ```bash
 journalctl -u <service_name> -f
