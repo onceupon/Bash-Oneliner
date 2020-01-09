@@ -2893,7 +2893,12 @@ yes anything
 yes | rm -r large_directory
 ```
 
-##### Create dummy file of certain size instantly (e.g. 200mb)
+##### Create large dummy file of certain size instantly (e.g. 10GiB)
+```bash
+fallocate -l 10G 10Gigfile
+```
+
+##### Create dummy file of certain size (e.g. 200mb)
 ```bash
 dd if=/dev/zero of=//dev/shm/200m bs=1024k count=200
 # or
