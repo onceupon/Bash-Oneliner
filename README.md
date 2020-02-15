@@ -1271,6 +1271,16 @@ xcowsay
 ## System
 [[back to top](#handy-bash-one-liners)]
 
+##### Audit files to see who made changes to a file [RedHat based system only]
+```bash
+# To audit a directory recursively for changes (e.g. myproject)
+auditctl -w /path/to/myproject/ -p wa
+
+# If you delete a file name "VIPfile", the deletion is recorded in /var/log/audit/audit.log
+sudo grep VIPfile /var/log/audit/audit.log
+#type=PATH msg=audit(1581417313.678:113): item=1 name="VIPfile" inode=300115 dev=ca:01 mode=0100664 ouid=1000 ogid=1000 rdev=00:00 nametype=DELETE cap_fp=0000000000000000 cap_fi=0000000000000000 cap_fe=0 cap_fver=0
+```
+
 ##### Check out whether SELinux is enabled
 ```bash
 sestatus
@@ -1631,6 +1641,11 @@ du -h
 du -sk /var/log/* |sort -rn |head -10
 ```
 
+##### Show all file system type
+```bash
+df -TH
+```
+
 ##### Show current runlevel
 ```bash
 runlevel
@@ -1729,6 +1744,9 @@ group username
 ##### Show uid, gid, group of user
 ```bash
 id username
+
+# variable for UID
+echo $UID
 ```
 
 ##### Check if it's root
@@ -2605,6 +2623,12 @@ while read a b; do yes $b |head -n $a ;done <test.txt
 
 ## Others
 [[back to top](#handy-bash-one-liners)]
+
+##### Describe the format and characteristics of image files.
+```bash
+identify myimage.png
+#myimage.png PNG 1049x747 1049x747+0+0 8-bit sRGB 1.006MB 0.000u 0:00.000
+```
 
 ##### Bash auto-complete (e.g. show options "now tomorrow never" when you press'tab' after typing "dothis")
 [More examples](https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html)
