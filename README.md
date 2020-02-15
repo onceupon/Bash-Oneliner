@@ -1076,6 +1076,9 @@ time echo hi
 ##### Wait for some time (e.g 10s)
 ```bash
 sleep 10
+
+# wait for random duration (e.g. sleep 1-5 second, like adding a jitter)
+sleep $[ ( $RANDOM % 5 ) + 1 ]
 ```
 
 ##### Log out your account after a certain period of time (e.g 10 seconds)
@@ -2777,11 +2780,6 @@ head !$
 ```bash
 clear
 # or simply Ctrl+l
-```
-
-##### Sleep awhile or wait for a moment or schedule a job
-```bash
-sleep 5;echo hi
 ```
 
 ##### Backup with rsync
