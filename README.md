@@ -676,7 +676,6 @@ awk ' {split( $0, a, "\t" ); asort( a ); for( i = 1; i <= length(a); i++ ) print
 awk '{$6 = $4 - prev5; prev5 = $5; print;}'
 ```
 
-
 ## Xargs
 [[back to top](#handy-bash-one-liners)]
 
