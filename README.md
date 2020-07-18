@@ -2292,6 +2292,16 @@ ping 8.8.8.8 -t 10
 traceroute google.com
 ```
 
+##### Check connection to host (e.g. check connection to port 80 and 22 of google.com)
+```bash
+nc -vw5 google.com 80
+# Connection to google.com 80 port [tcp/http] succeeded!
+
+nc -vw5 google.com 22
+# nc: connect to google.com port 22 (tcp) timed out: Operation now in progress
+# nc: connect to google.com port 22 (tcp) failed: Network is unreachable
+```
+
 ##### Show the SSL certificate of a domain
 ```bash
 openssl s_client -showcerts -connect www.example.com:443
