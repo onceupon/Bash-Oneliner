@@ -837,8 +837,10 @@ find . -name "*.mso" -size -74c -delete
 # M for MB, etc
 ```
 
-##### Find and delete empty (0 byte) files
+##### Find empty (0 byte) files
 ```bash
+find . -type f -empty
+# to further delete all the empty files
 find . -type f -empty -delete
 ```
 
