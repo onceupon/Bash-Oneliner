@@ -2065,6 +2065,31 @@ top|grep sublime_text
 [unixbench](https://github.com/kdlucas/byte-unixbench) - the original BYTE UNIX benchmark suite, provide a basic indicator of the performance of a Unix-like system.
 [wrk](https://github.com/wg/wrk) - HTTP benchmark.
 
+##### Performance monitoring tool - sar
+```bash
+# installation
+# It collects the data every 10 minutes and generate its report daily. crontab file (/etc/cron.d/sysstat) is responsible for collecting and generating reports.
+yum install sysstat
+systemctl start sysstat
+systemctl enable sysstat
+
+# show CPU utilization 5 times every 2 seconds.
+sar 2 5
+
+# show memory  utilization 5 times every 2 seconds.
+sar -r 2 5
+
+# show paging statistics 5 times every 2 seconds.
+sar -B 2 5
+
+# To generate all network statistic:
+sar -n ALL
+
+# reading SAR log file using -f
+$ sar -f /var/log/sa/sa31|tail
+
+
+
 
 ##### Show a listing of last logged in users.
 ```bash
