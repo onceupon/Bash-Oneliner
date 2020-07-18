@@ -2282,6 +2282,11 @@ ipmitool -I bmc lan set 1 defgw ipaddr 192.168.0.1
 dig +short www.example.com
 ```
 
+##### Send a ping with a limited TTL to 10 (TTL: Time-To-Live, which is the maximum number of hops that a packet can travel across the Internet before it gets discarded.)
+```bash
+ping 8.8.8.8 -t 10
+```
+
 ##### Show the SSL certificate of a domain
 ```bash
 openssl s_client -showcerts -connect www.example.com:443
