@@ -685,6 +685,11 @@ awk '{$6 = $4 - prev5; prev5 = $5; print;}'
 xargs -d\t
 ```
 
+##### Prompt commands before running commands
+```bash
+ls|xargs -L1 -p head
+```
+
 ##### Display 3 items per line
 ```bash
 echo 1 2 3 4 5 6| xargs -n 3
