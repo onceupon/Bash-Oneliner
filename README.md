@@ -2287,6 +2287,11 @@ dig +short www.example.com
 ping 8.8.8.8 -t 10
 ```
 
+##### Print the route packets trace to network host
+```bash
+traceroute google.com
+```
+
 ##### Show the SSL certificate of a domain
 ```bash
 openssl s_client -showcerts -connect www.example.com:443
