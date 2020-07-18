@@ -2086,10 +2086,12 @@ sar -B 2 5
 sar -n ALL
 
 # reading SAR log file using -f
-$ sar -f /var/log/sa/sa31|tail
+sar -f /var/log/sa/sa31|tail
 
-
-
+##### Reading from journal file
+```bash
+journalctl --file ./log/journal/a90c18f62af546ccba02fa3734f00a04/system.journal  --since "2020-02-11 00:00:00"
+```
 
 ##### Show a listing of last logged in users.
 ```bash
