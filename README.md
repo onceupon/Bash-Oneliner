@@ -2037,6 +2037,17 @@ pidof python
 # or
 ps aux|grep python
 ```
+
+##### Check status of a process using PID
+```bash
+ps -p <PID>
+
+#or
+cat /proc/<PID>/status
+cat /proc/<PID>/stack
+cat /proc/<PID>/stat
+```
+
 ##### NTP
 ```bash
 # Start ntp:
