@@ -1109,6 +1109,7 @@ date +'%d-%b-%Y-%H:%M:%S'
 ```
 
 ##### wait for random duration (e.g. sleep 1-5 second, like adding a jitter)
+```bash
 sleep $[ ( $RANDOM % 5 ) + 1 ]
 ```
 
