@@ -1089,10 +1089,14 @@ time echo hi
 sleep 10
 ```
 
-##### Print date in %Y-%m-%d
+##### Print date with formatting
 ```bash
 date +%F
 # 2020-07-19
+
+# or
+date +'%d-%b-%Y-%H:%M:%S'
+#10-Apr-2020-21:54:40
 ```
 
 # wait for random duration (e.g. sleep 1-5 second, like adding a jitter)
