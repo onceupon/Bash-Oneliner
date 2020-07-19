@@ -1378,6 +1378,15 @@ ssh -A <username>@<IP_of_serverA>
 ssh <username>@<IP_of_serverB>
 ```
 
+##### Set the default user and key for a host when using SSH
+```bash
+# add the following to ~/.ssh/config
+Host myserver
+  User myuser
+  IdentityFile ~/path/to/mykey.pem
+
+# Next, you could run "ssh myserver" instead of "ssh -i ~/path/to/mykey.pem myuser@myserver"
+```
 
 ##### Follow the most recent logs from service
 ```bash
@@ -1565,7 +1574,7 @@ passwd username
 
 ##### Edit environment setting (e.g. alias)
 ```bash
-1. joe ~/.bash_profile
+1. vi ~/.bash_profile
 2. alias pd="pwd" //no more need to type that 'w'!
 3. source ~/.bash_profile
 ```
