@@ -1957,6 +1957,14 @@ apt list --installed
 yum list installed
 ```
 
+##### Check for package update
+```bash
+apt list --upgradeable
+
+# or
+sudo yum check-update
+```
+ 
 ##### Run yum update excluding a package (e.g. do not update php packages)
 ```bash
 sudo yum update --exclude=php*
