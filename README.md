@@ -3045,6 +3045,13 @@ tar xopf file.tar
 tar xvf -C /path/to/directory filename.gz
 ```
 
+##### Zip the content of a directory without including the directory itself
+```bash
+# First cd to the directory, they run:
+zip -r -D ../myzipfile .
+# you will see the myzipfile.zip in the parent directory (cd ..)
+```
+
 ##### Output a y/n repeatedly until killed
 ```bash
 # 'y':
