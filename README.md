@@ -2263,7 +2263,10 @@ sg_map -i -x|grep SEAGATE|wc -l
 
 ##### Get UUID of a disk (e.g. sdb)
 ```bash
-blkid /dev/sdb
+lsblk -f /dev/sdb
+
+# or
+sudo blkid /dev/sdb
 ```
 
 ##### Generate an UUID
