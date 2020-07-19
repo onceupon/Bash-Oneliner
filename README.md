@@ -1028,9 +1028,13 @@ if [[ $age -gt 21 ]]
 
 ##### For loop
 ```bash
+# Echo the file name under the current directory
 for i in $(ls); do echo file $i;done
 #or
 for i in *; do echo file $i; done
+
+# Make directories listed in a file (e.g. myfile)
+for dir in $(<myfile); do mkdir $dir; done
 
 # Press any key to continue each loop
 for i in $(cat tpc_stats_0925.log |grep failed|grep -o '\query\w\{1,2\}');do cat ${i}.log; read -rsp $'Press any key to continue...\n' -n1 key;done
@@ -1964,7 +1968,7 @@ apt list --upgradeable
 # or
 sudo yum check-update
 ```
- 
+
 ##### Run yum update excluding a package (e.g. do not update php packages)
 ```bash
 sudo yum update --exclude=php*
