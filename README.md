@@ -1108,7 +1108,7 @@ date +'%d-%b-%Y-%H:%M:%S'
 #10-Apr-2020-21:54:40
 ```
 
-# wait for random duration (e.g. sleep 1-5 second, like adding a jitter)
+##### wait for random duration (e.g. sleep 1-5 second, like adding a jitter)
 sleep $[ ( $RANDOM % 5 ) + 1 ]
 ```
 
@@ -2137,7 +2137,7 @@ top|grep sublime_text
 [sysbench](https://github.com/akopytov/sysbench) - scriptable database and system performance benchmark.
 [tiobench](https://github.com/mkuoppal/tiobench) - threaded IO benchmark.
 [unixbench](https://github.com/kdlucas/byte-unixbench) - the original BYTE UNIX benchmark suite, provide a basic indicator of the performance of a Unix-like system.
-[wrk](https://github.com/wg/wrk) - HTTP benchmark.
+[wrk](https://github.com/wg/wrk) - HTTP benchmark. 
 
 
 ##### Performance monitoring tool - sar
