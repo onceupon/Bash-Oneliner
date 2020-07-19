@@ -1853,8 +1853,11 @@ ulimit -u
 
 ##### Which ports are listening for TCP connections from the network
 ```bash
-nmap -sT -O localhost
 #notice that some companies might not like you using nmap
+nmap -sT -O localhost
+
+# check port 0-65535
+nmap  -p0-65535 localhost
 ```
 ##### Check if a host is up and scan for open ports, also skip host discovery.
 #skips checking if the host is alive which may sometimes cause a false positive and stop the scan.
