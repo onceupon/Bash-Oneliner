@@ -2297,6 +2297,10 @@ dig +short www.example.com
 host www.example.com
 ```
 
+##### Get DNS TXT record of domain
+```bash
+dig -t txt www.example.com
+```
 
 ##### Send a ping with a limited TTL to 10 (TTL: Time-To-Live, which is the maximum number of hops that a packet can travel across the Internet before it gets discarded.)
 ```bash
