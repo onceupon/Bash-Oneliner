@@ -1553,11 +1553,13 @@ useradd username
 passwd username
 ```
 
-##### Edit variable for bash, (e.g. displaying the whole path)
+##### Edit PS1 variable for bash (e.g. displaying the whole path)
 ```bash
-1. joe ~/.bash_profile
+1. vi ~/.bash_profile
 2. export PS1='\u@\h:\w\$'
 # $PS1 is a variable that defines the makeup and style of the command prompt
+# You could use emojis and add timestamp to every prompt using the following value:
+# export PS1="\t@🦁:\w\$ "
 3. source ~/.bash_profile
 ```
 
