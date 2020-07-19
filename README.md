@@ -2114,6 +2114,7 @@ top|grep sublime_text
 [unixbench](https://github.com/kdlucas/byte-unixbench) - the original BYTE UNIX benchmark suite, provide a basic indicator of the performance of a Unix-like system.
 [wrk](https://github.com/wg/wrk) - HTTP benchmark.
 
+
 ##### Performance monitoring tool - sar
 ```bash
 # installation
@@ -2414,6 +2415,15 @@ curl -I http://example.com/
 # ETag: "xxxxxx"
 # Accept-Ranges: bytes
 # Vary: Accept-Encoding
+```
+
+##### Perform network throughput tests
+```bash
+# server side:
+$ sudo iperf -s -p 80
+
+# client side:
+iperf -c <server IP address> --parallel 2 -i 1 -t 2 -p 80
 ```
 
 ## Data wrangling
