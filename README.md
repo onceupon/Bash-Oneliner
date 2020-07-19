@@ -1983,6 +1983,11 @@ apt list --installed
 yum list installed
 ```
 
+##### Run yum update excluding a package (e.g. do not update php packages)
+```bash
+sudo yum update --exclude=php*
+```
+
 ##### Check which file make the device busy on umount
 ```bash
 lsof /mnt/dir
