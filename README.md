@@ -2313,6 +2313,11 @@ nc -vw5 google.com 22
 # nc: connect to google.com port 22 (tcp) failed: Network is unreachable
 ```
 
+##### Look up website information (e.g. name server), searches for an object in a RFC 3912 database.
+```bash
+whois google.com
+```
+
 ##### Show the SSL certificate of a domain
 ```bash
 openssl s_client -showcerts -connect www.example.com:443
