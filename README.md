@@ -2358,6 +2358,16 @@ nc -vw5 google.com 22
 # nc: connect to google.com port 22 (tcp) failed: Network is unreachable
 ```
 
+##### Nc as a chat tool!
+```bash
+# From server A:
+$ sudo nc -l 80
+# then you can connect to the 80 port from another server (e.g. server B):
+# e.g. telent <server A IP address> 80
+# then type sth in server B
+# and you will see the result in server A!
+```
+
 ##### Look up website information (e.g. name server), searches for an object in a RFC 3912 database.
 ```bash
 whois google.com
@@ -2766,8 +2776,6 @@ tac filename
 ```bash
 while read a b; do yes $b |head -n $a ;done <test.txt
 ```
-
-
 
 
 ## Others
