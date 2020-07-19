@@ -2289,10 +2289,14 @@ ipmitool -I bmc lan set 1 defgw ipaddr 192.168.0.1
 ## Networking
 [[back to top](#handy-bash-one-liners)]
 
-##### Resolve a domain to an IP address in a Bash script?
+##### Resolve a domain to IP address(es)
 ```bash
 dig +short www.example.com
+
+# or
+host www.example.com
 ```
+
 
 ##### Send a ping with a limited TTL to 10 (TTL: Time-To-Live, which is the maximum number of hops that a packet can travel across the Internet before it gets discarded.)
 ```bash
