@@ -2394,6 +2394,7 @@ nmap -sT -O localhost
 nmap  -p0-65535 localhost
 ```
 ##### Check if a host is up and scan for open ports, also skip host discovery.
+```bash
 #skips checking if the host is alive which may sometimes cause a false positive and stop the scan.
 $ nmap google.com -Pn
 
@@ -2409,7 +2410,7 @@ $ nmap google.com -Pn
 # 443/tcp open  https
 #
 # Nmap done: 1 IP address (1 host up) scanned in 3.99 seconds
-
+```
 ##### Scan for open ports and OS and version detection (e.g. scan the domain "scanme.nmap.org")
 ```bash
 $ nmap -A -T4 scanme.nmap.org
