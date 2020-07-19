@@ -1292,6 +1292,26 @@ xcowsay
 ## System
 [[back to top](#handy-bash-one-liners)]
 
+##### Work with yum history
+```bash
+# List yum history (e.g install, update)
+sudo yum history
+# Example output:
+# Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+# ID     | Login user               | Date and time    | Action(s)      | Altered
+# -------------------------------------------------------------------------------
+#     11 |  ... <myuser>       | 2020-04-10 10:57 | Install        |    1 P<
+#     10 |  ... <myuser>       | 2020-03-27 05:21 | Install        |    1 >P
+#      9 |  ... <myuser>       | 2020-03-05 11:57 | I, U           |   56 *<
+# ...
+
+# Show more details of a yum history (e.g. history #11)
+sudo yum history info 11
+
+# Undo a yum history (e.g. history #11, this will uninstall some packages)
+sudo yum history undo 11
+```
+
 ##### Audit files to see who made changes to a file [RedHat based system only]
 ```bash
 # To audit a directory recursively for changes (e.g. myproject)
