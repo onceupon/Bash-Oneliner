@@ -2417,6 +2417,11 @@ username=`echo -n "bashoneliner"`
 tee <fileA fileB fileC fileD >/dev/null
 ```
 
+##### Delete all non-printing characters
+```bash
+tr -dc '[:print:]' < filename
+```
+
 ##### Remove newline / nextline
 ```bash
 tr --delete '\n' <input.txt >output.txt
@@ -2429,6 +2434,7 @@ tr '\n' ' ' <filename
 ##### To uppercase/lowercase
 ```bash
 tr /a-z/ /A-Z/
+
 ```
 ##### Translate a range of characters (e.g. substitute a-z into a)
 ```bash
