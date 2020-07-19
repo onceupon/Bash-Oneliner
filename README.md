@@ -1086,6 +1086,13 @@ time echo hi
 ##### Wait for some time (e.g 10s)
 ```bash
 sleep 10
+```
+
+##### Print date in %Y-%m-%d
+```bash
+date +%F
+# 2020-07-19
+```
 
 # wait for random duration (e.g. sleep 1-5 second, like adding a jitter)
 sleep $[ ( $RANDOM % 5 ) + 1 ]
