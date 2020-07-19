@@ -963,6 +963,11 @@ replace "www" "w" -- *
 find mso*/ -name M* -printf "%f\n"
 ```
 
+##### Find large files in the system (e.g. >4G)
+```bash
+find / -type f -size +4G
+```
+
 ##### Find and delete file with size less than (e.g. 74 byte)
 ```bash
 find . -name "*.mso" -size -74c -delete
