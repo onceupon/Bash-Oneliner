@@ -3255,6 +3255,13 @@ pdftotext example.pdf example.txt
 ls -d */
 ```
 
+##### List one file per line.
+```bash
+ls -1
+# or list all, do not ignore entries starting with .
+ls -1a
+```
+
 ##### Capture/record/save terminal output (capture everything you type and output)
 ```bash
 script output.txt
