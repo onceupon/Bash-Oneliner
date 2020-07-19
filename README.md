@@ -1851,32 +1851,6 @@ joe /etc/environment
 ulimit -u
 ```
 
-##### Which ports are listening for TCP connections from the network
-```bash
-#notice that some companies might not like you using nmap
-nmap -sT -O localhost
-
-# check port 0-65535
-nmap  -p0-65535 localhost
-```
-##### Check if a host is up and scan for open ports, also skip host discovery.
-#skips checking if the host is alive which may sometimes cause a false positive and stop the scan.
-$ nmap google.com -Pn
-
-# Example output:
-# Starting Nmap 7.01 ( https://nmap.org ) at 2020-07-18 22:59 CST
-# Nmap scan report for google.com (172.217.24.14)
-# Host is up (0.013s latency).
-# Other addresses for google.com (not scanned): 2404:6800:4008:802::200e
-# rDNS record for 172.217.24.14: tsa01s07-in-f14.1e100.net
-# Not shown: 998 filtered ports
-# PORT    STATE SERVICE
-# 80/tcp  open  http
-# 443/tcp open  https
-#
-# Nmap done: 1 IP address (1 host up) scanned in 3.99 seconds
-
-
 ##### Print out number of cores/ processors
 ```bash
 nproc --all
@@ -2364,8 +2338,39 @@ nc -vw5 google.com 22
 $ sudo nc -l 80
 # then you can connect to the 80 port from another server (e.g. server B):
 # e.g. telent <server A IP address> 80
-# then type sth in server B
+# then type something in server B
 # and you will see the result in server A!
+```
+
+##### Check which ports are listening for TCP connections from the network
+```bash
+#notice that some companies might not like you using nmap
+nmap -sT -O localhost
+
+# check port 0-65535
+nmap  -p0-65535 localhost
+```
+##### Check if a host is up and scan for open ports, also skip host discovery.
+#skips checking if the host is alive which may sometimes cause a false positive and stop the scan.
+$ nmap google.com -Pn
+
+# Example output:
+# Starting Nmap 7.01 ( https://nmap.org ) at 2020-07-18 22:59 CST
+# Nmap scan report for google.com (172.217.24.14)
+# Host is up (0.013s latency).
+# Other addresses for google.com (not scanned): 2404:6800:4008:802::200e
+# rDNS record for 172.217.24.14: tsa01s07-in-f14.1e100.net
+# Not shown: 998 filtered ports
+# PORT    STATE SERVICE
+# 80/tcp  open  http
+# 443/tcp open  https
+#
+# Nmap done: 1 IP address (1 host up) scanned in 3.99 seconds
+
+##### Scan for open ports and OS and version detection (e.g. scan the domain "scanme.nmap.org")
+```bash
+$ nmap -A -T4 scanme.nmap.org
+# -A to enable OS and version detection, script scanning, and traceroute; -T4 for faster execution
 ```
 
 ##### Look up website information (e.g. name server), searches for an object in a RFC 3912 database.
