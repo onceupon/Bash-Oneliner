@@ -3155,7 +3155,7 @@ pdftotext example.pdf example.txt
 
 ##### List only directory
 ```bash
-ls -ld -- */
+ls -d */
 ```
 
 ##### Capture/record/save terminal output (capture everything you type and output)
