@@ -2492,6 +2492,14 @@ $ sudo iperf -s -p 80
 iperf -c <server IP address> --parallel 2 -i 1 -t 2 -p 80
 ```
 
+##### To block port 80 (HTTP server) using iptables.
+```bash
+sudo iptables -A INPUT -p tcp --dport 80 -j DROP
+
+# only block connection from an IP address
+sudo iptables –A INPUT –s <IP> -p tcp –dport 80 –j DROP
+```
+
 ## Data wrangling
 [[back to top](#handy-bash-one-liners)]
 
