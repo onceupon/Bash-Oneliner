@@ -2493,6 +2493,11 @@ curl -I http://example.com/
 curl -s -o /dev/null -w "%{http_code}" https://www.google.com
 ```
 
+##### Unshorten a shortended URL
+```bash
+curl -s -o /dev/null -w "%{redirect_url}" https://bit.ly/34EFwWC
+```
+
 ##### Perform network throughput tests
 ```bash
 # server side:
