@@ -2488,6 +2488,11 @@ curl -I http://example.com/
 # Vary: Accept-Encoding
 ```
 
+##### Find out the http status code of a URL
+```bash
+curl -s -o /dev/null -w "%{http_code}" https://www.google.com
+```
+
 ##### Perform network throughput tests
 ```bash
 # server side:
