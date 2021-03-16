@@ -1105,7 +1105,11 @@ date +%F
 
 # or
 date +'%d-%b-%Y-%H:%M:%S'
-#10-Apr-2020-21:54:40
+# 10-Apr-2020-21:54:40
+
+# returns the current time with nanoseconds.
+date +"%T.%N"
+# 11:42:18.664217000
 ```
 
 ##### wait for random duration (e.g. sleep 1-5 second, like adding a jitter)
