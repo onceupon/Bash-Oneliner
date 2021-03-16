@@ -3102,7 +3102,7 @@ scp -r directoryname user@ip:/path/to/send
 echo $?
 ```
 
-##### Extract .xf
+##### Extract .xz
 ```
 unxz filename.tar.xz
 # then
