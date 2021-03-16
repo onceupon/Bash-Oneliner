@@ -456,9 +456,10 @@ sed 1,100d filename
 ##### Remove lines with string (e.g. 'bbo')
 ```bash
 sed "/bbo/d" filename
-- case insensitive:
+# case insensitive:
 sed "/bbo/Id" filename
 ```
+
 ##### Remove lines whose nth character not equal to a value (e.g. 5th character not equal to 2)
 ```bash
 sed -E '/^.{5}[^2]/d'
@@ -982,6 +983,11 @@ find . -type f -empty
 find . -type f -empty -delete
 ```
 
+##### Recursively count all the files in a directory
+```bash
+find . -type f | wc -l
+```
+
 ## Condition and loop
 [[back to top](#handy-bash-one-liners)]
 
@@ -991,7 +997,7 @@ find . -type f -empty -delete
 if [[ "$c" == "read" ]]; then outputdir="seq"; else outputdir="write" ; fi
 
 # Test if myfile contains the string 'test':
-if grep -q hello myfile; then …
+if grep -q hello myfile; then echo -e "file contains the string!" ; fi
 
 # Test if mydir is a directory, change to it and do other stuff:
 if cd mydir; then
@@ -1001,8 +1007,11 @@ else
 fi
 
 # if variable is null
-if [ ! -s "myvariable" ]
+if [ ! -s "myvariable" ]; then echo -e "variable is null!" ; fi
 #True of the length if "STRING" is zero.
+
+# Using test command (same as []), to test if the length of variable is nonzero
+test -n "$myvariable" && echo myvariable is "$myvariable" || echo myvariable is not set
 
 # Test if file exist
 if [ -e 'filename' ]
@@ -1017,16 +1026,17 @@ then
 fi
 
 # Test if the value of x is greater or equal than 5
-if [ "$x" -ge 5 ]; then …
+if [ "$x" -ge 5 ]; then echo -e "greater or equal than 5!" ; fi
 
 # Test if the value of x is greater or equal than 5, in bash/ksh/zsh:
-if ((x >= 5)); then …
+if ((x >= 5)); then echo -e "greater or equal than 5!" ; fi
 
 # Use (( )) for arithmetic operation
-if ((j==u+2))
+if ((j==u+2)); then echo -e "j==u+2!!" ; fi
 
 # Use [[ ]] for comparison
-if [[ $age -gt 21 ]]
+if [[ $age -gt 21 ]]; then echo -e "forever 21!!" ; fi
+
 ```
 
 [More if commands](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
@@ -1107,9 +1117,21 @@ date +%F
 date +'%d-%b-%Y-%H:%M:%S'
 # 10-Apr-2020-21:54:40
 
-# returns the current time with nanoseconds.
+# Returns the current time with nanoseconds.
 date +"%T.%N"
-# 11:42:18.664217000
+# 11:42:18.664217000  
+
+# Get the seconds since epoch (Jan 1 1970) for a given date (e.g Mar 16 2021)
+date -d "Mar 16 2021" +%s
+# 1615852800
+# or
+date -d "Tue Mar 16 00:00:00 UTC 2021"  +%s
+# 1615852800  
+
+# Convert the number of seconds since epoch back to date
+date --date @1615852800
+# Tue Mar 16 00:00:00 UTC 2021
+
 ```
 
 ##### wait for random duration (e.g. sleep 1-5 second, like adding a jitter)
@@ -1222,7 +1244,7 @@ shuf -n 100 filename
 
 ##### Random order (lucky draw)
 ```bash
-for i in a b c d e; do echo $i; done| shuf
+for i in a b c d e; do echo $i; done | shuf
 ```
 
 ##### Echo series of random numbers between a range (e.g. shuffle numbers from 0-100, then pick 15 of them randomly)
@@ -1711,6 +1733,18 @@ du -h
 du -sk /var/log/* |sort -rn |head -10
 ```
 
+##### check the Inode utilization
+```
+df -i
+# Filesystem      Inodes  IUsed   IFree IUse% Mounted on
+# devtmpfs        492652    304  492348    1% /dev
+# tmpfs           497233      2  497231    1% /dev/shm
+# tmpfs           497233    439  496794    1% /run
+# tmpfs           497233     16  497217    1% /sys/fs/cgroup
+# /dev/nvme0n1p1 5037976 370882 4667094    8% /
+# tmpfs           497233      1  497232    1% /run/user/1000
+```
+
 ##### Show all file system type
 ```bash
 df -TH
@@ -2167,6 +2201,7 @@ sar -n ALL
 
 # reading SAR log file using -f
 sar -f /var/log/sa/sa31|tail
+```
 
 ##### Reading from journal file
 ```bash
@@ -2881,6 +2916,13 @@ cal
 # only display November
 cal -m 11
 ```
+
+##### Convert the hexadecimal MD5 checksum value into its base64-encoded format.
+```bash
+openssl md5 -binary /path/to/file| base64
+# NWbeOpeQbtuY0ATWuUeumw==
+```
+
 ##### Forces applications to use the default language for output
 ```bash
 export LC_ALL=C
@@ -3102,7 +3144,7 @@ scp -r directoryname user@ip:/path/to/send
 echo $?
 ```
 
-##### Extract .xf
+##### Extract .xz
 ```
 unxz filename.tar.xz
 # then
@@ -3142,8 +3184,7 @@ yes n
 # or 'anything':
 yes anything
 
-# For example:
-```bash
+# pipe yes to other command
 yes | rm -r large_directory
 ```
 
@@ -3202,6 +3243,9 @@ q -d "," "select c3,c4,c5 from /path/to/file.txt where c3='foo' and c5='boo'"
 # Create session and attach:
 screen
 
+# Create a screen and name it 'test'
+screen -S test
+
 # Create detached session foo:
 screen -S foo -d -m
 
@@ -3220,16 +3264,17 @@ screen -r foo
 # Kill session foo:
 screen -r foo -X quit
 
+
 # Scroll:
-Hit your screen prefix combination (C-a / control+A), then hit Escape.
-Move up/down with the arrow keys (↑ and ↓).
+# Hit your screen prefix combination (C-a / control+A), then hit Escape.
+# Move up/down with the arrow keys (↑ and ↓).  
 
 # Redirect output of an already running process in Screen:
- (C-a / control+A), then hit 'H'
+# (C-a / control+A), then hit 'H'  
 
 # Store screen output for Screen:
-Ctrl+A, Shift+H
-# You will then find a screen.log file under current directory.
+# Ctrl+A, Shift+H  
+# You will then find a screen.log file under current directory.  
 ```
 
 ##### Using Tmux for multiple terminal sessions
