@@ -3400,6 +3400,8 @@ source .venv/bin/activate
 type pip
 # 5. Now you can install your pip package, here requirements.txt is simply a txt file containing all the packages you want. (e.g tornado==4.5.3).
 pip install -r requirements.txt
+# 6. Exit virtual environment
+deactivate
 ```
 
 
