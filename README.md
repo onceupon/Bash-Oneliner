@@ -895,7 +895,7 @@ find /dir/to/A -type f -name "*.py" -print 0| xargs -0 -r -I file cp -v -p file 
 
 ##### With sed
 ```bash
-ls |xargs -n1 -I file sed -i '/^Pos/d' filename
+ls |xargs -n1 -I file sed -i '/^Pos/d' file
 ```
 
 ##### Add the file name to the first line of file
