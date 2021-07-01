@@ -98,10 +98,10 @@ sudo !!
 ##### Bash globbing
 ```bash
 # '*' serves as a "wild card" for filename expansion.
-/b?n/?at      #/bin/cat
+/etc/pa*wd    #/etc/passwd
 
 # '?' serves as a single-character "wild card" for filename expansion.
-/etc/pa*wd    #/etc/passwd
+/b?n/?at      #/bin/cat
 
 # ‘[]’ serves to match the character from a range.
 ls -l [a-z]*   #list all files with alphabet in its filename.
