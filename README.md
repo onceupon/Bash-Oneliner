@@ -57,7 +57,7 @@ Esc + u
 Esc + l
 # converts text from cursor to the end of the word to lowercase.
 Esc + c
-# converts letter under the cursor to uppercase.
+# converts letter under the cursor to uppercase, rest of the word to lowercase.
 ```
 ##### Run history number (e.g. 53)
 ```bash
