@@ -280,7 +280,7 @@ grep -c "^$"
 ```bash
 grep -o '[0-9]*'
 #or
-grep -oP '\d'
+grep -oP '\d*'
 ```
 #####  Grep integer with certain number of digits (e.g. 3)
 ```bash
