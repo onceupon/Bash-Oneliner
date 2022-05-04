@@ -1,7 +1,7 @@
 # Bash-Oneliner
 I am glad that you are here! I was working on bioinformatics a few years ago and was amazed by those single-word bash commands which are much faster than my dull scripts, time saved through learning command-line shortcuts and scripting. Recent years I am working on cloud computing and I keep recording those useful commands here. Not all of them is oneliner, but i put effort on making them brief and swift. I am mainly using Ubuntu, Amazon Linux, RedHat, Linux Mint, Mac and CentOS, sorry if the commands don't work on your system.
 
-This blog will focus on simple bash commands for parsing data and Linux system maintenance that i acquired from work and LPIC exam. I apologize that there are no detailed citation for all the commands, but they are probably from dear Google and Stackoverflow.
+This blog will focus on simple bash commands for parsing data and Linux system maintenance that i acquired from work and LPIC exam. I apologize that there are no detailed citation for all the commands, but they are probably from dear Google and Stack Overflow.
 
 English and bash are not my first language, please correct me anytime, thank you.
 If you know other cool commands, please teach me!
@@ -205,9 +205,9 @@ echo "$bar" # foo
 ```bash
 echo $(( 10 + 5 ))  #15
 x=1
-echo $(( x++ )) #1 , notice that it is still 1, since it's post-incremen
+echo $(( x++ )) #1 , notice that it is still 1, since it's post-increment
 echo $(( x++ )) #2
-echo $(( ++x )) #4 , notice that it is not 3 since it's pre-incremen
+echo $(( ++x )) #4 , notice that it is not 3 since it's pre-increment
 echo $(( x-- )) #4
 echo $(( x-- )) #3
 echo $(( --x )) #1
@@ -265,7 +265,7 @@ echo "var=5;--var"| bc
 #####  Type of grep
 ```bash
 grep = grep -G # Basic Regular Expression (BRE)
-fgrep = grep -F # fixed text, ignoring meta-charachetrs
+fgrep = grep -F # fixed text, ignoring meta-characters
 egrep = grep -E # Extended Regular Expression (ERE)
 pgrep = grep -P # Perl Compatible Regular Expressions (PCRE)
 rgrep = grep -r # recursive
@@ -538,7 +538,7 @@ sed -e 's/$/\}\]/' filename
 sed 's/.\{4\}/&\n/g'
 ```
 
-##### Concatenate/combine/join files with a seperator and next line (e.g separate by ",")
+##### Concatenate/combine/join files with a separator and next line (e.g separate by ",")
 ```bash
 sed -s '$a,' *.json > all.json
 ```
@@ -775,7 +775,7 @@ awk '{printf("%s\t%s\n",NR,$0)}'
 
 ##### Break combine column data into rows
 ```bash
-# For example, seperate the following content:
+# For example, separate the following content:
 # David    cat,dog
 # into
 # David    cat
