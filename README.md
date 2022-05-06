@@ -2059,7 +2059,7 @@ http://onceuponmine.blogspot.tw/2017/07/create-your-first-simple-daemon.html
 ##### Tutorial for using your gmail to send email
 http://onceuponmine.blogspot.tw/2017/10/setting-up-msmtprc-and-use-your-gmail.html
 
- ##### Using telnet to test open ports, test if you can connect to a port (e.g 53) of a server (e.g 192.168.2.106)
+##### Using telnet to test open ports, test if you can connect to a port (e.g 53) of a server (e.g 192.168.2.106)
 ```bash
 telnet 192.168.2.106 53
 ```
@@ -2419,7 +2419,7 @@ nc -vw5 google.com 22
 # From server A:
 $ sudo nc -l 80
 # then you can connect to the 80 port from another server (e.g. server B):
-# e.g. telent <server A IP address> 80
+# e.g. telnet <server A IP address> 80
 # then type something in server B
 # and you will see the result in server A!
 ```
