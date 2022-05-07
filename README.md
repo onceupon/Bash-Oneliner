@@ -2571,16 +2571,16 @@ sudo iptables –A INPUT –s <IP> -p tcp –dport 80 –j DROP
 ```bash
 # If file is not specified, the file /usr/share/dict/words is used.
 look phy|head -n 10
-# Phil
-# Philadelphia
-# Philadelphia's
-# Philby
-# Philby's
-# Philip
-# Philippe
-# Philippe's
-# Philippians
-# Philippine
+# phycic
+# Phyciodes
+# phycite
+# Phycitidae
+# phycitol
+# phyco-
+# phycochrom
+# phycochromaceae
+# phycochromaceous
+# phycochrome
 ```
 
 ##### Repeat printing string n times (e.g. print 'hello world' five times)
