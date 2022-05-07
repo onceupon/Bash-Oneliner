@@ -405,7 +405,7 @@ grep 'A\|B\|C\|D'
 grep 'A.*B'
 ```
 
-##### Regex any singer character (e.g. ACB or AEB)
+##### Regex any single character (e.g. ACB or AEB)
 ```bash
 grep 'A.B'
 ```
