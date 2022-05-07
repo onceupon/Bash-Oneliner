@@ -107,7 +107,7 @@ sudo !!
 ls -l [a-z]*   #list all files with alphabet in its filename.
 
 # ‘{}’ can be used to match filenames with more than one patterns
-ls {*.sh,*.py}   #list all .sh and .py files
+ls *.{sh,py}   #list all .sh and .py files
 ```
 
 ##### Some handy environment variables
