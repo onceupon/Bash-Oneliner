@@ -135,9 +135,19 @@ $HOSTNAME   current hostname
 ##### Variable substitution within quotes
 ```bash
 # foo=bar
- echo "'$foo'"
-#'bar'
-# double/single quotes around single quotes make the inner single quotes expand variables
+echo $foo
+# bar
+echo "$foo"
+# bar
+# single quotes cause variables to not be expanded
+echo '$foo'
+# $foo
+# single quotes within double quotes will not cancel expansion and will be part of the output
+echo "'$foo'"
+# 'bar'
+# doubled single quotes act as double quotes making variables expand
+echo ''$foo''
+# bar
 ```
 ##### Get the length of variable
 ```bash
