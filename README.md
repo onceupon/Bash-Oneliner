@@ -511,7 +511,7 @@ sed -i '1s/^/[/' file
 
 ##### Add string at certain line number (e.g. add 'something' to line 1 and line 3)
 ```bash
-sed -e '1isomething -e '3isomething'
+sed -e '1isomething' -e '3isomething'
 ```
 
 ##### Add string to end of file (e.g. "]")
