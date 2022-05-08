@@ -2636,7 +2636,41 @@ sdiff fileA fileB
 
 ##### Compare two files, strip trailing carriage return/ nextline (e.g. fileA, fileB)
 ```bash
- diff fileA fileB --strip-trailing-cr
+diff fileA fileB --strip-trailing-cr
+```
+
+##### Find common/differing lines
+```bash
+# having two sorted and uniqed files (for example after running `$ sort -uo fileA fileA` and same for fileB):
+# ------
+# fileA:
+# ------
+# joey
+# kitten
+# piglet
+# puppy
+# ------
+# fileB:
+# ------
+# calf
+# chick
+# joey
+# puppy
+#
+# Find lines in both files
+comm -12 fileA fileB
+# joey
+# puppy
+#
+# Find lines in fileB that are NOT in fileA
+comm -13 fileA fileB
+# calf
+# chick
+#
+# Find lines in fileA that are NOT in fileB
+comm -23 fileA fileB
+# kitten
+# piglet
 ```
 
 ##### Number a file (e.g. fileA)
