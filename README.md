@@ -188,11 +188,13 @@ echo ${var[@]#0}
 ```bash
 {var//a/,}
 ```
+
+##### Grep lines with strings from a file (e.g. lines with 'stringA or 'stringB' or 'stringC')
 ```bash
 #with grep
- test="god the father"
- grep ${test// /\\\|} file.txt
- # turning the space into 'or' (\|) in grep
+test="stringA stringB stringC"
+grep ${test// /\\\|} file.txt
+# turning the space into 'or' (\|) in grep
 ```
 
 ##### To change the case of the string stored in the variable to lowercase (Parameter Expansion)
