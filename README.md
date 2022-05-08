@@ -102,10 +102,10 @@ sudo !!
 # '?' serves as a single-character "wild card" for filename expansion.
 /b?n/?at      #/bin/cat
 
-# ‘[]’ serves to match the character from a range.
+# '[]' serves to match the character from a range.
 ls -l [a-z]*   #list all files with alphabet in its filename.
 
-# ‘{}’ can be used to match filenames with more than one patterns
+# '{}' can be used to match filenames with more than one patterns
 ls *.{sh,py}   #list all .sh and .py files
 ```
 
@@ -295,11 +295,11 @@ grep -oP '\d*'
 ```
 #####  Grep integer with certain number of digits (e.g. 3)
 ```bash
-grep ‘[0-9]\{3\}’
+grep '[0-9]\{3\}'
 # or
-grep -E ‘[0-9]{3}’
+grep -E '[0-9]{3}'
 # or
-grep -P ‘\d{3}’
+grep -P '\d{3}'
 ```
 
 #####  Grep only IP address
@@ -413,7 +413,7 @@ grep 'A.B'
 
 ##### Regex with or without a certain character (e.g. color or colour)
 ```bash
-grep ‘colou?r’
+grep 'colou?r'
 ```
 
 ##### Grep all content of a fileA from fileB
