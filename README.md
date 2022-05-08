@@ -413,7 +413,7 @@ grep 'A.B'
 
 ##### Regex with or without a certain character (e.g. color or colour)
 ```bash
-grep 'colou?r'
+grep 'colou\?r'
 ```
 
 ##### Grep all content of a fileA from fileB
