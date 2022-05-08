@@ -69,7 +69,6 @@ Esc + c
 !!
 # run the previous command using sudo
 sudo !!
-# of course you need to enter your password
 ```
 
 ##### Run last command and change some parameter using caret substitution (e.g. last command: echo 'aaa' -> rerun as: echo 'bbb')
