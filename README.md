@@ -68,19 +68,23 @@ set -o vi
 ESC 
 # change to vi edit mode (when set -o vi is set)
 k
-# in vi edit mode - previous command
+# in vi edit mode - go back to 3 previous words
 j
 # in vi edit mode - next command
 0
 # in vi edit mode - beginning of the command
 R
 # in vi edit mode - replace current characters of command
-w
-# in vi edit mode - next word
+2w
+# in vi edit mode - next to 2nd word
 b
 # in vi edit mode - previous word
+i
+# in vi edit mode - go to insert mode
 v
 # in vi edit mode - edit current command in vi
+man 3 readline
+# man page for complete readline mapping
 ```
 
 ##### Run history number (e.g. 53)
