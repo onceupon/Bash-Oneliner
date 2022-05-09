@@ -118,6 +118,7 @@ $?   :most recent foreground pipeline exit status.
 $-   :current options set for the shell.
 $$   :pid of the current shell (not subshell).
 $!   :is the PID of the most recent background command.
+$_   :last of parameterers of recent command.
 
 $DESKTOP_SESSION     current display manager
 $EDITOR   preferred text editor.
