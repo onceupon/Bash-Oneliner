@@ -606,12 +606,12 @@ sed "s/$/\t$i/"
 # $i is the valuable you want to add
 
 # To add the filename to every last column of the file
-for i in $(ls);do sed -i "s/$/\t$i/" $i;done
+for i in $(ls); do sed -i "s/$/\t$i/" $i; done
 ```
 
 ##### Add extension of filename to last column
 ```bash
-for i in T000086_1.02.n T000086_1.02.p;do sed "s/$/\t${i/*./}/" $i;done >T000086_1.02.np
+for i in T000086_1.02.n T000086_1.02.p; do sed "s/$/\t${i/*./}/" $i; done >T000086_1.02.np
 ```
 
 ##### Remove newline\ nextline
@@ -1044,7 +1044,7 @@ if [[ $age -gt 21 ]]; then echo -e "forever 21!!" ; fi
 ##### For loop
 ```bash
 # Echo the file name under the current directory
-for i in $(ls); do echo file $i;done
+for i in $(ls); do echo file $i; done
 #or
 for i in *; do echo file $i; done
 
@@ -1052,7 +1052,7 @@ for i in *; do echo file $i; done
 for dir in $(<myfile); do mkdir $dir; done
 
 # Press any key to continue each loop
-for i in $(cat tpc_stats_0925.log |grep failed|grep -o '\query\w\{1,2\}');do cat ${i}.log; read -rsp $'Press any key to continue...\n' -n1 key;done
+for i in $(cat tpc_stats_0925.log |grep failed|grep -o '\query\w\{1,2\}'); do cat ${i}.log; read -rsp $'Press any key to continue...\n' -n1 key; done
 
 # Print a file line by line when a key is pressed,
 oifs="$IFS"; IFS=$'\n'; for line in $(cat myfile); do ...; done
@@ -1062,21 +1062,21 @@ while read -r line; do ...; done <myfile
 for line in $(cat myfile); do echo $line; read -n1; done
 
 #Loop through an array
-for i in "${arrayName[@]}"; do echo $i;done
+for i in "${arrayName[@]}"; do echo $i; done
 
 ```
 
 ##### While loop,
 ```bash
 # Column subtraction of a file (e.g. a 3 columns file)
-while read a b c; do echo $(($c-$b));done < <(head filename)
+while read a b c; do echo $(($c-$b)); done < <(head filename)
 #there is a space between the two '<'s
 
 # Sum up column subtraction
 i=0; while read a b c; do ((i+=$c-$b)); echo $i; done < <(head filename)
 
 # Keep checking a running process (e.g. perl) and start another new process (e.g. python) immediately after it. (BETTER use the wait command! Ctrl+F 'wait')
-while [[ $(pidof perl) ]];do echo f;sleep 10;done && python timetorunpython.py
+while [[ $(pidof perl) ]]; do echo f; sleep 10; done && python timetorunpython.py
 ```
 
 ##### switch (case in bash)
@@ -2701,8 +2701,8 @@ echo {1,2}{1,2}
 ```bash
 set = {A,T,C,G}
 group= 5
-for ((i=0; i<$group; i++));do
-    repetition=$set$repetition;done
+for ((i=0; i<$group; i++)); do
+    repetition=$set$repetition; done
     bash -c "echo "$repetition""
 ```
 
@@ -2880,7 +2880,7 @@ tac filename
 
 ##### Reverse the result from `uniq -c`
 ```bash
-while read a b; do yes $b |head -n $a ;done <test.txt
+while read a b; do yes $b |head -n $a ; done <test.txt
 ```
 
 
