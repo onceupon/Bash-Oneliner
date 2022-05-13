@@ -2590,7 +2590,9 @@ printf 'hello world\n%.0s' {1..5}
 ```
 ##### Do not echo the trailing newline
 ```bash
-username=`echo -n "bashoneliner"`
+echo -n "Doing the things... "
+# (do things)
+echo "done."
 ```
 
 ##### Copy a file to multiple files (e.g copy fileA to file(B-D))
