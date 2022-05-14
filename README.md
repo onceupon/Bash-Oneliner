@@ -2837,12 +2837,26 @@ var=$((var+1))
 cat filename|rev|cut -f1|rev
 ```
 
-##### Cat to a file
+##### Create or replace a file with contents
 ```bash
 cat >myfile
 let me add sth here
-exit by control + c
-^C
+# exit with ctrl+d
+
+tee myfile
+let me add sth else here
+# exit with ctrl+d
+```
+
+##### Append to a file with contents
+```bash
+cat >>myfile
+let me add sth here
+# exit with ctrl+d
+
+tee -a myfile
+let me add sth else here
+# exit with ctrl+d
 ```
 
 ##### Clear the contents of a file (e.g. filename)
