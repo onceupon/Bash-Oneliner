@@ -3105,6 +3105,11 @@ rsync -av directory user@ip_address:/path/to/directory.bak
 # skip files that are newer on receiver (i prefer this one!)
 ```
 
+##### Create a temporary directory and `cd` into it
+```bash
+cd $(mktemp -d)
+```
+
 ##### Make all directories at one time!
 ```bash
 mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat}
