@@ -3109,7 +3109,18 @@ rsync -av directory user@ip_address:/path/to/directory.bak
 ```bash
 mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat}
 # -p: make parent directory
-# this will create project/doc/html/; project/doc/info; project/lib/ext ,etc
+# this will create:
+project/
+project/bin/
+project/demo/
+project/demo/stat/
+project/doc/
+project/doc/html/
+project/doc/info/
+project/doc/pdf/
+project/lib/
+project/lib/ext/
+project/src/
 ```
 
 ##### Run command only if another command returns zero exit status (well done)
