@@ -1145,6 +1145,21 @@ date --date @1615852800
 
 ```
 
+##### Print current time point for N days ago or after N days
+```bash
+# get this time a day ago
+date -d"1 day ago" +"%F %H:%M:%S"
+
+# get this time tomorrow
+date -d"-1 day ago" +"%F %H:%M:%S"
+
+# get this time 7 days ago
+date -d"1 week ago" +"%F %H:%M:%S"
+
+# get this time a week ago
+date -d"7 day ago" +"%F %H:%M:%S"
+```
+
 ##### wait for random duration (e.g. sleep 1-5 second, like adding a jitter)
 ```bash
 sleep $[ ( $RANDOM % 5 ) + 1 ]
