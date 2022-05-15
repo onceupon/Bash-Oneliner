@@ -3240,9 +3240,9 @@ fallocate -l 10G 10Gigfile
 
 ##### Create dummy file of certain size (e.g. 200mb)
 ```bash
-dd if=/dev/zero of=//dev/shm/200m bs=1024k count=200
+dd if=/dev/zero of=/dev/shm/200m bs=1024k count=200
 # or
-dd if=/dev/zero of=//dev/shm/200m bs=1M count=200
+dd if=/dev/zero of=/dev/shm/200m bs=1M count=200
 
 # Standard output:
 # 200+0 records in
