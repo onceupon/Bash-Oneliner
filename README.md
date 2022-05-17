@@ -1154,10 +1154,10 @@ date -d"1 day ago" +"%F %H:%M:%S"
 date -d"-1 day ago" +"%F %H:%M:%S"
 
 # get this time 7 days ago
-date -d"1 week ago" +"%F %H:%M:%S"
+date -d"7 days ago" +"%F %H:%M:%S"
 
 # get this time a week ago
-date -d"7 day ago" +"%F %H:%M:%S"
+date -d"1 week ago" +"%F %H:%M:%S"
 ```
 
 ##### wait for random duration (e.g. sleep 1-5 second, like adding a jitter)
