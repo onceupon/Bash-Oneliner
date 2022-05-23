@@ -49,6 +49,7 @@ Ctrl + u : cut the line before the cursor; then Ctrl + y paste it
 Ctrl + _ : undo typing.
 Ctrl + l : equivalent to clear.
 Ctrl + x + Ctrl + e : launch editor defined by $EDITOR to input your command. Useful for multi-line commands.
+Ctrl + z : move current running process into the background, and get it back via typing `fg <process number>` where the default is the last one.
 ```
 ##### Change case
 ```bash
