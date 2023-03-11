@@ -3278,7 +3278,7 @@ dd if=/dev/zero of=/dev/shm/200m bs=1M count=200
 watch -n 1 wc -l filename
 ```
 
-##### Un/Safely pipeline
+##### Use Bash Strict Mode
 ```bash
 # These options can make your code safer but, depending on how your pipeline is written, it might be too aggressive 
 # or it might not catch the errors that you are interested in
@@ -3296,7 +3296,11 @@ set -Eue -o pipefail  # shorthand for above (pipefail has no short option)
 ##### Print commands and their arguments when execute (e.g. echo `expr 10 + 20 `)
 ```bash
 set -x; echo `expr 10 + 20 `
-set -o xtrace; echo `expr 10 + 20 ` # this might be easier to remember
+# or
+set -o xtrace; echo `expr 10 + 20 `
+
+# to turn it off..
+set +x
 ```
 
 ##### Print some meaningful sentences to you (install fortune first)
