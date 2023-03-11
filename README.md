@@ -2866,6 +2866,7 @@ cat >myfile
 let me add sth here
 # exit with ctrl+d
 
+# or using tee
 tee myfile
 let me add sth else here
 # exit with ctrl+d
@@ -2877,6 +2878,7 @@ cat >>myfile
 let me add sth here
 # exit with ctrl+d
 
+# or using tee
 tee -a myfile
 let me add sth else here
 # exit with ctrl+d
