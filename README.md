@@ -3278,9 +3278,25 @@ dd if=/dev/zero of=/dev/shm/200m bs=1M count=200
 watch -n 1 wc -l filename
 ```
 
+##### Un/Safely pipeline
+```bash
+# These options can make your code safer but, depending on how your pipeline is written, it might be too aggressive 
+# or it might not catch the errors that you are interested in
+
+# for reference see https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
+#               and https://mywiki.wooledge.org/BashPitfalls#set_-euo_pipefail
+
+set -o errexit      # exit immediately if a pipeline returns a non-zero status
+set -o errtrace     # trap ERR from shell functions, command substitutions, and commands from subshell
+set -o nounset      # treat unset variables as an error
+set -o pipefail     # pipe will exit with last non-zero status, if applicable
+set -Eue -o pipefail  # shorthand for above (pipefail has no short option)
+```
+
 ##### Print commands and their arguments when execute (e.g. echo `expr 10 + 20 `)
 ```bash
 set -x; echo `expr 10 + 20 `
+set -o xtrace; echo `expr 10 + 20 ` # this might be easier to remember
 ```
 
 ##### Print some meaningful sentences to you (install fortune first)
