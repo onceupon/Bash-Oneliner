@@ -1145,19 +1145,27 @@ date --date @1615852800
 
 ```
 
-##### Print current time point for N days ago or after N days
+##### Print current time point for N days ago or N days after
 ```bash
-# get this time a day ago
+# print current date first (for the following example)
+date +"%F %H:%M:%S"
+# 2023-03-11 16:17:09
+
+# print the time that is 1 day ago
 date -d"1 day ago" +"%F %H:%M:%S"
+# 2023-03-10 16:17:09
 
-# get this time tomorrow
-date -d"-1 day ago" +"%F %H:%M:%S"
-
-# get this time 7 days ago
+# print the time that is 7 days ago
 date -d"7 days ago" +"%F %H:%M:%S"
+# 2023-03-04 16:17:09
 
-# get this time a week ago
+# print the time that is a week ago
 date -d"1 week ago" +"%F %H:%M:%S"
+# 2023-03-04 16:17:09
+
+# add 1 day to date
+date -d"-1 day ago" +"%F %H:%M:%S"
+# 2023-03-12 16:17:09
 ```
 
 ##### wait for random duration (e.g. sleep 1-5 second, like adding a jitter)
