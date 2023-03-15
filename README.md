@@ -171,7 +171,7 @@ echo '$foo'
 # single quotes within double quotes will not cancel expansion and will be part of the output
 echo "'$foo'"
 # 'bar'
-# doubled single quotes act as double quotes making variables expand
+# doubled single quotes act as if there are no quotes at all
 echo ''$foo''
 # bar
 ```
