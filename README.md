@@ -2101,11 +2101,6 @@ killall pulseaudio
 # then press Alt-F2 and type in pulseaudio
 ```
 
-##### When sound not working
-```bash
-killall pulseaudio
-```
-
 ##### List information about SCSI devices
 ```bash
 lsscsi
