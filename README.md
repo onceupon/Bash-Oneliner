@@ -3155,17 +3155,29 @@ cd $(mktemp -d)
 mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat}
 # -p: make parent directory
 # this will create:
-project/
-project/bin/
-project/demo/
-project/demo/stat/
-project/doc/
-project/doc/html/
-project/doc/info/
-project/doc/pdf/
-project/lib/
-project/lib/ext/
-project/src/
+# project/
+# project/bin/
+# project/demo/
+# project/demo/stat/
+# project/doc/
+# project/doc/html/
+# project/doc/info/
+# project/doc/pdf/
+# project/lib/
+# project/lib/ext/
+# project/src/
+#
+# project/
+# ├── bin
+# ├── demo
+# │   └── stat
+# ├── doc
+# │   ├── html
+# │   ├── info
+# │   └── pdf
+# ├── lib
+# │   └── ext
+# └── src
 ```
 
 ##### Run command only if another command returns zero exit status (well done)
