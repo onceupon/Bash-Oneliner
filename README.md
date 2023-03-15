@@ -1,5 +1,4 @@
 # Bash-Oneliner
-
 I am glad that you are here! I was working on bioinformatics a few years ago and was amazed by those single-word bash commands which are much faster than my dull scripts, time saved through learning command-line shortcuts and scripting. Recent years I am working on cloud computing and I keep recording those useful commands here. Not all of them is oneliner, but i put effort on making them brief and swift. I am mainly using Ubuntu, Amazon Linux, RedHat, Linux Mint, Mac and CentOS, sorry if the commands don't work on your system.
 
 This blog will focus on simple bash commands for parsing data and Linux system maintenance that i acquired from work and LPIC exam. I apologize that there are no detailed citation for all the commands, but they are probably from dear Google and Stack Overflow.
@@ -62,14 +61,13 @@ Esc + c
 # converts letter under the cursor to uppercase, rest of the word to lowercase.
 ```
 
-##### Bash commands vi mode
+##### Using vi-mode in your shell
 ```bash
 set -o vi
-# change bash command mode to vi
-ESC 
-# change to vi edit mode (when set -o vi is set)
+# change bash shell to vi mode
+# then hit the Esc key to change to vi edit mode (when `set -o vi` is set)
 k
-# in vi edit mode - go back to 3 previous words
+# in vi edit mode - previous command
 j
 # in vi edit mode - next command
 0
