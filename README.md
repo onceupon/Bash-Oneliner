@@ -61,31 +61,6 @@ Esc + c
 # converts letter under the cursor to uppercase, rest of the word to lowercase.
 ```
 
-##### Using vi-mode in your shell
-```bash
-set -o vi
-# change bash shell to vi mode
-# then hit the Esc key to change to vi edit mode (when `set -o vi` is set)
-k
-# in vi edit mode - previous command
-j
-# in vi edit mode - next command
-0
-# in vi edit mode - beginning of the command
-R
-# in vi edit mode - replace current characters of command
-2w
-# in vi edit mode - next to 2nd word
-b
-# in vi edit mode - previous word
-i
-# in vi edit mode - go to insert mode
-v
-# in vi edit mode - edit current command in vi
-man 3 readline
-# man page for complete readline mapping
-```
-
 ##### Run history number (e.g. 53)
 ```bash
 !53
@@ -154,6 +129,31 @@ $PWD    current directory
 $SHELL  current shell
 $USER   current username
 $HOSTNAME   current hostname
+```
+
+##### Using vi-mode in your shell
+```bash
+set -o vi
+# change bash shell to vi mode
+# then hit the Esc key to change to vi edit mode (when `set -o vi` is set)
+k
+# in vi edit mode - previous command
+j
+# in vi edit mode - next command
+0
+# in vi edit mode - beginning of the command
+R
+# in vi edit mode - replace current characters of command
+2w
+# in vi edit mode - next to 2nd word
+b
+# in vi edit mode - previous word
+i
+# in vi edit mode - go to insert mode
+v
+# in vi edit mode - edit current command in vi
+man 3 readline
+# man page for complete readline mapping
 ```
 
 ## Variable
