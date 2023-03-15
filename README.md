@@ -3147,6 +3147,7 @@ rsync -av directory user@ip_address:/path/to/directory.bak
 ##### Create a temporary directory and `cd` into it
 ```bash
 cd $(mktemp -d)
+# for example, this will create a temporary directory "/tmp/tmp.TivmPLUXFT"
 ```
 
 ##### Make all directories at one time!
