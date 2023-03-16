@@ -306,8 +306,8 @@ echo "var=5;--var"| bc
 grep = grep -G # Basic Regular Expression (BRE)
 fgrep = grep -F # fixed text, ignoring meta-characters
 egrep = grep -E # Extended Regular Expression (ERE)
-pgrep = grep -P # Perl Compatible Regular Expressions (PCRE)
 rgrep = grep -r # recursive
+grep -P # Perl Compatible Regular Expressions (PCRE)
 ```
 
 #####  Grep and count number of empty lines
