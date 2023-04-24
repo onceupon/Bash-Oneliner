@@ -2991,6 +2991,78 @@ while read a b; do yes $b |head -n $a ; done <test.txt
 ```
 
 
+## Zshell
+[[back to top](#handy-bash-one-liners)]
+
+##### Steps to configure zsh on a Unix-like operating system:
+##### Install Zsh:
+```bash
+sudo apt-get install zsh
+```
+
+##### Set Zsh as default shell (if you wish to):
+```bash
+chsh -s /bin/zsh
+```
+
+##### Install Oh My Zsh:
+```bash
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+##### Customize your Zsh configuration (edit the configuration file located at ~/.zshrc to customize your Zsh shell):
+#### Plugins:
+```bash
+plugins=(git)
+```
+<details>
+  <summary>More plugins</summary>
+  <ul>
+    <li>git: provides aliases and functions for working with Git repositories.</li>
+    <li>z: allows you to quickly navigate to frequently used directories by remembering the directories you have visited.</li>
+    <li>autosuggestions: suggests previously entered commands as you type based on your command history.</li>
+    <li>syntax-highlighting: highlights commands in color as you type them in the terminal.</li>
+    <li>history-substring-search: allows you to search through your command history by typing a partial command.</li>
+    <li>colored-man-pages: colors man pages for easier reading.</li>
+    <li>docker: adds autocomplete and aliases for Docker commands.</li>
+    <li>kubectl: adds autocomplete and aliases for Kubernetes commands.</li>
+    <li>node: adds shortcuts for common Node.js commands.</li>
+    <li>npm: adds shortcuts for common npm commands.</li>
+    <li>vscode: adds shortcuts for launching VS Code from the terminal.</li>
+    <li>tmux: adds shortcuts for working with tmux sessions and panes.</li>
+    <li>fasd: allows you to quickly navigate to frequently used directories and files by remembering the files and directories you have visited.</li>
+  </ul>
+</details>
+
+#### Themes:
+```bash
+ZSH_THEME="agnoster"
+```
+<details>
+  <summary>More themes</summary>
+  <ul>
+    <li>agnoster - Displays important information in bright colors against a dark background.</li>
+    <li>bira - Minimalist theme that displays basic information such as the current directory, Git branch, and exit status.</li>
+    <li>robbyrussell - Simple, clean theme that displays the current directory and Git branch.</li>
+    <li>fishy - Elegant and minimal theme with fish-like color scheme.</li>
+    <li>lambda - Displays current directory, Git branch, Python virtual environment, and other useful information.</li>
+    <li>powerlevel9k - Highly customizable theme that allows you to display a lot of information in a compact space.</li>
+    <li>spaceship - Clean and minimal theme that displays information in a user-friendly way.</li>
+    <li>ys - Simple theme that displays the current directory and Git branch, with a subtle color scheme.</li>
+  </ul>
+</details>
+
+#### Aliases:
+```bash
+alias ls='ls --color=auto'
+```
+
+##### Restart Zsh:
+#### This will reload your Zsh configuration without needing to log out and log back in:
+```bash
+source ~/.zshrc
+```
+
+
 ## Others
 [[back to top](#handy-bash-one-liners)]
 
