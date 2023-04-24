@@ -27,6 +27,7 @@ Here's a more stylish version of [Bash-Oneliner](https://onceupon.github.io/Bash
 - [Hardware](#hardware)
 - [Networking](#networking)
 - [Data Wrangling](#data-wrangling)
+- [Zshell](#zshell)
 - [Others](#others)
 
 ## Terminal Tricks
