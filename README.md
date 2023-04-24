@@ -3057,7 +3057,7 @@ alias ls='ls --color=auto'
 ```
 
 ##### Restart Zsh:
-#### This will reload your Zsh configuration without needing to log out and log back in.
+#### This will reload your Zsh configuration without needing to log out and log back in:
 ```bash
 source ~/.zshrc
 ```
