@@ -564,7 +564,7 @@ sed '$a\'
 
 ##### Add string to beginning of every line (e.g. 'bbo')
 ```bash
-sed -e 's/^/bbo/' file
+sed -e 's/^/bbo/' filename
 ```
 
 ##### Add string to end of each line (e.g. "}")
@@ -575,6 +575,13 @@ sed -e 's/$/\}\]/' filename
 ##### Add \n every nth character (e.g. every 4th character)
 ```bash
 sed 's/.\{4\}/&\n/g'
+```
+
+##### Add a line after the line that matches the pattern (e.g. add a new line with "world" after the line with "hello")
+```bash
+sed '/hello*/a world' filename
+# hello
+# world
 ```
 
 ##### Concatenate/combine/join files with a separator and next line (e.g separate by ",")
