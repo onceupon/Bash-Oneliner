@@ -1,7 +1,7 @@
 # Bash-Oneliner
 I am glad that you are here! I was working on bioinformatics a few years ago and was amazed by those single-word bash commands which are much faster than my dull scripts, time saved through learning command-line shortcuts and scripting. Recent years I am working on cloud computing and I keep recording those useful commands here. Not all of them is oneliner, but i put effort on making them brief and swift. I am mainly using Ubuntu, Amazon Linux, RedHat, Linux Mint, Mac and CentOS, sorry if the commands don't work on your system.
 
-This blog will focus on simple bash commands for parsing data and Linux system maintenance that i acquired from work and LPIC exam. I apologize that there are no detailed citation for all the commands, but they are probably from dear Google and Stack Overflow.
+This blog will focus on simple bash commands for parsing data and Linux system maintenance that i acquired from work and LPIC exam. I apologize that there are no detailed citation for all the commands, but they are probably from dear search engine and Stack Overflow.
 
 English and bash are not my first language, please correct me anytime, thank you.
 If you know other cool commands, please teach me!
@@ -1294,7 +1294,7 @@ wget -P /path/to/directory "http://example.com"
 
 ##### Instruct curl to follow any redirect until it reaches the final destination:
 ```bash
-curl -L google.com
+curl -L example.net
 ```
 
 ## Random
@@ -1387,11 +1387,11 @@ xcowsay
 3. evince filename.pdf
 ```
 
-##### Use google-chrome browser from ssh server
+##### Use google-chrome browser from ssh server (Spyware, so don't)
 ```bash
 1. ssh -X user_name@ip_address
 2. apt-get install libxss1 libappindicator1 libindicator7
-3. wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+3. wget https://dl.example.net/linux/direct/google-chrome-stable_current_amd64.deb
 4. sudo apt-get install -f
 5. dpkg -i google-chrome*.deb
 6. google-chrome
@@ -1649,7 +1649,7 @@ uname -i
 
 ##### Surf the net
 ```bash
-links www.google.com
+links www.example.net
 ```
 
 ##### Add user, set passwd
@@ -2465,17 +2465,17 @@ ping 8.8.8.8 -t 10
 
 ##### Print the route packets trace to network host
 ```bash
-traceroute google.com
+traceroute example.net
 ```
 
-##### Check connection to host (e.g. check connection to port 80 and 22 of google.com)
+##### Check connection to host (e.g. check connection to port 80 and 22 of example.net)
 ```bash
-nc -vw5 google.com 80
-# Connection to google.com 80 port [tcp/http] succeeded!
+nc -vw5 example.net 80
+# Connection to example.net 80 port [tcp/http] succeeded!
 
-nc -vw5 google.com 22
-# nc: connect to google.com port 22 (tcp) timed out: Operation now in progress
-# nc: connect to google.com port 22 (tcp) failed: Network is unreachable
+nc -vw5 example.net 22
+# nc: connect to example.net port 22 (tcp) timed out: Operation now in progress
+# nc: connect to example.net port 22 (tcp) failed: Network is unreachable
 ```
 
 ##### Nc as a chat tool!
@@ -2499,13 +2499,13 @@ nmap  -p0-65535 localhost
 ##### Check if a host is up and scan for open ports, also skip host discovery.
 ```bash
 #skips checking if the host is alive which may sometimes cause a false positive and stop the scan.
-$ nmap google.com -Pn
+$ nmap example.net -Pn
 
 # Example output:
 # Starting Nmap 7.01 ( https://nmap.org ) at 2020-07-18 22:59 CST
-# Nmap scan report for google.com (172.217.24.14)
+# Nmap scan report for example.net (172.217.24.14)
 # Host is up (0.013s latency).
-# Other addresses for google.com (not scanned): 2404:6800:4008:802::200e
+# Other addresses for example.net (not scanned): 2404:6800:4008:802::200e
 # rDNS record for 172.217.24.14: tsa01s07-in-f14.1e100.net
 # Not shown: 998 filtered ports
 # PORT    STATE SERVICE
@@ -2522,7 +2522,7 @@ $ nmap -A -T4 scanme.nmap.org
 
 ##### Look up website information (e.g. name server), searches for an object in a RFC 3912 database.
 ```bash
-whois google.com
+whois example.net
 ```
 
 ##### Show the SSL certificate of a domain
@@ -2593,7 +2593,7 @@ curl -I http://example.com/
 
 ##### Find out the http status code of a URL
 ```bash
-curl -s -o /dev/null -w "%{http_code}" https://www.google.com
+curl -s -o /dev/null -w "%{http_code}" https://www.example.net
 ```
 
 ##### Unshorten a shortended URL
