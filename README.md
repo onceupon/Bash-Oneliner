@@ -1,7 +1,7 @@
 # Bash-Oneliner
 I am glad that you are here! I was working on bioinformatics a few years ago and was amazed by those single-word bash commands which are much faster than my dull scripts, time saved through learning command-line shortcuts and scripting. Recent years I am working on cloud computing and I keep recording those useful commands here. Not all of them is oneliner, but i put effort on making them brief and swift. I am mainly using Ubuntu, Amazon Linux, RedHat, Linux Mint, Mac and CentOS, sorry if the commands don't work on your system.
 
-This blog will focus on simple bash commands for parsing data and Linux system maintenance that i acquired from work and LPIC exam. I apologize that there are no detailed citation for all the commands, but they are probably from dear Google and Stack Overflow.
+This blog will focus on simple bash commands for parsing data and Linux system maintenance that i acquired from work and LPIC exam. I apologize that there are no detailed citation for all the commands, but they are probably from dear search engine and Stack Overflow.
 
 English and bash are not my first language, please correct me anytime, thank you.
 If you know other cool commands, please teach me!
@@ -51,6 +51,7 @@ Ctrl + x + Ctrl + e : launch editor defined by $EDITOR to input your command. Us
 Ctrl + z : stop current running process and keep it in background. You can use `fg` to continue the process in the foreground, or `bg` to continue the process in the background.
 Ctrl + _ : undo typing.
 ```
+
 ##### Change case
 ```bash
 Esc + u
@@ -85,7 +86,6 @@ sudo !!
 ^aaa^bbb^:&
 #or
 !!:gs/aaa/bbb/
-
 ```
 
 ##### Run past command that began with (e.g. cat filename)
@@ -176,12 +176,14 @@ echo "'$foo'"
 echo ''$foo''
 # bar
 ```
+
 ##### Get the length of variable
 ```bash
 var="some string"
 echo ${#var}
 # 11
 ```
+
 ##### Get the first character of the variable
 ```bash
 var=string
@@ -286,15 +288,16 @@ expr 30 \> 20 #1 (true)
 ```bash
 # Number of decimal digit/ significant figure
 echo "scale=2;2/3" | bc
-#.66
+
+$ .66
 
 # Exponent operator
 echo "10^2" | bc
-#100
+$ 100
 
 # Using variables
 echo "var=5;--var"| bc
-#4
+$ 4
 ```
 
 
@@ -318,14 +321,17 @@ grep -c "^$"
 #####  Grep and return only integer
 ```bash
 grep -o '[0-9]*'
+
 #or
 grep -oP '\d*'
 ```
 #####  Grep integer with certain number of digits (e.g. 3)
 ```bash
 grep '[0-9]\{3\}'
+
 # or
 grep -E '[0-9]{3}'
+
 # or
 grep -P '\d{3}'
 ```
@@ -333,6 +339,7 @@ grep -P '\d{3}'
 #####  Grep only IP address
 ```bash
 grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
+
 # or
 grep -Po '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
 ```
@@ -344,6 +351,7 @@ grep -w 'target'
 #or using RE
 grep '\btarget\b'
 ```
+
 #####  Grep returning lines before and after match (e.g. 'bbo')
 ```bash
 # return also 3 lines after match
@@ -976,7 +984,7 @@ cat grep_list |xargs -I{} grep {} filename
 
 ##### Xargs and sed (replace all old ip address with new ip address under /etc directory)
 ```bash
-grep -rl '192.168.1.111' /etc | xargs sed -i 's/192.168.1.111/192.168.2.111/g'
+grep -rl '192.0.2.1' /etc | xargs sed -i 's/192.0.2.1/192.0.2.2/g'
 ```
 
 
@@ -1249,7 +1257,7 @@ emacs -nw --eval '(org-mode)' --insert <(curl https://raw.githubusercontent.com/
 
 ##### Download all from a page
 ```bash
-wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.com
+wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.net
 
 # -r: recursive and download all links on page
 # -l1: only one level link
@@ -1259,7 +1267,7 @@ wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.com
 # -N: turn on timestamp
 # -nd: no parent
 # -A: type (separate by ,)
-# -e robots=off: ignore the robots.txt file which stop wget from crashing the site, sorry example.com
+# -e robots=off: ignore the robots.txt file which stop wget from crashing the site, sorry example.net
 ```
 
 ##### Upload a file to web and download (https://transfer.sh/)
@@ -1275,7 +1283,7 @@ curl https://transfer.sh/tG8rM/filename.txt -o filename.txt
 ##### Download file if necessary
 ```bash
 data=file.txt
-url=http://www.example.com/$data
+url=http://www.example.net/$data
 if [ ! -s $data ];then
     echo "downloading test data..."
     wget $url
@@ -1284,17 +1292,17 @@ fi
 
 ##### Wget to a filename (when a long name)
 ```bash
-wget -O filename "http://example.com"
+wget -O filename "http://example.net"
 ```
 
 ##### Wget files to a folder
 ```bash
-wget -P /path/to/directory "http://example.com"
+wget -P /path/to/directory "http://example.net"
 ```
 
 ##### Instruct curl to follow any redirect until it reaches the final destination:
 ```bash
-curl -L google.com
+curl -L example.net
 ```
 
 ## Random
@@ -1387,11 +1395,11 @@ xcowsay
 3. evince filename.pdf
 ```
 
-##### Use google-chrome browser from ssh server
+##### Use google-chrome browser from ssh server (Spyware, so don't)
 ```bash
 1. ssh -X user_name@ip_address
 2. apt-get install libxss1 libappindicator1 libindicator7
-3. wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+3. wget https://dl.example.net/linux/direct/google-chrome-stable_current_amd64.deb
 4. sudo apt-get install -f
 5. dpkg -i google-chrome*.deb
 6. google-chrome
@@ -1649,7 +1657,7 @@ uname -i
 
 ##### Surf the net
 ```bash
-links www.google.com
+links www.example.net
 ```
 
 ##### Add user, set passwd
@@ -2444,38 +2452,38 @@ ipmitool -I bmc lan set 1 defgw ipaddr 192.168.0.1
 
 ##### Resolve a domain to IP address(es)
 ```bash
-dig +short www.example.com
+dig +short www.example.net
 
 # or
-host www.example.com
+host www.example.net
 ```
 
 ##### Get DNS TXT record a of domain
 ```bash
-dig -t txt www.example.com
+dig -t txt www.example.net
 
 # or
-host -t txt www.example.com
+host -t txt www.example.net
 ```
 
 ##### Send a ping with a limited TTL to 10 (TTL: Time-To-Live, which is the maximum number of hops that a packet can travel across the Internet before it gets discarded.)
 ```bash
-ping 8.8.8.8 -t 10
+ping 192.0.2.1 -t 10
 ```
 
 ##### Print the route packets trace to network host
 ```bash
-traceroute google.com
+traceroute example.net
 ```
 
-##### Check connection to host (e.g. check connection to port 80 and 22 of google.com)
+##### Check connection to host (e.g. check connection to port 80 and 22 of example.net)
 ```bash
-nc -vw5 google.com 80
-# Connection to google.com 80 port [tcp/http] succeeded!
+nc -vw5 example.net 80
+# Connection to example.net 80 port [tcp/http] succeeded!
 
-nc -vw5 google.com 22
-# nc: connect to google.com port 22 (tcp) timed out: Operation now in progress
-# nc: connect to google.com port 22 (tcp) failed: Network is unreachable
+nc -vw5 example.net 22
+# nc: connect to example.net port 22 (tcp) timed out: Operation now in progress
+# nc: connect to example.net port 22 (tcp) failed: Network is unreachable
 ```
 
 ##### Nc as a chat tool!
@@ -2499,13 +2507,13 @@ nmap  -p0-65535 localhost
 ##### Check if a host is up and scan for open ports, also skip host discovery.
 ```bash
 #skips checking if the host is alive which may sometimes cause a false positive and stop the scan.
-$ nmap google.com -Pn
+$ nmap example.net -Pn
 
 # Example output:
 # Starting Nmap 7.01 ( https://nmap.org ) at 2020-07-18 22:59 CST
-# Nmap scan report for google.com (172.217.24.14)
+# Nmap scan report for example.net (172.217.24.14)
 # Host is up (0.013s latency).
-# Other addresses for google.com (not scanned): 2404:6800:4008:802::200e
+# Other addresses for example.net (not scanned): 2404:6800:4008:802::200e
 # rDNS record for 172.217.24.14: tsa01s07-in-f14.1e100.net
 # Not shown: 998 filtered ports
 # PORT    STATE SERVICE
@@ -2522,12 +2530,12 @@ $ nmap -A -T4 scanme.nmap.org
 
 ##### Look up website information (e.g. name server), searches for an object in a RFC 3912 database.
 ```bash
-whois google.com
+whois example.net
 ```
 
 ##### Show the SSL certificate of a domain
 ```bash
-openssl s_client -showcerts -connect www.example.com:443
+openssl s_client -showcerts -connect www.example.net:443
 ```
 
 ##### Display IP address
@@ -2577,7 +2585,7 @@ hostnamectl set-hostname "mynode"
 
 ##### Find out the web server (e.g Nginx or Apache) of a website
 ```bash
-curl -I http://example.com/
+curl -I http://example.net/
 # HTTP/1.1 200 OK
 # Server: nginx
 # Date: Thu, 02 Jan 2020 07:01:07 GMT
@@ -2593,7 +2601,7 @@ curl -I http://example.com/
 
 ##### Find out the http status code of a URL
 ```bash
-curl -s -o /dev/null -w "%{http_code}" https://www.google.com
+curl -s -o /dev/null -w "%{http_code}" https://www.example.net
 ```
 
 ##### Unshorten a shortended URL
