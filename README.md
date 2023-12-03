@@ -51,6 +51,7 @@ Ctrl + x + Ctrl + e : launch editor defined by $EDITOR to input your command. Us
 Ctrl + z : stop current running process and keep it in background. You can use `fg` to continue the process in the foreground, or `bg` to continue the process in the background.
 Ctrl + _ : undo typing.
 ```
+
 ##### Change case
 ```bash
 Esc + u
@@ -85,7 +86,6 @@ sudo !!
 ^aaa^bbb^:&
 #or
 !!:gs/aaa/bbb/
-
 ```
 
 ##### Run past command that began with (e.g. cat filename)
@@ -176,12 +176,14 @@ echo "'$foo'"
 echo ''$foo''
 # bar
 ```
+
 ##### Get the length of variable
 ```bash
 var="some string"
 echo ${#var}
 # 11
 ```
+
 ##### Get the first character of the variable
 ```bash
 var=string
@@ -286,15 +288,16 @@ expr 30 \> 20 #1 (true)
 ```bash
 # Number of decimal digit/ significant figure
 echo "scale=2;2/3" | bc
-#.66
+
+$ .66
 
 # Exponent operator
 echo "10^2" | bc
-#100
+$ 100
 
 # Using variables
 echo "var=5;--var"| bc
-#4
+$ 4
 ```
 
 
@@ -318,14 +321,17 @@ grep -c "^$"
 #####  Grep and return only integer
 ```bash
 grep -o '[0-9]*'
+
 #or
 grep -oP '\d*'
 ```
 #####  Grep integer with certain number of digits (e.g. 3)
 ```bash
 grep '[0-9]\{3\}'
+
 # or
 grep -E '[0-9]{3}'
+
 # or
 grep -P '\d{3}'
 ```
@@ -333,6 +339,7 @@ grep -P '\d{3}'
 #####  Grep only IP address
 ```bash
 grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
+
 # or
 grep -Po '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
 ```
@@ -344,6 +351,7 @@ grep -w 'target'
 #or using RE
 grep '\btarget\b'
 ```
+
 #####  Grep returning lines before and after match (e.g. 'bbo')
 ```bash
 # return also 3 lines after match
@@ -976,7 +984,7 @@ cat grep_list |xargs -I{} grep {} filename
 
 ##### Xargs and sed (replace all old ip address with new ip address under /etc directory)
 ```bash
-grep -rl '192.168.1.111' /etc | xargs sed -i 's/192.168.1.111/192.168.2.111/g'
+grep -rl '192.0.2.1' /etc | xargs sed -i 's/192.0.2.1/192.0.2.2/g'
 ```
 
 
@@ -1249,7 +1257,7 @@ emacs -nw --eval '(org-mode)' --insert <(curl https://raw.githubusercontent.com/
 
 ##### Download all from a page
 ```bash
-wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.com
+wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.net
 
 # -r: recursive and download all links on page
 # -l1: only one level link
@@ -1259,7 +1267,7 @@ wget -r -l1 -H -t1 -nd -N -np -A mp3 -e robots=off http://example.com
 # -N: turn on timestamp
 # -nd: no parent
 # -A: type (separate by ,)
-# -e robots=off: ignore the robots.txt file which stop wget from crashing the site, sorry example.com
+# -e robots=off: ignore the robots.txt file which stop wget from crashing the site, sorry example.net
 ```
 
 ##### Upload a file to web and download (https://transfer.sh/)
@@ -1275,7 +1283,7 @@ curl https://transfer.sh/tG8rM/filename.txt -o filename.txt
 ##### Download file if necessary
 ```bash
 data=file.txt
-url=http://www.example.com/$data
+url=http://www.example.net/$data
 if [ ! -s $data ];then
     echo "downloading test data..."
     wget $url
@@ -1284,12 +1292,12 @@ fi
 
 ##### Wget to a filename (when a long name)
 ```bash
-wget -O filename "http://example.com"
+wget -O filename "http://example.net"
 ```
 
 ##### Wget files to a folder
 ```bash
-wget -P /path/to/directory "http://example.com"
+wget -P /path/to/directory "http://example.net"
 ```
 
 ##### Instruct curl to follow any redirect until it reaches the final destination:
@@ -2444,23 +2452,23 @@ ipmitool -I bmc lan set 1 defgw ipaddr 192.168.0.1
 
 ##### Resolve a domain to IP address(es)
 ```bash
-dig +short www.example.com
+dig +short www.example.net
 
 # or
-host www.example.com
+host www.example.net
 ```
 
 ##### Get DNS TXT record a of domain
 ```bash
-dig -t txt www.example.com
+dig -t txt www.example.net
 
 # or
-host -t txt www.example.com
+host -t txt www.example.net
 ```
 
 ##### Send a ping with a limited TTL to 10 (TTL: Time-To-Live, which is the maximum number of hops that a packet can travel across the Internet before it gets discarded.)
 ```bash
-ping 8.8.8.8 -t 10
+ping 192.0.2.1 -t 10
 ```
 
 ##### Print the route packets trace to network host
@@ -2527,7 +2535,7 @@ whois example.net
 
 ##### Show the SSL certificate of a domain
 ```bash
-openssl s_client -showcerts -connect www.example.com:443
+openssl s_client -showcerts -connect www.example.net:443
 ```
 
 ##### Display IP address
@@ -2577,7 +2585,7 @@ hostnamectl set-hostname "mynode"
 
 ##### Find out the web server (e.g Nginx or Apache) of a website
 ```bash
-curl -I http://example.com/
+curl -I http://example.net/
 # HTTP/1.1 200 OK
 # Server: nginx
 # Date: Thu, 02 Jan 2020 07:01:07 GMT
