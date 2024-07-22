@@ -3180,6 +3180,15 @@ cd $(mktemp -d)
 # for example, this will create a temporary directory "/tmp/tmp.TivmPLUXFT"
 ```
 
+##### Quickly return to last working directory
+```bash
+cd -
+# example that will get you back to home directory:
+# cd ~
+# cd /tmp/tmp.TivmPLUXFT
+# cd -
+```
+
 ##### Make all directories at one time!
 ```bash
 mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat}
