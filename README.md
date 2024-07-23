@@ -1034,6 +1034,16 @@ find . -type f -empty -delete
 find . -type f | wc -l
 ```
 
+##### List all files with name [FILE] under /
+```bash
+find / -name [FILE] 2>&1 | grep -v 'Permission denied'
+
+# 2>&1 redirects STDERR outputs to STDOUT which is piped 
+# to the grep inverse filter (-v) filter command.
+# Thus, any errors are surpressed, mainly due to access attempts
+# on priviliged directories.
+```
+
 ## Condition and loop
 [[back to top](#handy-bash-one-liners)]
 
