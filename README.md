@@ -2451,6 +2451,11 @@ dig +short www.example.com
 host www.example.com
 ```
 
+##### Check public IP address
+```bash
+curl http://checkip.amazonaws.com
+```
+
 ##### Get DNS TXT record a of domain
 ```bash
 dig -t txt www.example.com
@@ -2531,7 +2536,7 @@ whois google.com
 openssl s_client -showcerts -connect www.example.com:443
 ```
 
-##### Display IP address
+##### Display network interfaces and their associated IP addresses
 ```bash
 ip a
 ```
@@ -2590,6 +2595,10 @@ curl -I http://example.com/
 # ETag: "xxxxxx"
 # Accept-Ranges: bytes
 # Vary: Accept-Encoding
+```
+##### Find out the time spent between request and response
+```
+curl -v -o /dev/null -s -w 'Total: %{time_total}s\n' google.com
 ```
 
 ##### Find out the http status code of a URL
