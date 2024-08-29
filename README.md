@@ -1052,9 +1052,10 @@ else
   echo >&2 "Fatal error. This script requires mydir."
 fi
 
-# if variable is null
-if [ ! -s "$myvariable" ]; then echo -e "variable is null!" ; fi
-# True of the length if "STRING" is zero.
+# Check if a variable is null
+if [ -z "$var" ]; then echo "NULL"; else echo "Not NULL"; fi
+# or 
+[ -z "$var" ] && echo "NULL"
 
 # Using test command (same as []), to test if the length of variable is nonzero
 test -n "$myvariable" && echo myvariable is "$myvariable" || echo myvariable is not set
