@@ -1552,9 +1552,17 @@ stat filename.txt
 ps aux
 ```
 
+##### List processes by top memory usage
+```bash
+ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head
+```
+
 ##### Display a tree of processes
 ```bash
 pstree
+
+# or
+ps aux --forest
 ```
 
 ##### Find maximum number of processes
@@ -1960,7 +1968,7 @@ ldconfig -p
 ldd /bin/ls
 ```
 
-##### Check user login
+##### Check the most recent login of all users
 ```bash
 lastlog
 ```
@@ -2273,7 +2281,12 @@ sar -f /var/log/sa/sa31|tail
 journalctl --file ./log/journal/a90c18f62af546ccba02fa3734f00a04/system.journal  --since "2020-02-11 00:00:00"
 ```
 
-##### Show a listing of last logged in users.
+##### Show a listing of last logged in users
+```bash
+last
+```
+
+##### Show a listing of unsuccessful (bad) login attempts 
 ```bash
 lastb
 ```
@@ -2918,6 +2931,11 @@ cat >>myfile
 let me add sth here
 # exit with ctrl+d
 
+# or
+cat << EoF >> filename
+> add something here
+> EoF 
+
 # or using tee
 tee -a myfile
 let me add sth else here
@@ -3285,6 +3303,12 @@ scp -r directoryname user@ip:/path/to/send
 # It is a function that calls itself twice every call until you run out of system resources.
 # A '# ' is added in front for safety reason, remove it when seriously you are testing it.
 # :(){:|:&};:
+```
+
+##### Trigger kernel crash
+```bash
+# Don't try this at home! 
+echo c > /proc/sysrq-trigger
 ```
 
 ##### Use the last argument
