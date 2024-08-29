@@ -289,15 +289,15 @@ expr 30 \> 20 #1 (true)
 # Number of decimal digit/ significant figure
 echo "scale=2;2/3" | bc
 
-$ .66
+# .66
 
 # Exponent operator
 echo "10^2" | bc
-$ 100
+# 100
 
 # Using variables
 echo "var=5;--var"| bc
-$ 4
+# 4
 ```
 
 
