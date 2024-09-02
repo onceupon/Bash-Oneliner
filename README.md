@@ -1034,6 +1034,16 @@ find . -type f -empty -delete
 find . -type f | wc -l
 ```
 
+##### List all files with name [FILE] under /
+```bash
+find / -name [FILE] 2>&1 | grep -v 'Permission denied'
+
+# 2>&1 redirects STDERR outputs to STDOUT which is piped 
+# to the grep inverse filter (-v) filter command.
+# Thus, any errors are surpressed, mainly due to access attempts
+# on priviliged directories.
+```
+
 ## Condition and loop
 [[back to top](#handy-bash-one-liners)]
 
@@ -3206,6 +3216,15 @@ rsync -av directory user@ip_address:/path/to/directory.bak
 ```bash
 cd $(mktemp -d)
 # for example, this will create a temporary directory "/tmp/tmp.TivmPLUXFT"
+```
+
+##### Quickly return to last working directory
+```bash
+cd -
+# example that will get you back to home directory:
+# cd ~
+# cd /tmp/tmp.TivmPLUXFT
+# cd -
 ```
 
 ##### Make all directories at one time!
