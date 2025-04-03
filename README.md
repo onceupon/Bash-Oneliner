@@ -238,6 +238,12 @@ eval "$cmd"
 echo "$bar" # foo
 ```
 
+##### Record a terminal session
+```bash
+# https://github.com/asciinema/asciinema
+asciinema rec demo.cast
+```
+
 ## Math
 [[back to top](#handy-bash-one-liners)]
 ##### Arithmetic Expansion in Bash (Operators: +, -, *, /, %, etc)
