@@ -218,6 +218,17 @@ echo ${var[@]#0}
 {var//a/,}
 ```
 
+##### Substitute environment variables in a file
+```bash
+export NAME="Alice"
+envsubst < template.txt > output.txt
+# template.txt:       Hello ${NAME}, your order is shipped.
+# output.txt:         Hello Alice, your order is shipped.
+# or
+export USER="Bob" && echo 'Hi $USER, welcome!' | envsubst
+# Hi Bob, welcome!
+```
+
 ##### Grep lines with strings from a file (e.g. lines with 'stringA or 'stringB' or 'stringC')
 ```bash
 # with grep
