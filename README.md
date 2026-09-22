@@ -163,106 +163,6 @@ man 3 readline
 # man page for complete readline mapping
 ```
 
-## Variable
-[[back to top](#handy-bash-one-liners)]
-##### Variable substitution within quotes
-```bash
-# foo=bar
-echo $foo
-# bar
-echo "$foo"
-# bar
-# single quotes cause variables to not be expanded
-echo '$foo'
-# $foo
-# single quotes within double quotes will not cancel expansion and will be part of the output
-echo "'$foo'"
-# 'bar'
-# doubled single quotes act as if there are no quotes at all
-echo ''$foo''
-# bar
-```
-
-##### Get the length of variable
-```bash
-var="some string"
-echo ${#var}
-# 11
-```
-
-##### Get the first character of the variable
-```bash
-var=string
-echo "${var:0:1}"
-#s
-
-# or
-echo ${var%%"${var#?}"}
-```
-
-##### Remove the first or last string from variable
-```bash
-var="some string"
-echo ${var:2}
-#me string
-```
-
-##### Replacement (e.g. remove the first leading 0 )
-```bash
-var="0050"
-echo ${var[@]#0}
-#050
-```
-
-##### Replacement (e.g. replace 'a' with ',')
-```bash
-{var/a/,}
-```
-
-##### Replace all (e.g. replace all 'a' with ',')
-```bash
-{var//a/,}
-```
-
-##### Substitute environment variables in a file
-```bash
-export NAME="Alice"
-envsubst < template.txt > output.txt
-# template.txt:       Hello ${NAME}, your order is shipped.
-# output.txt:         Hello Alice, your order is shipped.
-# or
-export USER="Bob" && echo 'Hi $USER, welcome!' | envsubst
-# Hi Bob, welcome!
-```
-
-##### Grep lines with strings from a file (e.g. lines with 'stringA or 'stringB' or 'stringC')
-```bash
-# with grep
-test="stringA stringB stringC"
-grep ${test// /\\\|} file.txt
-# turning the space into 'or' (\|) in grep
-```
-
-##### To change the case of the string stored in the variable to lowercase (Parameter Expansion)
-```bash
-var=HelloWorld
-echo ${var,,}
-helloworld
-```
-
-##### Expand and then execute variable/argument
-```bash
-cmd="bar=foo"
-eval "$cmd"
-echo "$bar" # foo
-```
-
-##### Record a terminal session
-```bash
-# https://github.com/asciinema/asciinema
-asciinema rec demo.cast
-```
-
 
 ## Terminal Multiplexers
 [[back to top](#handy-bash-one-liners)]
@@ -364,6 +264,108 @@ screen -r foo -X quit
 # Ctrl+A, Shift+H  
 # You will then find a screen.log file under current directory.  
 ```
+
+
+## Variable
+[[back to top](#handy-bash-one-liners)]
+##### Variable substitution within quotes
+```bash
+# foo=bar
+echo $foo
+# bar
+echo "$foo"
+# bar
+# single quotes cause variables to not be expanded
+echo '$foo'
+# $foo
+# single quotes within double quotes will not cancel expansion and will be part of the output
+echo "'$foo'"
+# 'bar'
+# doubled single quotes act as if there are no quotes at all
+echo ''$foo''
+# bar
+```
+
+##### Get the length of variable
+```bash
+var="some string"
+echo ${#var}
+# 11
+```
+
+##### Get the first character of the variable
+```bash
+var=string
+echo "${var:0:1}"
+#s
+
+# or
+echo ${var%%"${var#?}"}
+```
+
+##### Remove the first or last string from variable
+```bash
+var="some string"
+echo ${var:2}
+#me string
+```
+
+##### Replacement (e.g. remove the first leading 0 )
+```bash
+var="0050"
+echo ${var[@]#0}
+#050
+```
+
+##### Replacement (e.g. replace 'a' with ',')
+```bash
+{var/a/,}
+```
+
+##### Replace all (e.g. replace all 'a' with ',')
+```bash
+{var//a/,}
+```
+
+##### Substitute environment variables in a file
+```bash
+export NAME="Alice"
+envsubst < template.txt > output.txt
+# template.txt:       Hello ${NAME}, your order is shipped.
+# output.txt:         Hello Alice, your order is shipped.
+# or
+export USER="Bob" && echo 'Hi $USER, welcome!' | envsubst
+# Hi Bob, welcome!
+```
+
+##### Grep lines with strings from a file (e.g. lines with 'stringA or 'stringB' or 'stringC')
+```bash
+# with grep
+test="stringA stringB stringC"
+grep ${test// /\\\|} file.txt
+# turning the space into 'or' (\|) in grep
+```
+
+##### To change the case of the string stored in the variable to lowercase (Parameter Expansion)
+```bash
+var=HelloWorld
+echo ${var,,}
+helloworld
+```
+
+##### Expand and then execute variable/argument
+```bash
+cmd="bar=foo"
+eval "$cmd"
+echo "$bar" # foo
+```
+
+##### Record a terminal session
+```bash
+# https://github.com/asciinema/asciinema
+asciinema rec demo.cast
+```
+
 
 ## Math
 [[back to top](#handy-bash-one-liners)]
