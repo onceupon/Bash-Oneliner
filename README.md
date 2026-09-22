@@ -10,12 +10,13 @@ Here's a more stylish version of [Bash-Oneliner](https://onceupon.github.io/Bash
 
 <a href="https://trendshift.io/repositories/11414?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-11414" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/11414/daily" alt="onceupon%2FBash-Oneliner | Trendshift" width="250" height="55"/></a>
 
-A human note: I started this in my notebook by hand, and I want to keep it that way. I'm not padding it with AI generated commands that never made me go WOW. Every command here is one I actually used and loved. If any of these saved you time,  feel free to drop a ⭐ star and/or [buy me a coffee](https://ko-fi.com/bonnieonceupon). Either way, thank you for stopping by. That already means a lot.
+A human note: I started this in my notebook by hand, and I want to keep it that way. Every command here is one I actually used and loved. If any of these saved you time, feel free to drop a ⭐ star and/or [buy me a coffee](https://ko-fi.com/bonnieonceupon). Either way, thank you for stopping by. That already means a lot.
 
 
 ## Handy Bash one-liners
 
 - [Terminal Tricks](#terminal-tricks)
+- [Terminal Multiplexers](#terminal-multiplexers)
 - [Variable](#variable)
 - [Math](#math)
 - [Grep](#grep)
@@ -260,6 +261,110 @@ echo "$bar" # foo
 ```bash
 # https://github.com/asciinema/asciinema
 asciinema rec demo.cast
+```
+
+
+## Terminal Multiplexers
+[[back to top](#handy-bash-one-liners)]
+
+Terminal multiplexers keep terminal sessions running, organize them into panes, and let you detach and reconnect without interrupting your work.
+
+##### Herdr for managing multiple coding agents
+```bash
+# Herdr (https://herdr.dev/) is a terminal multiplexer with mouse and coding-agent support, for running multiple agents.
+# Install Herdr on macOS or Linux:
+curl -fsSL https://herdr.dev/install.sh | sh
+```
+
+##### Manage multiple terminal sessions with tmux
+```bash
+# Create session and attach:
+tmux
+
+# Attach to session foo:
+tmux attach -t foo
+
+# Detached session foo:
+^bd
+
+# List sessions:
+tmux ls
+
+# Attach last session:
+tmux attach
+
+# Kill session foo:
+tmux kill-session -t foo
+
+# Create detached session foo:
+tmux new -s foo -d
+
+# Send command to all panes in tmux:
+Ctrl-B
+:setw synchronize-panes
+
+# Some tmux pane control commands:
+Ctrl-B
+#   Panes (splits), Press Ctrl+B, then input the following symbol:
+#   %  horizontal split
+#   "  vertical split
+#   o  swap panes
+#   q  show pane numbers
+#   x  kill pane
+#   space - toggle between layouts
+
+#   Distribute Vertically (rows):
+select-layout even-vertical
+#   or
+Ctrl+b, Alt+2
+
+# Distribute horizontally (columns):
+select-layout even-horizontal
+#   or
+Ctrl+b, Alt+1
+
+# Scroll
+Ctrl-b then \[ then you can use your normal navigation keys to scroll around.
+Press q to quit scroll mode.
+```
+
+##### Manage multiple terminal sessions with screen
+```bash
+# Create session and attach:
+screen
+
+# Create a screen and name it 'test'
+screen -S test
+
+# Create detached session foo:
+screen -S foo -d -m
+
+# Detached session foo:
+screen: ^a^d
+
+# List sessions:
+screen -ls
+
+# Attach last session:
+screen -r
+
+# Attach to session foo:
+screen -r foo
+
+# Kill session foo:
+screen -r foo -X quit
+
+
+# Scroll:
+# Hit your screen prefix combination (C-a / control+A), then hit Escape.
+# Move up/down with the arrow keys (↑ and ↓).  
+
+# Redirect output of an already running process in Screen:
+# (C-a / control+A), then hit 'H'  
+
+# Store screen output for Screen:
+# Ctrl+A, Shift+H  
+# You will then find a screen.log file under current directory.  
 ```
 
 ## Math
@@ -3462,97 +3567,6 @@ read -rsp $'Press any key to continue...\n' -n1 key
 # https://github.com/harelba/q
 # example:
 q -d "," "select c3,c4,c5 from /path/to/file.txt where c3='foo' and c5='boo'"
-```
-
-##### Using Screen for multiple terminal sessions
-```bash
-# Create session and attach:
-screen
-
-# Create a screen and name it 'test'
-screen -S test
-
-# Create detached session foo:
-screen -S foo -d -m
-
-# Detached session foo:
-screen: ^a^d
-
-# List sessions:
-screen -ls
-
-# Attach last session:
-screen -r
-
-# Attach to session foo:
-screen -r foo
-
-# Kill session foo:
-screen -r foo -X quit
-
-
-# Scroll:
-# Hit your screen prefix combination (C-a / control+A), then hit Escape.
-# Move up/down with the arrow keys (↑ and ↓).  
-
-# Redirect output of an already running process in Screen:
-# (C-a / control+A), then hit 'H'  
-
-# Store screen output for Screen:
-# Ctrl+A, Shift+H  
-# You will then find a screen.log file under current directory.  
-```
-
-##### Using Tmux for multiple terminal sessions
-```bash
-# Create session and attach:
-tmux
-
-# Attach to session foo:
-tmux attach -t foo
-
-# Detached session foo:
-^bd
-
-# List sessions:
-tmux ls
-
-# Attach last session:
-tmux attach
-
-# Kill session foo:
-tmux kill-session -t foo
-
-# Create detached session foo:
-tmux new -s foo -d
-
-# Send command to all panes in tmux:
-Ctrl-B
-:setw synchronize-panes
-
-# Some tmux pane control commands:
-Ctrl-B
-#   Panes (splits), Press Ctrl+B, then input the following symbol:
-#   %  horizontal split
-#   "  vertical split
-#   o  swap panes
-#   q  show pane numbers
-#   x  kill pane
-#   space - toggle between layouts
-
-#   Distribute Vertically (rows):
-select-layout even-vertical
-#   or
-Ctrl+b, Alt+2
-
-# Distribute horizontally (columns):
-select-layout even-horizontal
-#   or
-Ctrl+b, Alt+1
-
-# Scroll
-Ctrl-b then \[ then you can use your normal navigation keys to scroll around.
-Press q to quit scroll mode.
 ```
 
 ##### Pass password to ssh
