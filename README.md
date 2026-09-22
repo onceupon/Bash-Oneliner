@@ -267,8 +267,6 @@ asciinema rec demo.cast
 ## Terminal Multiplexers
 [[back to top](#handy-bash-one-liners)]
 
-Terminal multiplexers keep terminal sessions running, organize them into panes, and let you detach and reconnect without interrupting your work.
-
 ##### Herdr for managing multiple coding agents
 ```bash
 # Herdr (https://herdr.dev/) is a terminal multiplexer with mouse and coding-agent support, for running multiple agents.
